@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible'
+              content='IE=edge'>
+        <meta name='viewport'
+              content='width=device-width, initial-scale=1'>
+        {% load static %}
+        {% get_static_prefix as STATIC_PREFIX %}
+        <title>CLARIN Centre Registry - {% block title %}{% endblock title %}</title>
+        {# @formatter:off #}
+        <link rel='stylesheet'
+              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/_+DataTables.scss.css'>
+        <link rel='shortcut icon'
+              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/CLARIN_favicon.gif'>
+
+        <link rel='stylesheet'
+              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/css/jquery.dataTables.min.css'>
+        <link rel='stylesheet'
+              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/extensions/ColVis/css/dataTables.colVis.min.css'>
+
+        <script charset='utf-8'
+                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/js/jquery.js'></script>
+        <script charset='utf-8'
+                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/js/jquery.dataTables.min.js'></script>
+        <script charset='utf-8'
+                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/extensions/ColVis/js/dataTables.colVis.min.js'></script>
+        {# @formatter:on #}
+        <script class='init'>
+            $(document).ready(function () {
+                $('table.datatables-table').DataTable({
+                    'responsive': true,
+                    'stateSave': true,
+                    'pageLength': -1,
+                    'stateDuration': 900719925474099,
+                    'lengthMenu': [[-1, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10], ['all', 100, 90, 80, 70, 60, 50, 40, 30, 20, 10]],
+                    'columnDefs': [{
+                        'type': 'html',
+                        'targets': '_all'
+                    }],
+                    'initComplete': function (settings, json) {
+                        var colvis = new $.fn.dataTable.ColVis(settings);
+                        $(colvis.button()).insertAfter('table.datatables-table');
+                    }
+                });
+            });
+        </script>
+        {% if PIWIK_WEBSITE_ID|default_if_none:False %}
+            <!-- Piwik -->
+            <script>
+                var _paq = _paq || [];
+                _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                (function () {
+                    var u = 'https://stats.clarin.eu/';
+                    _paq.push(['setTrackerUrl', u + 'piwik.php']);
+                    _paq.push(['setSiteId', {{ PIWIK_WEBSITE_ID }}]);
+                    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                    g.type = 'text/javascript';
+                    g.async = true;
+                    g.defer = true;
+                    g.src = u + 'piwik.js';
+                    s.parentNode.insertBefore(g, s);
+                })();
+            </script>
+            <noscript><p><img src='https://stats.clarin.eu/piwik.php?idsite=11'
+                              style='border:0;'
+                              alt=''/></p></noscript>
+            <!-- End Piwik Code -->
+        {% endif %}
+    </head>
+    <body>
+        <div id='header'
+             class='periphery'
+             role='navigation'>
+            <div id='brand'>
+                <a href='/'><span>Centre Registry</span></a>
+            </div>
+            <div id='menu'>
+                <a class='{% if view == 'all_centres' or view == 'centre' %}active{% endif %}'
+                   href='/all_centres'>Centres</a>
+                <a class='{% if view == 'centres_contacts' %}active{% endif %}'
+                   href='/centres_contacts'>Contacts</a>
+                <a class='{% if view == 'consortia' %}active{% endif %}'
+                   href='/consortia'>Consortia</a>
+                <a class='{% if view == 'fcs' %}active{% endif %}'
+                   href='/fcs'>FCS</a>
+                <a class='{% if view == 'map' %}active{% endif %}'
+                   href='/map'>Map</a>
+                <a class='{% if view == 'oai_pmh' %}active{% endif %}'
+                   href='/oai_pmh'>OAI-PMH</a>
+                <a class='{% if view == 'spf' %}active{% endif %}'
+                   href='/spf'>SPF</a>
+            </div>
+            <div id='login'>
+            <span title='log in'>
+                <a title='log in'
+                   href='/admin'>&#x1f464; Log in</a>
+            </span>
+            </div>
+        </div>
+        <div id='content'>
+            {% comment %}
+            <pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% endcomment %}
+            {% block content %}{% endblock content %}
+        </div>
+        <div id='footer'
+             class='periphery'>
+            <a title='about'
+               href='/about'>&#x2139; Version {{ VERSION }}</a>
+            <a title='CLARIN ERIC'
+               href='https://www.clarin.eu/'>{# @formatter:off #}
+                <img src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/CLARIN-Logo_4C14pure3_noextraneouscanvas.png'
+                     alt='CLARIN ERIC logo'/></a>{# @formatter:on #}
+            <a title='contacting us'
+               href='/contacting'>&#128236; Contacting us</a>
+        </div>
+    </body>
+</html>

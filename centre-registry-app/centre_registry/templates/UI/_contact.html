@@ -1,0 +1,39 @@
+{% extends 'UI/_.html' %}
+{% block title %}Contact: {{ contact.name }}{% endblock title %}
+{% block content %}
+    <table id='contact'>
+        <tr>
+            <th><abbr title='Name and e-mail address'>&#128231;</abbr></th>
+            <td>
+                <a href='mailto:{{ contact }}'>{{ contact.name }}<br>{{ contact.email_address }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th><abbr title='Telephone number'>&#128222;</abbr></th>
+            <td>
+                <a href='tel:{{ contact.telephone_number }}'>{{ contact.telephone_number }}</a>
+            </td>
+        </tr>
+        <tr>
+            <th><abbr title='Personal website'>WWW</abbr>
+            <td class='non_textual'>
+                {% if contact.website_url %}
+                    <a href='{{ contact.website_url }}'>&#x1f30d;</a>
+                {% else %}
+                    <em>none</em>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th><abbr title='eduPersonPrincipalName'>ePPN</abbr>
+            <td>
+                {% if contact.edupersonprincipalname %}
+                    <samp>{{ contact.edupersonprincipalname }}</samp>
+                {% else %}
+                    <em>none</em>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+{% endblock content %}

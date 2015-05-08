@@ -1,0 +1,25 @@
+{% extends "UI/_.html" %}
+{% block title %}FCS endpoints{% endblock title %}
+{% block content %}
+    <p>Please visit <a href='//www.clarin.eu/content/federated-content-search-clarin-fcs'>this</a> page for more information about the CLARIN Federated Content Search. </p>
+    <table title="Federated Content Search endpoints"
+           id="fcs_endpoints"
+           class="datatables-table stripe order-column row-border">
+        <thead>
+            <tr>
+                <th>Centre shorthand</th>
+                <th><abbr title="Federated Content Search">FCS</abbr> endpoint base URI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fcs_endpoint in fcs_endpoints %}
+                <tr>
+                    <td>
+                        <a href="/centre/{{ fcs_endpoint.centre.id }}">{{ fcs_endpoint.centre }}</a>
+                    </td>
+                    <td><a href="{{ fcs_endpoint.uri }}">{{ fcs_endpoint.uri }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

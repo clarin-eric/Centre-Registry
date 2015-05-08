@@ -1,0 +1,128 @@
+{% extends 'UI/_.html' %}
+{% block title %}Centre {{ centre.name }}{% endblock title %}
+{% block content %}
+    <h1>{{ centre.name }}</h1>
+    <table id='centre'>
+        <tr>
+            <th>Website</th>
+            <td>{% if centre.website_url %}<a href='{{ centre.website_url }}'>{{ centre.website_url }}</a>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Consortium</th>
+            <td>
+                {% if centre.consortium.website_url %}<a href='{{ centre.consortium.website_url }}'>{% endif %}
+                {% if centre.consortium.name %}
+                    {{ centre.consortium.name }}
+                {% else %}
+                    <em>none</em>
+                {% endif %}
+                {% if centre.consortium.website_url %}</a>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Type(s)</th>
+            <td>
+                {% if centre.type_certificate_url %}<a href='{{ centre.type_certificate_url }}'>{% endif %}
+                {% for type in centre.type.all %}{{ type }}<br/>{% endfor %}
+                {% if centre.type_certificate_url %}</a>{% endif %}
+            </td>
+        </tr>
+        {% if centre.type_status %}
+            <tr>
+                <th>Type status</th>
+                <td>{{ centre.type_status }}</td>
+            </tr>
+        {% endif %}
+        {% if centre.description %}
+            <tr>
+                <th>Description</th>
+                <td>{{ centre.description }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <th><abbr title='Data Seal of Approval'>DSA</abbr></th>
+            <td>
+                {% if centre.dsa_url %}
+                    <a href='{{ centre.dsa_url }}'>seal</a>
+                {% else %}
+                    <em>none</em>
+                {% endif %}
+            </td>
+        </tr>
+        {% if centre.long_term_archiving_policy %}
+            <tr>
+                <th>Long-term archiving policy</th>
+                <td>{{ centre.long_term_archiving_policy }}</td>
+            </tr>
+        {% endif %}
+        {% if centre.pid_status %}
+            <tr>
+                <th><abbr title='Persistent Identifier'>PID</abbr> status</th>
+                <td>{{ centre.pid_status }}</td>
+            </tr>
+        {% endif %}
+        {% if centre.repository_system %}
+            <tr>
+                <th>Repository system</th>
+                <td>{{ centre.repository_system }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <th>Strict versioning?</th>
+            <td>
+                {% if centre.strict_versioning %}
+                    <span class='positive'>✓</span>
+                {% else %}
+                    <span class='negative'>✗</span>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+
+    {% if url_references|length > 0 %}
+        <h2>URL references</h2>
+        <table>
+            {% for url_reference in url_references %}
+                <tr>
+                    <th>{{ url_reference.description }}</th>
+                    <td><a href='{{ url_reference.url }}'>{{ url_reference.url }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h2>Organisational information</h2>
+    <table>
+        <tr>
+            <th>Organisation name</th>
+            <td>{{ centre.organisation_name }}</td>
+        </tr>
+        <tr>
+            <th>Institution</th>
+            <td>{{ centre.institution }}</td>
+        </tr>
+        <tr>
+            <th>Working unit</th>
+            <td>{{ centre.working_unit }}</td>
+        </tr>
+        <tr>
+            <th>Shorthand</th>
+            <td>{{ centre.shorthand }}</td>
+        </tr>
+        <tr>
+            <th>Postal address</th>
+            <td>{{ centre.address }}<br>
+                {{ centre.postal_code }}<br>
+                {{ centre.city }}<br>
+                {{ centre.consortium.country_name }}
+            </td>
+        </tr>
+        {% if centre.expertise %}
+            <tr>
+                <th>Expertise</th>
+                <td>{{ centre.expertise }}</td>
+            </tr>
+        {% endif %}
+    </table>
+{% endblock content %}

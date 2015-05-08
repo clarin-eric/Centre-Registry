@@ -1,0 +1,47 @@
+{% extends 'UI/_.html' %}
+{% block title %}Contacts{% endblock title %}
+{% block content %}
+    <table id='centres_contacts'
+           class='datatables-table stripe order-column row-border'>
+        <thead>
+            <tr>
+                <th>Centre shorthand</th>
+                <th>
+                    <abbr title='Name and e-mail address of person responsible for administrative matters'>&#128231;</abbr>
+                </th>
+                <th><abbr title='Name and e-mail address of person responsible for technical matters'>&#128231;</abbr>
+                </th>
+                <th>
+                    <abbr title='Name(s) and e-mail address(es) of person(s) authorized to view technical service monitoring details'>&#128231;</abbr>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for centre in all_centres %}
+                <tr>
+                    <td><a href='/centre/{{ centre.id }}'>{{ centre }}</a></td>
+                    <td>
+                        <a href='mailto:{{ centre.administrative_contact|urlencode }}'>{{ centre.administrative_contact.name }}
+                            <br>{{ centre.administrative_contact.email_address }}</a>
+                        <br>
+                        <a href='/contact/{{ centre.administrative_contact.id }}'>…</a>
+                    </td>
+                    <td>
+                        <a href='mailto:{{ centre.technical_contact|urlencode }}'>{{ centre.technical_contact.name }}
+                            <br>{{ centre.technical_contact.email_address }}</a>
+                        <br><a href='/contact/{{ centre.administrative_contact.id }}'>…</a>
+                    </td>
+                    <td>
+                        {% for monitoring_contact in centre.monitoring_contacts.all %}
+                            <p>
+                                <a href='mailto:{{ monitoring_contact|urlencode }}'>{{ monitoring_contact.name }}
+                                    <br>{{ monitoring_contact.email_address }}</a>
+                                <br><a href='/contact/{{ monitoring_contact.id }}'>…</a>
+                            </p>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

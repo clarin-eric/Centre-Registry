@@ -1,0 +1,29 @@
+{% extends 'UI/_.html' %}
+
+{% block title %}Map{% endblock title %}
+
+{% block content %}
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+    <script>
+        function initialize() {
+            var Utrecht = new google.maps.LatLng(52.0899741, 5.1229112);
+            var mapOptions = {
+                zoom: 4,
+                center: Utrecht
+            };
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            var ctaLayer = new google.maps.KmlLayer({
+                url: '{{ url_prefix }}api/KML/'
+            });
+            ctaLayer.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <p>This geographical overview of the CLARIN centres can be downloaded as
+        <a href='{{ url_prefix }}api/KML/'>Google Maps KML</a>. </p>
+    <div style='height: 90%; width: 100%;'
+         id='map-canvas'></div>
+
+{% endblock content %}

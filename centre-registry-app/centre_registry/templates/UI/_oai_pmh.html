@@ -1,0 +1,29 @@
+{% extends 'UI/_.html' %}
+{% block title %}OAI-PMH endpoints{% endblock title %}
+{% block content %}
+    <p>Please visit <a href='//www.clarin.eu/content/oai-pmh'>this</a> page for more information about the use of <abbr title='Open Archives Initiative Protocol for Metadata Harvesting '>OAI-PMH</abbr> in CLARIN. </p>
+    <table title='OAI-PMH endpoints'
+           id='oai-pmh_endpoints'
+           class='datatables-table stripe order-column row-border'>
+        <thead>
+            <tr>
+                <th>Centre shorthand</th>
+                <th>Endpoint base URI</th>
+                <th>Information</th>
+                <th>Metadata formats</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oai_pmh_endpoint in oai_pmh_endpoints %}
+                <tr>
+                    <td>
+                        <a href='/centre/{{ oai_pmh_endpoint.centre.id }}'>{{ oai_pmh_endpoint.centre }}</a>
+                    </td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}'>{{ oai_pmh_endpoint.uri }}</a></td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

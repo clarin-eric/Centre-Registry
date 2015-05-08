@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Centers>
+    {% for centre in all_centres.all %}
+        <CenterProfile>
+            <Centername>{{ centre.name }}</Centername>
+            <Center_id>{{ centre.id }}</Center_id>
+            <Center_id_link>{{ url_prefix }}restxml/{{ centre.id }}</Center_id_link>
+        </CenterProfile>
+    {% endfor %}
+</Centers>

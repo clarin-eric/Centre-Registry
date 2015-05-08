@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <name>CLARIN{% for type in types %} {{ type }}{% endfor %} centres on {% now "DATETIME_FORMAT" %}</name>
+        <open>1</open>
+        {% for type in types %}
+            <Style id="{{ type }}">
+                <IconStyle>
+                    <scale>1.0</scale>
+                    <Icon>
+                        <href>https://infra.clarin.eu/content/KML/Icon/letter_{{ type|lower }}.png</href>
+                    </Icon>
+                    <hotSpot x="16" y="1" xunits="pixels" yunits="pixels"/>
+                </IconStyle>
+                <ListStyle>
+                    <ItemIcon>
+                        <href>https://infra.clarin.eu/content/KML/ItemIcon/letter_{{ type|lower }}.png</href>
+                    </ItemIcon>
+                </ListStyle>
+            </Style>
+        {% endfor %}
+        <Folder>
+            <name>all</name>
+            <open>1</open>
+            {% for centre in centres %}
+                {% if centre.longitude and centre.latitude %}
+                    <Placemark>
+                        <name>{{ centre.name }}</name>
+                        <description>
+                            <![CDATA[
+                        {% if centre.description %}
+                        <p>{{ centre.description }}</p>
+                        {% endif %}
+                        {% if centre.type_status %}
+                        <p>Type status: {{ centre.type_status }}<p>
+                        {% endif %}
+                        <p><a href="{{ url_prefix }}centre/{{ centre.id }}">Details ...</p></h1>
+                        {% if centre.website_url %}
+                        <p><a href="{{ centre.website_url }}">Official website</a></p>
+                        {% endif %}
+                    ]]>
+                        </description>
+                        <styleUrl>{% for type in centre.type.all %}
+                            #{{ type }}{% endfor %}
+                        </styleUrl>
+                        <Point>
+                            <coordinates>{{ centre.longitude }},{{ centre.latitude }},0</coordinates>
+                        </Point>
+                    </Placemark>
+                {% endif %}
+            {% endfor %}
+        </Folder>
+    </Document>
+</kml>

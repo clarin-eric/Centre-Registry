@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMD xmlns="http://www.clarin.eu/cmd/"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     CMDVersion="1.1"
+     xsi:schemaLocation="http://www.clarin.eu/cmd/ http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1320657629667/xsd">
+    <Header/>
+    <Resources>
+        <ResourceProxyList/>
+        <JournalFileProxyList/>
+        <ResourceRelationList/>
+    </Resources>
+    <Components>
+        <CenterProfile>
+            <CenterBasicInformation>
+                <Name>{{ centre.name }}</Name>
+                <Type>{{ centre.type.all|first }}</Type>
+                <Status>{{ centre.type_status }}</Status>
+                <Description>{{ centre.description }}</Description>
+                <Country>
+                    <Code>{{ centre.consortium.country_code }}</Code>
+                </Country>
+            </CenterBasicInformation>
+            <CenterExtendedInformation>
+                <Website>{{ centre.website_url }}</Website>
+                <LongTermArchivingPolicy>{{ centre.long_term_archiving_policy }}</LongTermArchivingPolicy>
+                <RepositorySystem>{{ centre.repository_system }}</RepositorySystem>
+                <PidStatus>{{ centre.pid_status }}</PidStatus>
+                <StrictVersioning>{{ centre.strict_versioning|lower }}</StrictVersioning>
+                <AssessmentStatus>{{ centre.type_status }}</AssessmentStatus>
+                {% for url_reference in url_references %}
+                    <WebReference>
+                        <Website>{{ url_reference.url }}</Website>
+                        <Description>{{ url_reference.description }}</Description>
+                    </WebReference>
+                {% endfor %}
+                {% for fcs_endpoint in fcs_endpoints %}
+                    <WebReference>
+                        <Website>{{ fcs_endpoint.uri }}</Website>
+                        <Description>CQL</Description>
+                    </WebReference>
+                {% endfor %}
+                <AAI>
+                    <AaiStatus>about:deprecated</AaiStatus>
+                    <!-- Deprecated: not schema-valid
+                    <MemberOfNationalFederation>{{ centre.consortium.name }}</MemberOfNationalFederation>
+                    -->
+                    <MemberOfSpf>false</MemberOfSpf>
+                </AAI>
+                {% if oai_pmh_endpoints %}
+                    {% for oai_pmh_endpoint in oai_pmh_endpoints %}
+                        <Metadata>
+                            <MetadataScheme>{{ oai_pmh_endpoint.metadata_format }}</MetadataScheme>
+                            {% if oai_pmh_endpoint.web_services_set %}
+                                <WebServicesSet>{{ oai_pmh_endpoint.web_services_set }}</WebServicesSet> {% endif %}
+                            <WebServiceType>{{ oai_pmh_endpoint.web_services_type }}</WebServiceType>
+                            <OaiAccessPoint>{{ oai_pmh_endpoint.uri }}</OaiAccessPoint>
+                        </Metadata>
+                    {% endfor %}
+                {% endif %}
+                <OrganisationalInformation>
+                    <ClarinOrganisationInfo>
+                        <OrganisationName>{{ centre.organisation_name }}</OrganisationName>
+                        <Institution>{{ centre.institution }}</Institution>
+                        <WorkingUnit>{{ centre.working_unit }}</WorkingUnit>
+                        <Code>{{ centre.shorthand }}</Code>
+                        <PostAddress>{{ centre.address }},
+                            {{ centre.postal_code }},
+                            {{ centre.city }},
+                            {% if centre.consortium %}
+                                {{ centre.consortium.country_name }}
+                            {% endif %}
+                        </PostAddress>
+                        <Expertise>{{ centre.expertise }}</Expertise>
+                    </ClarinOrganisationInfo>
+                    <AdministrativeContact>
+                        <Contact>
+                            <Person>{{ centre.administrative_contact }}</Person>
+                            <Email>{{ centre.administrative_contact.email_address }}</Email>
+                            <Telephone>{{ centre.administrative_contact.telephone_number }}</Telephone>
+                            <Website>{{ centre.administrative_contact.website }}</Website>
+                        </Contact>
+                    </AdministrativeContact>
+                    <TechnicalContact>
+                        <Contact>
+                            <Person>{{ centre.technical_contact }}</Person>
+                            <Email>{{ centre.technical_contact.email_address }}</Email>
+                            <Telephone>{{ centre.technical_contact.telephone_number }}</Telephone>
+                            <Website>{{ centre.technical_contact.website }}</Website>
+                        </Contact>
+                    </TechnicalContact>
+                </OrganisationalInformation>
+                <Monitoring>
+                    <SpTestSite>about:deprecated</SpTestSite>
+                </Monitoring>
+            </CenterExtendedInformation>
+        </CenterProfile>
+    </Components>
+</CMD>

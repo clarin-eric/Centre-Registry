@@ -1,0 +1,2483 @@
+[
+{
+    "pk": 1,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "marie.hinrichs@uni-tuebingen.de",
+        "telephone_number": "+49 7071 2978490",
+        "name": "Marie Hinrichs",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.sfs.uni-tuebingen.de/ascl/mitarbeiter/mitarbeiter-detail/hinrichs-marie.html"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "karlheinz.moerth@oeaw.ac.at",
+        "telephone_number": "+43 1 51581 2329",
+        "name": "Karlheinz Moerth",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "matej.durco@assoc.oeaw.ac.at",
+        "telephone_number": "+43 1 51581 2280",
+        "name": "Matej \u010eur\u010do",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "stranak@ufal.mff.cuni.cz",
+        "telephone_number": "",
+        "name": "Pavel Stra\u0148\u00e1k",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "clarin-list@ufal.mff.cuni.cz",
+        "telephone_number": "",
+        "name": "Jozef Mi\u0161utka",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "heyer@informatik.uni-leipzig.de",
+        "telephone_number": "+49 341 97 32231",
+        "name": "Prof. Dr. Gerhard Heyer",
+        "edupersonprincipalname": null,
+        "website_url": "http://asv.informatik.uni-leipzig.de/staff/Gerhard_Heyer"
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "dgoldhahn@informatik.uni-leipzig.de",
+        "telephone_number": "+49-341-97-32203",
+        "name": "Dirk Goldhahn",
+        "edupersonprincipalname": null,
+        "website_url": "http://asv.informatik.uni-leipzig.de/staff/Dirk_Goldhahn"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "bas@bas.uni-muenchen.de",
+        "telephone_number": "+49 89 2802758",
+        "name": "Christoph Draxler",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "bas@bas.uni-muenchen.de",
+        "telephone_number": "+49 89 2802758",
+        "name": "Florian Schiel",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "geyken@bbaw.de",
+        "telephone_number": "+49 30 20370 390",
+        "name": "Alexander Geyken",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "zimmer@bbaw.de",
+        "telephone_number": "+49 30 20370 393",
+        "name": "Kai Zimmer",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "CLARIN-support@fz-juelich.de",
+        "telephone_number": "+49 2461 61 9401 ",
+        "name": "Benedikt von St. Vith",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.fz-juelich.de/SharedDocs/Personen/IAS/JSC/EN/staff/von_st_vieth_b.html"
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "tibor.kalman@gwdg.de",
+        "telephone_number": "+49 551 201 1541",
+        "name": "Tibor K\u00e1lm\u00e1n",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.gwdg.de/index.php?id=2555"
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "hanna.hedeland@uni-hamburg.de",
+        "telephone_number": "+49 40 428386893",
+        "name": "Hanna Hedeland",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "timm.lehmberg@uni-hamburg.de",
+        "telephone_number": "+49 40 42838 6425",
+        "name": "Timm Lehmberg",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "clarin@ims.uni-stuttgart.de",
+        "telephone_number": "+49 711 68581365",
+        "name": "Prof. Dr. Jonas Kuhn ",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.ims.uni-stuttgart.de/institut/mitarbeiter/jonas/"
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "jens.stegmann@ims.uni-stuttgart.de",
+        "telephone_number": "+49 711 68581299",
+        "name": "Jens Stegmann",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.ims.uni-stuttgart.de/institut/mitarbeiter/jens/"
+    }
+},
+{
+    "pk": 18,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "witt@ids-mannheim.de",
+        "telephone_number": "+49 621 1581432",
+        "name": "Andreas Witt",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.ids-mannheim.de/direktion/personal/witt.html"
+    }
+},
+{
+    "pk": 19,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "schonefeld@ids-mannheim.de",
+        "telephone_number": "+49 6211581451",
+        "name": "Oliver Schonefeld",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 20,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "clarin-security@rzg.mpg.de",
+        "telephone_number": "+49 89 3299 2199",
+        "name": "Johannes Reetz",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.rzg.mpg.de/organisation/mitarbeiter/homepage/template/johannes.reetz@rzg.mpg.de"
+    }
+},
+{
+    "pk": 21,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "florian.kaiser@rzg.mpg.de",
+        "telephone_number": "",
+        "name": "Florian Kaiser",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 22,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "e.teich@mx.uni-saarland.de",
+        "telephone_number": "",
+        "name": "Prof. Elke Teich",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 23,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "j.knappen@mx.uni-saarland.de",
+        "telephone_number": "+49 681 3024484",
+        "name": "J\u00f6rg Knappen",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 24,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "bmaegaard@hum.ku.dk",
+        "telephone_number": "+45 35329074",
+        "name": "Bente Maegaard",
+        "edupersonprincipalname": null,
+        "website_url": "http://cst.ku.dk/ansatte/profil/?id=29896"
+    }
+},
+{
+    "pk": 25,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "leneo@hum.ku.dk",
+        "telephone_number": "+45 3532 9081",
+        "name": "Lene Offersgaard",
+        "edupersonprincipalname": null,
+        "website_url": "http://cst.ku.dk/ansatte//profil/?id=88369"
+    }
+},
+{
+    "pk": 26,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "kadri.vider@ut.ee",
+        "telephone_number": "",
+        "name": "Kadri Vider",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 27,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "krista.liin@ut.ee",
+        "telephone_number": "",
+        "name": "Krista Liin",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 28,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "Marta.villegas@upf.edu",
+        "telephone_number": "",
+        "name": "Marta Villegas",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 29,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "finclarin@helsinki.fi",
+        "telephone_number": "",
+        "name": "N.N. (FIN-CLARIN)",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 30,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "jpiitula@ling.helsinki.fi",
+        "telephone_number": "",
+        "name": "Jussi Piitulainen",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 31,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "spektor@andrew.cmu.edu",
+        "telephone_number": "",
+        "name": "Leonid Spektor",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 32,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "macw@cmu.edu",
+        "telephone_number": "",
+        "name": "Brian MacWhinney",
+        "edupersonprincipalname": null,
+        "website_url": "http://psyling.psy.cmu.edu/"
+    }
+},
+{
+    "pk": 33,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "rvanveenendaal@taalunie.org",
+        "telephone_number": "+31 6 46828648",
+        "name": "Remco van Veenendaal",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 34,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "marnix.van.berchum@dans.knaw.nl",
+        "telephone_number": "+31 6 51319808",
+        "name": "Marnix van Berchum",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.dans.knaw.nl/content/contact/medewerkers/marnix-van-berchum"
+    }
+},
+{
+    "pk": 35,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "ronald.dekker@huygens.knaw.nl",
+        "telephone_number": "",
+        "name": "Ronald Dekker",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 36,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "jantheo.bakker@inl.nl",
+        "telephone_number": "+31 71 5272276",
+        "name": "Jan Theo Bakker",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.inl.nl/over-het-inl/contact/medewerkers"
+    }
+},
+{
+    "pk": 37,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "systeembeheer@inl.nl",
+        "telephone_number": "+31 71 5272481",
+        "name": "N.N. (Systeembeheer)",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 38,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "Marc.Kemps.Snijders@meertens.knaw.nl",
+        "telephone_number": "+31 20 4628550",
+        "name": "Marc Kemps-Snijders",
+        "edupersonprincipalname": null,
+        "website_url": "http://www.meertens.knaw.nl/cms/en/staff/143329-marck"
+    }
+},
+{
+    "pk": 39,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "dieter@clarin.eu",
+        "telephone_number": "+31 85 0091363",
+        "name": "Dieter Van Uytvanck",
+        "edupersonprincipalname": "dietuyt_mpi.nl@clarin.eu",
+        "website_url": "http://www.mpi.nl/people/uytvanck-dieter-van"
+    }
+},
+{
+    "pk": 40,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "maciej.piasecki@pwr.wroc.pl",
+        "telephone_number": "+48 71 320 42 21",
+        "name": "Maciej Piasecki",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 41,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "michal.marcinczuk@pwr.wroc.pl",
+        "telephone_number": "+48 71 320 42 24",
+        "name": "Micha\u0142 Marci\u0144czuk",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 42,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "martin.wynne@it.ox.ac.uk",
+        "telephone_number": "",
+        "name": "Martin Wynne",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 43,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "j.odijk@uu.nl",
+        "telephone_number": "",
+        "name": "Prof. Jan Odijk",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 44,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "daan.broeder@meertens.knaw.nl",
+        "telephone_number": "",
+        "name": "Daan Broeder",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 45,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "contact@sldr.org",
+        "telephone_number": "+33 33.4136",
+        "name": "Philippe BLACHE",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 46,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "webmaster@sldr.org",
+        "telephone_number": "+33 33.6701",
+        "name": "Bernard Bel",
+        "edupersonprincipalname": null,
+        "website_url": ""
+    }
+},
+{
+    "pk": 49,
+    "model": "centre_registry.contact",
+    "fields": {
+        "email_address": "sander@clarin.eu",
+        "telephone_number": "",
+        "name": "Sander Maijers",
+        "edupersonprincipalname": "sander_clarin.eu@clarin.eu",
+        "website_url": ""
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "DE",
+        "country_name": "Germany",
+        "is_observer": false,
+        "name": "CLARIN-D",
+        "alias": "de",
+        "website_url": "http://www.clarin-d.de/"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "AT",
+        "country_name": "Austria",
+        "is_observer": false,
+        "name": "CLARIN-AT",
+        "alias": "at",
+        "website_url": "http://www.oeaw.ac.at/icltt/node/14"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "CZ",
+        "country_name": "Czech Republic",
+        "is_observer": false,
+        "name": "LINDAT-CLARIN",
+        "alias": "cz",
+        "website_url": "http://www.lindat.cz/"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "DK",
+        "country_name": "Denmark",
+        "is_observer": false,
+        "name": "CLARIN-DK",
+        "alias": "dk",
+        "website_url": "https://clarin.dk/"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "EE",
+        "country_name": "Estonia",
+        "is_observer": false,
+        "name": "CELR",
+        "alias": "ee",
+        "website_url": "http://keeleressursid.ee/en/"
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "ES",
+        "country_name": "Spain",
+        "is_observer": true,
+        "name": "",
+        "alias": "",
+        "website_url": ""
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "FI",
+        "country_name": "Finland",
+        "is_observer": true,
+        "name": "",
+        "alias": "",
+        "website_url": "http://www.kielipankki.fi/"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "US",
+        "country_name": "United States",
+        "is_observer": true,
+        "name": "",
+        "alias": "",
+        "website_url": ""
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "DLU",
+        "country_name": "Dutch Language Union",
+        "is_observer": false,
+        "name": "Dutch Language Union",
+        "alias": "dlu",
+        "website_url": "http://taalunie.org/wat-doet-taalunie/activiteiten/clarin"
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "NL",
+        "country_name": "The Netherlands",
+        "is_observer": false,
+        "name": "CLARIN-NL",
+        "alias": "nl",
+        "website_url": "http://www.clarin.nl/"
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "PL",
+        "country_name": "Poland",
+        "is_observer": false,
+        "name": "CLARIN-PL",
+        "alias": "pl",
+        "website_url": "http://www.clarin-pl.eu/"
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "UK",
+        "country_name": "United Kingdom",
+        "is_observer": true,
+        "name": "",
+        "alias": "",
+        "website_url": ""
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "BG",
+        "country_name": "Bulgaria",
+        "is_observer": false,
+        "name": "BG-CLARIN",
+        "alias": "",
+        "website_url": "http://www.nrri-bg.com/infrastructures/bg-clarin"
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "NO",
+        "country_name": "Norway",
+        "is_observer": true,
+        "name": "CLARINO",
+        "alias": "no",
+        "website_url": "http://clarin.b.uib.no/"
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "LT",
+        "country_name": "Lithuania",
+        "is_observer": false,
+        "name": "CLARIN-LT",
+        "alias": "",
+        "website_url": "http://tekstynas.vdu.lt/"
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "PT",
+        "country_name": "Portugal",
+        "is_observer": false,
+        "name": "CLARIN-Portugal",
+        "alias": "",
+        "website_url": ""
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.consortium",
+    "fields": {
+        "country_code": "FR",
+        "country_name": "France",
+        "is_observer": true,
+        "name": "",
+        "alias": "",
+        "website_url": ""
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "B"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "E"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "C"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "T"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "K"
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "L"
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.centretype",
+    "fields": {
+        "type": "A"
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Allgemeine Sprachwissenschaft und Computerlinguistik ",
+        "description": "",
+        "strict_versioning": true,
+        "organisation_name": "Eberhard Karls Universit\u00e4t T\u00fcbingen ",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_82/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Eberhard Karls Universit\u00e4t T\u00fcbingen",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "9.062002",
+        "postal_code": "72074",
+        "technical_contact": 1,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "None.",
+        "shorthand": "EKUT",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-87",
+        "expertise": "corpus linguistics",
+        "website_url": "http://www.sfs.uni-tuebingen.de/",
+        "monitoring_contacts": [],
+        "institution": "Seminar f\u00fcr Sprachwissenschaft",
+        "administrative_contact": 1,
+        "city": "T\u00fcbingen",
+        "consortium": 1,
+        "latitude": "48.527037",
+        "address": "Wilhelmstra\u00dfe 19-23"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "ICLTT",
+        "description": "Main Centre in CLARIN-AT, providing infrastructural services and access to CLARIN-AT language resources. ",
+        "strict_versioning": false,
+        "organisation_name": "Austrian Academy of Sciences",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_121/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "CLARIN Centre Vienna",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "16.377077",
+        "postal_code": "1010",
+        "technical_contact": 3,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "CCV",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-105",
+        "expertise": "corpus linguistics, lexicography, CMDI, controlled vocabularies",
+        "website_url": "http://clarin.oeaw.ac.at/ccv/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Institute for Corpus Linguistics and Text Technology",
+        "administrative_contact": 2,
+        "city": "Wien",
+        "consortium": 2,
+        "latitude": "48.209279",
+        "address": "Sonnenfelsgasse 19"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "LINDAT/CLARIN",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "\u00daFAL MFF UK - Linguistics",
+        "dsa_url": "http://assessment.datasealofapproval.org/assessment_92/seal/html/",
+        "repository_system": "DSpace",
+        "name": "LINDAT/CLARIN",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "14.403265",
+        "postal_code": "118 00",
+        "technical_contact": 5,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "LINDAT",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-99",
+        "expertise": "computational linguistics, language resources, natural language processing, linguistic annotation, machine translation, machine learning, information retrieval, tagging/parsing, semantics ",
+        "website_url": "http://lindat.mff.cuni.cz/",
+        "monitoring_contacts": [],
+        "institution": "Univerzita Karlova v Praze",
+        "administrative_contact": 4,
+        "city": "Praha",
+        "consortium": 3,
+        "latitude": "50.088521",
+        "address": "Malostransk\u00e9 n\u00e1m\u011bst\u00ed 25"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Institut f\u00fcr Informatik",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Abteilung Automatische Sprachverarbeitung",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_88/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "ASV Leipzig",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "12.378735",
+        "postal_code": "04109",
+        "technical_contact": 7,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "Providing long-term archiving services.",
+        "shorthand": "ASV",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-88",
+        "expertise": "monolingual corpora, text mining",
+        "website_url": "http://asv.informatik.uni-leipzig.de/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Universit\u00e4t Leipzig",
+        "administrative_contact": 6,
+        "city": "Leipzig",
+        "consortium": 1,
+        "latitude": "51.338548",
+        "address": "Augustusplatz 10"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "BAS CLARIN-D Centre",
+        "description": "",
+        "strict_versioning": true,
+        "organisation_name": "Bayerisches Archiv f\u00fcr Sprachsignale",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_83/seal/html/",
+        "repository_system": "Custom.",
+        "name": "Bayerisches Archiv f\u00fcr Sprachsignale",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "11.579364",
+        "postal_code": "80799",
+        "technical_contact": 9,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "BAS",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-89",
+        "expertise": "Speech data processing, web services and tools for spoken language, corpus production and validation, curation of external speech corpora, consulting and teaching.",
+        "website_url": "http://www.phonetik.uni-muenchen.de/forschung/bay_arch_sprsig/index.html",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Ludwig-Maximilians-Universit\u00e4t M\u00fcnchen",
+        "administrative_contact": 8,
+        "city": "M\u00fcnchen",
+        "consortium": 1,
+        "latitude": "48.149216",
+        "address": "Schellingstra\u00dfe 3"
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Deutsches Textarchiv",
+        "description": "",
+        "strict_versioning": true,
+        "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_87/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Berlin-Brandenburg Academy of Sciences and Humanities",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "13.394324",
+        "postal_code": "10117",
+        "technical_contact": 11,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "BBAW",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-93",
+        "expertise": "TEI encoding",
+        "website_url": "http://www.bbaw.de/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Union of the German academies of sciences and humanities ",
+        "administrative_contact": 10,
+        "city": "Berlin",
+        "consortium": 1,
+        "latitude": "52.514156",
+        "address": "J\u00e4gerstra\u00dfe 23"
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "J\u00fclich Supercomputing Centre",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
+        "dsa_url": "",
+        "repository_system": "",
+        "name": "Forschungzentrum J\u00fclich",
+        "pid_status": "",
+        "longitude": "6.404938",
+        "postal_code": "52428",
+        "technical_contact": 12,
+        "type_status": "",
+        "type": [
+            2
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "FZJ",
+        "type_certificate_url": "",
+        "expertise": "web service monitoring",
+        "website_url": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
+        "monitoring_contacts": [],
+        "institution": "Institute for Advanced Simulation",
+        "administrative_contact": 12,
+        "city": "J\u00fclich",
+        "consortium": 1,
+        "latitude": "50.905369",
+        "address": "IEK-7, Wilhelm-Johnen-Stra\u00dfe"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Gesellschaft f\u00fcr wissenschaftliche Datenverarbeitung mbH",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Gesellschaft f\u00fcr wissenschaftliche Datenverarbeitung mbH",
+        "dsa_url": "",
+        "repository_system": "",
+        "name": "Gesellschaft f\u00fcr wissenschaftliche Datenverarbeitung mbH",
+        "pid_status": "",
+        "longitude": "9.970938",
+        "postal_code": "37077",
+        "technical_contact": 13,
+        "type_status": "",
+        "type": [
+            2
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "GWDG",
+        "type_certificate_url": "",
+        "expertise": "PIDs/EPIC, hosting, data storage",
+        "website_url": "http://www.gwdg.de/",
+        "monitoring_contacts": [
+            39
+        ],
+        "institution": "Gesellschaft f\u00fcr wissenschaftliche Datenverarbeitung mbH",
+        "administrative_contact": 13,
+        "city": "G\u00f6ttingen",
+        "consortium": 1,
+        "latitude": "51.562323",
+        "address": "Am Fa\u00dfberg 11"
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "HZSK CLARIN D-Centre",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Hamburger Zentrum f\u00fcr Sprachkorpora",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_79/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Hamburger Zentrum f\u00fcr Sprachkorpora",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "9.939426",
+        "postal_code": "22765",
+        "technical_contact": 15,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "HZSK",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-94",
+        "expertise": "linguistic tools, multimedia and multimodal data, spoken language corpora",
+        "website_url": "http://www.corpora.uni-hamburg.de/",
+        "monitoring_contacts": [],
+        "institution": "Universit\u00e4t Hamburg",
+        "administrative_contact": 14,
+        "city": "Hamburg",
+        "consortium": 1,
+        "latitude": "53.553724",
+        "address": "Max-Brauer-Allee 60"
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Institut f\u00fcr Maschinelle Sprachverarbeitung ",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_86/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Institut f\u00fcr Maschinelle Sprachverarbeitung",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "9.108240",
+        "postal_code": "70569",
+        "technical_contact": 17,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "IMS",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-95",
+        "expertise": "linguistically annotated corpora, corpus tools, tools and methods for robust morphological and syntactic analysis of multiple languages.",
+        "website_url": "http://www.ims.uni-stuttgart.de/",
+        "monitoring_contacts": [],
+        "institution": "Universit\u00e4t Stuttgart",
+        "administrative_contact": 16,
+        "city": "Stuttgart",
+        "consortium": 1,
+        "latitude": "48.746750",
+        "address": "Pfaffenwaldring 5b"
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Institut f\u00fcr Deutsche Sprache",
+        "description": "Providing long-term storage of Germanic language resources.",
+        "strict_versioning": true,
+        "organisation_name": "Institut f\u00fcr Deutsche Sprache",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_85/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Institut f\u00fcr Deutsche Sprache",
+        "pid_status": "Handle (own server and prefix: 10932).",
+        "longitude": "8.472311",
+        "postal_code": "68161",
+        "technical_contact": 19,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "IDS",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-90",
+        "expertise": "language archives, linguistic tools, long-term preservation, multimedia and multimodal data \t",
+        "website_url": "http://www.ids-mannheim.de/",
+        "monitoring_contacts": [
+            39
+        ],
+        "institution": "Leibniz Gemeinschaft",
+        "administrative_contact": 18,
+        "city": "Mannheim",
+        "consortium": 1,
+        "latitude": "49.488122",
+        "address": "R5 6-13"
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "RZG",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut f\u00fcr Plasmaphysik ",
+        "dsa_url": "",
+        "repository_system": "",
+        "name": "Rechenzentrum Garching",
+        "pid_status": "",
+        "longitude": "11.671697",
+        "postal_code": "85748",
+        "technical_contact": 21,
+        "type_status": "",
+        "type": [
+            2
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "RZG",
+        "type_certificate_url": "",
+        "expertise": "data storage",
+        "website_url": "http://www.rzg.mpg.de/",
+        "monitoring_contacts": [],
+        "institution": "Max Planck Gesellschaft",
+        "administrative_contact": 20,
+        "city": "Garching",
+        "consortium": 1,
+        "latitude": "48.263477",
+        "address": "Boltzmannstra\u00dfe 2"
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Englische Sprach- und \u00dcbersetzungswissenschaft",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Fachrichtung 4.6",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_84/seal/html/",
+        "repository_system": "Fedora Commons",
+        "name": "Universit\u00e4t des Saarlandes ",
+        "pid_status": "Handle via EPIC.",
+        "longitude": "7.039011",
+        "postal_code": "66123",
+        "technical_contact": 23,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "UdS",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-92",
+        "expertise": "Creation and annotation of corpora, empirical corpus linguistics, language variation and register analysis.",
+        "website_url": "http://fedora.clarin-d.uni-saarland.de/",
+        "monitoring_contacts": [],
+        "institution": "Universit\u00e4t des Saarlandes",
+        "administrative_contact": 22,
+        "city": "Saarbr\u00fccken",
+        "consortium": 1,
+        "latitude": "49.256004",
+        "address": "Campus A2.2"
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Center for Sprogteknologi",
+        "description": "",
+        "strict_versioning": true,
+        "organisation_name": "University of Copenhagen",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_105/seal/html/",
+        "repository_system": "eSciDoc, based on Fedora Commons.",
+        "name": "The CLARIN Centre at University of Copenhagen",
+        "pid_status": "Handle (own server and prefix: 11221).",
+        "longitude": "12.591780",
+        "postal_code": "2300",
+        "technical_contact": 25,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "CLARIN-DK-UCPH",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-100",
+        "expertise": "multimodal communication, corpus linguistics, text tools",
+        "website_url": "http://clarin.dk/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Faculty of Humanities",
+        "administrative_contact": 24,
+        "city": "K\u00f8benhavn",
+        "consortium": 4,
+        "latitude": "55.661566",
+        "address": "Njalsgade 140"
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Eesti Keeleressursside Keskus",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Eesti Keeleressursside Keskus",
+        "dsa_url": "",
+        "repository_system": "Fedora Commons",
+        "name": "Center of Estonian Language Resources",
+        "pid_status": "Handle (own server and prefix: 11297).",
+        "longitude": "26.714716",
+        "postal_code": "50409",
+        "technical_contact": 27,
+        "type_status": "Aiming for B. ",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "CELR/EKK",
+        "type_certificate_url": "",
+        "expertise": "corpora, lexica, tools, Estonian",
+        "website_url": "http://www.keeleressursid.ee/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "University of Tartu",
+        "administrative_contact": 26,
+        "city": "Tartu",
+        "consortium": 5,
+        "latitude": "58.378389",
+        "address": "Juhan Liivi 2-340"
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Institut Universitari de Ling\u00fc\u00edstica Aplicada",
+        "description": "We offer harvestable machine readable metadata about resources and web services for text enrichement and quantitative text analysis services.",
+        "strict_versioning": false,
+        "organisation_name": "Institut Universitari de Ling\u00fc\u00edstica Aplicada",
+        "dsa_url": "",
+        "repository_system": "DSpace",
+        "name": "IULA-UPF-CC-CLARIN",
+        "pid_status": "Handle (own server and prefix: 10230).",
+        "longitude": "2.193464",
+        "postal_code": "08018",
+        "technical_contact": 28,
+        "type_status": "",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "UPF",
+        "type_certificate_url": "",
+        "expertise": "",
+        "website_url": "http://services.iula.upf.edu/",
+        "monitoring_contacts": [],
+        "institution": "Universitat Pompeu Fabra",
+        "administrative_contact": 28,
+        "city": "Barcelona",
+        "consortium": 6,
+        "latitude": "41.403964",
+        "address": "Carrer de Roc Boronat, 138"
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "FIN-CLARIN",
+        "description": "Offers Finnish META-SHARE content.",
+        "strict_versioning": false,
+        "organisation_name": "The Department of Modern Languages",
+        "dsa_url": "",
+        "repository_system": "LAT",
+        "name": "The Language Bank of Finland",
+        "pid_status": "URN:NBN and Handle (prefix: 11113).",
+        "longitude": "24.950366",
+        "postal_code": "00170",
+        "technical_contact": 30,
+        "type_status": "Aiming for B.",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "FIN-CLARIN",
+        "type_certificate_url": "",
+        "expertise": "computational linguistics, finite-state morphology, dependency parsing, corpora, WordNet",
+        "website_url": "http://www.kielipankki.fi/",
+        "monitoring_contacts": [],
+        "institution": "University of Helsinki (UHEL) ",
+        "administrative_contact": 29,
+        "city": "Helsinki",
+        "consortium": 7,
+        "latitude": "60.172839",
+        "address": "Unioninkatu 40"
+    }
+},
+{
+    "pk": 18,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Psychology and Language Technologies Institute",
+        "description": "TalkBank data and tools.",
+        "strict_versioning": false,
+        "organisation_name": "TalkBank",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_111/seal/html/",
+        "repository_system": "GIT",
+        "name": "CMU-TalkBank",
+        "pid_status": "Handle (own server and prefix: 11312).",
+        "longitude": "-79.94231",
+        "postal_code": "PA 15213",
+        "technical_contact": 31,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "CMU",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-109",
+        "expertise": "",
+        "website_url": "http://www.talkbank.org/",
+        "monitoring_contacts": [],
+        "institution": "Carnegie Mellon University ",
+        "administrative_contact": 32,
+        "city": "Pittsburgh",
+        "consortium": 8,
+        "latitude": "40.440988",
+        "address": "5000 Forbes Avenue"
+    }
+},
+{
+    "pk": 19,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "HLT Agency",
+        "description": "The HLT Agency manages, maintains, distributes and supports digital Dutch language resources such as corpora, lexica and tools. The HLT Agency is the Dutch Language Union's CLARIN Centre. ",
+        "strict_versioning": false,
+        "organisation_name": "HLT Agency",
+        "dsa_url": "",
+        "repository_system": "",
+        "name": "Dutch-Flemish Human Language Technology Agency",
+        "pid_status": "",
+        "longitude": "4.312237",
+        "postal_code": "2514 EB",
+        "technical_contact": 33,
+        "type_status": "Aiming for B.",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "DLU",
+        "type_certificate_url": "",
+        "expertise": "",
+        "website_url": "http://www.tst-centrale.org/",
+        "monitoring_contacts": [],
+        "institution": "Dutch Language Union",
+        "administrative_contact": 33,
+        "city": "Den Haag",
+        "consortium": 9,
+        "latitude": "52.082325",
+        "address": "Lange Voorhout 19"
+    }
+},
+{
+    "pk": 20,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "DANS",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Data Archiving and Networked Services",
+        "dsa_url": "",
+        "repository_system": "EASY, based on Fedora Commons.",
+        "name": "Data Archiving and Networked Services",
+        "pid_status": "",
+        "longitude": "4.345627",
+        "postal_code": "2593 HW",
+        "technical_contact": 34,
+        "type_status": "Aiming for B.",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "DANS",
+        "type_certificate_url": "",
+        "expertise": "Sustainable access to digital research data, training and advice, and performs research into sustained access to digital information.",
+        "website_url": "http://dans.knaw.nl/",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "administrative_contact": 34,
+        "city": "Den Haag",
+        "consortium": 10,
+        "latitude": "52.080776",
+        "address": "Anna van Saksenlaan 51"
+    }
+},
+{
+    "pk": 21,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Huygens ING",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Huygens Institute for the History of the Netherlands",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_124/seal/html/",
+        "repository_system": "Custom.",
+        "name": "Huygens ING",
+        "pid_status": "Handle (own server and prefix: 11240).",
+        "longitude": "4.327001",
+        "postal_code": "2595 BE",
+        "technical_contact": 35,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "Huygens",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-110",
+        "expertise": "political and institutional history, literature and letters, history of science",
+        "website_url": "http://www.huygens.knaw.nl/",
+        "monitoring_contacts": [
+            39
+        ],
+        "institution": "Royal Dutch Academy of Sciences",
+        "administrative_contact": 35,
+        "city": "Den Haag",
+        "consortium": 10,
+        "latitude": "52.081972",
+        "address": "Prins Willem-Alexanderhof 5"
+    }
+},
+{
+    "pk": 22,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Instituut voor Nederlandse Lexicologie",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Instituut voor Nederlandse Lexicologie",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_106/seal/html/",
+        "repository_system": "DSpace",
+        "name": "Instituut voor Nederlandse Lexicologie",
+        "pid_status": "Handle (own server and prefix: 10032).",
+        "longitude": "4.480772",
+        "postal_code": "2311 BZ",
+        "technical_contact": 37,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "INL",
+        "type_certificate_url": "",
+        "expertise": "knowledge bank of Dutch vocabulary, the Dutch Language Database, large Dutch corpora, all areas of Dutch linguistics, corpus linguistics, language resource standards, Toolbox for Lexicon Building",
+        "website_url": "http://www.inl.nl/",
+        "monitoring_contacts": [],
+        "institution": "Instituut voor Nederlandse Lexicologie",
+        "administrative_contact": 36,
+        "city": "Leiden",
+        "consortium": 10,
+        "latitude": "52.158137",
+        "address": "Matthias de Vrieshof 3"
+    }
+},
+{
+    "pk": 23,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "Meertens Instituut",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Meertens Instituut",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_100/seal/html/",
+        "repository_system": "Custom.",
+        "name": "Meertens Instituut",
+        "pid_status": "Handle via EPIC (own prefix: 10744).",
+        "longitude": "4.914635",
+        "postal_code": "1096 CJ",
+        "technical_contact": 38,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "Providing long-term archiving services.",
+        "shorthand": "MI",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-106",
+        "expertise": "language variation and culture",
+        "website_url": "http://www.meertens.knaw.nl/",
+        "monitoring_contacts": [],
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "administrative_contact": 38,
+        "city": "Amsterdam",
+        "consortium": 10,
+        "latitude": "52.331909",
+        "address": "Joan Muyskenweg 25"
+    }
+},
+{
+    "pk": 24,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "The Language Archive",
+        "description": "",
+        "strict_versioning": true,
+        "organisation_name": "Max Planck Institute for Psycholinguistics",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_48/seal/html",
+        "repository_system": "LAT",
+        "name": "MPI for Psycholinguistics",
+        "pid_status": "Handle (own server and prefix: 1839). ",
+        "longitude": "5.857079",
+        "postal_code": "6525 XD",
+        "technical_contact": 39,
+        "type_status": "",
+        "type": [
+            1
+        ],
+        "long_term_archiving_policy": "Long-term preservation.",
+        "shorthand": "MPI-PL",
+        "type_certificate_url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-91",
+        "expertise": "language archives, linguistic tools, long-term preservation, multimedia and multimodal data",
+        "website_url": "https://tla.mpi.nl/",
+        "monitoring_contacts": [
+            39
+        ],
+        "institution": "Max Planck Gesellschaft (MPG)",
+        "administrative_contact": 39,
+        "city": "Nijmegen",
+        "consortium": 1,
+        "latitude": "51.818046",
+        "address": "Wundtlaan 1"
+    }
+},
+{
+    "pk": 25,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "CLARIN-PL",
+        "description": "Main Centre in CLARIN-PL, providing infrastructural services and access to CLARIN-PL language resources. ",
+        "strict_versioning": false,
+        "organisation_name": "Institute of Informatics",
+        "dsa_url": "https://assessment.datasealofapproval.org/assessment_149/seal/html/",
+        "repository_system": "DSpace, LINDAT/CLARIN extensions",
+        "name": "CLARIN-PL Language Technology Centre",
+        "pid_status": "Planned, Handle via EPIC.",
+        "longitude": "17.063023",
+        "postal_code": "50-370",
+        "technical_contact": 41,
+        "type_status": "Aiming for B. ",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "CLARIN-PL1",
+        "type_certificate_url": "",
+        "expertise": "various domains of language technology, language engineering, computational linguistics, lexicography\t",
+        "website_url": "http://nlp.pwr.wroc.pl/en/projects/clarin",
+        "monitoring_contacts": [
+            39,
+            49
+        ],
+        "institution": "Wroclaw University of Technology ",
+        "administrative_contact": 40,
+        "city": "Wroc\u0142aw",
+        "consortium": 11,
+        "latitude": "51.107122",
+        "address": "wybrze\u017ce Stanis\u0142awa Wyspia\u0144skiego 27"
+    }
+},
+{
+    "pk": 26,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "IT Services",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "Oxford Text Archive ",
+        "dsa_url": "",
+        "repository_system": "Custom.",
+        "name": "Oxford Text Archive",
+        "pid_status": "",
+        "longitude": "-1.261824",
+        "postal_code": "OX1 2HY",
+        "technical_contact": 42,
+        "type_status": "Aiming for B.",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "OTA",
+        "type_certificate_url": "",
+        "expertise": "TEI, text corpora, historic texts",
+        "website_url": "http://ota.ahds.ac.uk/",
+        "monitoring_contacts": [],
+        "institution": "University of Oxford",
+        "administrative_contact": 42,
+        "city": "Oxford",
+        "consortium": 12,
+        "latitude": "51.757571",
+        "address": "16 Wellington Square"
+    }
+},
+{
+    "pk": 27,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "UiL-OTS",
+        "description": "",
+        "strict_versioning": false,
+        "organisation_name": "The Netherlands CLARIN Office",
+        "dsa_url": "",
+        "repository_system": "Drupal, but only hosting documentation resources",
+        "name": "Utrecht Institute of Linguistics OTS",
+        "pid_status": "",
+        "longitude": "5.122917",
+        "postal_code": "3512 JK ",
+        "technical_contact": 44,
+        "type_status": "Trust Centre, no standard assessment in place",
+        "type": [
+            4
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "UIL-OTS",
+        "type_certificate_url": "",
+        "expertise": "",
+        "website_url": "http://portal.clarin.nl/",
+        "monitoring_contacts": [
+            39
+        ],
+        "institution": "Utrecht University",
+        "administrative_contact": 43,
+        "city": "Utrecht",
+        "consortium": 10,
+        "latitude": "52.090132",
+        "address": "Trans 10"
+    }
+},
+{
+    "pk": 28,
+    "model": "centre_registry.centre",
+    "fields": {
+        "working_unit": "UMR 7309",
+        "description": "SLDR is a repository for oral and linguistic resources aimed at their long-term preservation and sharing",
+        "strict_versioning": true,
+        "organisation_name": "Laboratoire Parole et Langage (LPL)",
+        "dsa_url": "",
+        "repository_system": "Self-developed",
+        "name": "Speech & Language Data Repository",
+        "pid_status": "Handle",
+        "longitude": "5.446179",
+        "postal_code": "13100",
+        "technical_contact": 46,
+        "type_status": "",
+        "type": [
+            3
+        ],
+        "long_term_archiving_policy": "",
+        "shorthand": "SLDR",
+        "type_certificate_url": "",
+        "expertise": "oral and linguistic resources",
+        "website_url": "http://sldr.org/",
+        "monitoring_contacts": [],
+        "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
+        "administrative_contact": 45,
+        "city": "Aix-en-Provence",
+        "consortium": 17,
+        "latitude": "43.535070",
+        "address": "5 avenue Pasteur"
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.metadataformat",
+    "fields": {
+        "name": "CMDI"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.metadataformat",
+    "fields": {
+        "name": "OLAC"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.metadataformat",
+    "fields": {
+        "name": "OAI_DC"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.urlreference",
+    "fields": {
+        "description": "B-certificate",
+        "centre": 1,
+        "url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-87"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.urlreference",
+    "fields": {
+        "description": "Repository",
+        "centre": 1,
+        "url": "http://www.sfs.uni-tuebingen.de/ascl/clarin-center/repository.html"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.urlreference",
+    "fields": {
+        "description": "B-certificate",
+        "centre": 21,
+        "url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-110"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.urlreference",
+    "fields": {
+        "description": "B-certificate",
+        "centre": 18,
+        "url": "http://hdl.handle.net/1839/00-DOCS.CLARIN.EU-109"
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://weblicht.sfs.uni-tuebingen.de/oaiprovider/",
+        "centre": 1,
+        "metadata_format": 1,
+        "web_services_set": "WebLichtWebServices"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://clarinoai.informatik.uni-leipzig.de:8080/oaiprovider/oai",
+        "centre": 4,
+        "metadata_format": 1,
+        "web_services_set": "oai:webservices"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://www.phonetik.uni-muenchen.de/cgi-bin/BASRepository/oaipmh/oai.pl",
+        "centre": 5,
+        "metadata_format": 1,
+        "web_services_set": "Weblicht"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://repos.ids-mannheim.de/oaiprovider/",
+        "centre": 11,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "http://corpus1.mpi.nl/ds/oaiprovider/oai2",
+        "centre": 24,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://fedora.clarin-d.uni-saarland.de/oaiprovider/",
+        "centre": 13,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://clarin.bbaw.de:8088/oaiprovider",
+        "centre": 6,
+        "metadata_format": 1,
+        "web_services_set": "WebLichtWebServices"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://virt-fedora.multilingua.uni-hamburg.de:8080/oaiprovider/",
+        "centre": 9,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "http://clarin04.ims.uni-stuttgart.de/oaiprovider/oai",
+        "centre": 10,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://oaipmh.huygens.knaw.nl/oai",
+        "centre": 21,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "WebLicht",
+        "uri": "https://lindat.mff.cuni.cz/repository/oai/request",
+        "centre": 3,
+        "metadata_format": 1,
+        "web_services_set": "hdl_11858_00-097C-0000-0023-8C33-2"
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://repository.dev.clarin.inl.nl/oai/oai_server.php",
+        "centre": 22,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://www.meertens.knaw.nl/oai/oai_server.php",
+        "centre": 23,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://register.keeleressursid.ee/oaiprovider/oai",
+        "centre": 15,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "http://clarin.oeaw.ac.at/oaiprovider",
+        "centre": 2,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "https://clarin-pl.eu/oai/request",
+        "centre": 25,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://metalb.csc.fi/cgi-bin/que",
+        "centre": 17,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 18,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "http://alpha.talkbank.org:8089/talkbank-oai/provider",
+        "centre": 18,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 19,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://www.ota.ox.ac.uk/cgi-bin/oai.pl",
+        "centre": 26,
+        "metadata_format": 2,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 20,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://clarin.dk/oaiprovider/",
+        "centre": 14,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 21,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "https://repository.sfb833.uni-tuebingen.de:8443/oaiprovider/",
+        "centre": 1,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 22,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "REST",
+        "uri": "http://alpha.talkbank.org:8089/childes-oai/provider",
+        "centre": 18,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 23,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler",
+        "centre": 20,
+        "metadata_format": 1,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 24,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://ws02.iula.upf.edu/corpus_data/oai-iula/oai.pl",
+        "centre": 16,
+        "metadata_format": 3,
+        "web_services_set": ""
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://weblicht.sfs.uni-tuebingen.de/rws/sru/",
+        "centre": 1
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "https://lindat.mff.cuni.cz/services/fcs-kontext",
+        "centre": 3
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "https://lindat.mff.cuni.cz/services/fcs-bonito",
+        "centre": 3
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://clarinws.informatik.uni-leipzig.de:8080/CQL",
+        "centre": 4
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "https://clarin.phonetik.uni-muenchen.de/BASSRU/",
+        "centre": 5
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://dspin.dwds.de:8088/ddc-sru/dingler/",
+        "centre": 6
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://dspin.dwds.de:8088/ddc-sru/c4/",
+        "centre": 6
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://dspin.dwds.de:8088/ddc-sru/dta/",
+        "centre": 6
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://virt-fedora.multilingua.uni-hamburg.de:8080/HZSKsru/",
+        "centre": 9
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://clarin01.ims.uni-stuttgart.de/SRUCQIBridge",
+        "centre": 10
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://clarin.ids-mannheim.de/cosmassru",
+        "centre": 11
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://clarin.ids-mannheim.de/digibibsru",
+        "centre": 11
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://clarin.ids-mannheim.de/korapsru",
+        "centre": 11
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://fedora.clarin-d.uni-saarland.de/sru/",
+        "centre": 13
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://fedora.clarin-d.uni-saarland.de/sru2/",
+        "centre": 13
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://fedora.clarin-d.uni-saarland.de/sru3/",
+        "centre": 13
+    }
+},
+{
+    "pk": 18,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://srucql.dans.knaw.nl/",
+        "centre": 20
+    }
+},
+{
+    "pk": 19,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://cqlservlet.mpi.nl/",
+        "centre": 24
+    }
+},
+{
+    "pk": 21,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "http://fcs.clarin-pl.eu/bonito/run.cgi/fcs",
+        "centre": 25
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://weblicht.sfs.uni-tuebingen.de/Shibboleth.sso/Status",
+        "centre": 1,
+        "production_status": true,
+        "entity_id": "https://weblicht.sfs.uni-tuebingen.de"
+    }
+},
+{
+    "pk": 2,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://lat.csc.fi/Shibboleth.sso/Status",
+        "centre": 17,
+        "production_status": true,
+        "entity_id": "http://sp.lat.csc.fi"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://clarin.ids-mannheim.de/Shibboleth.sso/Status",
+        "centre": 11,
+        "production_status": true,
+        "entity_id": "https://clarin.ids-mannheim.de/shibboleth"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://clarin.oeaw.ac.at/Shibboleth.sso/Status",
+        "centre": 2,
+        "production_status": true,
+        "entity_id": "https://clarin.oeaw.ac.at/shibboleth"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://clarin.phonetik.uni-muenchen.de/Shibboleth.sso/Status",
+        "centre": 5,
+        "production_status": true,
+        "entity_id": "https://clarin.phonetik.uni-muenchen.de"
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://ekrksso.keeleressursid.ee/simplesaml/module.php/sanitycheck/index.php",
+        "centre": 15,
+        "production_status": true,
+        "entity_id": "https://ekrksso.keeleressursid.ee/simplesaml/module.php/saml/sp/metadata.php/ekrk-sp"
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://infra.clarin.dk/Shibboleth.sso/Status",
+        "centre": 14,
+        "production_status": true,
+        "entity_id": "https://infra.clarin.dk/shibboleth"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://openskos.meertens.knaw.nl/Shibboleth.sso/Status",
+        "centre": 23,
+        "production_status": true,
+        "entity_id": "https://openskos.meertens.knaw.nl/shibboleth"
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://portal.clarin.inl.nl/Shibboleth.sso/Status",
+        "centre": 22,
+        "production_status": true,
+        "entity_id": "https://portal.clarin.inl.nl/"
+    }
+},
+{
+    "pk": 10,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://repos.ids-mannheim.de/Shibboleth.sso/Status",
+        "centre": 11,
+        "production_status": true,
+        "entity_id": "https://repos.ids-mannheim.de/shibboleth"
+    }
+},
+{
+    "pk": 11,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "",
+        "centre": 21,
+        "production_status": true,
+        "entity_id": "https://secure.huygens.knaw.nl"
+    }
+},
+{
+    "pk": 12,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://shibboleth.bbaw.de/Shibboleth.sso/Status",
+        "centre": 6,
+        "production_status": true,
+        "entity_id": "https://shibboleth.bbaw.de/shibboleth"
+    }
+},
+{
+    "pk": 13,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://catalog.clarin.eu/Shibboleth.sso/Status",
+        "centre": 24,
+        "production_status": true,
+        "entity_id": "https://sp.catalog.clarin.eu"
+    }
+},
+{
+    "pk": 14,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://corpus1.mpi.nl/Shibboleth.sso/Status",
+        "centre": 24,
+        "production_status": true,
+        "entity_id": "https://sp.corpus1.mpi.nl"
+    }
+},
+{
+    "pk": 15,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://korp.csc.fi/Shibboleth.sso/Status",
+        "centre": 17,
+        "production_status": true,
+        "entity_id": "https://sp.korp.csc.fi/"
+    }
+},
+{
+    "pk": 16,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://lux17.mpi.nl/Shibboleth.sso/Status",
+        "centre": 24,
+        "production_status": true,
+        "entity_id": "https://sp.lux17.mpi.nl"
+    }
+},
+{
+    "pk": 17,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://talkbank.talkbank.org/Shibboleth.sso/Status",
+        "centre": 18,
+        "production_status": true,
+        "entity_id": "https://talkbank.talkbank.org/shibboleth"
+    }
+},
+{
+    "pk": 18,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://lindat.mff.cuni.cz/secure/shib_test.pl",
+        "centre": 3,
+        "production_status": true,
+        "entity_id": "https://ufal-point.mff.cuni.cz/shibboleth/eduid/sp"
+    }
+},
+{
+    "pk": 19,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://www.meertens.knaw.nl/Shibboleth.sso/Status",
+        "centre": 23,
+        "production_status": true,
+        "entity_id": "https://www.meertens.knaw.nl/Shibboleth.sso/Metadata"
+    }
+},
+{
+    "pk": 20,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://engine.surfconext.nl/authentication/idp/single-sign-on/key:default?SAMLRequest=fVJbT8IwFP4rS99Zt4mCDSOZECMJKmHogy%2BmdGessZzOns7Lv3cbXjAxJn1q%0Av%2FPdTick96YWWeMrXMNzA%2BSDt71BEv1DyhqHwkrSJFDugYRXIs%2BulyIJI1E7%0A662yhgUZETivLc4sUrMHl4N70Qru1suUVd7XJDgv4CVURjqNIRqeV3q7tQZ8%0AFRJZ3pEmfHWbb1gwb11olB3fzzTgTiOE1LhSWYQ335HI1jeg16oHc13UnDTu%0ADAxI73DQXj3BuyiglI3xLLi0TkGfNWUxCxbzlD0O4yI6Hau4VGejE0jisoRi%0AG0dRNC5GcjwatTCiBhZIXqJPWRLFp4Moac8mOhfDM3Fy%2FsCC1WcVFxqL1sD%2F%0AvW0PIBJXm81qcMh8D476vC2ATSdd%2B6IXdkf7%2BJ9Wfi2BTf%2BunL4rn%2FAjgYNa%0ALW5axsV8ZY1W70FmjH2dOZAeuq749DDy%2B6tMPwA%3D%0A&RelayState=cookie%3Ad3672822",
+        "centre": 27,
+        "production_status": true,
+        "entity_id": "https://dev.clarin.nl/shibboleth"
+    }
+},
+{
+    "pk": 1,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://www.aai.dfn.de/fileadmin/metadata/DFN-AAI-metadata.xml",
+        "information_url": "https://www.aai.dfn.de/teilnahme/metadaten/",
+        "shorthand": "DFN-AAI"
+    }
+},
+{
+    "pk": 3,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://engine.surfconext.nl/authentication/proxy/idps-metadata",
+        "information_url": "https://wiki.surfnet.nl/display/surfconextdev/Get+Conexted",
+        "shorthand": "SURFconext"
+    }
+},
+{
+    "pk": 4,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://haka.funet.fi/metadata/haka-metadata.xml",
+        "information_url": "https://confluence.csc.fi/x/9IIUAg",
+        "shorthand": "Haka"
+    }
+},
+{
+    "pk": 5,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://kalmar2.org/simplesaml/module.php/aggregator/?id=kalmarcentral2&set=saml2",
+        "information_url": "https://www.kalmar2.org/kalmar2web/tech_info.html",
+        "shorthand": "Kalmar Union"
+    }
+},
+{
+    "pk": 6,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://federation.belnet.be/federation-metadata.xml",
+        "information_url": "http://federation.belnet.be/",
+        "shorthand": "Belnet"
+    }
+},
+{
+    "pk": 7,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://metadata.eduid.cz/entities/eduid",
+        "information_url": "http://eduid.cz/en/tech/summary",
+        "shorthand": "eduID.cz"
+    }
+},
+{
+    "pk": 8,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://infra.clarin.eu/aai/md_about_spf_sps.xml",
+        "information_url": "http://www.clarin.eu/content/clarin-identity-provider",
+        "shorthand": "CLARIN IdP"
+    }
+},
+{
+    "pk": 9,
+    "model": "centre_registry.samlidentityfederation",
+    "fields": {
+        "signing_key": "",
+        "saml_metadata_url": "https://eduid.at/md/aconet-registered.xml",
+        "information_url": "https://www.aco.net/federation.html?&L=1",
+        "shorthand": "ACOnet"
+    }
+}
+]

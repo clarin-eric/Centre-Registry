@@ -1,0 +1,28 @@
+{% extends 'UI/_.html' %}
+{% block title %}Consortia{% endblock title %}
+{% block content %}
+    <table id='consortia'
+           class='datatables-table stripe order-column row-border'>
+        <thead>
+            <tr>
+                <th>Consortium</th>
+                <th>Country</th>
+                <th>Status</th>
+                <th>http://??.clarin.eu</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# The cramped HTML structure is needed for DataTables to sort the cells correctly! #}
+            {# @formatter:off #}
+            {% for consortium in consortia %}
+                <tr>
+                    <td>{% if consortium.website_url %}<a href='{{ consortium.website_url }}'>{% endif %}{% if consortium.name %}{{ consortium.name }}{% else %}<em>none</em>{% endif %}{% if consortium.website_url %}</a>{% endif %}</td>
+                    <td>{{ consortium.country_name }}</td>
+                    <td>{% if consortium.is_observer %}Observer{% else %}Member{% endif %}</td>
+                    <td>{% if consortium.alias %}<a href='http://{{ consortium.alias }}.clarin.eu/'>{{ consortium.alias }}</a>{% else %}<em>none</em>{% endif %}
+                </tr>
+            {% endfor %}
+            {# @formatter:on #}
+        </tbody>
+    </table>
+{% endblock content %}

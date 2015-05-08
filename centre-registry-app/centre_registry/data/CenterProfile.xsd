@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:dcr="http://www.isocat.org/ns/dcr" xmlns:ann="http://www.clarin.eu"
+           targetNamespace="http://www.clarin.eu/cmd/" elementFormDefault="qualified">
+    <xs:annotation>
+        <xs:appinfo>
+            <ann:Header>
+                <ann:ID>clarin.eu:cr1:p_1320657629667</ann:ID>
+                <ann:Name>CenterProfile</ann:Name>
+                <ann:Description>A profile that contains all information about a CLARIN center. To be stored in the center registry.</ann:Description>
+            </ann:Header>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+    <xs:simpleType name="simpletype-Type-clarin.eu.cr1.c_1320657629668">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="B" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="C" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="E" dcr:datcat="" ann:label=""/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="simpletype-Code-clarin.eu.cr1.c_1271859438104">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AD" ann:label="Andorra (AD)"/>
+            <xs:enumeration value="AE" ann:label="United Arab Emirates (AE)"/>
+            <xs:enumeration value="AF" ann:label="Afghanistan (AF)"/>
+            <xs:enumeration value="AG" ann:label="Antigua and Barbuda (AG)"/>
+            <xs:enumeration value="AI" ann:label="Anguilla (AI)"/>
+            <xs:enumeration value="AL" ann:label="Albania (AL)"/>
+            <xs:enumeration value="AM" ann:label="Armenia (AM)"/>
+            <xs:enumeration value="AN" ann:label="Netherlands Antilles (AN)"/>
+            <xs:enumeration value="AO" ann:label="Angola (AO)"/>
+            <xs:enumeration value="AQ" ann:label="Antarctica (AQ)"/>
+            <xs:enumeration value="AR" ann:label="Argentina (AR)"/>
+            <xs:enumeration value="AS" ann:label="American Samoa (AS)"/>
+            <xs:enumeration value="AT" ann:label="Austria (AT)"/>
+            <xs:enumeration value="AU" ann:label="Australia (AU)"/>
+            <xs:enumeration value="AW" ann:label="Aruba (AW)"/>
+            <xs:enumeration value="AX" ann:label="Aland Islands Åland Islands (AX)"/>
+            <xs:enumeration value="AZ" ann:label="Azerbaijan (AZ)"/>
+            <xs:enumeration value="BA" ann:label="Bosnia and Herzegovina (BA)"/>
+            <xs:enumeration value="BB" ann:label="Barbados (BB)"/>
+            <xs:enumeration value="BD" ann:label="Bangladesh (BD)"/>
+            <xs:enumeration value="BE" ann:label="Belgium (BE)"/>
+            <xs:enumeration value="BF" ann:label="Burkina Faso (BF)"/>
+            <xs:enumeration value="BG" ann:label="Bulgaria (BG)"/>
+            <xs:enumeration value="BH" ann:label="Bahrain (BH)"/>
+            <xs:enumeration value="BI" ann:label="Burundi (BI)"/>
+            <xs:enumeration value="BJ" ann:label="Benin (BJ)"/>
+            <xs:enumeration value="BL" ann:label="Saint Barthélemy (BL)"/>
+            <xs:enumeration value="BM" ann:label="Bermuda (BM)"/>
+            <xs:enumeration value="BN" ann:label="Brunei Darussalam (BN)"/>
+            <xs:enumeration value="BO" ann:label="Bolivia (BO)"/>
+            <xs:enumeration value="BR" ann:label="Brazil (BR)"/>
+            <xs:enumeration value="BS" ann:label="Bahamas (BS)"/>
+            <xs:enumeration value="BT" ann:label="Bhutan (BT)"/>
+            <xs:enumeration value="BV" ann:label="Bouvet Island (BV)"/>
+            <xs:enumeration value="BW" ann:label="Botswana (BW)"/>
+            <xs:enumeration value="BY" ann:label="Belarus (BY)"/>
+            <xs:enumeration value="BZ" ann:label="Belize (BZ)"/>
+            <xs:enumeration value="CA" ann:label="Canada (CA)"/>
+            <xs:enumeration value="CC" ann:label="Cocos (Keeling) Islands (CC)"/>
+            <xs:enumeration value="CD" ann:label="Congo (CD)"/>
+            <xs:enumeration value="CF" ann:label="Central African Republic (CF)"/>
+            <xs:enumeration value="CG" ann:label="Congo (CG)"/>
+            <xs:enumeration value="CH" ann:label="Switzerland (CH)"/>
+            <xs:enumeration value="CI" ann:label="Cote d'Ivoire Côte d'Ivoire (CI)"/>
+            <xs:enumeration value="CK" ann:label="Cook Islands (CK)"/>
+            <xs:enumeration value="CL" ann:label="Chile (CL)"/>
+            <xs:enumeration value="CM" ann:label="Cameroon (CM)"/>
+            <xs:enumeration value="CN" ann:label="China (CN)"/>
+            <xs:enumeration value="CO" ann:label="Colombia (CO)"/>
+            <xs:enumeration value="CR" ann:label="Costa Rica (CR)"/>
+            <xs:enumeration value="CU" ann:label="Cuba (CU)"/>
+            <xs:enumeration value="CV" ann:label="Cape Verde (CV)"/>
+            <xs:enumeration value="CX" ann:label="Christmas Island (CX)"/>
+            <xs:enumeration value="CY" ann:label="Cyprus (CY)"/>
+            <xs:enumeration value="CZ" ann:label="Czech Republic (CZ)"/>
+            <xs:enumeration value="DE" ann:label="Germany (DE)"/>
+            <xs:enumeration value="DJ" ann:label="Djibouti (DJ)"/>
+            <xs:enumeration value="DK" ann:label="Denmark (DK)"/>
+            <xs:enumeration value="DM" ann:label="Dominica (DM)"/>
+            <xs:enumeration value="DO" ann:label="Dominican Republic (DO)"/>
+            <xs:enumeration value="DZ" ann:label="Algeria (DZ)"/>
+            <xs:enumeration value="EC" ann:label="Ecuador (EC)"/>
+            <xs:enumeration value="EE" ann:label="Estonia (EE)"/>
+            <xs:enumeration value="EG" ann:label="Egypt (EG)"/>
+            <xs:enumeration value="EH" ann:label="Western Sahara (EH)"/>
+            <xs:enumeration value="ER" ann:label="Eritrea (ER)"/>
+            <xs:enumeration value="ES" ann:label="Spain (ES)"/>
+            <xs:enumeration value="ET" ann:label="Ethiopia (ET)"/>
+            <xs:enumeration value="FI" ann:label="Finland (FI)"/>
+            <xs:enumeration value="FJ" ann:label="Fiji (FJ)"/>
+            <xs:enumeration value="FK" ann:label="Falkland Islands (Malvinas) (FK)"/>
+            <xs:enumeration value="FM" ann:label="Micronesia (FM)"/>
+            <xs:enumeration value="FO" ann:label="Faroe Islands (FO)"/>
+            <xs:enumeration value="FR" ann:label="France (FR)"/>
+            <xs:enumeration value="GA" ann:label="Gabon (GA)"/>
+            <xs:enumeration value="GB" ann:label="United Kingdom (GB)"/>
+            <xs:enumeration value="GD" ann:label="Grenada (GD)"/>
+            <xs:enumeration value="GE" ann:label="Georgia (GE)"/>
+            <xs:enumeration value="GF" ann:label="French Guiana (GF)"/>
+            <xs:enumeration value="GG" ann:label="Guernsey (GG)"/>
+            <xs:enumeration value="GH" ann:label="Ghana (GH)"/>
+            <xs:enumeration value="GI" ann:label="Gibraltar (GI)"/>
+            <xs:enumeration value="GL" ann:label="Greenland (GL)"/>
+            <xs:enumeration value="GM" ann:label="Gambia (GM)"/>
+            <xs:enumeration value="GN" ann:label="Guinea (GN)"/>
+            <xs:enumeration value="GP" ann:label="Guadeloupe (GP)"/>
+            <xs:enumeration value="GQ" ann:label="Equatorial Guinea (GQ)"/>
+            <xs:enumeration value="GR" ann:label="Greece (GR)"/>
+            <xs:enumeration value="GS" ann:label="South Georgia and the South Sandwich Islands (GS)"/>
+            <xs:enumeration value="GT" ann:label="Guatemala (GT)"/>
+            <xs:enumeration value="GU" ann:label="Guam (GU)"/>
+            <xs:enumeration value="GW" ann:label="Guinea-Bissau (GW)"/>
+            <xs:enumeration value="GY" ann:label="Guyana (GY)"/>
+            <xs:enumeration value="HK" ann:label="Hong Kong (HK)"/>
+            <xs:enumeration value="HM" ann:label="Heard Island and McDonald Islands (HM)"/>
+            <xs:enumeration value="HN" ann:label="Honduras (HN)"/>
+            <xs:enumeration value="HR" ann:label="Croatia (HR)"/>
+            <xs:enumeration value="HT" ann:label="Haiti (HT)"/>
+            <xs:enumeration value="HU" ann:label="Hungary (HU)"/>
+            <xs:enumeration value="ID" ann:label="Indonesia (ID)"/>
+            <xs:enumeration value="IE" ann:label="Ireland (IE)"/>
+            <xs:enumeration value="IL" ann:label="Israel (IL)"/>
+            <xs:enumeration value="IM" ann:label="Isle of Man (IM)"/>
+            <xs:enumeration value="IN" ann:label="India (IN)"/>
+            <xs:enumeration value="IO" ann:label="British Indian Ocean Territory (IO)"/>
+            <xs:enumeration value="IQ" ann:label="Iraq (IQ)"/>
+            <xs:enumeration value="IR" ann:label="Iran (IR)"/>
+            <xs:enumeration value="IS" ann:label="Iceland (IS)"/>
+            <xs:enumeration value="IT" ann:label="Italy (IT)"/>
+            <xs:enumeration value="JE" ann:label="Jersey (JE)"/>
+            <xs:enumeration value="JM" ann:label="Jamaica (JM)"/>
+            <xs:enumeration value="JO" ann:label="Jordan (JO)"/>
+            <xs:enumeration value="JP" ann:label="Japan (JP)"/>
+            <xs:enumeration value="KE" ann:label="Kenya (KE)"/>
+            <xs:enumeration value="KG" ann:label="Kyrgyzstan (KG)"/>
+            <xs:enumeration value="KH" ann:label="Cambodia (KH)"/>
+            <xs:enumeration value="KI" ann:label="Kiribati (KI)"/>
+            <xs:enumeration value="KM" ann:label="Comoros (KM)"/>
+            <xs:enumeration value="KN" ann:label="Saint Kitts and Nevis (KN)"/>
+            <xs:enumeration value="KP" ann:label="Korea (KP)"/>
+            <xs:enumeration value="KR" ann:label="Korea (KR)"/>
+            <xs:enumeration value="KW" ann:label="Kuwait (KW)"/>
+            <xs:enumeration value="KY" ann:label="Cayman Islands (KY)"/>
+            <xs:enumeration value="KZ" ann:label="Kazakhstan (KZ)"/>
+            <xs:enumeration value="LA" ann:label="Laos (LA)"/>
+            <xs:enumeration value="LB" ann:label="Lebanon (LB)"/>
+            <xs:enumeration value="LC" ann:label="Saint Lucia (LC)"/>
+            <xs:enumeration value="LI" ann:label="Liechtenstein (LI)"/>
+            <xs:enumeration value="LK" ann:label="Sri Lanka (LK)"/>
+            <xs:enumeration value="LR" ann:label="Liberia (LR)"/>
+            <xs:enumeration value="LS" ann:label="Lesotho (LS)"/>
+            <xs:enumeration value="LT" ann:label="Lithuania (LT)"/>
+            <xs:enumeration value="LU" ann:label="Luxembourg (LU)"/>
+            <xs:enumeration value="LV" ann:label="Latvia (LV)"/>
+            <xs:enumeration value="LY" ann:label="Libyan Arab Jamahiriya (LY)"/>
+            <xs:enumeration value="MA" ann:label="Morocco (MA)"/>
+            <xs:enumeration value="MC" ann:label="Monaco (MC)"/>
+            <xs:enumeration value="MD" ann:label="Moldova (MD)"/>
+            <xs:enumeration value="ME" ann:label="Montenegro (ME)"/>
+            <xs:enumeration value="MF" ann:label="Saint Martin (French part) (MF)"/>
+            <xs:enumeration value="MG" ann:label="Madagascar (MG)"/>
+            <xs:enumeration value="MH" ann:label="Marshall Islands (MH)"/>
+            <xs:enumeration value="MK" ann:label="Macedonia (MK)"/>
+            <xs:enumeration value="ML" ann:label="Mali (ML)"/>
+            <xs:enumeration value="MM" ann:label="Myanmar (MM)"/>
+            <xs:enumeration value="MN" ann:label="Mongolia (MN)"/>
+            <xs:enumeration value="MO" ann:label="Macao (MO)"/>
+            <xs:enumeration value="MP" ann:label="Northern Mariana Islands (MP)"/>
+            <xs:enumeration value="MQ" ann:label="Martinique (MQ)"/>
+            <xs:enumeration value="MR" ann:label="Mauritania (MR)"/>
+            <xs:enumeration value="MS" ann:label="Montserrat (MS)"/>
+            <xs:enumeration value="MT" ann:label="Malta (MT)"/>
+            <xs:enumeration value="MU" ann:label="Mauritius (MU)"/>
+            <xs:enumeration value="MV" ann:label="Maldives (MV)"/>
+            <xs:enumeration value="MW" ann:label="Malawi (MW)"/>
+            <xs:enumeration value="MX" ann:label="Mexico (MX)"/>
+            <xs:enumeration value="MY" ann:label="Malaysia (MY)"/>
+            <xs:enumeration value="MZ" ann:label="Mozambique (MZ)"/>
+            <xs:enumeration value="NA" ann:label="Namibia (NA)"/>
+            <xs:enumeration value="NC" ann:label="New Caledonia (NC)"/>
+            <xs:enumeration value="NE" ann:label="Niger (NE)"/>
+            <xs:enumeration value="NF" ann:label="Norfolk Island (NF)"/>
+            <xs:enumeration value="NG" ann:label="Nigeria (NG)"/>
+            <xs:enumeration value="NI" ann:label="Nicaragua (NI)"/>
+            <xs:enumeration value="NL" ann:label="Netherlands (NL)"/>
+            <xs:enumeration value="NO" ann:label="Norway (NO)"/>
+            <xs:enumeration value="NP" ann:label="Nepal (NP)"/>
+            <xs:enumeration value="NR" ann:label="Nauru (NR)"/>
+            <xs:enumeration value="NU" ann:label="Niue (NU)"/>
+            <xs:enumeration value="NZ" ann:label="New Zealand (NZ)"/>
+            <xs:enumeration value="OM" ann:label="Oman (OM)"/>
+            <xs:enumeration value="PA" ann:label="Panama (PA)"/>
+            <xs:enumeration value="PE" ann:label="Peru (PE)"/>
+            <xs:enumeration value="PF" ann:label="French Polynesia (PF)"/>
+            <xs:enumeration value="PG" ann:label="Papua New Guinea (PG)"/>
+            <xs:enumeration value="PH" ann:label="Philippines (PH)"/>
+            <xs:enumeration value="PK" ann:label="Pakistan (PK)"/>
+            <xs:enumeration value="PL" ann:label="Poland (PL)"/>
+            <xs:enumeration value="PM" ann:label="Saint Pierre and Miquelon (PM)"/>
+            <xs:enumeration value="PN" ann:label="Pitcairn (PN)"/>
+            <xs:enumeration value="PR" ann:label="Puerto Rico (PR)"/>
+            <xs:enumeration value="PS" ann:label="Palestinian Territory (PS)"/>
+            <xs:enumeration value="PT" ann:label="Portugal (PT)"/>
+            <xs:enumeration value="PW" ann:label="Palau (PW)"/>
+            <xs:enumeration value="PY" ann:label="Paraguay (PY)"/>
+            <xs:enumeration value="QA" ann:label="Qatar (QA)"/>
+            <xs:enumeration value="RE" ann:label="Réunion (RE)"/>
+            <xs:enumeration value="RO" ann:label="Romania (RO)"/>
+            <xs:enumeration value="RS" ann:label="Serbia (RS)"/>
+            <xs:enumeration value="RU" ann:label="Russian Federation (RU)"/>
+            <xs:enumeration value="RW" ann:label="Rwanda (RW)"/>
+            <xs:enumeration value="SA" ann:label="Saudi Arabia (SA)"/>
+            <xs:enumeration value="SB" ann:label="Solomon Islands (SB)"/>
+            <xs:enumeration value="SC" ann:label="Seychelles (SC)"/>
+            <xs:enumeration value="SD" ann:label="Sudan (SD)"/>
+            <xs:enumeration value="SE" ann:label="Sweden (SE)"/>
+            <xs:enumeration value="SG" ann:label="Singapore (SG)"/>
+            <xs:enumeration value="SH" ann:label="Saint Helena (SH)"/>
+            <xs:enumeration value="SI" ann:label="Slovenia (SI)"/>
+            <xs:enumeration value="SJ" ann:label="Svalbard and Jan Mayen (SJ)"/>
+            <xs:enumeration value="SK" ann:label="Slovakia (SK)"/>
+            <xs:enumeration value="SL" ann:label="Sierra Leone (SL)"/>
+            <xs:enumeration value="SM" ann:label="San Marino (SM)"/>
+            <xs:enumeration value="SN" ann:label="Senegal (SN)"/>
+            <xs:enumeration value="SO" ann:label="Somalia (SO)"/>
+            <xs:enumeration value="SR" ann:label="Suriname (SR)"/>
+            <xs:enumeration value="ST" ann:label="Sao Tome and Principe (ST)"/>
+            <xs:enumeration value="SV" ann:label="El Salvador (SV)"/>
+            <xs:enumeration value="SY" ann:label="Syrian Arab Republic (SY)"/>
+            <xs:enumeration value="SZ" ann:label="Swaziland (SZ)"/>
+            <xs:enumeration value="TC" ann:label="Turks and Caicos Islands (TC)"/>
+            <xs:enumeration value="TD" ann:label="Chad (TD)"/>
+            <xs:enumeration value="TF" ann:label="French Southern Territories (TF)"/>
+            <xs:enumeration value="TG" ann:label="Togo (TG)"/>
+            <xs:enumeration value="TH" ann:label="Thailand (TH)"/>
+            <xs:enumeration value="TJ" ann:label="Tajikistan (TJ)"/>
+            <xs:enumeration value="TK" ann:label="Tokelau (TK)"/>
+            <xs:enumeration value="TL" ann:label="Timor-Leste (TL)"/>
+            <xs:enumeration value="TM" ann:label="Turkmenistan (TM)"/>
+            <xs:enumeration value="TN" ann:label="Tunisia (TN)"/>
+            <xs:enumeration value="TO" ann:label="Tonga (TO)"/>
+            <xs:enumeration value="TR" ann:label="Turkey (TR)"/>
+            <xs:enumeration value="TT" ann:label="Trinidad and Tobago (TT)"/>
+            <xs:enumeration value="TV" ann:label="Tuvalu (TV)"/>
+            <xs:enumeration value="TW" ann:label="Taiwan (TW)"/>
+            <xs:enumeration value="TZ" ann:label="Tanzania (TZ)"/>
+            <xs:enumeration value="UA" ann:label="Ukraine (UA)"/>
+            <xs:enumeration value="UG" ann:label="Uganda (UG)"/>
+            <xs:enumeration value="UM" ann:label="United States Minor Outlying Islands (UM)"/>
+            <xs:enumeration value="US" ann:label="United States (US)"/>
+            <xs:enumeration value="UY" ann:label="Uruguay (UY)"/>
+            <xs:enumeration value="UZ" ann:label="Uzbekistan (UZ)"/>
+            <xs:enumeration value="VA" ann:label="Holy See (Vatican City State) (VA)"/>
+            <xs:enumeration value="VC" ann:label="Saint Vincent and the Grenadines (VC)"/>
+            <xs:enumeration value="VE" ann:label="Venezuela (VE)"/>
+            <xs:enumeration value="VG" ann:label="Virgin Islands (VG)"/>
+            <xs:enumeration value="VI" ann:label="Virgin Islands (VI)"/>
+            <xs:enumeration value="VN" ann:label="Viet Nam (VN)"/>
+            <xs:enumeration value="VU" ann:label="Vanuatu (VU)"/>
+            <xs:enumeration value="WF" ann:label="Wallis and Futuna (WF)"/>
+            <xs:enumeration value="WS" ann:label="Samoa (WS)"/>
+            <xs:enumeration value="YE" ann:label="Yemen (YE)"/>
+            <xs:enumeration value="YT" ann:label="Mayotte (YT)"/>
+            <xs:enumeration value="ZA" ann:label="South Africa (ZA)"/>
+            <xs:enumeration value="ZM" ann:label="Zambia (ZM)"/>
+            <xs:enumeration value="ZW" ann:label="Zimbabwe (ZW)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="simpletype-MemberOfNationalFederation-8-clarin.eu.cr1.c_1320657629669">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NL" dcr:datcat="" ann:label="Netherlands"/>
+            <xs:enumeration value="DE" dcr:datcat="" ann:label="Germany"/>
+            <xs:enumeration value="FI" dcr:datcat="" ann:label="Finland"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="simpletype-MetadataScheme-9-clarin.eu.cr1.c_1320657629669">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OLAC" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="CMDI" dcr:datcat="" ann:label=""/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="simpletype-WebServiceType-9-clarin.eu.cr1.c_1320657629669">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SOAP" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="REST" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="WebLicht" dcr:datcat="" ann:label=""/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Resourcetype_simple">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Metadata">
+                <xs:annotation>
+                    <xs:documentation>The ResourceProxy refers to another component metadata
+                        instance (e.g. for grouping metadata descriptions into
+                        collections)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Resource">
+                <xs:annotation>
+                    <xs:documentation>The ResourceProxy refers to a file that is not a metadata
+                        instance (e.g. a text document)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SearchService">
+                <xs:annotation>
+                    <xs:documentation>The ResourceProxy refers to a (SRU/CQL) web service that can be used to query the resource described in this file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SearchPage">
+                <xs:annotation>
+                    <xs:documentation>The ResourceProxy refers to a web page that can be used to query the resource described in this file</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="LandingPage">
+                <xs:annotation>
+                    <xs:documentation>The ResourceProxy refers to a web page that contains the "original context" of the resource described in this file (e.g. repository web page displaying the metadata).</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="complextype-Type-clarin.eu.cr1.c_1320657629668">
+        <xs:simpleContent>
+            <xs:extension base="cmd:simpletype-Type-clarin.eu.cr1.c_1320657629668"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="complextype-Code-clarin.eu.cr1.c_1271859438104">
+        <xs:simpleContent>
+            <xs:extension base="cmd:simpletype-Code-clarin.eu.cr1.c_1271859438104"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="complextype-MemberOfNationalFederation-8-clarin.eu.cr1.c_1320657629669">
+        <xs:simpleContent>
+            <xs:extension base="cmd:simpletype-MemberOfNationalFederation-8-clarin.eu.cr1.c_1320657629669"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="complextype-MetadataScheme-9-clarin.eu.cr1.c_1320657629669">
+        <xs:simpleContent>
+            <xs:extension base="cmd:simpletype-MetadataScheme-9-clarin.eu.cr1.c_1320657629669"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="complextype-WebServiceType-9-clarin.eu.cr1.c_1320657629669">
+        <xs:simpleContent>
+            <xs:extension base="cmd:simpletype-WebServiceType-9-clarin.eu.cr1.c_1320657629669"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:element name="CMD">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MdCreator" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MdCreationDate" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:date">
+                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MdSelfLink" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:anyURI">
+                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MdProfile" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:anyURI">
+                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MdCollectionDisplayName" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:anyAttribute namespace="##other" processContents="lax"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Resources">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ResourceProxyList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ResourceProxy">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="ResourceType">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="cmd:Resourcetype_simple">
+                                                                    <xs:attribute name="mimetype" type="xs:string"/>
+                                                                    <xs:anyAttribute namespace="##other"
+                                                                                     processContents="lax"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="ResourceRef">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:anyURI">
+                                                                    <xs:anyAttribute namespace="##other"
+                                                                                     processContents="lax"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:ID" use="required"/>
+                                                <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="JournalFileProxyList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="JournalFileProxy">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="JournalFileRef">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:anyURI">
+                                                                    <xs:anyAttribute namespace="##other"
+                                                                                     processContents="lax"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ResourceRelationList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ResourceRelation">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="RelationType">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:anyAttribute namespace="##other"
+                                                                                     processContents="lax"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="Res1">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="ref" type="xs:IDREF"/>
+                                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element maxOccurs="1" minOccurs="1" name="Res2">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="ref" type="xs:IDREF"/>
+                                                            <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element minOccurs="0" name="IsPartOfList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="IsPartOf">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:anyURI">
+                                                        <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:anyAttribute namespace="##other" processContents="lax"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:anyAttribute namespace="##other" processContents="lax"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Components">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CenterProfile" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="CenterBasicInformation" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" maxOccurs="unbounded"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5"
+                                                                minOccurs="1"
+                                                                ann:documentation="The name of a CLARIN center"
+                                                                ann:displaypriority="10">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute ref="xml:lang"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Type"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-1971_b6a96b19-16fd-ec1a-0fc6-78fe87ff5cc3"
+                                                                minOccurs="1" maxOccurs="1"
+                                                                type="cmd:complextype-Type-clarin.eu.cr1.c_1320657629668"
+                                                                ann:documentation="The type of this CLARIN center"/>
+                                                    <xs:element name="Status"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-3760_bf9771c3-7e27-ba40-115a-5b86011364a3"
+                                                                minOccurs="0" maxOccurs="1"
+                                                                ann:documentation="To describe the A/B/C/E center type status">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Description"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db"
+                                                                minOccurs="1" maxOccurs="1"
+                                                                ann:documentation="A general description of this CLARIN center, e.g., the collection focus or policy">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Country" minOccurs="1" maxOccurs="1"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-2532_d004b0a6-fd1d-3ca3-abf1-1e6aeb3e37b2">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Code"
+                                                                            dcr:datcat="http://hdl.handle.net/11459/CCR_C-2532_d004b0a6-fd1d-3ca3-abf1-1e6aeb3e37b2"
+                                                                            minOccurs="1" maxOccurs="unbounded"
+                                                                            type="cmd:complextype-Code-clarin.eu.cr1.c_1271859438104"
+                                                                            ann:displaypriority="1"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                            <xs:attribute name="ComponentId" type="xs:anyURI"
+                                                                          fixed="clarin.eu:cr1:c_1271859438104"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                <xs:attribute name="ComponentId" type="xs:anyURI"
+                                                              fixed="clarin.eu:cr1:c_1320657629668"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="CenterExtendedInformation" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Website"
+                                                                dcr:datcat="http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320"
+                                                                type="xs:anyURI" minOccurs="1" maxOccurs="1"
+                                                                ann:documentation="The website of the CLARIN center"
+                                                                ann:displaypriority="2"/>
+                                                    <xs:element name="LongTermArchivingPolicy" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                ann:documentation="Does the center have a long term archving policy? If so, which one?">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="RepositorySystem" minOccurs="1" maxOccurs="1"
+                                                                ann:documentation="The name of the repostory used (eg Fedora)">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="PidStatus" minOccurs="1" maxOccurs="1"
+                                                                ann:documentation="Does the center offer Persistent Identifiers for its resources? Of so which one? (eg handle)">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="StrictVersioning" type="xs:boolean" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                ann:documentation="Does a PID always point to exactly 1 version of a resource?"/>
+                                                    <xs:element name="AssessmentStatus" minOccurs="1" maxOccurs="1"
+                                                                ann:documentation="Has the center been assessed (eg. Data Seal of Approval, RAC, etc)? If so by which procedure?">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="InfrastructureServices" minOccurs="0"
+                                                                maxOccurs="1"
+                                                                ann:documentation="Has the center non-standard offers like OAI harvesting">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string"/>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="WebReference" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Website"
+                                                                            dcr:datcat="http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320"
+                                                                            type="xs:anyURI" minOccurs="1" maxOccurs="1"
+                                                                            ann:documentation="A URL (e.g. http://www.clarin.eu)"
+                                                                            ann:displaypriority="2"/>
+                                                                <xs:element name="Description" maxOccurs="unbounded"
+                                                                            dcr:datcat="http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db"
+                                                                            minOccurs="1"
+                                                                            ann:documentation="A description: what is this website about (e.g. Documentation about a corpus)"
+                                                                            ann:displaypriority="1">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string">
+                                                                                <xs:attribute ref="xml:lang"/>
+                                                                            </xs:extension>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                            <xs:attribute name="ComponentId" type="xs:anyURI"
+                                                                          fixed="clarin.eu:cr1:c_1316422391221"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="AAI" minOccurs="1" maxOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="AaiStatus" minOccurs="1" maxOccurs="1"
+                                                                            ann:documentation="Does the center have a SAML Service Provider?"
+                                                                            ann:displaypriority="3">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string"/>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="MemberOfNationalFederation"
+                                                                            minOccurs="0" maxOccurs="unbounded"
+                                                                            type="cmd:complextype-MemberOfNationalFederation-8-clarin.eu.cr1.c_1320657629669"
+                                                                            ann:documentation="Is the center's SP available in one or more national Identity Federations (eg DFN-AAI)?"/>
+                                                                <xs:element name="MemberOfSpf" type="xs:boolean"
+                                                                            minOccurs="1" maxOccurs="1"
+                                                                            ann:documentation="Is the center's SP available in the CLARIN SPF?"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Metadata" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="MetadataScheme" minOccurs="1"
+                                                                            maxOccurs="unbounded"
+                                                                            type="cmd:complextype-MetadataScheme-9-clarin.eu.cr1.c_1320657629669"
+                                                                            ann:documentation="In which metadata schemes does the center provide records?"
+                                                                            ann:displaypriority="1"/>
+                                                                <xs:element name="WebServicesSet" minOccurs="0"
+                                                                            maxOccurs="1"
+                                                                            ann:documentation="What is the name of the OAI set that contains the (CMDI) metadata records for webservices? Only present in case there are any web services.">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string"/>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="WebServiceType" minOccurs="0"
+                                                                            maxOccurs="unbounded"
+                                                                            type="cmd:complextype-WebServiceType-9-clarin.eu.cr1.c_1320657629669"
+                                                                            ann:documentation="A type of web services the center provides metadata for. For example, SOAP or WebLicht."/>
+                                                                <xs:element name="OaiAccessPoint"
+                                                                            dcr:datcat="http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320"
+                                                                            type="xs:anyURI" minOccurs="1" maxOccurs="1"
+                                                                            ann:documentation="The entry point for OAI harvesting (eg http://easy.dans.knaw.nl/oai?verb=Identify)"
+                                                                            ann:displaypriority="5"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="OrganisationalInformation" minOccurs="1"
+                                                                maxOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="ClarinOrganisationInfo" minOccurs="1"
+                                                                            maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="OrganisationName"
+                                                                                        maxOccurs="unbounded"
+                                                                                        dcr:datcat="http://hdl.handle.net/11459/CCR_C-2459_fc4e74d6-84de-c8cd-1ae8-2c2be5ee90b1"
+                                                                                        minOccurs="1"
+                                                                                        ann:documentation="The official name of the organisation"
+                                                                                        ann:displaypriority="10">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string">
+                                                                                            <xs:attribute
+                                                                                                    ref="xml:lang"/>
+                                                                                        </xs:extension>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Institution"
+                                                                                        maxOccurs="unbounded"
+                                                                                        minOccurs="1"
+                                                                                        ann:documentation="the legal entity (typically universities, although in some countries the faculties are legal entities)">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string">
+                                                                                            <xs:attribute
+                                                                                                    ref="xml:lang"/>
+                                                                                        </xs:extension>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="WorkingUnit"
+                                                                                        maxOccurs="unbounded"
+                                                                                        minOccurs="1"
+                                                                                        ann:documentation="typically a department, sometimes a faculty">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string">
+                                                                                            <xs:attribute
+                                                                                                    ref="xml:lang"/>
+                                                                                        </xs:extension>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Code" minOccurs="1"
+                                                                                        maxOccurs="1"
+                                                                                        ann:documentation="Short mnemonic code for the organisation (eg BBAW)">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="PostAddress" minOccurs="1"
+                                                                                        maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Expertise" minOccurs="1"
+                                                                                        maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Latitude"
+                                                                                        dcr:datcat="http://hdl.handle.net/11459/CCR_C-5582_0d7dc9e3-e288-56f8-2d9e-c91ae59f436f"
+                                                                                        minOccurs="0" maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension
+                                                                                                base="xs:decimal"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Longitude"
+                                                                                        dcr:datcat="http://hdl.handle.net/11459/CCR_C-5583_8be52a01-2494-9656-bfef-39e7f748d104"
+                                                                                        minOccurs="0" maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension
+                                                                                                base="xs:decimal"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                                        <xs:attribute name="ComponentId"
+                                                                                      type="xs:anyURI"
+                                                                                      fixed="clarin.eu:cr1:c_1316422391222"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="AdministrativeContact" minOccurs="1"
+                                                                            maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Contact" minOccurs="1"
+                                                                                        maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="Person"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Address"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Email"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Organisation"
+                                                                                                    maxOccurs="unbounded"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50"
+                                                                                                    minOccurs="0">
+                                                                                            <xs:complexType>
+                                                                                                <xs:simpleContent>
+                                                                                                    <xs:extension
+                                                                                                            base="xs:string">
+                                                                                                        <xs:attribute
+                                                                                                                ref="xml:lang"/>
+                                                                                                    </xs:extension>
+                                                                                                </xs:simpleContent>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Telephone"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Website"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf"
+                                                                                                    type="xs:anyURI"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                    </xs:sequence>
+                                                                                    <xs:attribute name="ref"
+                                                                                                  type="xs:IDREFS"/>
+                                                                                    <xs:attribute name="ComponentId"
+                                                                                                  type="xs:anyURI"
+                                                                                                  fixed="clarin.eu:cr1:c_1271859438113"/>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="TechnicalContact" minOccurs="1"
+                                                                            maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Contact" minOccurs="1"
+                                                                                        maxOccurs="1">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="Person"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Address"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Email"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Organisation"
+                                                                                                    maxOccurs="unbounded"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50"
+                                                                                                    minOccurs="0">
+                                                                                            <xs:complexType>
+                                                                                                <xs:simpleContent>
+                                                                                                    <xs:extension
+                                                                                                            base="xs:string">
+                                                                                                        <xs:attribute
+                                                                                                                ref="xml:lang"/>
+                                                                                                    </xs:extension>
+                                                                                                </xs:simpleContent>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Telephone"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794"
+                                                                                                    type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                        <xs:element name="Website"
+                                                                                                    dcr:datcat="http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf"
+                                                                                                    type="xs:anyURI"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="unbounded"/>
+                                                                                    </xs:sequence>
+                                                                                    <xs:attribute name="ref"
+                                                                                                  type="xs:IDREFS"/>
+                                                                                    <xs:attribute name="ComponentId"
+                                                                                                  type="xs:anyURI"
+                                                                                                  fixed="clarin.eu:cr1:c_1271859438113"/>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Monitoring" minOccurs="1" maxOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="SpTestSite" type="xs:anyURI"
+                                                                            minOccurs="1" maxOccurs="1"
+                                                                            ann:documentation="A site to test a SAML web service (eg http://catalog.clarin.eu/secure/shibenv.php)"
+                                                                            ann:displaypriority="1"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="ref" type="xs:IDREFS"/>
+                                                <xs:attribute name="ComponentId" type="xs:anyURI"
+                                                              fixed="clarin.eu:cr1:c_1320657629669"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="ref" type="xs:IDREFS"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:anyAttribute namespace="##other" processContents="lax"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="CMDVersion" fixed="1.1" use="required"/>
+            <xs:anyAttribute namespace="##other" processContents="lax"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
