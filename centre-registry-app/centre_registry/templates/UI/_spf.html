@@ -15,7 +15,7 @@
             <tr>
                 <th>Centre shorthand</th>
                 <th><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
-                <th><abbr title='Does this SP have production status?'>Prod.?</abbr></th>
+                <th><abbr title='Does this SP have production status?'>Prod. status</abbr></th>
                 <th><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
                 {% for saml_identity_federation in saml_identity_federations %}
                     {# TODO: Do not handle such a special case like 'CLARIN IdP'. #}
@@ -36,7 +36,7 @@
                     <td>{{ saml_service_provider.entity_id }}</td>
                     <td class='non_textual'>
                         {% if saml_service_provider.production_status %}
-                            <span class='positive'>✓</span>
+                            <span class='positive'><a href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
                         {% else %}
                             <span class='negative'>✗</span>
                         {% endif %}
