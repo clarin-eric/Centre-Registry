@@ -29,7 +29,7 @@
                     <td>
                         <a href='mailto:{{ centre.technical_contact|urlencode }}'>{{ centre.technical_contact.name }}
                             <br>{{ centre.technical_contact.email_address }}</a>
-                        <br><a href='/contact/{{ centre.administrative_contact.id }}'>…</a>
+                        <br><a href='/contact/{{ centre.technical_contact.id }}'>…</a>
                     </td>
                     <td>
                         {% for monitoring_contact in centre.monitoring_contacts.all %}
