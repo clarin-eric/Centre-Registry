@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
-__version__ = '2.1'
+__version__ = '2.1.1'
 
 from os import chdir as os_chdir
 from os import pardir as os_pardir
