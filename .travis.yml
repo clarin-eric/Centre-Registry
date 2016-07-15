@@ -17,7 +17,7 @@ env:
 install:
   - pip -q install Django=="$DJANGO_VERSION"
   - pip -q install -e 'centre-registry-app/'
-  - pip -q install --user -r 'centre-registry-app/requirements_test.txt'
+  - pip -q install -r 'centre-registry-app/requirements_test.txt'
 script:
   - cd -- Centre-Registry-config/
   - python manage.py test centre_registry
