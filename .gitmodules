@@ -1,4 +1,0 @@
-[submodule "Centre-Registry-config"]
-	path = Centre-Registry-config
-	url = ssh://github.com/dietervu/Centre-Registry-config
-	branch = master
