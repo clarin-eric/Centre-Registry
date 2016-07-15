@@ -26,8 +26,12 @@ ADMINS = ('CLARIN ERIC sysops', 'sysops@clarin.eu')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 GRAPPELLI_ADMIN_TITLE = "Centre Registry administration"
 MANAGERS = ADMINS
-DATABASES = {}
-TEST = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
+}
 TIME_ZONE = None  # 'Europe/Berlin'
 LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
