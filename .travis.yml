@@ -1,15 +1,14 @@
 sudo: false
 language: python
-addons:
-  sauce_connect:
-    username: "${SAUCE_USERNAME}"
-    access_key: "${SAUCE_ACCESS_KEY}"
 python:
-  - "3.3"
   - "3.4"
   - "3.5"
   - "nightly"
   - "pypy"
+addons:
+  sauce_connect:
+    username: "${SAUCE_USERNAME}"
+    access_key: "${SAUCE_ACCESS_KEY}"
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.debug_staging_settings
