@@ -11,9 +11,11 @@ python:
   - "nightly"
   - "pypy"
 env:
-  - DJANGO_SETTINGS_MODULE=centre_registry_project.debug_staging_settings
-  - DJANGO_VERSION=1.8
-  - DJANGO_VERSION=1.9
+  global:
+    - DJANGO_SETTINGS_MODULE=centre_registry_project.debug_staging_settings
+  matrix:
+    - DJANGO_VERSION=1.8
+    - DJANGO_VERSION=1.9
 install:
   - pip -q install Django=="$DJANGO_VERSION"
   - pip -q install -e 'centre-registry-app/'
