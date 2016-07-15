@@ -7,15 +7,8 @@ from os.path import normpath
 from os import chdir
 from os import pardir
 from setuptools import setup
-from sys import version_info as sys__version_info
 
 __version__ = '2.1.1'
-
-if sys__version_info < (3, 4):
-    raise RuntimeError(
-        'ERROR: under Python version {0}.{1}, while version >= 3.4 required. '
-        .format(str(sys__version_info.major),
-                str(sys__version_info.minor)))
 
 setup_requires = ['wheel>=0.24']
 install_requires = ['django>=1.8,<1.9', 'django-debug-toolbar>=1.3,<1.4',
