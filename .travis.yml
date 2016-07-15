@@ -1,0 +1,27 @@
+sudo: false
+language: python
+addons:
+  sauce_connect:
+    username: "${SAUCE_USERNAME}"
+    access_key: "${SAUCE_ACCESS_KEY}"
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "nightly"
+  - "pypy"
+env:
+  - DJANGO_SETTINGS_MODULE=centre_registry_project.debug_staging_settings
+  - DJANGO_VERSION=1.8
+  - DJANGO_VERSION=1.9
+install:
+  - pip -q install --user Django=="$DJANGO_VERSION"
+  - pip -q install --user -e 'centre-registry-app/'
+  - pip -q install --user -r 'centre-registry-app/requirements_test.txt'
+script:
+  - cd -- Centre-Registry-config/
+  - python manage.py test centre_registry
+notifications:
+  email:
+    on_success: change
+    on_failure: always
