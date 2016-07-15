@@ -4,6 +4,7 @@
 from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+
 try:
     from selenium.webdriver.firefox.webdriver import WebDriver
 except ImportError:
@@ -18,13 +19,16 @@ class SystemTestCase(StaticLiveServerTestCase):
         is_ci = (environ.get('CONTINUOUS_INTEGRATION') or '').lower() == 'true'
         if is_ci:
             from selenium.webdriver import Remote
-            desired_capabilities = {
-                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
-                "build": environ["TRAVIS_BUILD_NUMBER"],
-                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"]}
             hub_url = ("{username:s}:{access_key:s}@localhost.localdomain:4445"
                        .format(username=environ["SAUCE_USERNAME"],
                                access_key=environ["SAUCE_ACCESS_KEY"]))
+            desired_capabilities = {
+                "browserName": environ["browserName"],
+                "build": environ["TRAVIS_BUILD_NUMBER"],
+                "platform": environ["platform"],
+                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
+                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
+                "version": environ["version"]}
             cls.selenium = Remote(desired_capabilities=desired_capabilities,
                                   command_executor="http://{hub_url:s}/wd/hub"
                                   .format(hub_url=hub_url))
