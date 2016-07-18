@@ -14,9 +14,7 @@ env:
   matrix:
     - browserName='chrome' platform='Linux' version='48.0'
     - browserName='chrome' platform='Windows 10' version='51.0'
-    - browserName='chrome' platform='Windows 10' version='beta'
     - browserName='firefox' platform='Linux' version='45.0'
-    - browserName='firefox' platform='Windows 10' version='beta'
     - browserName='MicrosoftEdge' platform='Windows 10' version='13.10586'
     - browserName='safari' platform='OS X 10.11' version='9.0'
 install:
