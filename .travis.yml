@@ -1,0 +1,31 @@
+sudo: false
+language: python
+python:
+  - "3.5"
+  - "nightly"
+addons:
+  sauce_connect:
+    username: "${SAUCE_USERNAME}"
+    access_key: "${SAUCE_ACCESS_KEY}"
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=centre_registry_project.debug_staging_settings
+    - DJANGO_VERSION=1.9
+  matrix:
+    - browserName='chrome' platform='Linux' version='48.0'
+    - browserName='chrome' platform='Windows 10' version='51.0'
+    - browserName='firefox' platform='Linux' version='45.0'
+    - browserName='MicrosoftEdge' platform='Windows 10' version='13.10586'
+    - browserName='safari' platform='OS X 10.11' version='9.0'
+install:
+  - pip install Django=="$DJANGO_VERSION"
+  - pip install -e 'centre-registry-app/'
+  - pip install -r 'centre-registry-app/requirements_test.txt'
+script:
+  - cd -- Centre-Registry-config/
+  - ./manage.py test centre_registry.test_api
+  - ./manage.py test centre_registry.test_ui
+notifications:
+  email:
+    on_success: change
+    on_failure: always

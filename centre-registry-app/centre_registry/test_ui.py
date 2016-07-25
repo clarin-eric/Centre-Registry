@@ -1,25 +1,39 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from django.test import LiveServerTestCase
-# Chrome or Firefox are needed to run the functional tests.
+from os import environ
+
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+
 try:
     from selenium.webdriver.firefox.webdriver import WebDriver
 except ImportError:
     from selenium.webdriver.chrome.webdriver import WebDriver
 
 
-class SystemTestCase(LiveServerTestCase):
+class SystemTestCase(StaticLiveServerTestCase):
     fixtures = ['test_data.json']
-    serialized_rollback = False
-    # available_apps = ['centre_registry']
 
     @classmethod
     def setUpClass(cls):
-        # from django.core import management
-        cls.selenium = WebDriver()
-
-        # management.call_command('loaddata', 'test_data.json', verbosity=1, noinput=True)
+        is_ci = (environ.get('CONTINUOUS_INTEGRATION') or '').lower() == 'true'
+        if is_ci:
+            from selenium.webdriver import Remote
+            hub_url = ("{username:s}:{access_key:s}@localhost.localdomain:4445"
+                       .format(username=environ["SAUCE_USERNAME"],
+                               access_key=environ["SAUCE_ACCESS_KEY"]))
+            desired_capabilities = {
+                "browserName": environ["browserName"],
+                "build": environ["TRAVIS_BUILD_NUMBER"],
+                "platform": environ["platform"],
+                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
+                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
+                "version": environ["version"]}
+            cls.selenium = Remote(desired_capabilities=desired_capabilities,
+                                  command_executor="http://{hub_url:s}/wd/hub"
+                                  .format(hub_url=hub_url))
+        else:
+            cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()
 
     @classmethod
@@ -95,5 +109,6 @@ class SystemTestCase(LiveServerTestCase):
     def test_spf(self):
         self.selenium.get(self.live_server_url + '/spf')
 
-        table = self.selenium.find_element_by_id('saml_service_providers_and_identity_federations')
+        table = self.selenium.find_element_by_id(
+            'saml_service_providers_and_identity_federations')
         table.find_element_by_tag_name('tr')
