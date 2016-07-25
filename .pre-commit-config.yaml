@@ -1,0 +1,36 @@
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 3fa02652357ff0dbb42b5bc78c673b7bc105fcf3
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-merge-conflict
+    -   id: check-yaml
+    -   id: check-json
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: debug-statements
+    -   id: check-docstring-first
+    -   id: flake8
+        args:
+        - --isolated
+    -   id: name-tests-test
+    -   id: requirements-txt-fixer
+-   repo: git://github.com/asottile/reorder_python_imports
+    sha: b022734351abe44d0b05a71a4fa1175287c59b49
+    hooks:
+    -   id: reorder-python-imports
+-   repo: git://github.com/pre-commit/mirrors-yapf
+    sha: 316b795b2f32cbe80047aff7e842b72368d5a2c1
+    hooks:
+    -   id: yapf
+        args:
+        - --diff
+        - --no-local-style
+-   repo: git://github.com/pre-commit/mirrors-pylint
+    sha: 4de6c8dfadef1a271a814561ce05b8bc1c446d22
+    hooks:
+    -   id: pylint
+        args:
+        - --confidence=HIGH,INFERENCE
+        - --disable=missing-docstring
+        - --generated-members=objects
+        - --reports=n

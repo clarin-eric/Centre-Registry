@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+from os.path import abspath
+from os.path import dirname
+from os.path import join
 
-from os.path import abspath, dirname, join
 from centre_registry_project import __name__ as app_name
-from pkg_resources import get_distribution, DistributionNotFound
+from pkg_resources import DistributionNotFound
+from pkg_resources import get_distribution
 
 try:
     VERSION = get_distribution("centre-registry-app").version
@@ -14,7 +16,9 @@ RESOURCE_LOCATION_DATATABLES = 'libs/DataTables-1.10.6/'
 RESOURCE_LOCATION_CLARIN_STYLE = 'CLARIN_style/1.0/'
 
 SECRET_KEY = 'testkey1283182183721'
-## Secure cookies have to be turned off in development mode, as the website is served over HTTP instead of HTTPS. # TODO: address
+# Secure cookies have to be turned off in development mode, as the website is
+# served over HTTP instead of HTTPS.
+# TODO: address
 DEBUG = True
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
@@ -38,11 +42,12 @@ SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
 MEDIA_ROOT = ''  # os.path.join(PROJECT_DIR, "media/")
-#MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
-#STATIC_URL = '/static/'
+# MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
+# STATIC_URL = '/static/'
 STATIC_URL = 'https://infra.clarin.eu/content/Centre_Registry/'
-#ADMIN_MEDIA_PREFIX = "http://127.0.0.1:8000/static/admin/"
-STATIC_ROOT = join(PROJECT_DIR, '../../centre-registry-app/centre_registry/static')
+# ADMIN_MEDIA_PREFIX = "http://127.0.0.1:8000/static/admin/"
+STATIC_ROOT = join(PROJECT_DIR,
+                   '../../centre-registry-app/centre_registry/static')
 # TODO: make robust
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_DIR, "media/"),
@@ -50,36 +55,33 @@ STATIC_ROOT = join(PROJECT_DIR, '../../centre-registry-app/centre_registry/stati
 # )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.FileSystemFinder',
-    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.FileSystemFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-TEMPLATE_LOADERS = (
-    'django.template.loaders.app_directories.Loader',
-    #'django.template.loaders.filesystem.Loader',
-)
+TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
+# 'django.template.loaders.filesystem.Loader',
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
-    'centre_registry.context_processors.resource_locations_relative_to_static',
+    'centre_registry.context_processors.res_locs_relv_to_static',
     'centre_registry.context_processors.tracked_by_piwik',
-    'centre_registry.context_processors.version',
-)
+    'centre_registry.context_processors.version', )
 MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',  # TODO: remove?
-    'django.contrib.messages.middleware.MessageMiddleware',
-)
-# TODO: Remove ModelBackend authentication once SSO with RemoteUserBackend is in place.
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
-                           # 'centre_registry.backends.CRRemoteUserBackend',
-                           # 'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.messages.middleware.MessageMiddleware', )
+# TODO: Remove ModelBackend authentication once SSO with RemoteUserBackend is
+#  in place.
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
+# 'centre_registry.backends.CRRemoteUserBackend',
+# 'django.contrib.auth.backends.RemoteUserBackend',
 ROOT_URLCONF = app_name + '.urls'
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-#TEMPLATE_DIRS = (glob.glob(os.path.join(PROJECT_DIR, "templates/") + "*/"))
-#(os.path.join(os.path.dirname(__file__), '..', '..', '..').replace('\\', '/'),),
+# TEMPLATE_DIRS = (glob.glob(os.path.join(PROJECT_DIR, "templates/") + "*/"))
+
 INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
@@ -89,13 +91,15 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'grappelli',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  'centre_registry',)
+                  'centre_registry', )
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format':
+            '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d '
+            '%(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -122,16 +126,13 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,
-        }}
+        }
+    }
 }
 
 if DEBUG:
-    MIDDLEWARE_CLASSES += (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
-    INSTALLED_APPS += (
-        'debug_toolbar',
-    )
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
+    INSTALLED_APPS += ('debug_toolbar', )
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
     # INTERNAL_IPS = ('127.0.0.1', '10.0.0.1')
     # DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}

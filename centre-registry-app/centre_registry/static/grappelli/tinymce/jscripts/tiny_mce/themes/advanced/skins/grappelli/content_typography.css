@@ -1,24 +1,24 @@
 /* -- Typographic Elements ---------- */
 
-body#tinymce h1, 
-body#tinymce h2, 
-body#tinymce h3, 
-body#tinymce h4, 
+body#tinymce h1,
+body#tinymce h2,
+body#tinymce h3,
+body#tinymce h4,
 body#tinymce p,
-body#tinymce li, 
+body#tinymce li,
 body#tinymce pre {
 	color: #666 !important;
 }
-body#tinymce h1, 
-body#tinymce h2, 
-body#tinymce h3, 
-body#tinymce h4, 
-body#tinymce p, 
-body#tinymce ol, 
-body#tinymce ul, 
-body#tinymce code, 
-body#tinymce pre, 
-body#tinymce blockquote, 
+body#tinymce h1,
+body#tinymce h2,
+body#tinymce h3,
+body#tinymce h4,
+body#tinymce p,
+body#tinymce ol,
+body#tinymce ul,
+body#tinymce code,
+body#tinymce pre,
+body#tinymce blockquote,
 body#tinymce div {
     margin: 0 0 10px; padding: 0;
 }
@@ -34,7 +34,7 @@ body#tinymce h3 {
 body#tinymce h4 {
     font-size: 12px; line-height: 16px;
 }
-body#tinymce ol, 
+body#tinymce ol,
 body#tinymce ul {
     padding-left: 35px !important;
     list-style-position: outside;
@@ -42,15 +42,15 @@ body#tinymce ul {
 body#tinymce ul {
     list-style-type: disc;
 }
-body#tinymce ol li, 
+body#tinymce ol li,
 body#tinymce ul li {
     margin-bottom: 5px;
 }
-body#tinymce ol li:last-child, 
+body#tinymce ol li:last-child,
 body#tinymce ul li:last-child {
     margin-bottom: 0 !important;
 }
-body#tinymce pre, 
+body#tinymce pre,
 body#tinymce code {
     font-family: "Andale Mono";
 }
@@ -96,6 +96,3 @@ body#tinymce img.img_block { display: block; float: none !important; clear: both
 body#tinymce img.img_left_nospacetop { float: left !important; margin: 2px 20px 14px 0; }
 body#tinymce img.img_right_nospacetop { float: right !important; margin: 2px 0 14px 20px; border: none; }
 body#tinymce img.img_block_nospacetop { display: block; float: none !important; clear: both !important; margin: 2px 0 14px 0 !important; border: none; }
-
-
-

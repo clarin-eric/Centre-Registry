@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
-
-from django.apps import AppConfig
-
 import centre_registry
+from django.apps import AppConfig
 
 
 class CentreRegistryConfig(AppConfig):

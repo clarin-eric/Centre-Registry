@@ -2,19 +2,19 @@
 
    Grappelli Skin - Tiny MCE
    * based on Tiny MCE http://tinymce.moxiecode.com/
-      
+
    Grappelli Skin - Django Admin Interface
    * http://code.google.com/p/django-grappelli/
-   
+
    Based on Django Admin Interface
    * http://www.djangoproject.com
-   
+
    Developed for Mozilla Firefox 3.0+ / using CSS 3 Specifications
-   
+
    * See README for instructions on how to use Grappelli.
    * For credits and origins, see AUTHORS.
    * This is a compressed file. See the sources in the 'src' directory.
-   
+
    * Copyright (c) 2009, vonautomatisch werkstaetten. All rights reserved.
      See LICENSE for more info.
 
@@ -25,9 +25,9 @@
 /* Reset
 ----------------------------------------------------------------------- */
 
-.grappelliSkin table, .grappelliSkin tbody, .grappelliSkin tr, .grappelliSkin td, 
-.grappelliSkin div, .grappelliSkin iframe, 
-.grappelliSkin a, .grappelliSkin img, .grappelliSkin span, 
+.grappelliSkin table, .grappelliSkin tbody, .grappelliSkin tr, .grappelliSkin td,
+.grappelliSkin div, .grappelliSkin iframe,
+.grappelliSkin a, .grappelliSkin img, .grappelliSkin span,
 .grappelliSkin *, .grappelliSkin .text {
     margin: 0;
     padding: 0;
@@ -53,15 +53,15 @@
     padding: 0;
     vertical-align: middle;
 }
-.grappelliSkin table td > a:first-child, 
+.grappelliSkin table td > a:first-child,
 .grappelliSkin table th > a:first-child {
     position: relative;
     top: 0 !important;
 }
 
-body.rtl .grappelliSkin table, body.rtl .grappelliSkin tbody, body.rtl .grappelliSkin tr, body.rtl .grappelliSkin td, 
-body.rtl .grappelliSkin div, body.rtl .grappelliSkin iframe, 
-body.rtl .grappelliSkin a, body.rtl .grappelliSkin img, body.rtl .grappelliSkin span, 
+body.rtl .grappelliSkin table, body.rtl .grappelliSkin tbody, body.rtl .grappelliSkin tr, body.rtl .grappelliSkin td,
+body.rtl .grappelliSkin div, body.rtl .grappelliSkin iframe,
+body.rtl .grappelliSkin a, body.rtl .grappelliSkin img, body.rtl .grappelliSkin span,
 body.rtl .grappelliSkin *, body.rtl .grappelliSkin .text {
     text-align: right;
 }
@@ -141,7 +141,7 @@ body.rtl .grappelliSkin *, body.rtl .grappelliSkin .text {
     margin: 0 !important;
 }
 
-.grappelliSkin table.mceToolbar + table.mceToolbar, 
+.grappelliSkin table.mceToolbar + table.mceToolbar,
 #changelist .grappelliSkin table.mceToolbar + table.mceToolbar {
     margin-top: 5px !important;
     height: 28px;
@@ -246,18 +246,18 @@ body.rtl .grappelliSkin .mceButton {
     border-bottom-right-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px;
     background: #ddd url('img/menu/icon-mceOpen.png');
 }
-.grappelliSkin table.mceListBoxEnabled:hover .mceText, 
-.grappelliSkin .mceListBoxHover .mceText, 
+.grappelliSkin table.mceListBoxEnabled:hover .mceText,
+.grappelliSkin .mceListBoxHover .mceText,
 .grappelliSkin .mceListBoxSelected .mceText {
     background: #fff;
 }
-.grappelliSkin table.mceListBoxEnabled:hover .mceOpen, 
-.grappelliSkin .mceListBoxHover .mceOpen, 
+.grappelliSkin table.mceListBoxEnabled:hover .mceOpen,
+.grappelliSkin .mceListBoxHover .mceOpen,
 .grappelliSkin .mceListBoxSelected .mceOpen {
     border-color: #c4c4c4 #d4d4d4 #d4d4d4 #c4c4c4;
     background-color: #e1f0f5;
 }
-.grappelliSkin .mceListBoxSelected .mceText, 
+.grappelliSkin .mceListBoxSelected .mceText,
 .grappelliSkin .mceListBoxSelected .mceOpen {
     border-bottom-left-radius: 0 !important; -moz-border-radius-bottomleft: 0 !important; -webkit-border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important; -moz-border-radius-bottomright: 0 !important; -webkit-border-bottom-right-radius: 0 !important;
@@ -352,7 +352,7 @@ body.rtl .grappelliSkin .mceButton {
     background: transparent !important;
 }
 .grappelliSkin .mceMenu .mceMenuItemEnabled a:hover,
-.grappelliSkin .mceMenu .mceMenuItemEnabled a:active, 
+.grappelliSkin .mceMenu .mceMenuItemEnabled a:active,
 .grappelliSkin .mceMenu .mceMenuItemActive {
     background-color: #e1f0f5 !important;
 }
@@ -383,11 +383,11 @@ body.rtl .grappelliSkin .mceButton {
 /* Language Specific Content Additions
 ----------------------------------------------------------------------- */
 
-.grappelliSkin .mceMenuItemTitle span.mceText[title="Format"]:before, 
+.grappelliSkin .mceMenuItemTitle span.mceText[title="Format"]:before,
 .grappelliSkin .mceMenuItemTitle span.mceText[title="Style"]:before {
     content: "Reset ";
 }
-.grappelliSkin .mceMenuItemTitle span.mceText[title="Format "]:after, 
+.grappelliSkin .mceMenuItemTitle span.mceText[title="Format "]:after,
 .grappelliSkin .mceMenuItemTitle span.mceText[title="Stil"]:after {
     content: " zurücksetzen";
 }
@@ -416,12 +416,12 @@ body.rtl .grappelliSkin .mceButton {
 .predelete .grappelliSkin .mcePlaceHolder {
     border: 1px solid #e5caca;
 }
-.table .grappelliSkin .mcePlaceHolder, 
+.table .grappelliSkin .mcePlaceHolder,
 .table .grappelliSkin .mcePlaceHolder {
     left: 0;
 }
 
-.grappelliSkin a.mceResize { 
+.grappelliSkin a.mceResize {
     display: block;
     width: 100%; height: 20px;
     border: 1px solid transparent;
@@ -434,18 +434,18 @@ body.rtl .grappelliSkin .mceButton {
     background-repeat: no-repeat;
     cursor: s-resize;
 }
-.predelete .grappelliSkin a.mceResize { 
+.predelete .grappelliSkin a.mceResize {
     border-top-color: #ffe5e5;
 }
-.grappelliSkin a.mceResize:link, .grappelliSkin a.mceResize:visited { 
+.grappelliSkin a.mceResize:link, .grappelliSkin a.mceResize:visited {
     background-color: transparent;
 }
-.grappelliSkin a.mceResize:hover, .grappelliSkin a.mceResize:active { 
+.grappelliSkin a.mceResize:hover, .grappelliSkin a.mceResize:active {
     border-color: #d4d4d4;
     border-top-color: #ebebeb;
     background-color: #d6ebf2;
 }
-.predelete .grappelliSkin a.mceResize:hover, .predelete .grappelliSkin a.mceResize:active { 
+.predelete .grappelliSkin a.mceResize:hover, .predelete .grappelliSkin a.mceResize:active {
     border-color: #e5caca;
     border-top-color: #ffe5e5;
     background-color: #d6ebf2;
@@ -528,5 +528,3 @@ body.rtl .grappelliSkin .mceButton {
 ----------------------------------------------------------------------- */
 
 .grappelliSkin span.mce_pagebreak { background-image: url('img/customized/button_pagebreak.png'); }
-
-

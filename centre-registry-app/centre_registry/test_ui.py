@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -28,7 +26,8 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "platform": environ["platform"],
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
                 "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
-                "version": environ["version"]}
+                "version": environ["version"]
+            }
             cls.selenium = Remote(desired_capabilities=desired_capabilities,
                                   command_executor="http://{hub_url:s}/wd/hub"
                                   .format(hub_url=hub_url))

@@ -1,27 +1,27 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from os.path import join
-from pkg_resources import resource_string
-from traceback import print_exc
 import unittest
+from os.path import join
+from traceback import print_exc
 
+from django import setup
 from django.core import management
 from django.test import Client
-from django import setup
 from lxml.etree import DocumentInvalid
 from lxml.etree import fromstring
 from lxml.etree import parse
 from lxml.etree import XMLSchema
 from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
+from pkg_resources import resource_string
 
 
 class APITestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         setup()
-        management.call_command('loaddata', 'test_data.json', verbosity=1,
+        management.call_command('loaddata',
+                                'test_data.json',
+                                verbosity=1,
                                 noinput=True)
         super(APITestCase, cls).setUpClass()
 
@@ -45,8 +45,8 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Type'], 'application/xml')
 
-        schema_root = fromstring(
-            resource_string(__name__, join('data', 'CenterProfile.xsd')))
+        schema_root = fromstring(resource_string(__name__, join(
+            'data', 'CenterProfile.xsd')))
         schema = XMLSchema(schema_root)
 
         try:

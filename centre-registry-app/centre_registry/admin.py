@@ -1,9 +1,14 @@
-# -*- coding: utf-8 -*-
-
+from centre_registry.models import Centre
+from centre_registry.models import CentreType
+from centre_registry.models import Consortium
+from centre_registry.models import Contact
+from centre_registry.models import FCSEndpoint
+from centre_registry.models import MetadataFormat
+from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import SAMLIdentityFederation
+from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import URLReference
 from django.contrib import admin
-
-from centre_registry.models import Centre, CentreType, Consortium, Contact, FCSEndpoint, \
-    MetadataFormat, OAIPMHEndpoint, SAMLServiceProvider, SAMLIdentityFederation, URLReference
 
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"

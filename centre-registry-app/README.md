@@ -3,33 +3,33 @@ The Centre Registry is a Django web application and service that serves as admin
 
 ## REST API
 `api/KML/`
-Gives a KML file (Keyhole Markup) with geographical information about all Centres, for use in 
+Gives a KML file (Keyhole Markup) with geographical information about all Centres, for use in
 mapping applications.
 
 `api/KML/[N[N[N[N[N[N]]]]]`.
-Gives a KML file (Keyhole Markup) with geographical information about Centres of any type N, for 
+Gives a KML file (Keyhole Markup) with geographical information about Centres of any type N, for
 use in mapping applications. For example: `api/KML/EBC`
 
-`api/model/M`, where M is one of the models in the administration interface `CentreType`, 
-`Centre`, `Contact`, `Consortium`, `FCSEndpoint`, `URLReference`, `MetadataFormat`, 
+`api/model/M`, where M is one of the models in the administration interface `CentreType`,
+`Centre`, `Contact`, `Consortium`, `FCSEndpoint`, `URLReference`, `MetadataFormat`,
 `OAIPMHEndpoint`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
 Gives a JSON representation of all data belonging to that model in the database.
 
 ## Development
 ### Make migrations
-Django wants to detect modifications made to the data model of apps: 
+Django wants to detect modifications made to the data model of apps:
 ```sh
 'centre-registry-config/manage.py' makemigrations
 ```
-When you change an existing field, be careful to only change one property per `makemigrations` run (e.g, first change the field identifier, then the  `verbose_name` string). 
+When you change an existing field, be careful to only change one property per `makemigrations` run (e.g, first change the field identifier, then the  `verbose_name` string).
 
 ### Show migrations
-To show migrations previously made, and whether they have been carried out or not: 
+To show migrations previously made, and whether they have been carried out or not:
 ```sh
 'centre-registry-config/manage.py' showmigrations
 ```
 ### Generate fixtures
-For testing, you will need a sample of the data that obeys the data model. To generate such a *fixture*, run this: 
+For testing, you will need a sample of the data that obeys the data model. To generate such a *fixture*, run this:
 ```sh
 'centre-registry-config/manage.py' dumpdata \
     --format=json --indent 4 \

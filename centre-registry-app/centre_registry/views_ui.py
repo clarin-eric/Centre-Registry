@@ -1,166 +1,140 @@
-# -*- coding: utf-8 -*-
+from collections import OrderedDict
+from json import loads
+from urllib.request import urlopen
+
+from centre_registry.models import Centre
+from centre_registry.models import Consortium
+from centre_registry.models import Contact
+from centre_registry.models import FCSEndpoint
+from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import SAMLIdentityFederation
+from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import URLReference
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.template import RequestContext
 
 
 def get_about(request):
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'about'})
-
     return render(request,
                   template_name='UI/_about.html',
                   context=request_context)
 
 
 def get_all_centres(request):
-    from centre_registry.models import Centre
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'all_centres',
-                                               'all_centres': Centre.objects.all()})
-
+                                               'all_centres':
+                                               Centre.objects.all()})
     return render(request,
                   template_name='UI/_all_centres.html',
                   context=request_context)
 
 
 def get_centre(request, centre_id):
-    from centre_registry.models import Centre, URLReference
-    from django.shortcuts import get_object_or_404, render
-    from django.template import RequestContext
-
     centre = get_object_or_404(Centre, pk=centre_id)
-
-    request_context = RequestContext(request, {'view': 'centre',
-                                               'centre': centre,
-                                               'url_references': URLReference.objects.filter(centre__pk=centre.pk)})
-
+    request_context = RequestContext(
+        request,
+        {'view': 'centre',
+         'centre': centre,
+         'url_references':
+         URLReference.objects.filter(centre__pk=centre.pk)})
     return render(request,
                   template_name='UI/_centre.html',
                   context=request_context)
 
 
 def get_centres_contacts(request):
-    from centre_registry.models import Centre
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'centres_contacts',
-                                               'all_centres': Centre.objects.all()})
-
+                                               'all_centres':
+                                               Centre.objects.all()})
     return render(request,
                   template_name='UI/_centres_contacts.html',
                   context=request_context)
 
 
 def get_consortia(request):
-    from centre_registry.models import Consortium
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'consortia',
-                                               'consortia': Consortium.objects.all()})
-
+                                               'consortia':
+                                               Consortium.objects.all()})
     return render(request,
                   template_name='UI/_consortia.html',
                   context=request_context)
 
+
 def get_contact(request, contact_id):
-    from centre_registry.models import Contact
-    from django.shortcuts import get_object_or_404, render
-    from django.template import RequestContext
-
     contact = get_object_or_404(Contact, pk=contact_id)
-
     request_context = RequestContext(request, {'view': 'contact',
                                                'contact': contact})
-
     return render(request,
                   template_name='UI/_contact.html',
                   context=request_context)
 
+
 def get_contacting(request):
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'contacting'})
-
     return render(request,
                   template_name='UI/_contacting.html',
                   context=request_context)
 
 
 def get_fcs(request):
-    from centre_registry.models import FCSEndpoint
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'fcs',
-                                               'fcs_endpoints': FCSEndpoint.objects.all()})
-
+                                               'fcs_endpoints':
+                                               FCSEndpoint.objects.all()})
     return render(request,
                   template_name='UI/_fcs.html',
                   context=request_context)
 
 
 def get_oai_pmh(request):
-    from centre_registry.models import OAIPMHEndpoint
-    from django.shortcuts import render
-    from django.template import RequestContext
-
     request_context = RequestContext(request, {'view': 'oai_pmh',
-                                               'oai_pmh_endpoints': OAIPMHEndpoint.objects.all()})
-
+                                               'oai_pmh_endpoints':
+                                               OAIPMHEndpoint.objects.all()})
     return render(request,
                   template_name='UI/_oai_pmh.html',
                   context=request_context)
 
 
 def get_map(request):
-    from django.shortcuts import render
-    from django.template import RequestContext
-
-    request_context = RequestContext(request, {'view': 'map',
-                                               'url_prefix': request.build_absolute_uri('/')})
-
+    request_context = RequestContext(
+        request, {'view': 'map',
+                  'url_prefix': request.build_absolute_uri('/')})
     return render(request,
                   template_name='UI/_map.html',
                   context=request_context)
 
 
 def get_spf(request):
-    from centre_registry.models import SAMLIdentityFederation, SAMLServiceProvider
-    from collections import OrderedDict
-    from django.shortcuts import render
-    from django.template import RequestContext
-    from json import loads
-    from urllib.request import urlopen
+    processed_sps_across_id_feds = loads(urlopen(
+        'https://infra.clarin.eu/aai/sps_at_id_feds/summary.json').read()
+                                         .decode('utf-8'))
 
-    processed_sps_across_identity_federations = loads(urlopen(
-        'https://infra.clarin.eu/aai/sps_at_identity_federations/summary.json').read().decode('utf-8'))
-
-    saml_identity_federations = SAMLIdentityFederation.objects \
-        .filter(shorthand__in=processed_sps_across_identity_federations) \
+    saml_id_feds = SAMLIdentityFederation.objects \
+        .filter(shorthand__in=processed_sps_across_id_feds) \
         .extra(select={'shorthand_lower': 'lower(shorthand)'}) \
         .order_by('shorthand_lower') \
         .all()
 
-    identity_federations_intersection_of_centre_registry_and_summary = \
-        {saml_identity_federation.shorthand: processed_sps_across_identity_federations[
-            saml_identity_federation.shorthand]
-         for saml_identity_federation in saml_identity_federations}  # TODO: handle exceptions
+    # TODO: handle exceptions
+    id_feds_also_in_summary = \
+        {saml_id_fed.shorthand: processed_sps_across_id_feds[
+            saml_id_fed.shorthand] for saml_id_fed in saml_id_feds}
 
-    processed_sps_across_identity_federations2 = \
-        OrderedDict(sorted(identity_federations_intersection_of_centre_registry_and_summary.items(),
-            key=lambda identity_federation_shorthand: identity_federation_shorthand[0].lower()))
+    processed_sps_across_id_feds2 = \
+        OrderedDict(sorted(
+            id_feds_also_in_summary.items(),
+            key=lambda id_fed_shorthand:
+            id_fed_shorthand[0].lower()))
 
-    request_context = RequestContext(request, {'view': 'spf',
-                                               'saml_service_providers': SAMLServiceProvider.objects.all(),
-                                               'saml_identity_federations': saml_identity_federations,
-                                               'processed_sps_across_identity_federations': \
-                                                   processed_sps_across_identity_federations2})
-
+    request_dict = {'view': 'spf',
+                    'saml_service_providers':
+                    SAMLServiceProvider.objects.all(),
+                    'saml_id_feds':
+                    saml_id_feds,
+                    'processed_sps_across_id_feds':
+                    processed_sps_across_id_feds2}
+    request_context = RequestContext(request, request_dict)
     return render(request,
                   template_name='UI/_spf.html',
                   context=request_context)
