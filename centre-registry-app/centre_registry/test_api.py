@@ -19,10 +19,8 @@ class APITestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         setup()
-        management.call_command('loaddata',
-                                'test_data.json',
-                                verbosity=1,
-                                noinput=True)
+        management.call_command(
+            'loaddata', 'test_data.json', verbosity=1, noinput=True)
         super(APITestCase, cls).setUpClass()
 
     # Tests for API v1
@@ -45,8 +43,8 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Type'], 'application/xml')
 
-        schema_root = fromstring(resource_string(__name__, join(
-            'data', 'CenterProfile.xsd')))
+        schema_root = fromstring(
+            resource_string(__name__, join('data', 'CenterProfile.xsd')))
         schema = XMLSchema(schema_root)
 
         try:

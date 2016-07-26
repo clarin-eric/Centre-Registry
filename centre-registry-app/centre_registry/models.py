@@ -35,8 +35,8 @@ def validate_latitude(latitude):
             return
     except Exception as exception:
         raise ValidationError(
-            '{0} is not a valid Decimal Degree latitude. '.format(str(
-                latitude))) from exception
+            '{0} is not a valid Decimal Degree latitude. '.format(
+                str(latitude))) from exception
 
 
 def validate_longitude(longitude):
@@ -45,8 +45,8 @@ def validate_longitude(longitude):
             return
     except Exception as exception:
         raise ValidationError(
-            '{0} is not a valid Decimal Degree longitude. '.format(str(
-                longitude))) from exception
+            '{0} is not a valid Decimal Degree longitude. '.format(
+                str(longitude))) from exception
 
 
 class Contact(Model):
@@ -55,18 +55,18 @@ class Contact(Model):
     """
     email_address = EmailField(verbose_name='E-mail address')
     name = CharField(max_length=100, unique=False, verbose_name='Name')
-    edupersonprincipalname = CharField(max_length=100,
-                                       blank=True,
-                                       null=True,
-                                       verbose_name='eduPersonPrincipalName',
-                                       unique=True)
+    edupersonprincipalname = CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='eduPersonPrincipalName',
+        unique=True)
     telephone_number = CharField(
         max_length=40,
         blank=True,
         verbose_name='Telephone number (E.123 international notation)')
-    website_url = URLField(max_length=2000,
-                           blank=True,
-                           verbose_name='Website URL')
+    website_url = URLField(
+        max_length=2000, blank=True, verbose_name='Website URL')
 
     def __unicode__(self):
         return '{name:s} <{email_address:s}>'.format(
@@ -85,21 +85,19 @@ class Consortium(Model):
     """
     A CLARIN consortium.
     """
-    country_code = CharField(verbose_name='Country code',
-                             max_length=3,
-                             unique=True)
-    country_name = CharField(verbose_name='Country name',
-                             max_length=20,
-                             unique=True)
-    is_observer = BooleanField(verbose_name='Is observer (not member)?',
-                               default=False)
+    country_code = CharField(
+        verbose_name='Country code', max_length=3, unique=True)
+    country_name = CharField(
+        verbose_name='Country name', max_length=20, unique=True)
+    is_observer = BooleanField(
+        verbose_name='Is observer (not member)?', default=False)
     name = CharField(verbose_name='Name', max_length=40, blank=True)
-    website_url = URLField(verbose_name='Website URL',
-                           max_length=2000,
-                           blank=True)
-    alias = CharField(verbose_name='DNS subdomain alias * (*.clarin.eu)',
-                      blank=True,
-                      max_length=25)
+    website_url = URLField(
+        verbose_name='Website URL', max_length=2000, blank=True)
+    alias = CharField(
+        verbose_name='DNS subdomain alias * (*.clarin.eu)',
+        blank=True,
+        max_length=25)
 
     def __unicode__(self):
         return '{name:s} ({country_code})'.format(
@@ -118,9 +116,8 @@ class CentreType(Model):
     """
     A CLARIN centre type
     """
-    type = CharField(verbose_name='Certified centre type',
-                     max_length=1,
-                     unique=True)
+    type = CharField(
+        verbose_name='Certified centre type', max_length=1, unique=True)
 
     def __unicode__(self):
         return '{type:s}'.format(type=self.type)
@@ -139,61 +136,59 @@ class Centre(Model):
     A CLARIN centre.
     """
     name = CharField(verbose_name='Name', max_length=200, unique=True)
-    shorthand = CharField(verbose_name='Shorthand code',
-                          max_length=30,
-                          unique=True)
+    shorthand = CharField(
+        verbose_name='Shorthand code', max_length=30, unique=True)
     organisation_name = CharField(verbose_name='Organisation', max_length=100)
     institution = CharField(verbose_name='Institution', max_length=200)
     working_unit = CharField(verbose_name='Working unit', max_length=200)
     address = CharField(verbose_name='Address', max_length=100)
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
-    latitude = CharField(verbose_name='Latitude (from e.g. Google Maps)',
-                         validators=[validate_latitude],
-                         max_length=20)
-    longitude = CharField(verbose_name='Longitude (from e.g. Google Maps)',
-                          validators=[validate_longitude],
-                          max_length=20)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type')
-    type_status = CharField(verbose_name="Comments about centre's type",
-                            max_length=100,
-                            blank=True)
-    administrative_contact = ForeignKey(Contact,
-                                        related_name='administrative_contact')
+    type_status = CharField(
+        verbose_name="Comments about centre's type",
+        max_length=100,
+        blank=True)
+    administrative_contact = ForeignKey(
+        Contact, related_name='administrative_contact')
     technical_contact = ForeignKey(Contact, related_name='technical_contact')
-    monitoring_contacts = ManyToManyField(to=Contact,
-                                          related_name='monitoring_contacts',
-                                          blank=True)
+    monitoring_contacts = ManyToManyField(
+        to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
-    description = CharField(verbose_name='Description',
-                            max_length=500,
-                            blank=True)
+    description = CharField(
+        verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
     consortium = ForeignKey(Consortium, blank=True, null=True)
 
-    type_certificate_url = URLField(verbose_name='Centre type certificate URL',
-                                    max_length=2000,
-                                    blank=True)
-    dsa_url = URLField(verbose_name='Data Seal of Approval URL',
-                       max_length=2000,
-                       blank=True)
-    pid_status = CharField(verbose_name='Persistent Identifier usage status',
-                           max_length=200,
-                           blank=True)
-    long_term_archiving_policy = CharField(
-        verbose_name='Long Time Archiving Policy',
+    type_certificate_url = URLField(
+        verbose_name='Centre type certificate URL',
+        max_length=2000,
+        blank=True)
+    dsa_url = URLField(
+        verbose_name='Data Seal of Approval URL', max_length=2000, blank=True)
+    pid_status = CharField(
+        verbose_name='Persistent Identifier usage status',
         max_length=200,
         blank=True)
-    repository_system = CharField(verbose_name='Repository system',
-                                  max_length=200,
-                                  blank=True)
-    strict_versioning = BooleanField(verbose_name='Strict versioning?',
-                                     default=False)
+    long_term_archiving_policy = CharField(
+        verbose_name='Long Time Archiving Policy', max_length=200, blank=True)
+    repository_system = CharField(
+        verbose_name='Repository system', max_length=200, blank=True)
+    strict_versioning = BooleanField(
+        verbose_name='Strict versioning?', default=False)
 
     def __unicode__(self):
-        return '{shorthand:s} ({city:s})'.format(shorthand=self.shorthand,
-                                                 city=self.city)
+        return '{shorthand:s} ({city:s})'.format(
+            shorthand=self.shorthand, city=self.city)
 
     def __str__(self):
         return self.__unicode__()
@@ -211,9 +206,8 @@ class MetadataFormat(Model):
     #ListMetadataFormats ).
     Deprecated, use ListMetadataFormats verb on endpoint instead.
     """
-    name = CharField(verbose_name='Metadata format name',
-                     max_length=30,
-                     unique=True)
+    name = CharField(
+        verbose_name='Metadata format name', max_length=30, unique=True)
 
     def __unicode__(self):
         return '{name:s}'.format(name=self.name)
@@ -255,8 +249,7 @@ class OAIPMHEndpoint(Model):
     """
     centre = ForeignKey(Centre)
     metadata_format = ForeignKey(
-        MetadataFormat,
-        verbose_name='Metadata format (historic artifact)')
+        MetadataFormat, verbose_name='Metadata format (historic artifact)')
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
@@ -306,20 +299,17 @@ class SAMLServiceProvider(Model):
     """
     A CLARIN SPF SAML Service Provider.
     """
-    entity_id = CharField(verbose_name='Entity ID',
-                          max_length=1024,
-                          unique=True)
+    entity_id = CharField(
+        verbose_name='Entity ID', max_length=1024, unique=True)
     centre = ForeignKey(Centre)
-    status_url = URLField(verbose_name='Status URL',
-                          max_length=1024,
-                          blank=True)
-    production_status = BooleanField(verbose_name='Has production status?',
-                                     default=True)
+    status_url = URLField(
+        verbose_name='Status URL', max_length=1024, blank=True)
+    production_status = BooleanField(
+        verbose_name='Has production status?', default=True)
 
     def __unicode__(self):
         return '{entity_id:s} ({centre_shorthand:s})'.format(
-            entity_id=self.entity_id,
-            centre_shorthand=self.centre.shorthand)
+            entity_id=self.entity_id, centre_shorthand=self.centre.shorthand)
 
     def __str__(self):
         return self.__unicode__()
@@ -334,12 +324,11 @@ class SAMLIdentityFederation(Model):
     """
     A SAML identity federation.
     """
-    shorthand = CharField(verbose_name='Shorthand code',
-                          max_length=30,
-                          unique=True)
+    shorthand = CharField(
+        verbose_name='Shorthand code', max_length=30, unique=True)
     information_url = URLField(verbose_name='Information URL', max_length=1024)
-    saml_metadata_url = URLField(verbose_name='SAML metadata URL',
-                                 max_length=1024)
+    saml_metadata_url = URLField(
+        verbose_name='SAML metadata URL', max_length=1024)
     signing_key = TextField(
         verbose_name='XML digital signature X.509v3 public key (PEM format, '
         'without '

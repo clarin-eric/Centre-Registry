@@ -6,7 +6,8 @@ class Migration(migrations.Migration):
     dependencies = [('centre_registry', '0009_auto_20150423_1526'), ]
 
     operations = [
-        migrations.RenameField(model_name='contact',
-                               old_name='website',
-                               new_name='website_url', ),
+        migrations.RenameField(
+            model_name='contact',
+            old_name='website',
+            new_name='website_url', ),
     ]

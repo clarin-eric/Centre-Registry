@@ -27,10 +27,11 @@ def get_centre(request, centre_id):
          'fcs_endpoints': FCSEndpoint.objects.filter(centre__pk=centre.pk),
          'url_references': URLReference.objects.filter(centre__pk=centre.pk),
          'url_prefix': request.build_absolute_uri('/')})
-    return render(request,
-                  template_name='API/centre.xml',
-                  context=request_context,
-                  content_type='application/xml')
+    return render(
+        request,
+        template_name='API/centre.xml',
+        context=request_context,
+        content_type='application/xml')
 
 
 def get_all_centres(request):
@@ -38,18 +39,19 @@ def get_all_centres(request):
     request_context = RequestContext(
         request, {'all_centres': Centre.objects.all(),
                   'url_prefix': request.build_absolute_uri('/')})
-    return render(request,
-                  template_name='API/all_centres.xml',
-                  context=request_context,
-                  content_type='application/xml')
+    return render(
+        request,
+        template_name='API/all_centres.xml',
+        context=request_context,
+        content_type='application/xml')
 
 
 def _get_model(model_name):
     model_names = inspect_getmembers(models, inspect_isclass)
     for (imported_model_name, class_object) in model_names:
         if imported_model_name == model_name:
-            return json_loads(serializers.serialize(
-                'json', class_object.objects.all()))
+            return json_loads(
+                serializers.serialize('json', class_object.objects.all()))
     else:
         raise ViewDoesNotExist(model_name)
 
@@ -71,11 +73,12 @@ def get_centres_kml(request, types):
         type_query = type_query.__or__(Q(type__type=a_type))
 
     request_context = RequestContext(
+        request, {'centres':
+                  models.Centre.objects.filter(type_query).distinct(),
+                  'types': sorted(types_list),
+                  'url_prefix': request.build_absolute_uri('/')})
+    return render(
         request,
-        {'centres': models.Centre.objects.filter(type_query).distinct(),
-         'types': sorted(types_list),
-         'url_prefix': request.build_absolute_uri('/')})
-    return render(request,
-                  template_name='API/centres_map.kml',
-                  context=request_context,
-                  content_type='application/vnd.google-earth.kml+xml')
+        template_name='API/centres_map.kml',
+        context=request_context,
+        content_type='application/vnd.google-earth.kml+xml')

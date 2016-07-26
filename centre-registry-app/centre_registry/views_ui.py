@@ -17,98 +17,90 @@ from django.template import RequestContext
 
 def get_about(request):
     request_context = RequestContext(request, {'view': 'about'})
-    return render(request,
-                  template_name='UI/_about.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_about.html', context=request_context)
 
 
 def get_all_centres(request):
     request_context = RequestContext(request, {'view': 'all_centres',
                                                'all_centres':
                                                Centre.objects.all()})
-    return render(request,
-                  template_name='UI/_all_centres.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_all_centres.html', context=request_context)
 
 
 def get_centre(request, centre_id):
     centre = get_object_or_404(Centre, pk=centre_id)
     request_context = RequestContext(
-        request,
-        {'view': 'centre',
-         'centre': centre,
-         'url_references':
-         URLReference.objects.filter(centre__pk=centre.pk)})
-    return render(request,
-                  template_name='UI/_centre.html',
-                  context=request_context)
+        request, {'view': 'centre',
+                  'centre': centre,
+                  'url_references':
+                  URLReference.objects.filter(centre__pk=centre.pk)})
+    return render(
+        request, template_name='UI/_centre.html', context=request_context)
 
 
 def get_centres_contacts(request):
     request_context = RequestContext(request, {'view': 'centres_contacts',
                                                'all_centres':
                                                Centre.objects.all()})
-    return render(request,
-                  template_name='UI/_centres_contacts.html',
-                  context=request_context)
+    return render(
+        request,
+        template_name='UI/_centres_contacts.html',
+        context=request_context)
 
 
 def get_consortia(request):
     request_context = RequestContext(request, {'view': 'consortia',
                                                'consortia':
                                                Consortium.objects.all()})
-    return render(request,
-                  template_name='UI/_consortia.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_consortia.html', context=request_context)
 
 
 def get_contact(request, contact_id):
     contact = get_object_or_404(Contact, pk=contact_id)
     request_context = RequestContext(request, {'view': 'contact',
                                                'contact': contact})
-    return render(request,
-                  template_name='UI/_contact.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_contact.html', context=request_context)
 
 
 def get_contacting(request):
     request_context = RequestContext(request, {'view': 'contacting'})
-    return render(request,
-                  template_name='UI/_contacting.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_contacting.html', context=request_context)
 
 
 def get_fcs(request):
     request_context = RequestContext(request, {'view': 'fcs',
                                                'fcs_endpoints':
                                                FCSEndpoint.objects.all()})
-    return render(request,
-                  template_name='UI/_fcs.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_fcs.html', context=request_context)
 
 
 def get_oai_pmh(request):
     request_context = RequestContext(request, {'view': 'oai_pmh',
                                                'oai_pmh_endpoints':
                                                OAIPMHEndpoint.objects.all()})
-    return render(request,
-                  template_name='UI/_oai_pmh.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_oai_pmh.html', context=request_context)
 
 
 def get_map(request):
     request_context = RequestContext(
         request, {'view': 'map',
                   'url_prefix': request.build_absolute_uri('/')})
-    return render(request,
-                  template_name='UI/_map.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_map.html', context=request_context)
 
 
 def get_spf(request):
-    processed_sps_across_id_feds = loads(urlopen(
-        'https://infra.clarin.eu/aai/sps_at_id_feds/summary.json').read()
-                                         .decode('utf-8'))
+    processed_sps_across_id_feds = loads(
+        urlopen(
+            'https://infra.clarin.eu/aai/sps_at_id_feds/summary.json').read()
+        .decode('utf-8'))
 
     saml_id_feds = SAMLIdentityFederation.objects \
         .filter(shorthand__in=processed_sps_across_id_feds) \
@@ -135,6 +127,5 @@ def get_spf(request):
                     'processed_sps_across_id_feds':
                     processed_sps_across_id_feds2}
     request_context = RequestContext(request, request_dict)
-    return render(request,
-                  template_name='UI/_spf.html',
-                  context=request_context)
+    return render(
+        request, template_name='UI/_spf.html', context=request_context)

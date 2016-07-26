@@ -7,15 +7,17 @@ class Migration(migrations.Migration):
     dependencies = [('centre_registry', '0011_auto_20150424_1336'), ]
 
     operations = [
-        migrations.AlterModelOptions(name='centre',
-                                     options={'verbose_name': 'centre',
-                                              'verbose_name_plural': 'centres',
-                                              'ordering': ('shorthand', )}, ),
-        migrations.AlterModelOptions(name='centretype',
-                                     options={'verbose_name': 'centre type',
-                                              'verbose_name_plural':
-                                              'centre types',
-                                              'ordering': ('type', )}, ),
+        migrations.AlterModelOptions(
+            name='centre',
+            options={'verbose_name': 'centre',
+                     'verbose_name_plural': 'centres',
+                     'ordering': ('shorthand', )}, ),
+        migrations.AlterModelOptions(
+            name='centretype',
+            options={'verbose_name': 'centre type',
+                     'verbose_name_plural':
+                     'centre types',
+                     'ordering': ('type', )}, ),
         migrations.AlterModelOptions(
             name='samlidentityfederation',
             options={'verbose_name': 'SAML identity federation',

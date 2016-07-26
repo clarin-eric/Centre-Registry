@@ -18,8 +18,9 @@ class SystemTestCase(StaticLiveServerTestCase):
         if is_ci:
             from selenium.webdriver import Remote
             hub_url = ("{username:s}:{access_key:s}@localhost.localdomain:4445"
-                       .format(username=environ["SAUCE_USERNAME"],
-                               access_key=environ["SAUCE_ACCESS_KEY"]))
+                       .format(
+                           username=environ["SAUCE_USERNAME"],
+                           access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
@@ -28,9 +29,10 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
                 "version": environ["version"]
             }
-            cls.selenium = Remote(desired_capabilities=desired_capabilities,
-                                  command_executor="http://{hub_url:s}/wd/hub"
-                                  .format(hub_url=hub_url))
+            cls.selenium = Remote(
+                desired_capabilities=desired_capabilities,
+                command_executor="http://{hub_url:s}/wd/hub"
+                .format(hub_url=hub_url))
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()

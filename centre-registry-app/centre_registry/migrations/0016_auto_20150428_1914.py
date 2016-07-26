@@ -9,8 +9,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name='samlidentityfederation',
-                               name='saml_sps_registered', ),
+        migrations.RemoveField(
+            model_name='samlidentityfederation',
+            name='saml_sps_registered', ),
         migrations.AddField(
             model_name='samlidentityfederation',
             name='signing_key',

@@ -12,9 +12,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contact',
             name='edupersonprincipalname',
-            field=models.CharField(null=True,
-                                   verbose_name='eduPersonPrincipalName',
-                                   blank=True,
-                                   unique=True,
-                                   max_length=100), ),
+            field=models.CharField(
+                null=True,
+                verbose_name='eduPersonPrincipalName',
+                blank=True,
+                unique=True,
+                max_length=100), ),
     ]
