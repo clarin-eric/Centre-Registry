@@ -98,9 +98,8 @@ def get_map(request):
 
 def get_spf(request):
     processed_sps_across_id_feds = loads(
-        urlopen(
-            'https://infra.clarin.eu/aai/sps_at_id_feds/summary.json').read()
-        .decode('utf-8'))
+        urlopen('https://infra.clarin.eu/aai/sps_at_identity_federations/'
+                'summary.json').read().decode('utf-8'))
 
     saml_id_feds = SAMLIdentityFederation.objects \
         .filter(shorthand__in=processed_sps_across_id_feds) \
