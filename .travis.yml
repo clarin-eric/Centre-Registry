@@ -22,7 +22,7 @@ install:
   - pip install -e 'centre-registry-app/'
   - pip install -r 'centre-registry-app/requirements_test.txt'
 script:
-  - cd -- Centre-Registry-config/
+  - cd -- centre-registry-config/
   - ./manage.py test centre_registry.test_api
   - ./manage.py test centre_registry.test_ui
 notifications:
