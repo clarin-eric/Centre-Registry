@@ -1,5 +1,5 @@
 -   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: 3fa02652357ff0dbb42b5bc78c673b7bc105fcf3
+    sha: 8e0d7bab601ce6a8775ea98082938e60fc80eb7f
     hooks:
     -   id: check-added-large-files
     -   id: check-merge-conflict
@@ -15,18 +15,18 @@
     -   id: name-tests-test
     -   id: requirements-txt-fixer
 -   repo: git://github.com/asottile/reorder_python_imports
-    sha: b022734351abe44d0b05a71a4fa1175287c59b49
+    sha: v0.3.0
     hooks:
     -   id: reorder-python-imports
 -   repo: git://github.com/pre-commit/mirrors-yapf
-    sha: 34303f2856d4e4ba26dc302d9c28632e9b5a8626
+    sha: v0.11.1
     hooks:
     -   id: yapf
         args:
         - --diff
         - --no-local-style
 -   repo: git://github.com/pre-commit/mirrors-pylint
-    sha: 4de6c8dfadef1a271a814561ce05b8bc1c446d22
+    sha: v1.6.4
     hooks:
     -   id: pylint
         args:
