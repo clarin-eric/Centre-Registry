@@ -1,2 +1,4 @@
-lxml>=3.4.3
-selenium>=2.45.0
+# Dep disabled for container-based tests, since it requires C toolchain.
+# Install OS package instead.
+# lxml==3.6.1
+selenium==2.53.6

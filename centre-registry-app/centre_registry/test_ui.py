@@ -1,12 +1,13 @@
-#!/usr/bin/env python
 from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium.webdriver.firefox.webdriver import WebDriver
 
-try:
-    from selenium.webdriver.firefox.webdriver import WebDriver
-except ImportError:
-    from selenium.webdriver.chrome.webdriver import WebDriver
+
+# TODO: remove
+# try:
+# except ImportError:
+# from selenium.webdriver.chrome.webdriver import WebDriver
 
 
 class SystemTestCase(StaticLiveServerTestCase):
@@ -14,13 +15,14 @@ class SystemTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
-        is_ci = (environ.get('CONTINUOUS_INTEGRATION') or '').lower() == 'true'
+        # TODO: Replace Travis CI & Sauce Labs with generic testing code.
+        is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
         if is_ci:
             from selenium.webdriver import Remote
             hub_url = ("{username:s}:{access_key:s}@localhost.localdomain:4445"
-                       .format(
-                           username=environ["SAUCE_USERNAME"],
-                           access_key=environ["SAUCE_ACCESS_KEY"]))
+                .format(
+                username=environ["SAUCE_USERNAME"],
+                access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
@@ -32,7 +34,7 @@ class SystemTestCase(StaticLiveServerTestCase):
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
                 command_executor="http://{hub_url:s}/wd/hub"
-                .format(hub_url=hub_url))
+                    .format(hub_url=hub_url))
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()

@@ -7,19 +7,17 @@ from os.path import normpath
 
 from setuptools import setup
 
-__version__ = '2.1'  # TODO: update on release
-SETUP_REQUIRES = []  # ['wheel>=0.24']
-INSTALL_REQUIRES = ['centre-registry-app>=2.1,<2.2']
+# TODO: Tie version to git tag.
+__version__ = '2.2.0'
 
+INSTALL_REQUIRES = ['centre-registry-app==2.2.0']
 chdir(normpath(join(abspath(__file__), pardir)))
-
 setup(
     name='centre_registry_config',
     version=__version__,
     packages=['centre_registry_project'],
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
-    setup_requires=SETUP_REQUIRES,
     license='GPLv3',
     description='CLARIN Centre Registry, a Django application. ',
     long_description='See README.md',
