@@ -1,16 +1,16 @@
 from centre_registry import views_api
 from centre_registry import views_ui
+from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 from django.contrib import admin
 
 admin.autodiscover()
+admin.site.site_header = settings.ADMIN_TITLE
 
 urlpatterns = patterns(  # pylint: disable=invalid-name
     '',
-    # include('django.contrib.admindocs.urls')),
-    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     # REST API v1.

@@ -16,19 +16,20 @@ RESOURCE_LOCATION_DATATABLES = 'libs/DataTables-1.10.6/'
 RESOURCE_LOCATION_CLARIN_STYLE = 'CLARIN_style/1.0/'
 
 SECRET_KEY = 'testkey1283182183721'
-# Secure cookies have to be turned off in development mode, as the website is
-# served over HTTP instead of HTTPS.
-# TODO: address
-DEBUG = True
+## Secure cookies have to be turned off in development mode, assuming there is
+## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
+DEBUG = False # TODO: templatize
 SESSION_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_HTTPONLY = True
 PIWIK_WEBSITE_ID = None
 PROJECT_DIR = abspath(dirname(__file__))
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'django']
 TEMPLATE_DEBUG = DEBUG
 ADMINS = ('CLARIN ERIC sysops', 'sysops@clarin.eu')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-GRAPPELLI_ADMIN_TITLE = "Centre Registry administration"
+ADMIN_TITLE = "Centre Registry administration"
 MANAGERS = ADMINS
 DATABASES = {
     'default': {
@@ -41,25 +42,15 @@ LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
-MEDIA_ROOT = ''  # os.path.join(PROJECT_DIR, "media/")
-# MEDIA_URL = 'http://127.0.0.1:8000/static/media/'
-# STATIC_URL = '/static/'
+MEDIA_ROOT = ''
 STATIC_URL = 'https://infra.clarin.eu/content/Centre_Registry/'
-# ADMIN_MEDIA_PREFIX = "http://127.0.0.1:8000/static/admin/"
 STATIC_ROOT = join(PROJECT_DIR,
                    '../../centre-registry-app/centre_registry/static')
-# TODO: make robust
-# STATICFILES_DIRS = (
-#     os.path.join(PROJECT_DIR, "media/"),
-#     #os.path.join(PROJECT_DIR, "static/"),
-# )
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'django.contrib.staticfiles.finders.FileSystemFinder',
-    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
-# 'django.template.loaders.filesystem.Loader',
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
@@ -74,13 +65,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.RemoteUserMiddleware',  # TODO: remove?
     'django.contrib.messages.middleware.MessageMiddleware', )
 # TODO: Remove ModelBackend authentication once SSO with RemoteUserBackend is
-#  in place.
+# in place.
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
-# 'centre_registry.backends.CRRemoteUserBackend',
-# 'django.contrib.auth.backends.RemoteUserBackend',
 ROOT_URLCONF = app_name + '.urls'
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-# TEMPLATE_DIRS = (glob.glob(os.path.join(PROJECT_DIR, "templates/") + "*/"))
 
 INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.contenttypes',
@@ -88,7 +76,6 @@ INSTALLED_APPS = ('django.contrib.auth',
                   # 'django.contrib.sites',
                   'django.contrib.messages',
                   'django.contrib.staticfiles',
-                  'grappelli',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
                   'centre_registry', )
@@ -129,18 +116,3 @@ if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
     INSTALLED_APPS += ('debug_toolbar', )
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
-    # INTERNAL_IPS = ('127.0.0.1', '10.0.0.1')
-    # DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
-    # DEBUG_TOOLBAR_PANELS = (
-    #     'debug_toolbar.panels.version.VersionDebugPanel',
-    #     'debug_toolbar.panels.timer.TimerDebugPanel',
-    #     'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-    #     'debug_toolbar.panels.headers.HeaderDebugPanel',
-    #     #'debug_toolbar.panels.profiling.ProfilingDebugPanel',
-    #     'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-    #     'debug_toolbar.panels.sql.SQLDebugPanel',
-    #     'debug_toolbar.panels.template.TemplateDebugPanel',
-    #     'debug_toolbar.panels.cache.CacheDebugPanel',
-    #     'debug_toolbar.panels.signals.SignalDebugPanel',
-    #     'debug_toolbar.panels.logger.LoggingPanel',
-    # )
