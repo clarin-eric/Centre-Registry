@@ -64,7 +64,7 @@ def get_model(request, model):
 def get_centres_kml(request, types):
     # Whitelist of the allowed types
     if types == '':
-        types = 'ABCDET'
+        types = 'ABCDETK'
     types_list = set(types)  # TODO: refactor
     types_list_iter = iter(types_list)  # TODO: refactor
 
