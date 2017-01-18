@@ -10,6 +10,7 @@
                     <th>Shorthand</th>
                     <th>Type</th>
                     <th>Type status</th>
+                    <th>Assessment dates</th>
                     <th>City</th>
                     <th>Consortium</th>
                     <th>
@@ -37,6 +38,12 @@
                         {% else %}
                             <em>none</em>
                         {% endif %}</td>
+                        <td>{% if centre.assessmentdates %}
+                            {% for date in centre.assessmentdates.all %}
+                                {{ date.brief }}<br/>
+                            {% endfor %}
+                        {% endif %}
+                        </td>
                         <td>
                             <a href='//www.openstreetmap.org/?&amp;mlat={{ centre.latitude }}&amp;mlon={{ centre.longitude }}'>{{ centre.city }}</a>
                         </td>
