@@ -18,7 +18,7 @@ env:
     - browserName='MicrosoftEdge' platform='Windows 10' version='13.10586'
     - browserName='safari' platform='OS X 10.11' version='9.0'
 install:
-  - pip install Django=="$DJANGO_VERSION"
+  - pip install Django=="$DJANGO_VERSION" lxml
   - pip install -e 'centre-registry-app/'
   - pip install -r 'centre-registry-app/requirements_test.txt'
 script:
