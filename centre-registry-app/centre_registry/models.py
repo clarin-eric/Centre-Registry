@@ -10,6 +10,7 @@ from django.db.models import ManyToManyField
 from django.db.models import Model
 from django.db.models import TextField
 from django.db.models import URLField
+from django.db.models import DateField
 
 
 def parse_decimal_degree(degree):
@@ -131,6 +132,35 @@ class CentreType(Model):
         verbose_name_plural = 'centre types'
 
 
+class AssessmentDates(Model):
+    """
+    Assessment due date
+    """
+    issuedate = DateField(verbose_name='Assessment issued date (YYYY-MM-DD)')
+    duedate = DateField(verbose_name='Assessment due date (YYYY-MM-DD)')
+    type = ManyToManyField(to=CentreType, verbose_name='Type')
+
+    def __unicode__(self):
+        return u'[{0}] valid till [{1}] for {2}'.format(
+            self.issuedate, self.duedate, self.type.all()
+        )
+
+    def __str__(self):
+        return self.__unicode__()
+
+    @property
+    def brief(self):
+        types = u", ".join([x.type for x in self.type.all()])
+        return u'{0} valid till {1} for [{2}]'.format(
+            self.issuedate, self.duedate, types
+        )
+
+    class Meta:
+        ordering = ('issuedate', 'duedate')
+        verbose_name = 'issue/due dates for a centre type'
+        verbose_name_plural = 'issue/due dates for a centre type'
+
+
 class Centre(Model):
     """
     A CLARIN centre.
@@ -158,6 +188,10 @@ class Centre(Model):
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
+    assessmentdates = ManyToManyField(
+        to=AssessmentDates, related_name='assessmentdates', blank=True
+    )
+
     administrative_contact = ForeignKey(
         Contact, related_name='administrative_contact')
     technical_contact = ForeignKey(Contact, related_name='technical_contact')

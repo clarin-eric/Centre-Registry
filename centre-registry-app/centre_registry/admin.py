@@ -1,6 +1,7 @@
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import Consortium
+from centre_registry.models import AssessmentDates
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import MetadataFormat
@@ -15,6 +16,7 @@ admin.site.app_name = "Centre Registry"
 admin.site.register(Centre)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
+admin.site.register(AssessmentDates)
 admin.site.register(Contact)
 admin.site.register(FCSEndpoint)
 admin.site.register(MetadataFormat)
