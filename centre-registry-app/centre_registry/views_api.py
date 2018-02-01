@@ -76,7 +76,7 @@ def get_centres_kml(request, types):
         request, {'centres':
                   models.Centre.objects.filter(type_query).distinct(),
                   'types': sorted(types_list),
-                  'url_prefix': request.build_absolute_uri('/')})
+                  'url_prefix': request.build_absolute_uri('/').replace('http://', 'https://')})
     return render(
         request,
         template_name='API/centres_map.kml',

@@ -91,7 +91,7 @@ def get_oai_pmh(request):
 def get_map(request):
     request_context = RequestContext(
         request, {'view': 'map',
-                  'url_prefix': request.build_absolute_uri('/')})
+                  'url_prefix': request.build_absolute_uri('/').replace('http://', 'https://')})
     return render(
         request, template_name='UI/_map.html', context=request_context)
 
