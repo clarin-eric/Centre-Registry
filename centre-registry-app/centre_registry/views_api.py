@@ -38,7 +38,7 @@ def get_all_centres(request):
     """API v1"""
     request_context = RequestContext(
         request, {'all_centres': Centre.objects.all(),
-                  'url_prefix': request.build_absolute_uri('/')})
+                  'url_prefix': request.build_absolute_uri('/').replace('http://', 'https://')})
     return render(
         request,
         template_name='API/all_centres.xml',
