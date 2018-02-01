@@ -17,7 +17,7 @@
                 <th><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
                 <th><abbr title='Does this SP have production status?'>Prod. status</abbr></th>
                 <th><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
-                {% for saml_identity_federation in saml_identity_federations %}
+                {% for saml_identity_federation in saml_id_feds %}
                     {# TODO: Do not handle such a special case like 'CLARIN IdP'. #}
                     {% if saml_identity_federation.shorthand != 'CLARIN IdP' %}
                         <th>
@@ -48,7 +48,7 @@
                             <em>none</em>
                         {% endif %}
                     </td>
-                    {% for identity_federation, sps in processed_sps_across_identity_federations.items %}
+                    {% for identity_federation, sps in processed_sps_across_id_feds.items %}
                         <td class='non_textual'>
                             {% if saml_service_provider.entity_id in sps %}
                                 <a href='https://infra.clarin.eu/aai/sps_at_identity_federations/{{ identity_federation|urlencode }}/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml.diff'><span class='positive'>Δ</span></a>
