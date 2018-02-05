@@ -19,6 +19,20 @@
                 </ListStyle>
             </Style>
         {% endfor %}
+            <Style id="X">
+                <IconStyle>
+                    <scale>1.0</scale>
+                    <Icon>
+                        <href>https://infra.clarin.eu/content/KML/Icon/letter_dot.png</href>
+                    </Icon>
+                    <hotSpot x="16" y="1" xunits="pixels" yunits="pixels"/>
+                </IconStyle>
+                <ListStyle>
+                    <ItemIcon>
+                        <href>https://infra.clarin.eu/content/KML/Icon/letter_dot.png</href>
+                    </ItemIcon>
+                </ListStyle>
+            </Style>
         <Folder>
             <name>all</name>
             <open>1</open>
@@ -40,8 +54,9 @@
                         {% endif %}
                     ]]>
                         </description>
-                        <styleUrl>{% for type in centre.type.all %}
-                            #{{ type }}{% endfor %}
+                        <styleUrl>{% if centre.type.all|length > 1 %}
+                            #{{ "X" }}{% else %}
+                            #{{ centre.type.all|first }}{% endif %}
                         </styleUrl>
                         <Point>
                             <coordinates>{{ centre.longitude }},{{ centre.latitude }},0</coordinates>
