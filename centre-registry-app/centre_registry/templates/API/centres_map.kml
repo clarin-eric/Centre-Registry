@@ -19,17 +19,17 @@
                 </ListStyle>
             </Style>
         {% endfor %}
-            <Style id="X">
+            <Style id="multiple">
                 <IconStyle>
                     <scale>1.0</scale>
                     <Icon>
-                        <href>https://infra.clarin.eu/content/KML/Icon/letter_dot.png</href>
+                        <href>https://infra.clarin.eu/content/KML/Icon/letter_3dot.png</href>
                     </Icon>
                     <hotSpot x="16" y="1" xunits="pixels" yunits="pixels"/>
                 </IconStyle>
                 <ListStyle>
                     <ItemIcon>
-                        <href>https://infra.clarin.eu/content/KML/Icon/letter_dot.png</href>
+                        <href>https://infra.clarin.eu/content/KML/Icon/letter_3dot.png</href>
                     </ItemIcon>
                 </ListStyle>
             </Style>
@@ -55,7 +55,7 @@
                     ]]>
                         </description>
                         <styleUrl>{% if centre.type.all|length > 1 %}
-                            #{{ "X" }}{% else %}
+                            #{{ "multiple" }}{% else %}
                             #{{ centre.type.all|first }}{% endif %}
                         </styleUrl>
                         <Point>
