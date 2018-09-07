@@ -9,8 +9,8 @@ from setuptools import setup
 
 __version__ = '2.2.2'
 
-INSTALL_REQUIRES = ['Django==2.1.1', 'django-debug-toolbar==1.10']
-TEST_REQUIRES = ['lxml==4.2.4', 'selenium==3.14.0']
+INSTALL_REQUIRES = ['Django==1.9.10', 'django-debug-toolbar==1.6']
+TEST_REQUIRES = ['lxml==3.6.4', 'selenium==2.53.6']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_app',
