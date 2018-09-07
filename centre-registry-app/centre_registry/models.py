@@ -193,7 +193,7 @@ class Centre(Model):
     )
 
     administrative_contact = ForeignKey(
-        Contact, related_name='administrative_contact')
+        Contact, related_name='administrative_contact', on_delete=models.PROTECT)
     technical_contact = ForeignKey(Contact, related_name='technical_contact')
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
