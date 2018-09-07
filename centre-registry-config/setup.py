@@ -8,9 +8,9 @@ from os.path import normpath
 from setuptools import setup
 
 # TODO: Tie version to git tag.
-__version__ = '2.2.0'
+__version__ = '2.2.2'
 
-INSTALL_REQUIRES = ['centre-registry-app==2.2.0']
+INSTALL_REQUIRES = ['centre-registry-app==2.2.2']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_config',
