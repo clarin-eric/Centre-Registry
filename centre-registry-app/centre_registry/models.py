@@ -11,7 +11,7 @@ from django.db.models import Model
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
-from django.db.models import PROTECT
+
 
 def parse_decimal_degree(degree):
     """
@@ -193,15 +193,15 @@ class Centre(Model):
     )
 
     administrative_contact = ForeignKey(
-        Contact, on_delete=PROTECT, related_name='administrative_contact')
-    technical_contact = ForeignKey(Contact, on_delete=PROTECT, related_name='technical_contact')
+        Contact, related_name='administrative_contact')
+    technical_contact = ForeignKey(Contact, related_name='technical_contact')
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, on_delete=PROTECT, blank=True, null=True)
+    consortium = ForeignKey(Consortium, blank=True, null=True)
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
@@ -260,7 +260,7 @@ class URLReference(Model):
     A web reference (URL) with description.
     """
 
-    centre = ForeignKey(Centre, on_delete=PROTECT)
+    centre = ForeignKey(Centre)
     description = CharField(verbose_name='Content description', max_length=300)
     url = URLField(verbose_name='URL', max_length=2000, unique=True)
 
@@ -281,9 +281,9 @@ class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
-    centre = ForeignKey(Centre, on_delete=PROTECT)
+    centre = ForeignKey(Centre)
     metadata_format = ForeignKey(
-        MetadataFormat, on_delete=PROTECT, verbose_name='Metadata format (historic artifact)')
+        MetadataFormat, verbose_name='Metadata format (historic artifact)')
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
@@ -313,7 +313,7 @@ class FCSEndpoint(Model):
     """
     A CLARIN FCS Endpoint.
     """
-    centre = ForeignKey(Centre, on_delete=PROTECT)
+    centre = ForeignKey(Centre)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
 
     def __unicode__(self):
@@ -335,7 +335,7 @@ class SAMLServiceProvider(Model):
     """
     entity_id = CharField(
         verbose_name='Entity ID', max_length=1024, unique=True)
-    centre = ForeignKey(Centre, on_delete=PROTECT)
+    centre = ForeignKey(Centre)
     status_url = URLField(
         verbose_name='Status URL', max_length=1024, blank=True)
     production_status = BooleanField(
