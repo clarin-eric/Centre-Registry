@@ -11,7 +11,7 @@ from django.db.models import Model
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
-
+from django.db.models import PROTECT
 
 def parse_decimal_degree(degree):
     """
@@ -193,7 +193,7 @@ class Centre(Model):
     )
 
     administrative_contact = ForeignKey(
-        Contact, related_name='administrative_contact', on_delete=models.PROTECT)
+        Contact, related_name='administrative_contact', on_delete=PROTECT)
     technical_contact = ForeignKey(Contact, related_name='technical_contact')
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
