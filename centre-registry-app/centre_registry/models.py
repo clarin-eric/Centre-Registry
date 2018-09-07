@@ -2,16 +2,7 @@ from decimal import Decimal
 from re import match as re_match
 
 from django.core.exceptions import ValidationError
-from django.db.models import BooleanField
-from django.db.models import CharField
-from django.db.models import EmailField
-from django.db.models import ForeignKey
-from django.db.models import ManyToManyField
-from django.db.models import Model
-from django.db.models import TextField
-from django.db.models import URLField
-from django.db.models import DateField
-from django.db.models import PROTECT
+from django.db import models
 
 def parse_decimal_degree(degree):
     """
@@ -193,7 +184,7 @@ class Centre(Model):
     )
 
     administrative_contact = ForeignKey(
-        Contact, related_name='administrative_contact', on_delete=PROTECT)
+        Contact, on_delete=model.PROTECT, related_name='administrative_contact')
     technical_contact = ForeignKey(Contact, related_name='technical_contact')
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
