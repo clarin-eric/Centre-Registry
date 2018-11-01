@@ -19,19 +19,19 @@ Gives a JSON representation of all data belonging to that model in the database.
 ### Make migrations
 Django wants to detect modifications made to the data model of apps:
 ```sh
-'centre-registry-config/manage.py' makemigrations
+'Centre-Registry-config/manage.py' makemigrations
 ```
 When you change an existing field, be careful to only change one property per `makemigrations` run (e.g, first change the field identifier, then the  `verbose_name` string).
 
 ### Show migrations
 To show migrations previously made, and whether they have been carried out or not:
 ```sh
-'centre-registry-config/manage.py' showmigrations
+'Centre-Registry-config/manage.py' showmigrations
 ```
 ### Generate fixtures
 For testing, you will need a sample of the data that obeys the data model. To generate such a *fixture*, run this:
 ```sh
-'centre-registry-config/manage.py' dumpdata \
+'Centre-Registry-config/manage.py' dumpdata \
     --format=json --indent 4 \
     --natural-primary --natural-foreign \
     --exclude=auth --exclude=sessions --exclude=admin --exclude=contenttypes  --exclude=auth \
@@ -43,7 +43,7 @@ When you change an existing field of some class in your data model, be careful t
 ### Migrate
 After making migrations, you will still need to apply them:
 ```sh
-'centre-registry-config/manage.py' migrate
+'Centre-Registry-config/manage.py' migrate
 ```
 **Always generate new a fixture after migrating.** If you do not, your fixture will not correspond to the actual data model, and testing runs will fail outright.
 
@@ -51,11 +51,11 @@ After making migrations, you will still need to apply them:
 #### From an IDE
 Within your IDE such as IntelliJ IDEA, your project should have a Django 'facet' detected automatically. If so, you should have the complete testing 'run configuration' available.
 #### From the command line
-First make sure that `centre-registry-app` and `centre-registry-config` are installed. Then run the test modules `centre_registry.test_api` and `centre_registry.test_ui` like so:
+First make sure that `centre-registry-app` and `Centre-Registry-config` are installed. Then run the test modules `centre_registry.test_api` and `centre_registry.test_ui` like so:
 ```sh
-'centre-registry-config/manage.py' test centre_registry
+'Centre-Registry-config/manage.py' test centre_registry
 ```
 Or more selectively:
 ```sh
-'centre-registry-config/manage.py' test centre_registry.{test_api,test_ui}
+'Centre-Registry-config/manage.py' test centre_registry.{test_api,test_ui}
 ```

@@ -2,9 +2,10 @@ from os.path import abspath
 from os.path import dirname
 from os.path import join
 
-from centre_registry_project import __name__ as app_name
 from pkg_resources import DistributionNotFound
 from pkg_resources import get_distribution
+
+from centre_registry_project import __name__ as app_name
 
 try:
     VERSION = get_distribution("centre-registry-app").version
