@@ -34,7 +34,7 @@ For testing, you will need a sample of the data that obeys the data model. To ge
 'Centre-Registry-config/manage.py' dumpdata \
     --format=json --indent 4 \
     --natural-primary --natural-foreign \
-    --exclude=auth --exclude=sessions --exclude=admin --exclude=contenttypes  --exclude=auth \
+    --exclude=auth --exclude=sessions --exclude=admin --exclude=contenttypes \
     --no-color --traceback -o \
     'centre-registry-app/centre_registry/fixtures/test_data.json'
 ```
