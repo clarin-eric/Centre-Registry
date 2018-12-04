@@ -77,7 +77,7 @@
                             <Person>{{ centre.administrative_contact }}</Person>
                             <Email>{{ centre.administrative_contact.email_address }}</Email>
                             <Telephone>{{ centre.administrative_contact.telephone_number }}</Telephone>
-                            <Website>{{ centre.administrative_contact.website }}</Website>
+                            <Website>{{ centre.administrative_contact.website_url }}</Website>
                         </Contact>
                     </AdministrativeContact>
                     <TechnicalContact>
@@ -85,7 +85,7 @@
                             <Person>{{ centre.technical_contact }}</Person>
                             <Email>{{ centre.technical_contact.email_address }}</Email>
                             <Telephone>{{ centre.technical_contact.telephone_number }}</Telephone>
-                            <Website>{{ centre.technical_contact.website }}</Website>
+                            <Website>{{ centre.technical_contact.website_url }}</Website>
                         </Contact>
                     </TechnicalContact>
                 </OrganisationalInformation>
