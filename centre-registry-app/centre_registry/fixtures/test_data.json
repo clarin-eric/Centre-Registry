@@ -3,20 +3,20 @@
     "pk": 1,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "marie.hinrichs@uni-tuebingen.de",
-        "telephone_number": "+49 7071 2978490",
-        "name": "Marie Hinrichs",
+        "email_address": "margarethe.weber@fake-gmx.de",
+        "telephone_number": "+00 7777 2222222",
+        "name": "Margarethe Weber",
         "edupersonprincipalname": null,
-        "website_url": "http://www.sfs.uni-tuebingen.de/ascl/mitarbeiter/mitarbeiter-detail/hinrichs-marie.html"
+        "website_url": "http://www.fake-gmx.de/cms/mitarbeiter/mitarbeiter-detail/margarethe-weber.html"
     }
 },
 {
     "pk": 2,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "karlheinz.moerth@oeaw.ac.at",
-        "telephone_number": "+43 1 51581 2329",
-        "name": "Karlheinz Moerth",
+        "email_address": "katzim@fake-gmx.de",
+        "telephone_number": "+99 00 00000 000",
+        "name": "Katarina Zim",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -25,9 +25,9 @@
     "pk": 3,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "matej.durco@assoc.oeaw.ac.at",
-        "telephone_number": "+43 1 51581 2280",
-        "name": "Matej \u010eur\u010do",
+        "email_address": "martina.navratilova@fake-mail.uk",
+        "telephone_number": "",
+        "name": "Martina Navratilova",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -36,9 +36,9 @@
     "pk": 4,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "stranak@ufal.mff.cuni.cz",
-        "telephone_number": "",
-        "name": "Pavel Stra\u0148\u00e1k",
+        "email_address": "matias.dudu@fake-email.at",
+        "telephone_number": "+00 1 55555 4444",
+        "name": "Matias Dudu",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -47,9 +47,9 @@
     "pk": 5,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "clarin-list@ufal.mff.cuni.cz",
-        "telephone_number": "",
-        "name": "Jozef Mi\u0161utka",
+        "email_address": "karin.schneider@fake-gmx.at",
+        "telephone_number": "+00 1 01010 1010",
+        "name": "Karin Schneider",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -58,42 +58,42 @@
     "pk": 6,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "heyer@informatik.uni-leipzig.de",
-        "telephone_number": "+49 341 97 32231",
-        "name": "Prof. Dr. Gerhard Heyer",
+        "email_address": "jurgen@fake-mail.fi",
+        "telephone_number": "",
+        "name": "J\u00fcrgen Schmidt",
         "edupersonprincipalname": null,
-        "website_url": "http://asv.informatik.uni-leipzig.de/staff/Gerhard_Heyer"
+        "website_url": ""
     }
 },
 {
     "pk": 7,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "dgoldhahn@informatik.uni-leipzig.de",
-        "telephone_number": "+49-341-97-32203",
-        "name": "Dirk Goldhahn",
+        "email_address": "j.s.bach@fake-composer.de",
+        "telephone_number": "+00 89 0123 4567",
+        "name": "Johann Sebastian Bach",
         "edupersonprincipalname": null,
-        "website_url": "http://asv.informatik.uni-leipzig.de/staff/Dirk_Goldhahn"
+        "website_url": "http://www.kompositor.de/fake/j.s.bach@fake-composer.de"
     }
 },
 {
     "pk": 8,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "bas@bas.uni-muenchen.de",
-        "telephone_number": "+49 89 2802758",
-        "name": "Christoph Draxler",
+        "email_address": "j.o.krag@fake-gmx.de",
+        "telephone_number": "+00 999 01234567",
+        "name": "Jens Otto Krag",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.krag.de/jens/"
     }
 },
 {
     "pk": 9,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "bas@bas.uni-muenchen.de",
-        "telephone_number": "+49 89 2802758",
-        "name": "Florian Schiel",
+        "email_address": "j.neppank@fake-gmx.de",
+        "telephone_number": "+00 000 7777777",
+        "name": "Jan Neppank",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -102,21 +102,21 @@
     "pk": 10,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "geyken@bbaw.de",
-        "telephone_number": "+49 30 20370 390",
-        "name": "Alexander Geyken",
+        "email_address": "titles@profs-and-drs.de",
+        "telephone_number": "+00 333 22 55555",
+        "name": "Prof. Dr. Likes Titles",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.informatik4all.de/staff/Likes_Titles"
     }
 },
 {
     "pk": 11,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "zimmer@bbaw.de",
-        "telephone_number": "+49 30 20370 393",
-        "name": "Kai Zimmer",
-        "edupersonprincipalname": null,
+        "email_address": "frodo@fakemail.de",
+        "telephone_number": "",
+        "name": "Frodo Baggins",
+        "edupersonprincipalname": "frodo_fakemail.de@test.eu",
         "website_url": ""
     }
 },
@@ -124,31 +124,31 @@
     "pk": 12,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "CLARIN-support@fz-juelich.de",
-        "telephone_number": "+49 2461 61 9401 ",
-        "name": "Benedikt von St. Vith",
+        "email_address": "vincent@fake-mail.eu",
+        "telephone_number": "",
+        "name": "Vincent van Gogh",
         "edupersonprincipalname": null,
-        "website_url": "http://www.fz-juelich.de/SharedDocs/Personen/IAS/JSC/EN/staff/von_st_vieth_b.html"
+        "website_url": ""
     }
 },
 {
     "pk": 13,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "tibor.kalman@gwdg.de",
-        "telephone_number": "+49 551 201 1541",
-        "name": "Tibor K\u00e1lm\u00e1n",
+        "email_address": "till.lindemann@fake-gmx.de",
+        "telephone_number": "+00 000 000 1541",
+        "name": "Till Lindemann",
         "edupersonprincipalname": null,
-        "website_url": "http://www.gwdg.de/index.php?id=2555"
+        "website_url": "http://www.tillram.de/index.php?id=9783259464284"
     }
 },
 {
     "pk": 14,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "hanna.hedeland@uni-hamburg.de",
+        "email_address": "l.moller@mx.uni-fake.de",
         "telephone_number": "+49 40 428386893",
-        "name": "Hanna Hedeland",
+        "name": "Prof. Lena M\u00fcller",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -157,9 +157,9 @@
     "pk": 15,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "timm.lehmberg@uni-hamburg.de",
-        "telephone_number": "+49 40 42838 6425",
-        "name": "Timm Lehmberg",
+        "email_address": "f.l.gassmann@fakegmx.de",
+        "telephone_number": "+11 00 1234567",
+        "name": "Florian Leopold Gassmann",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -168,42 +168,42 @@
     "pk": 16,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "clarin@ims.uni-stuttgart.de",
-        "telephone_number": "+49 711 68581365",
-        "name": "Prof. Dr. Jonas Kuhn ",
-        "edupersonprincipalname": null,
-        "website_url": "http://www.ims.uni-stuttgart.de/institut/mitarbeiter/jonas/"
+        "email_address": "CLARIN-support@gefalschte-email.de",
+        "telephone_number": "+00 9999 88 7777",
+        "name": "Peter von Vonit",
+        "edupersonprincipalname": "CLARIN-support_gefalschte-email.de@clarin.eu",
+        "website_url": "http://www.no-site-land.de/SharedDocs/Personen/Peter.Vonit.html"
     }
 },
 {
     "pk": 17,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "jens.stegmann@ims.uni-stuttgart.de",
-        "telephone_number": "+49 711 68581299",
-        "name": "Jens Stegmann",
+        "email_address": "schmied@fake-gmx.de",
+        "telephone_number": "+00 0000000010",
+        "name": "Hans Schmied",
         "edupersonprincipalname": null,
-        "website_url": "http://www.ims.uni-stuttgart.de/institut/mitarbeiter/jens/"
+        "website_url": ""
     }
 },
 {
     "pk": 18,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "witt@ids-mannheim.de",
-        "telephone_number": "+49 621 1581432",
-        "name": "Andreas Witt",
+        "email_address": "clarin@fake-uni.de",
+        "telephone_number": "+00 222 88888888",
+        "name": "Prof. Dr. Sankt Nikolaus",
         "edupersonprincipalname": null,
-        "website_url": "http://www.ids-mannheim.de/direktion/personal/witt.html"
+        "website_url": "http://www.showcase.de/institut/mitarbeiter/nikolaus/"
     }
 },
 {
     "pk": 19,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "schonefeld@ids-mannheim.de",
-        "telephone_number": "+49 6211581451",
-        "name": "Oliver Schonefeld",
+        "email_address": "hanna@fakemail.de",
+        "telephone_number": "+00 11 123456789",
+        "name": "Hannah Abbott",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -212,20 +212,20 @@
     "pk": 20,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "clarin-security@rzg.mpg.de",
-        "telephone_number": "+49 89 3299 2199",
-        "name": "Johannes Reetz",
+        "email_address": "maria@gefalschte-email.de",
+        "telephone_number": "",
+        "name": "Maria Joakina",
         "edupersonprincipalname": null,
-        "website_url": "http://www.rzg.mpg.de/organisation/mitarbeiter/homepage/template/johannes.reetz@rzg.mpg.de"
+        "website_url": ""
     }
 },
 {
     "pk": 21,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "florian.kaiser@rzg.mpg.de",
+        "email_address": "siegfried@myth.de",
         "telephone_number": "",
-        "name": "Florian Kaiser",
+        "name": "Siegfried Hagen",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -234,53 +234,53 @@
     "pk": 22,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "e.teich@mx.uni-saarland.de",
-        "telephone_number": "",
-        "name": "Prof. Elke Teich",
-        "edupersonprincipalname": null,
-        "website_url": ""
+        "email_address": "zwart.piet@geen-mail.nl",
+        "telephone_number": "+00 00 0000000",
+        "name": "Zwart Piet",
+        "edupersonprincipalname": "zwart.piet_geen-mail.nl@test.eu",
+        "website_url": "http://www.sintpiet.nl/cms/en/staff/56565656"
     }
 },
 {
     "pk": 23,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "j.knappen@mx.uni-saarland.de",
-        "telephone_number": "+49 681 3024484",
-        "name": "J\u00f6rg Knappen",
+        "email_address": "zeus@test.eu",
+        "telephone_number": "+11 11 1111111",
+        "name": "Orion Boss",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.goods.gr/people/zeus"
     }
 },
 {
     "pk": 24,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "bmaegaard@hum.ku.dk",
-        "telephone_number": "+45 35329074",
-        "name": "Bente Maegaard",
+        "email_address": "willemvanalexander@fake.org",
+        "telephone_number": "+00 6 66666666",
+        "name": "Willem van Alexander",
         "edupersonprincipalname": null,
-        "website_url": "http://cst.ku.dk/ansatte/profil/?id=29896"
+        "website_url": ""
     }
 },
 {
     "pk": 25,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "leneo@hum.ku.dk",
-        "telephone_number": "+45 3532 9081",
-        "name": "Lene Offersgaard",
+        "email_address": "svoboda@fake-mail.cz",
+        "telephone_number": "",
+        "name": "Adina Svoboda",
         "edupersonprincipalname": null,
-        "website_url": "http://cst.ku.dk/ansatte//profil/?id=88369"
+        "website_url": ""
     }
 },
 {
     "pk": 26,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "kadri.vider@ut.ee",
-        "telephone_number": "",
-        "name": "Kadri Vider",
+        "email_address": "sancho.pansa@cervantes-fake.es",
+        "telephone_number": "+00 40 42424 6432",
+        "name": "Sancho Pansa",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -289,9 +289,9 @@
     "pk": 27,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "krista.liin@ut.ee",
+        "email_address": "repo-technical@fakemail.si",
         "telephone_number": "",
-        "name": "Krista Liin",
+        "name": "Jan Valek",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -300,9 +300,9 @@
     "pk": 28,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "Marta.villegas@upf.edu",
-        "telephone_number": "",
-        "name": "Marta Villegas",
+        "email_address": "mikhail.kowalczyk@fake-mail.pl",
+        "telephone_number": "+00 22 333 22 22",
+        "name": "Mikhail Kowalczyk",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -311,9 +311,9 @@
     "pk": 29,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "finclarin@helsinki.fi",
+        "email_address": "krilin@fantasy.ee",
         "telephone_number": "",
-        "name": "N.N. (FIN-CLARIN)",
+        "name": "Kristina Lindenberg",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -322,20 +322,20 @@
     "pk": 30,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "jpiitula@ling.helsinki.fi",
-        "telephone_number": "",
-        "name": "Jussi Piitulainen",
+        "email_address": "kjell@fake-mail.no",
+        "telephone_number": "+00 11 22 33 44",
+        "name": "Kjell Hansen",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.imaginary-site.no/personer/Kjell_Hansen"
     }
 },
 {
     "pk": 31,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "spektor@andrew.cmu.edu",
-        "telephone_number": "",
-        "name": "Leonid Spektor",
+        "email_address": "joshua@fake-email.org",
+        "telephone_number": "+00 11111111",
+        "name": "Joshua Lebush",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -344,42 +344,42 @@
     "pk": 32,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "macw@cmu.edu",
+        "email_address": "joana@gmail.com",
         "telephone_number": "",
-        "name": "Brian MacWhinney",
+        "name": "Joana Maria Carneiro",
         "edupersonprincipalname": null,
-        "website_url": "http://psyling.psy.cmu.edu/"
+        "website_url": ""
     }
 },
 {
     "pk": 33,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "rvanveenendaal@taalunie.org",
-        "telephone_number": "+31 6 46828648",
-        "name": "Remco van Veenendaal",
+        "email_address": "jan.vertonghen@fakemail.nl",
+        "telephone_number": "+00 00 7654321",
+        "name": "Jan Vertonghen",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.vertonghen.nl/over-het-jan/contact/"
     }
 },
 {
     "pk": 34,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "marnix.van.berchum@dans.knaw.nl",
-        "telephone_number": "+31 6 51319808",
-        "name": "Marnix van Berchum",
+        "email_address": "j.cruyff@geen-uni.nl",
+        "telephone_number": "",
+        "name": "Prof. Johan Cruyff",
         "edupersonprincipalname": null,
-        "website_url": "http://www.dans.knaw.nl/content/contact/medewerkers/marnix-van-berchum"
+        "website_url": ""
     }
 },
 {
     "pk": 35,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "ronald.dekker@huygens.knaw.nl",
+        "email_address": "ivan@fake-email.no",
         "telephone_number": "",
-        "name": "Ronald Dekker",
+        "name": "Ivan Shawbly",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -388,20 +388,20 @@
     "pk": 36,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "jantheo.bakker@inl.nl",
-        "telephone_number": "+31 71 5272276",
-        "name": "Jan Theo Bakker",
+        "email_address": "groen.piet@geen-mail.nl",
+        "telephone_number": "+00 6 1234567",
+        "name": "Groen Piet",
         "edupersonprincipalname": null,
-        "website_url": "http://www.inl.nl/over-het-inl/contact/medewerkers"
+        "website_url": "http://www.sint.nl/content/contact/medewerkers/groenpiet"
     }
 },
 {
     "pk": 37,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "systeembeheer@inl.nl",
+        "email_address": "finfin@fake-fin.fi",
         "telephone_number": "+31 71 5272481",
-        "name": "N.N. (Systeembeheer)",
+        "name": "N.N. (FIN-FINISH)",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -410,31 +410,31 @@
     "pk": 38,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "Marc.Kemps.Snijders@meertens.knaw.nl",
+        "email_address": "esteves@fake-name.cz",
         "telephone_number": "+31 20 4628550",
-        "name": "Marc Kemps-Snijders",
+        "name": "José Esteves",
         "edupersonprincipalname": null,
-        "website_url": "http://www.meertens.knaw.nl/cms/en/staff/143329-marck"
+        "website_url": ""
     }
 },
 {
     "pk": 39,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "dieter@clarin.eu",
-        "telephone_number": "+31 85 0091363",
-        "name": "Dieter Van Uytvanck",
-        "edupersonprincipalname": "dietuyt_mpi.nl@clarin.eu",
-        "website_url": "http://www.mpi.nl/people/uytvanck-dieter-van"
+        "email_address": "contact@fake-id.org",
+        "telephone_number": "+00 6666666",
+        "name": "Filippe Blanco",
+        "edupersonprincipalname": "contact_fake-id.org@test.eu",
+        "website_url": ""
     }
 },
 {
     "pk": 40,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "maciej.piasecki@pwr.wroc.pl",
-        "telephone_number": "+48 71 320 42 21",
-        "name": "Maciej Piasecki",
+        "email_address": "efischer@fake-mail.ee",
+        "telephone_number": "",
+        "name": "Emma Fischer",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -443,42 +443,42 @@
     "pk": 41,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "michal.marcinczuk@pwr.wroc.pl",
-        "telephone_number": "+48 71 320 42 24",
-        "name": "Micha\u0142 Marci\u0144czuk",
+        "email_address": "dicktracy@inv.fakemail.de",
+        "telephone_number": "+00-321-98-76543",
+        "name": "Dick Tracy",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.dicktracy.de/fantasy"
     }
 },
 {
     "pk": 42,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "martin.wynne@it.ox.ac.uk",
-        "telephone_number": "",
-        "name": "Martin Wynne",
+        "email_address": "descobertas@non.existing.si",
+        "telephone_number": "+000 1 111 22 33",
+        "name": "Tomas Vasco da Gama",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://tomas.vasco.si/et/"
     }
 },
 {
     "pk": 43,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "j.odijk@uu.nl",
-        "telephone_number": "",
-        "name": "Prof. Jan Odijk",
+        "email_address": "andreas@fake-email.de",
+        "telephone_number": "+00 111 1111111",
+        "name": "Andreas Jonh",
         "edupersonprincipalname": null,
-        "website_url": ""
+        "website_url": "http://www.andreasjonh.de"
     }
 },
 {
     "pk": 44,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "daan.broeder@meertens.knaw.nl",
-        "telephone_number": "",
-        "name": "Daan Broeder",
+        "email_address": "alex@fake-email.de",
+        "telephone_number": "+00 12 34567 890",
+        "name": "Alexander Jonh",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -487,9 +487,9 @@
     "pk": 45,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "contact@sldr.org",
-        "telephone_number": "+33 33.4136",
-        "name": "Philippe BLACHE",
+        "email_address": "christopher@fake-email.de",
+        "telephone_number": "+00 98 7654321",
+        "name": "Christopher Reeve",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -498,9 +498,9 @@
     "pk": 46,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "webmaster@sldr.org",
-        "telephone_number": "+33 33.6701",
-        "name": "Bernard Bel",
+        "email_address": "Jakub.Kowalski@fantasy-email.pl",
+        "telephone_number": "+99 88 777 66 55",
+        "name": "Jakub Kowalski",
         "edupersonprincipalname": null,
         "website_url": ""
     }
@@ -509,10 +509,10 @@
     "pk": 49,
     "model": "centre_registry.contact",
     "fields": {
-        "email_address": "sander@clarin.eu",
+        "email_address": "marta.catrapa@fake-uni.edu",
         "telephone_number": "",
-        "name": "Sander Maijers",
-        "edupersonprincipalname": "sander_clarin.eu@clarin.eu",
+        "name": "Marta Catrapa",
+        "edupersonprincipalname": "marta.catrapa_fake-uni.edu@test.eu",
         "website_url": ""
     }
 },
