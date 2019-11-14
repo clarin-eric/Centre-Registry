@@ -19,22 +19,20 @@ class SystemTestCase(StaticLiveServerTestCase):
         is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
         if is_ci:
             from selenium.webdriver import Remote
-            hub_url = ("{username:s}:{access_key:s}@ondemand.eu-central-1.saucelabs.com"
-                .format(
-                username=environ["SAUCE_USERNAME"],
-                access_key=environ["SAUCE_ACCESS_KEY"]))
+            hub_url = "https://ondemand.eu-central-1.saucelabs.com:443/wd/hub"
             desired_capabilities = {
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platform": environ["platform"],
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
-                "tunnel-identifier": "myTunnel01",
-                "version": environ["version"]
+                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
+                "version": environ["version"],
+                'username': environ["SAUCE_USERNAME"],
+                'accessKey': environ["SAUCE_ACCESS_KEY"]
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
-                command_executor="https://{hub_url:s}/wd/hub"
-                    .format(hub_url=hub_url))
+                command_executor=hub_url
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()
