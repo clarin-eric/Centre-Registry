@@ -27,12 +27,12 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
                 "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
                 "version": environ["version"],
-                'username': environ["SAUCE_USERNAME"],
-                'accessKey': environ["SAUCE_ACCESS_KEY"]
+                "username": environ["SAUCE_USERNAME"],
+                "accessKey": environ["SAUCE_ACCESS_KEY"]
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
-                command_executor=hub_url
+                command_executor=hub_url)
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()
