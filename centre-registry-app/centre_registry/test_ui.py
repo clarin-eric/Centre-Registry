@@ -35,7 +35,7 @@ class SystemTestCase(StaticLiveServerTestCase):
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
-                command_executor="https://{hub_url:s}/wd/hub"
+                command_executor="http://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
             cls.selenium = WebDriver()
