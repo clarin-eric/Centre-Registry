@@ -28,7 +28,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platform": environ["platform"],
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
-                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
+                "tunnel-identifier": environ["myTunnel01"],
                 "version": environ["version"]
             }
             cls.selenium = Remote(
