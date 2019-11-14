@@ -4,10 +4,7 @@ python:
   - "3.7"
   - "nightly"
 addons:
-  sauce_connect:
-    username: "${SAUCE_USERNAME}"
-    access_key: "${SAUCE_ACCESS_KEY}"
-    tunnel_domains: localhost
+  sauce_connect: true
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
