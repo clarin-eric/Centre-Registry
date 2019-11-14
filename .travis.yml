@@ -1,8 +1,10 @@
 sudo: false
 language: python
 python:
-  - "3.7"
+  - "3.6"
   - "nightly"
+addons:
+  sauce_connect: true
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
