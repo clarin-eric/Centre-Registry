@@ -19,7 +19,7 @@ class SystemTestCase(StaticLiveServerTestCase):
         is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
         if is_ci:
             from selenium.webdriver import Remote
-            hub_url = ("{username:s}:{access_key:s}@localhost.localdomain:4445"
+            hub_url = ("{username:s}:{access_key:s}@localhost:4445"
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
