@@ -31,8 +31,6 @@ if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
     sc_tunnel_id_arg="-i ${TRAVIS_JOB_NUMBER}"
   fi
   echo 'Downloading Sauce Connect'
-  if ! travis_download "https://${TRAVIS_SAUCE_CONNECT_APP_HOST}/files/${sc_archive}"; then
-    # fall back to fetching from Sauce Labs
     case "${sc_platform}" in
     linux)
       sc_download_url="${TRAVIS_SAUCE_CONNECT_LINUX_DOWNLOAD_URL}"
@@ -42,8 +40,7 @@ if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
       ;;
     esac
 
-    travis_download "${sc_download_url}" "${sc_archive}"
-  fi
+    curl "${sc_download_url}" -o "${sc_archive}"
 
   echo 'Extracting Sauce Connect'
   case "${sc_distro_fmt}" in
@@ -80,5 +77,3 @@ if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
   _result="${?}"
 
   popd || true
-
-  return "${_result}"
