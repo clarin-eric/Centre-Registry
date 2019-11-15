@@ -24,7 +24,6 @@ script:
   - ./manage.py test centre_registry.test_ui
 after_script:
   - cd ..
-  - echo $TRAVIS_SAUCE_CONNECT_PID
   - "source scripts/stop-sauce-tunnel.sh"
 notifications:
   email:
