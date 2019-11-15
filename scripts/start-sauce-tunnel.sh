@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SAUCE_BINARY_FILE="sc-linux.tar.gz"
+SAUCE_CONNECT_VERSION=4.5.4
+SAUCE_BINARY_FILE="sc-${SAUCE_CONNECT_VERSION}-linux.tar.gz"
 SAUCE_BINARY_DIR="/tmp/sauce"
 SAUCE_ACCESS_KEY=`echo $SAUCE_ACCESS_KEY | rev`
 SAUCE_READY_FILE="sauce-readyfile"
@@ -18,7 +19,7 @@ CONNECT_ARGS="--readyfile $SAUCE_READY_FILE"
 
 # Apply the Travis Job Number to the tunnel
 if [ ! -z "$TRAVIS_JOB_NUMBER" ]; then
-  CONNECT_ARGS="$CONNECT_ARGS --tunnel-identifier $TRAVIS_JOB_NUMBER"
+  CONNECT_ARGS="$CONNECT_ARGS --tunnel-identifier $TRAVIS_JOB_NUMBER -x https://eu-central-1.saucelabs.com/rest/v1"
 fi
 
 echo "Starting Sauce Connector Tunnel"
@@ -26,7 +27,7 @@ echo "- Username: $SAUCE_USERNAME"
 echo "- Arguments: $CONNECT_ARGS"
 
 # Starting the Sauce Tunnel.
-$SAUCE_BINARY_DIR/bin/sc --doctor $CONNECT_ARGS -x https://eu-central-1.saucelabs.com/rest/v1 &
+$SAUCE_BINARY_DIR/bin/sc --doctor $CONNECT_ARGS &
 
 # Wait for the tunnel to be ready.
 while [ ! -e $SAUCE_READY_FILE ]; do sleep 1; done
