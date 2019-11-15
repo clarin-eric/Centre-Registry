@@ -35,7 +35,7 @@ sc_bin="$(find sc-* -type f -perm -0500 -name sc)"
   ${sc_tunnel_id_arg} \
   -f ${sc_readyfile} \
   -l ${sc_logfile} \
-  -x https://eu1.api.testobject.com/sc/rest/v1
+  -x "https://eu-central-1.saucelabs.com/rest/v1"
   ${SAUCE_NO_SSL_BUMP_DOMAINS} \
   ${SAUCE_DIRECT_DOMAINS} \
   ${SAUCE_TUNNEL_DOMAINS} &
