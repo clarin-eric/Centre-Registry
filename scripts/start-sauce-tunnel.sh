@@ -40,7 +40,7 @@ if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
       ;;
     esac
 
-    curl "${sc_download_url}" -o "${sc_archive}"
+    wget "${sc_download_url}" -O "${sc_archive}"
 
   echo 'Extracting Sauce Connect'
   case "${sc_distro_fmt}" in
