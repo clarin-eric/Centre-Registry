@@ -23,7 +23,7 @@ script:
   - ./manage.py test centre_registry.test_api
   - ./manage.py test centre_registry.test_ui
 after_script:
-  - "./scripts/stop-sauce-tunnel.sh"
+  - "cd ~ && ./scripts/stop-sauce-tunnel.sh"
 notifications:
   email:
     on_success: change
