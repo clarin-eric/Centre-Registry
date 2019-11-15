@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+
 if [[ "${TRAVIS_SAUCE_CONNECT_PID}" == unset ]]; then
   echo 'No running Sauce Connect tunnel found'
   exit 1
