@@ -7,7 +7,7 @@ env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
   jobs:
-    - browserName='chrome' platform='Linux' version='79.0.3945.16'
+    - browserName='chrome' platform='Linux' version='48.0'
     - browserName='chrome' platform='Windows 10' version='79.0.3945.16'
     - browserName='firefox' platform='Linux' version='45.0'
     - browserName='MicrosoftEdge' platform='Windows 10' version='13.10586'
