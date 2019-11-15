@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SAUCE_BINARY_FILE="sc-latest-linux.tar.gz"
+SAUCE_CONNECT_VERSION=4.5.4
+SAUCE_BINARY_FILE="sc-${SAUCE_CONNECT_VERSION}-linux.tar.gz"
 SAUCE_BINARY_DIR="/tmp/sauce"
 SAUCE_ACCESS_KEY=`echo $SAUCE_ACCESS_KEY | rev`
 SAUCE_READY_FILE="/tmp/sauce-readyfile"
