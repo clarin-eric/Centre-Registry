@@ -1,35 +1,31 @@
 #!/bin/bash
 
-SAUCE_CONNECT_VERSION=4.5.4
-SAUCE_BINARY_FILE="sc-${SAUCE_CONNECT_VERSION}-linux.tar.gz"
-SAUCE_BINARY_DIR="/tmp/sauce"
-SAUCE_ACCESS_KEY=`echo $SAUCE_ACCESS_KEY | rev`
-SAUCE_READY_FILE="sauce-readyfile"
+# Setup and start Sauce Connect for your TravisCI build
+# This script requires your .travis.yml to include the following two private env variables:
+# SAUCE_USERNAME
+# SAUCE_ACCESS_KEY
+# Follow the steps at https://saucelabs.com/opensource/travis to set that up.
+#
+# Curl and run this script as part of your .travis.yml before_script section:
+# before_script:
+#   - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
 
-echo "Installing Sauce Connector binaries..."
+CONNECT_URL="http://saucelabs.com/downloads/Sauce-Connect-latest.zip"
+CONNECT_DIR="/tmp/sauce-connect-$RANDOM"
+CONNECT_DOWNLOAD="Sauce_Connect.zip"
+READY_FILE="connect-ready-$RANDOM"
 
-mkdir -p $SAUCE_BINARY_DIR
+# Get Connect and start it
+mkdir -p $CONNECT_DIR
+cd $CONNECT_DIR
+curl $CONNECT_URL > $CONNECT_DOWNLOAD
+unzip $CONNECT_DOWNLOAD
+rm $CONNECT_DOWNLOAD
+java -jar Sauce-Connect.jar --readyfile $READY_FILE \
+    --tunnel-identifier $TRAVIS_JOB_NUMBER \
+    $SAUCE_USERNAME $SAUCE_ACCESS_KEY &
 
-# Install the Sauce Connector binary
-wget https://saucelabs.com/downloads/$SAUCE_BINARY_FILE -O $SAUCE_BINARY_DIR/$SAUCE_BINARY_FILE
-tar -xzf $SAUCE_BINARY_DIR/$SAUCE_BINARY_FILE -C $SAUCE_BINARY_DIR --strip-components=1
-
-# Arguments to be applied to the Sauce Connector.
-CONNECT_ARGS="--readyfile $SAUCE_READY_FILE"
-
-# Apply the Travis Job Number to the tunnel
-if [ ! -z "$TRAVIS_JOB_NUMBER" ]; then
-  CONNECT_ARGS="$CONNECT_ARGS --tunnel-identifier $TRAVIS_JOB_NUMBER -x https://eu-central-1.saucelabs.com/rest/v1"
-fi
-
-echo "Starting Sauce Connector Tunnel"
-echo "- Username: $SAUCE_USERNAME"
-echo "- Arguments: $CONNECT_ARGS"
-
-# Starting the Sauce Tunnel.
-$SAUCE_BINARY_DIR/bin/sc --doctor $CONNECT_ARGS &
-
-# Wait for the tunnel to be ready.
-while [ ! -e $SAUCE_READY_FILE ]; do sleep 1; done
-
-echo "Sauce Tunnel is now ready"
+# Wait for Connect to be ready before exiting
+while [ ! -f $READY_FILE ]; do
+  sleep .5
+done
