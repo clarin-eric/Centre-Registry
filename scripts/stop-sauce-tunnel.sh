@@ -4,6 +4,7 @@ if [[ "${TRAVIS_SAUCE_CONNECT_PID}" == unset ]]; then
   echo 'No running Sauce Connect tunnel found'
   exit 1
 fi
+echo $TRAVIS_SAUCE_CONNECT_PID
 TRAVIS_SAUCE_CONNECT_PID=$(cat sauce_pid_file)
 kill "${TRAVIS_SAUCE_CONNECT_PID}"
 
