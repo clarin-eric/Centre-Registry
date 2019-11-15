@@ -17,14 +17,12 @@ install:
   - pip install -e 'centre-registry-app/'
   - pip install -r 'centre-registry-app/requirements_test.txt'
 before_script:
-  - "source scripts/start-sauce-tunnel.sh"
+  - source scripts/start-sauce-tunnel.sh
 script:
-  - cd -- Centre-Registry-config/
-  - ./manage.py test centre_registry.test_api
-  - ./manage.py test centre_registry.test_ui
+  - Centre-Registry-config/manage.py test centre_registry.test_api
+  - Centre-Registry-config/manage.py test centre_registry.test_ui
 after_script:
-  - cd ..
-  - "source scripts/stop-sauce-tunnel.sh"
+  - source scripts/stop-sauce-tunnel.sh
 notifications:
   email:
     on_success: change
