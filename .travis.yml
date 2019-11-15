@@ -1,7 +1,9 @@
 os: linux
 language: python
 python:
+  - "3.6"
   - "3.7"
+  - "3.8"
   - "nightly"
 env:
   global:
@@ -10,13 +12,22 @@ env:
     - browserName='chrome' platform='Linux' version='48'
     - browserName='chrome' platform='Windows 10' version='78'
     - browserName='chrome' platform='OS X 10.14' version='78'
+    - browserName='chrome' platform='Linux' version='latest'
+    - browserName='chrome' platform='Windows 10' version='latest'
+    - browserName='chrome' platform='OS X 10.14' version='latest'
     - browserName='firefox' platform='Linux' version='45'
     - browserName='firefox' platform='Windows 10' version='70'
     - browserName='firefox' platform='OS X 10.14' version='70'
+    - browserName='firefox' platform='Linux' version='latest'
+    - browserName='firefox' platform='Windows 10' version='latest'
+    - browserName='firefox' platform='OS X 10.14' version='latest'
     - browserName='internet explorer' platform='Windows 10' version='11'
+    - browserName='internet explorer' platform='Windows 10' version='latest'
     - browserName='MicrosoftEdge' platform='Windows 10' version='18'
+    - browserName='MicrosoftEdge' platform='Windows 10' version='latest'
     - browserName='safari' platform='OS X 10.14' version='12'
     - browserName='safari' platform='OS X 10.13' version='13'
+    - browserName='safari' platform='OS X 10.14' version='latest'
 install:
   - pip install lxml
   - pip install -e 'centre-registry-app/'
