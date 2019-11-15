@@ -1,3 +1,4 @@
+set -x
 if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
     echo "This script runs only when Sauce credentials are present"
     echo "Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY env variables"
