@@ -41,7 +41,7 @@ sc_bin="$(find sc-* -type f -perm -0500 -name sc)"
   ${SAUCE_NO_SSL_BUMP_DOMAINS} \
   ${SAUCE_DIRECT_DOMAINS} \
   ${SAUCE_TUNNEL_DOMAINS} &
-TRAVIS_SAUCE_CONNECT_PID="${!}" &
+export TRAVIS_SAUCE_CONNECT_PID="${!}" &
 
 echo "Waiting for Sauce Connect readyfile"
 while test ! -f "${sc_readyfile}" && ps -f "${TRAVIS_SAUCE_CONNECT_PID}" &>/dev/null; do
