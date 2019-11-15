@@ -31,15 +31,10 @@ if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
   if [ ! -z "${TRAVIS_JOB_NUMBER}" ]; then
     sc_tunnel_id_arg="-i ${TRAVIS_JOB_NUMBER}"
   fi
-  echo 'Downloading Sauce Connect'
-    case "${sc_platform}" in
-    linux)
-      sc_download_url="${TRAVIS_SAUCE_CONNECT_LINUX_DOWNLOAD_URL}"
-      ;;
-    osx)
-      sc_download_url="${TRAVIS_SAUCE_CONNECT_OSX_DOWNLOAD_URL}"
-      ;;
-    esac
+
+      sc_download_url="https://saucelabs.com/downloads/sc-4.5.4-linux.tar.gz"
+
+
 
     wget "${sc_download_url}" -O "${sc_archive}"
 
