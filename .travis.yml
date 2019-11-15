@@ -19,10 +19,12 @@ install:
 before_script:
   - "source scripts/start-sauce-tunnel.sh"
 script:
-  - echo $TRAVIS_SAUCE_CONNECT_PID
-  - cd -- Centre-Registry-config/ && ./manage.py test centre_registry.test_api
-  - ./manage.py test centre_registry.test_ui && cd ..
+  - cat $TRAVIS_SAUCE_CONNECT_PID
+  - cd -- Centre-Registry-config/
+  - ./manage.py test centre_registry.test_api
+  - ./manage.py test centre_registry.test_ui
 after_script:
+  - cd ..
   - "./scripts/stop-sauce-tunnel.sh"
 notifications:
   email:
