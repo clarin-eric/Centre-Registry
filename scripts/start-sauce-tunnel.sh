@@ -35,11 +35,11 @@ sc_bin="$(find sc-* -type f -perm -0500 -name sc)"
   ${sc_tunnel_id_arg} \
   -f ${sc_readyfile} \
   -l ${sc_logfile} \
-  -x "https://eu-central-1.saucelabs.com/rest/v1"
+  -x "https://eu-central-1.saucelabs.com/rest/v1" \
   ${SAUCE_NO_SSL_BUMP_DOMAINS} \
   ${SAUCE_DIRECT_DOMAINS} \
   ${SAUCE_TUNNEL_DOMAINS} &
-TRAVIS_SAUCE_CONNECT_PID="${!}"
+TRAVIS_SAUCE_CONNECT_PID="${!}" &
 
 echo "Waiting for Sauce Connect readyfile"
 while test ! -f "${sc_readyfile}" && ps -f "${TRAVIS_SAUCE_CONNECT_PID}" &>/dev/null; do
