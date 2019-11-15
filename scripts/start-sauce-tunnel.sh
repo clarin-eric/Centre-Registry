@@ -1,31 +1,84 @@
-#!/bin/bash
+if [[ ! "${SAUCE_USERNAME}" || ! "${SAUCE_ACCESS_KEY}" ]]; then
+    echo "This script runs only when Sauce credentials are present"
+    echo "Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY env variables"
+    echo "export SAUCE_USERNAME=ur-username"
+    echo "export SAUCE_ACCESS_KEY=ur-access-key"
+    return 0
+  fi
 
-# Setup and start Sauce Connect for your TravisCI build
-# This script requires your .travis.yml to include the following two private env variables:
-# SAUCE_USERNAME
-# SAUCE_ACCESS_KEY
-# Follow the steps at https://saucelabs.com/opensource/travis to set that up.
-#
-# Curl and run this script as part of your .travis.yml before_script section:
-# before_script:
-#   - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
+  local sc_tmp sc_platform sc_archive sc_distro_fmt \
+    sc_readyfile sc_logfile sc_tunnel_id_arg sc_bin
 
-CONNECT_URL="http://saucelabs.com/downloads/Sauce-Connect-latest.zip"
-CONNECT_DIR="/tmp/sauce-connect-$RANDOM"
-CONNECT_DOWNLOAD="Sauce_Connect.zip"
-READY_FILE="connect-ready-$RANDOM"
+  sc_tmp="$(mktemp -d -t sc.XXXX)"
+  echo "Using temp dir ${sc_tmp}"
+  pushd "${sc_tmp}" || true
 
-# Get Connect and start it
-mkdir -p $CONNECT_DIR
-cd $CONNECT_DIR
-curl $CONNECT_URL > $CONNECT_DOWNLOAD
-unzip $CONNECT_DOWNLOAD
-rm $CONNECT_DOWNLOAD
-java -jar Sauce-Connect.jar --readyfile $READY_FILE \
-    --tunnel-identifier $TRAVIS_JOB_NUMBER \
-    $SAUCE_USERNAME $SAUCE_ACCESS_KEY &
+  sc_platform=$(uname | sed -e 's/Darwin/osx/' -e 's/Linux/linux/')
+  case "${sc_platform}" in
+  linux)
+    sc_distro_fmt=tar.gz
+    sc_archive=sc-linux.tar.gz
+    ;;
+  osx)
+    sc_distro_fmt=zip
+    sc_archive=sc-osx.zip
+    ;;
+  esac
 
-# Wait for Connect to be ready before exiting
-while [ ! -f $READY_FILE ]; do
-  sleep .5
-done
+  sc_readyfile="sauce-connect-ready-${RANDOM}"
+  sc_logfile="${TRAVIS_HOME}/sauce-connect.log"
+  if [ ! -z "${TRAVIS_JOB_NUMBER}" ]; then
+    sc_tunnel_id_arg="-i ${TRAVIS_JOB_NUMBER}"
+  fi
+  echo 'Downloading Sauce Connect'
+  if ! travis_download "https://${TRAVIS_SAUCE_CONNECT_APP_HOST}/files/${sc_archive}"; then
+    # fall back to fetching from Sauce Labs
+    case "${sc_platform}" in
+    linux)
+      sc_download_url="${TRAVIS_SAUCE_CONNECT_LINUX_DOWNLOAD_URL}"
+      ;;
+    osx)
+      sc_download_url="${TRAVIS_SAUCE_CONNECT_OSX_DOWNLOAD_URL}"
+      ;;
+    esac
+
+    travis_download "${sc_download_url}" "${sc_archive}"
+  fi
+
+  echo 'Extracting Sauce Connect'
+  case "${sc_distro_fmt}" in
+  tar.gz)
+    tar zxf sc-linux.tar.gz
+    ;;
+  zip)
+    unzip sc-osx.zip
+    ;;
+  esac
+
+  sc_bin="$(find sc-* -type f -perm -0500 -name sc)"
+
+  # shellcheck disable=SC2086
+  "${sc_bin}" \
+    ${sc_tunnel_id_arg} \
+    -f ${sc_readyfile} \
+    -l ${sc_logfile} \
+    ${SAUCE_NO_SSL_BUMP_DOMAINS} \
+    ${SAUCE_DIRECT_DOMAINS} \
+    ${SAUCE_TUNNEL_DOMAINS} &
+  TRAVIS_SAUCE_CONNECT_PID="${!}"
+
+  echo "Waiting for Sauce Connect readyfile"
+  while test ! -f "${sc_readyfile}" && ps -f "${TRAVIS_SAUCE_CONNECT_PID}" &>/dev/null; do
+    sleep .5
+  done
+
+  if test ! -f "${sc_readyfile}"; then
+    echo "readyfile not created"
+  fi
+
+  test -f "${sc_readyfile}"
+  _result="${?}"
+
+  popd || true
+
+  return "${_result}"
