@@ -27,7 +27,7 @@ echo "- Username: $SAUCE_USERNAME"
 echo "- Arguments: $CONNECT_ARGS"
 
 # Starting the Sauce Tunnel.
-$SAUCE_BINARY_DIR/bin/sc --doctor -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY $CONNECT_ARGS -x https://eu-central-1.saucelabs.com/rest/v1 &
+$SAUCE_BINARY_DIR/bin/sc -vv -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY $CONNECT_ARGS -x https://eu-central-1.saucelabs.com/rest/v1 &
 
 # Wait for the tunnel to be ready.
 while [ ! -e $SAUCE_READY_FILE ]; do sleep 1; done
