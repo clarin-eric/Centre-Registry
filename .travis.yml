@@ -1,12 +1,8 @@
 sudo: false
 language: python
 python:
-  - "3.6"
+  - "3.7"
   - "nightly"
-addons:
-  sauce_connect:
-    username: "${SAUCE_USERNAME}"
-    access_key: "${SAUCE_ACCESS_KEY}"
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
@@ -20,10 +16,14 @@ install:
   - pip install lxml
   - pip install -e 'centre-registry-app/'
   - pip install -r 'centre-registry-app/requirements_test.txt'
+before_script:
+  - "./scripts/start-sauce-tunnel.sh"
 script:
   - cd -- Centre-Registry-config/
   - ./manage.py test centre_registry.test_api
   - ./manage.py test centre_registry.test_ui
+after_script:
+  - "./scripts/stop-sauce-tunnel.sh"
 notifications:
   email:
     on_success: change
