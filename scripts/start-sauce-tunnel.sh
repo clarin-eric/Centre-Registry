@@ -42,6 +42,7 @@ sc_bin="$(find sc-* -type f -perm -0500 -name sc)"
   ${SAUCE_DIRECT_DOMAINS} \
   ${SAUCE_TUNNEL_DOMAINS} &
 TRAVIS_SAUCE_CONNECT_PID="${!}"
+echo "${TRAVIS_SAUCE_CONNECT_PID}" > sauce_pid_file
 
 echo "Waiting for Sauce Connect readyfile"
 while test ! -f "${sc_readyfile}" && ps -f "${TRAVIS_SAUCE_CONNECT_PID}" &>/dev/null; do
