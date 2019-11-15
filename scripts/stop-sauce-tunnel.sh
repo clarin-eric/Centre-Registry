@@ -2,7 +2,7 @@
 
 if [[ "${TRAVIS_SAUCE_CONNECT_PID}" == unset ]]; then
   echo 'No running Sauce Connect tunnel found'
-  exit 1
+  return 1
 fi
 
 kill "${TRAVIS_SAUCE_CONNECT_PID}"
@@ -13,7 +13,7 @@ for i in 0 1 2 3 4 5 6 7 8 9; do
     sleep 1
   else
     echo 'Sauce Connect shutdown complete'
-    exit
+    return 0
   fi
 done
 

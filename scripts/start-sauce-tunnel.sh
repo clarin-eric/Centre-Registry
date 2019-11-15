@@ -56,3 +56,5 @@ test -f "${sc_readyfile}"
 _result="${?}"
 
 popd || true
+
+return "${_result}"
