@@ -1,4 +1,4 @@
-sudo: false
+os: linux
 language: python
 python:
   - "3.7"
@@ -6,7 +6,7 @@ python:
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
-  matrix:
+  jobs:
     - browserName='chrome' platform='Linux' version='48.0'
     - browserName='chrome' platform='Windows 10' version='51.0'
     - browserName='firefox' platform='Linux' version='45.0'
