@@ -16,6 +16,8 @@ install:
 script:
   - Centre-Registry-config/manage.py test centre_registry.test_api
   - Centre-Registry-config/manage.py test centre_registry.test_ui
+after_script:
+  - centre-registry-app/centre_registry/set_sauce_status.py
 notifications:
   email:
     on_success: change
