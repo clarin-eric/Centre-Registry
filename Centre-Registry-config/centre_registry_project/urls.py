@@ -31,4 +31,5 @@ urlpatterns = [  # pylint: disable=invalid-name
     url(r'^fcs$', views_ui.get_fcs),
     url(r'^map', views_ui.get_map),
     url(r'^oai_pmh$', views_ui.get_oai_pmh),
-    url(r'^spf$', views_ui.get_spf)]
+    url(r'^spf$', views_ui.get_spf),
+    ]
