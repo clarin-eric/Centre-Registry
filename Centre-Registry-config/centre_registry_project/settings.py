@@ -51,7 +51,7 @@ STATIC_ROOT = join(PROJECT_DIR,
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-TEMPLATE_DIRS = []
+TEMPLATE_DIRS = [
                    join(PROJECT_DIR, 
                        '../../centre-registry-app/centre_registry/templates/API'),
                    join(PROJECT_DIR, 
