@@ -62,7 +62,7 @@ class SystemTestCase(StaticLiveServerTestCase):
         
         is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
         if is_ci:
-            print ("SESSIONID" + cls.driver.session_id)
+            print ("SESSIONID" + cls.selenium.session_id)
 
             pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
             base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
