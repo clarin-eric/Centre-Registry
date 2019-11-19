@@ -13,7 +13,7 @@ install:
   - pip install -e 'centre-registry-app/'
   - pip install -r 'centre-registry-app/requirements_test.txt'
 addons:
-  - sauce-connect: true
+  - sauce_connect: true
 script:
   - Centre-Registry-config/manage.py test centre_registry.test_api
   - Centre-Registry-config/manage.py test centre_registry.test_ui
