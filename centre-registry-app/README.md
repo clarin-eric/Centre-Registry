@@ -65,11 +65,12 @@ Or more selectively:
 # Continuous Integration
 
 Automated cross-browser testing is executed by the continious integration system on every commit.
+
 Current test results per browser:
 
 [![Build Status](https://app.saucelabs.com/browser-matrix/centre-registry.svg)](https://saucelabs.com/u/centre-registry)
 
-### Big Thanks
+#### Big Thanks
 
 Cross-browser Testing Platform and Open Source ❤️ provided by [Sauce Labs][homepage]
 
