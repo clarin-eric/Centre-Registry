@@ -50,6 +50,11 @@ class SystemTestCase(StaticLiveServerTestCase):
     @classmethod
     def tearDownClass(cls):
         super(SystemTestCase, cls).tearDownClass()
+        
+        pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
+        base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
+        set_test_status(cls.selenium.session_id, passed=pass_status)
+
         cls.selenium.quit()
 
     def test_admin(self):
@@ -132,8 +137,3 @@ class SystemTestCase(StaticLiveServerTestCase):
                            headers={"Authorization": "Basic %s" % base64string})
         result = connection.getresponse()
         return result.status == 200
-
-    pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
-    base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
-
-    set_test_status(self.selenium.session_id, passed=pass_status)
