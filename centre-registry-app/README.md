@@ -59,3 +59,16 @@ Or more selectively:
 ```sh
 'Centre-Registry-config/manage.py' test centre_registry.{test_api,test_ui}
 ```
+
+# Continuous Integration
+
+Automated cross-browser testing is executed by the continious integration system on every commit.
+Current test results per browser:
+
+[![Build Status](https://app.saucelabs.com/browser-matrix/centre-registry.svg)](https://saucelabs.com/u/centre-registry)
+
+### Big Thanks
+
+Cross-browser Testing Platform and Open Source ❤️ provided by [Sauce Labs][homepage]
+
+[homepage]: https://saucelabs.com
