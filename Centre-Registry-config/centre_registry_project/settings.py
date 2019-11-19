@@ -51,6 +51,13 @@ STATIC_ROOT = join(PROJECT_DIR,
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+# Find templates in the same folder as settings.py.
+TEMPLATE_DIRS = (
+                   join(PROJECT_DIR, 
+                       '../../centre-registry-app/centre_registry/templates/API'),
+                   join(PROJECT_DIR, 
+                       '../../centre-registry-app/centre_registry/templates/UI'),
+                   )
 TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
