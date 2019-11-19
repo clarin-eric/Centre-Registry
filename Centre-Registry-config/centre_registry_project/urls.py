@@ -1,7 +1,7 @@
 from centre_registry import views_api
 from centre_registry import views_ui
 from django.conf import settings
-from django.conf.urls import patterns
+from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
 
