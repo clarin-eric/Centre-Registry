@@ -2,6 +2,13 @@ from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+import http.client
+import base64
+
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 
 # TODO: remove
@@ -116,3 +123,17 @@ class SystemTestCase(StaticLiveServerTestCase):
         table = self.selenium.find_element_by_id(
             'saml_service_providers_and_identity_federations')
         table.find_element_by_tag_name('tr')
+
+    def set_test_status(jobid, passed=True):
+        body_content = json.dumps({"passed": passed})
+        connection =  http.client.HTTPSConnection("saucelabs.com")
+        connection.request('PUT', '/rest/v1/%s/jobs/%s' % (environ["SAUCE_USERNAME"], jobid),
+                           body_content,
+                           headers={"Authorization": "Basic %s" % base64string})
+        result = connection.getresponse()
+        return result.status == 200
+
+    pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
+    base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
+
+    set_test_status(self.selenium.session_id, passed=pass_status)
