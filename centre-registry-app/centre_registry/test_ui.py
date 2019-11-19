@@ -24,6 +24,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
+                "name": "centre-registry"
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platform": environ["platform"],
