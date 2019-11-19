@@ -1,3 +1,4 @@
+[![Travis Status](https://travis-ci.org/clarin-eric/Centre-Registry.svg?branch=master)](https://travis-ci.org/clarin-eric/Centre-Registry)
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
 
