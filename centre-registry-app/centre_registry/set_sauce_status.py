@@ -11,7 +11,7 @@ except ImportError:
 config = {"username": environ["SAUCE_USERNAME"],
           "access-key": environ["SAUCE_ACCESS_KEY"]}
 
-pass_status = True if environ["TRAVIS_TEST_RESULT"] == 0 else False
+pass_status = True if environ["TRAVIS_TEST_RESULT"] == "0" else False
 
 base64string = str(base64.b64encode(bytes('%s:%s' % (config['username'], config['access-key']),'utf-8')))[1:]
 
