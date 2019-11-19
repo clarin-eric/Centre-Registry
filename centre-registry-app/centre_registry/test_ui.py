@@ -60,11 +60,13 @@ class SystemTestCase(StaticLiveServerTestCase):
     def tearDownClass(cls):
         super(SystemTestCase, cls).tearDownClass()
         
-        print "SESSIONID" + cls.driver.session_id
+        is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
+        if is_ci:
+            print ("SESSIONID" + cls.driver.session_id)
 
-        pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
-        base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
-        set_test_status(cls.selenium.session_id, passed=pass_status)
+            pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
+            base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
+            set_test_status(cls.selenium.session_id, passed=pass_status)
 
         cls.selenium.quit()
 
