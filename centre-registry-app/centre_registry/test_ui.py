@@ -10,12 +10,6 @@ try:
 except ImportError:
     import simplejson as json
 
-
-# TODO: remove
-# try:
-# except ImportError:
-# from selenium.webdriver.chrome.webdriver import WebDriver
-
 is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
 
 def set_test_status(jobid, passed=True):
@@ -41,7 +35,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
-                "name": "centre-registry_" + environ["TRAVIS_BUILD_NUMBER"],
+                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platform": environ["platform"],
