@@ -86,6 +86,6 @@ Test results breakdown per browser and operating system:
 
 #### Big Thanks
 
-Automated cross-browser Testing Platform and Open Source ❤️ provided by [Sauce Labs][homepage]
+Automated cross-browser testing platform and open source ❤️ provided by [Sauce Labs][homepage]
 
 [homepage]: https://saucelabs.com
