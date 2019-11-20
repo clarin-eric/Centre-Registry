@@ -68,8 +68,8 @@ Or more selectively:
 The API and the UI are both tested by the continuous integration system.
 
 After each commit (or PR), Travis CI will:
-- build the project
-- execute the API tests
+- build the project.
+- execute the API tests.
 - connect to Sauce Labs and run the UI (Selenium-based) tests targeting multiple browsers.
 
 Current overall status of Travis build and tests:
