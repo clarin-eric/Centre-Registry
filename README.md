@@ -80,7 +80,7 @@ In the last stage of the build and test process, the continuous integration syst
 Current status of UI tests:
 [![Sauce Test Status](https://saucelabs.com/buildstatus/centre-registry)](https://app.saucelabs.com/u/centre-registry)
 
-Test results per browser and operating system - breakdown:
+Test results breakdown per browser and operating system:
 
 [![Build Status](https://app.saucelabs.com/browser-matrix/centre-registry.svg)](https://saucelabs.com/u/centre-registry)
 
