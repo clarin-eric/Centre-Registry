@@ -2,13 +2,25 @@ from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+import http.client
+import base64
 
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
-# TODO: remove
-# try:
-# except ImportError:
-# from selenium.webdriver.chrome.webdriver import WebDriver
+is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
 
+def set_test_status(jobid, passed=True):
+    base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
+    body_content = json.dumps({"passed": passed})
+    connection =  http.client.HTTPSConnection("saucelabs.com")
+    connection.request('PUT', '/rest/v1/%s/jobs/%s' % (environ["SAUCE_USERNAME"], jobid),
+                       body_content,
+                       headers={"Authorization": "Basic %s" % base64string})
+    result = connection.getresponse()
+    return result.status == 200
 
 class SystemTestCase(StaticLiveServerTestCase):
     fixtures = ['test_data.json']
@@ -16,7 +28,6 @@ class SystemTestCase(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         # TODO: Replace Travis CI & Sauce Labs with generic testing code.
-        is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
         if is_ci:
             from selenium.webdriver import Remote
             hub_url = ("{username:s}:{access_key:s}@localhost:4445"
@@ -24,14 +35,13 @@ class SystemTestCase(StaticLiveServerTestCase):
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
+                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platform": environ["platform"],
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
                 "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
-                "version": environ["version"],
-                'username': environ["SAUCE_USERNAME"],
-                'accessKey': environ["SAUCE_ACCESS_KEY"]
+                "version": environ["version"]
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
@@ -44,6 +54,12 @@ class SystemTestCase(StaticLiveServerTestCase):
     @classmethod
     def tearDownClass(cls):
         super(SystemTestCase, cls).tearDownClass()
+        
+        if is_ci:
+            print ("SESSIONID: " + cls.selenium.session_id)
+            pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
+            set_test_status(cls.selenium.session_id, passed=pass_status)
+
         cls.selenium.quit()
 
     def test_admin(self):
