@@ -1,3 +1,5 @@
+[![Travis Status](https://travis-ci.org/clarin-eric/Centre-Registry.svg?branch=sauce-ci)](https://travis-ci.org/clarin-eric/Centre-Registry)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/centre-registry)](https://app.saucelabs.com/u/centre-registry)
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
 
@@ -28,6 +30,14 @@ To show migrations previously made, and whether they have been carried out or no
 ```sh
 'Centre-Registry-config/manage.py' showmigrations
 ```
+
+### Migrate
+After making migrations, you will still need to apply them:
+```sh
+'Centre-Registry-config/manage.py' migrate
+```
+**Always generate new a fixture after migrating.** If you do not, your fixture will not correspond to the actual data model, and testing runs will fail outright.
+
 ### Generate fixtures
 For testing, you will need a sample of the data that obeys the data model. To generate such a *fixture*, run this:
 ```sh
@@ -39,13 +49,6 @@ For testing, you will need a sample of the data that obeys the data model. To ge
     'centre-registry-app/centre_registry/fixtures/test_data.json'
 ```
 When you change an existing field of some class in your data model, be careful to make only this single change per `makemigrations` run (e.g, first change the field identifier, then the  `verbose_name` value), otherwise `makemigrations` will go awry.
-
-### Migrate
-After making migrations, you will still need to apply them:
-```sh
-'Centre-Registry-config/manage.py' migrate
-```
-**Always generate new a fixture after migrating.** If you do not, your fixture will not correspond to the actual data model, and testing runs will fail outright.
 
 ### Test
 #### From an IDE
@@ -59,3 +62,30 @@ Or more selectively:
 ```sh
 'Centre-Registry-config/manage.py' test centre_registry.{test_api,test_ui}
 ```
+
+# Continuous Integration
+
+The API and the UI are both tested by the continuous integration system.
+
+After each commit (or PR), Travis CI will:
+- build the project.
+- execute the API tests.
+- connect to Sauce Labs and run the UI (Selenium-based) tests targeting multiple browsers.
+
+Current overall status of Travis build and tests:
+[![Travis Status](https://travis-ci.org/clarin-eric/Centre-Registry.svg?branch=sauce-ci)](https://travis-ci.org/clarin-eric/Centre-Registry)
+
+In the last stage of the build and test process, the continuous integration system will run all UI tests for multiple browser and operating system combinations.
+
+Current status of UI tests:
+[![Sauce Test Status](https://saucelabs.com/buildstatus/centre-registry)](https://app.saucelabs.com/u/centre-registry)
+
+Test results breakdown per browser and operating system:
+
+[![Build Status](https://app.saucelabs.com/browser-matrix/centre-registry.svg)](https://saucelabs.com/u/centre-registry)
+
+#### Big Thanks
+
+Automated cross-browser testing platform and open source ❤️ provided by [Sauce Labs][homepage]
+
+[homepage]: https://saucelabs.com
