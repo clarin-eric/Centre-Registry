@@ -14,9 +14,15 @@
         <tbody>
             {% for fcs_endpoint in fcs_endpoints %}
                 <tr>
-                    <td>
-                        <a href="/centre/{{ fcs_endpoint.centre.id }}">{{ fcs_endpoint.centre }}</a>
-                    </td>
+		    {% if fcs_endpoint.centre %}
+                        <td>
+                            <a href='/centre/{{ fcs_endpoint.centre.id }}'>{{ fcs_endpoint.centre }}</a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <abbr title='{{ fcs_endpoint.note }}'>No centre</abbr>
+                        </td>
+                    {% endif %}
                     <td><a href="{{ fcs_endpoint.uri }}">{{ fcs_endpoint.uri }}</a></td>
                 </tr>
             {% endfor %}
