@@ -19,7 +19,7 @@ RESOURCE_LOCATION_CLARIN_STYLE = 'CLARIN_style/1.0/'
 SECRET_KEY = 'testkey1283182183721'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
-DEBUG = False # TODO: templatize
+DEBUG = True # TODO: templatize
 SESSION_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = not DEBUG
@@ -79,7 +79,8 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  'centre_registry', )
+                  'centre_registry', 
+                  'django_extensions', )
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

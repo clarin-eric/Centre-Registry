@@ -16,9 +16,15 @@
         <tbody>
             {% for oai_pmh_endpoint in oai_pmh_endpoints %}
                 <tr>
-                    <td>
-                        <a href='/centre/{{ oai_pmh_endpoint.centre.id }}'>{{ oai_pmh_endpoint.centre }}</a>
-                    </td>
+		    {% if oai_pmh_endpoint.centre %}
+                        <td>
+                            <a href='/centre/{{ oai_pmh_endpoint.centre.id }}'>{{ oai_pmh_endpoint.centre }}</a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
+                        </td>
+                    {% endif %}
                     <td><a href='{{ oai_pmh_endpoint.uri }}'>{{ oai_pmh_endpoint.uri }}</a></td>
                     <td><a href='{{ oai_pmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
                     <td><a href='{{ oai_pmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>

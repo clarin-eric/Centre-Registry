@@ -281,7 +281,7 @@ class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, blank=True, null=True)
     metadata_format = ForeignKey(
         MetadataFormat, verbose_name='Metadata format (historic artifact)')
     # TODO: fix old API's XSD to allow more MetadataFormats
@@ -295,10 +295,15 @@ class OAIPMHEndpoint(Model):
         default='REST',
         max_length=8)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        return '{uri:s} ({centre_shorthand:s})'.format(
-            uri=self.uri, centre_shorthand=self.centre.shorthand)
+        if self.centre is not None:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand=self.centre.shorthand)
+        else:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand='NoCentre')
 
     def __str__(self):
         return self.__unicode__()
@@ -313,12 +318,17 @@ class FCSEndpoint(Model):
     """
     A CLARIN FCS Endpoint.
     """
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, blank=True, null=True)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        return '{uri:s} ({centre_shorthand:s})'.format(
-            uri=self.uri, centre_shorthand=self.centre.shorthand)
+        if self.centre is not None:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand=self.centre.shorthand)
+        else:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand='NoCentre')
 
     def __str__(self):
         return self.__unicode__()
@@ -335,17 +345,23 @@ class SAMLServiceProvider(Model):
     """
     entity_id = CharField(
         verbose_name='Entity ID', max_length=1024, unique=True)
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, null=True, blank=True)
     status_url = URLField(
         verbose_name='Status URL', max_length=1024, blank=True)
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        return '{entity_id:s} ({centre_shorthand:s})'.format(
-            entity_id=self.entity_id, centre_shorthand=self.centre.shorthand)
+        if self.centre is not None:
+            return '{entity_id:s} ({centre_shorthand:s})'.format(
+                entity_id=self.entity_id, centre_shorthand=self.centre.shorthand)
+        else:
+            return '{entity_id:s} ({centre_shorthand:s})'.format(
+                entity_id=self.entity_id, centre_shorthand='NoCentre')
 
-    def __str__(self):
+
+    def __str__(self): 
         return self.__unicode__()
 
     class Meta:

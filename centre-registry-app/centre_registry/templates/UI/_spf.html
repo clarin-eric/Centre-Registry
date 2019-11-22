@@ -30,9 +30,15 @@
         <tbody>
             {% for saml_service_provider in saml_service_providers %}
                 <tr>
-                    <td>
-                        <a href='/centre/{{ saml_service_provider.centre.id }}'>{{ saml_service_provider.centre }}</a>
-                    </td>
+                    {% if saml_service_provider.centre %}
+                        <td>
+                            <a href='/centre/{{ saml_service_provider.centre.id }}'>{{ saml_service_provider.centre }}</a>
+                        </td>
+		    {% else %}
+		        <td>
+			    <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
+			</td>
+		    {% endif %}
                     <td>{{ saml_service_provider.entity_id }}</td>
                     <td class='non_textual'>
                         {% if saml_service_provider.production_status %}
