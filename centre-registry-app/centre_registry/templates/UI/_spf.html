@@ -39,7 +39,9 @@
 			    <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
 			</td>
 		    {% endif %}
-                    <td>{{ saml_service_provider.entity_id }}</td>
+                    <td>
+			<a href='{{ saml_service_provider.entity_id }}'>{{ saml_service_provider.entity_id }}</a>
+		    </td>
                     <td class='non_textual'>
                         {% if saml_service_provider.production_status %}
                             <span class='positive'><a href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
