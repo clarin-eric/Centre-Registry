@@ -2049,6 +2049,17 @@
     }
 },
 {
+    "pk": 25,
+    "model": "centre_registry.oaipmhendpoint",
+    "fields": {
+        "web_services_type": "",
+        "uri": "http://oaipmhendpoint.test.no.centre.nl/",
+        "metadata_format": 3,
+        "web_services_set": "",
+        "note": "Test note to be displayed as tooltip"
+    }
+},
+{
     "pk": 1,
     "model": "centre_registry.fcsendpoint",
     "fields": {
@@ -2198,6 +2209,14 @@
     "fields": {
         "uri": "http://fcs.clarin-pl.eu/bonito/run.cgi/fcs",
         "centre": 25
+    }
+},
+{
+    "pk": 22,
+    "model": "centre_registry.fcsendpoint",
+    "fields": {
+        "uri": "https://fcsendpoint.no.centre.test.nl/",
+        "note": "Note to be displayed as tooltip"
     }
 },
 {
@@ -2398,6 +2417,16 @@
         "centre": 27,
         "production_status": true,
         "entity_id": "https://dev.clarin.nl/shibboleth"
+    }
+},
+{
+    "pk": 21,
+    "model": "centre_registry.samlserviceprovider",
+    "fields": {
+        "status_url": "https://samlserviceprovider.statusurl.nocentre.test.nl/",
+        "production_status": true,
+        "entity_id": "https://samlserviceprovider.id.nocentre.test.nl/",
+        "note": "Test note to be displayed as a tooltip"
     }
 },
 {
