@@ -2,71 +2,75 @@
 {% block title %}SPF overview{% endblock title %}
 {% block content %}
     <p>Please visit <a href='//www.clarin.eu/spf'>this</a> page for more information about the
-        <abbr title='Service Provider Federation'>SPF</abbr>, which CLARIN maintains to enable federated access to resources.
+        <abbr title='Service Provider Federation'>SPF</abbr>, which CLARIN maintains to enable federated access to
+        resources.
     </p>
     <p>The red
-        <span class='negative'>✗</span>s indicate that the SP on that row is not registered with the identity federation in that column. The green
-        <span class='positive'>Δ</span>s indicate the opposite: please click the Δ to learn of any differences (in unified diff format) between
-        <a href='https://infra.clarin.eu/aai/prod_md_about_spf_sps.xml'>the reference version</a> of the SAML metadata about the SP on that row vs. the version as registered with the corresponding identity federation.
+        <span class='negative'>✗</span>s indicate that the SP on that row is not registered with the identity federation
+        in that column. The green
+        <span class='positive'>Δ</span>s indicate the opposite: please click the Δ to learn of any differences (in
+        unified diff format) between
+        <a href='https://infra.clarin.eu/aai/prod_md_about_spf_sps.xml'>the reference version</a> of the SAML metadata
+        about the SP on that row vs. the version as registered with the corresponding identity federation.
     </p>
     <table id='saml_service_providers_and_identity_federations'
            class='datatables-table stripe order-column row-border'>
         <thead>
-            <tr>
-                <th>Centre shorthand</th>
-                <th><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
-                <th><abbr title='Does this SP have production status?'>Prod. status</abbr></th>
-                <th><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
-                {% for saml_identity_federation in saml_id_feds %}
-                    {# TODO: Do not handle such a special case like 'CLARIN IdP'. #}
-                    {% if saml_identity_federation.shorthand != 'CLARIN IdP' %}
-                        <th>
-                            <a href='{{ saml_identity_federation.saml_metadata_url }}'>{{ saml_identity_federation.shorthand }}</a>
-                        </th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
+        <tr>
+            <th>Centre shorthand</th>
+            <th><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
+            <th><abbr title='Does this SP have production status?'>Prod. status</abbr></th>
+            <th><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
+            {% for saml_identity_federation in saml_id_feds %}
+                {# TODO: Do not handle such a special case like 'CLARIN IdP'. #}
+                {% if saml_identity_federation.shorthand != 'CLARIN IdP' %}
+                    <th>
+                        <a href='{{ saml_identity_federation.saml_metadata_url }}'>{{ saml_identity_federation.shorthand }}</a>
+                    </th>
+                {% endif %}
+            {% endfor %}
+        </tr>
         </thead>
         <tbody>
-            {% for saml_service_provider in saml_service_providers %}
-                <tr>
-                    {% if saml_service_provider.centre %}
-                        <td>
-                            <a href='/centre/{{ saml_service_provider.centre.id }}'>{{ saml_service_provider.centre }}</a>
-                        </td>
-		    {% else %}
-		        <td>
-			    <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
-			</td>
-		    {% endif %}
+        {% for saml_service_provider in saml_service_providers %}
+            <tr>
+                {% if saml_service_provider.centre %}
                     <td>
-			<a href='{{ saml_service_provider.entity_id }}'>{{ saml_service_provider.entity_id }}</a>
-		    </td>
+                        <a href='/centre/{{ saml_service_provider.centre.id }}'>{{ saml_service_provider.centre }}</a>
+                    </td>
+                {% else %}
+                    <td>
+                        <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
+                    </td>
+                {% endif %}
+                <td>{{ saml_service_provider.entity_id }}</td>
+                <td class='non_textual'>
+                    {% if saml_service_provider.production_status %}
+                        <span class='positive'><a
+                                href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
+                    {% else %}
+                        <span class='negative'>✗</span>
+                    {% endif %}
+                </td>
+                <td class='non_textual'>
+                    {% if saml_service_provider.status_url %}
+                        <a href='{{ saml_service_provider.status_url }}'>⚙</a>
+                    {% else %}
+                        <em>none</em>
+                    {% endif %}
+                </td>
+                {% for identity_federation, sps in processed_sps_across_id_feds.items %}
                     <td class='non_textual'>
-                        {% if saml_service_provider.production_status %}
-                            <span class='positive'><a href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
+                        {% if saml_service_provider.entity_id in sps %}
+                            <a href='https://infra.clarin.eu/aai/sps_at_identity_federations/{{ identity_federation|urlencode }}/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml.diff'><span
+                                    class='positive'>Δ</span></a>
                         {% else %}
                             <span class='negative'>✗</span>
                         {% endif %}
                     </td>
-                    <td class='non_textual'>
-                        {% if saml_service_provider.status_url %}
-                            <a href='{{ saml_service_provider.status_url }}'>⚙</a>
-                        {% else %}
-                            <em>none</em>
-                        {% endif %}
-                    </td>
-                    {% for identity_federation, sps in processed_sps_across_id_feds.items %}
-                        <td class='non_textual'>
-                            {% if saml_service_provider.entity_id in sps %}
-                                <a href='https://infra.clarin.eu/aai/sps_at_identity_federations/{{ identity_federation|urlencode }}/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml.diff'><span class='positive'>Δ</span></a>
-                            {% else %}
-                                <span class='negative'>✗</span>
-                            {% endif %}
-                        </td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock content %}
