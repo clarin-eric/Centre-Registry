@@ -118,6 +118,12 @@
                 {{ centre.consortium.country_name }}
             </td>
         </tr>
+        {% if centre.expertise %}
+            <tr>
+                <th>Expertise</th>
+                <td>{{ centre.expertise }}</td>
+            </tr>
+        {% endif %}
     </table>
     <h2>Contacts</h2>
     <table>
@@ -146,29 +152,25 @@
             </td>
         </tr>
         <tr>
-            <th>Monitoring contacts</th>
-            <td>
-                {% for monitoring_contact in centre.monitoring_contacts.all %}
-                    {{ monitoring_contact.name }}<br>
-                    {{ monitoring_contact.email_address }}
-                    {% if monitoring_contact.telephone_number %}
-                        <br>{{ monitoring_contact.telephone_number }}
-                    {% endif %}
-                    {% if monitoring_contact.website_url %}
-                        <br><a href='{{ monitoring_contact.website_url }}'>{{ monitoring_contact.website_url }}</a>
-                    {% endif %}
-                    {%  if not forloop.last %}
-                        <br><br>
-                    {% endif %}
+            {% if centre.monitoring_contacts.exists %}
+                <th>Monitoring contacts</th>
+                <td>
+                    {% for monitoring_contact in centre.monitoring_contacts.all %}
+                        {{ monitoring_contact.name }}<br>
+                        {{ monitoring_contact.email_address }}
+                        {% if monitoring_contact.telephone_number %}
+                            <br>{{ monitoring_contact.telephone_number }}
+                        {% endif %}
+                        {% if monitoring_contact.website_url %}
+                            <br><a href='{{ monitoring_contact.website_url }}'>{{ monitoring_contact.website_url }}</a>
+                        {% endif %}
+                        {%  if not forloop.last %}
+                            <br><br>
+                        {% endif %}
 
-                {% endfor %}
-            </td>Organisational information
+                    {% endfor %}
+                </td>
+            {% endif %}
         </tr>
-        {% if centre.expertise %}
-            <tr>
-                <th>Expertise</th>
-                <td>{{ centre.expertise }}</td>
-            </tr>
-        {% endif %}
     </table>
 {% endblock content %}
