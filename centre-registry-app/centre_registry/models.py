@@ -346,7 +346,7 @@ class SAMLServiceProvider(Model):
     entity_id = URLField(
         verbose_name='Entity ID', max_length=1024, unique=True)
     centre = ForeignKey(Centre, null=True, blank=True)
-    status_url = URLField(
+    status_url = CharField(
         verbose_name='Status URL', max_length=1024, blank=True)
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
