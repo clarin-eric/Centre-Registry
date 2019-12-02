@@ -343,10 +343,10 @@ class SAMLServiceProvider(Model):
     """
     A CLARIN SPF SAML Service Provider.
     """
-    entity_id = URLField(
+    entity_id = CharField(
         verbose_name='Entity ID', max_length=1024, unique=True)
     centre = ForeignKey(Centre, null=True, blank=True)
-    status_url = CharField(
+    status_url = URLField(
         verbose_name='Status URL', max_length=1024, blank=True)
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
