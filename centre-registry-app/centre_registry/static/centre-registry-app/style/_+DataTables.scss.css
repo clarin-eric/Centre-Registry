@@ -33,6 +33,10 @@ body {
 body > div {
   padding: 1vh 2vw; }
 
+abbr {
+  cursor: default;
+}
+
 div#header {
   align-content: space-around;
   align-items: center;
