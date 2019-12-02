@@ -118,6 +118,52 @@
                 {{ centre.consortium.country_name }}
             </td>
         </tr>
+    </table>
+    <h2>Contacts</h2>
+    <table>
+        <tr>
+            <th>Administrative contact</th>
+            <td>{{ centre.administrative_contact.name }}<br>
+                {{ centre.administrative_contact.email_address }}<br>
+                {% if centre.administrative_contact.telephone_number %}
+                    {{ centre.administrative_contact.telephone_number }}<br>
+                {% endif %}
+                {% if centre.administrative_contact.website_url %}
+                    <a href='{{ centre.administrative_contact.website_url }}'>{{ centre.administrative_contact.website_url }}</a>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Technical contact</th>
+            <td>{{ centre.technical_contact.name }}<br>
+                {{ centre.technical_contact.email_address }}<br>
+                {% if centre.technical_contact.telephone_number %}
+                    {{ centre.technical_contact.telephone_number }}<br>
+                {% endif %}
+                {% if centre.technical_contact.website_url %}
+                    <a href='{{ centre.technical_contact.website_url }}'>{{ centre.technical_contact.website_url }}</a>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Monitoring contacts</th>
+            <td>
+                {% for monitoring_contact in centre.monitoring_contacts.all %}
+                    {{ monitoring_contact.name }}<br>
+                    {{ monitoring_contact.email_address }}
+                    {% if monitoring_contact.telephone_number %}
+                        <br>{{ monitoring_contact.telephone_number }}
+                    {% endif %}
+                    {% if monitoring_contact.website_url %}
+                        <br><a href='{{ monitoring_contact.website_url }}'>{{ monitoring_contact.website_url }}</a>
+                    {% endif %}
+                    {%  if not forloop.last %}
+                        <br><br>
+                    {% endif %}
+
+                {% endfor %}
+            </td>Organisational information
+        </tr>
         {% if centre.expertise %}
             <tr>
                 <th>Expertise</th>

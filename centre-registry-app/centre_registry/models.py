@@ -157,7 +157,7 @@ class AssessmentDates(Model):
 
     class Meta:
         ordering = ('issuedate', 'duedate')
-        verbose_name = 'issue/due dates for a centre type'
+        verbose_name = 'issue/due dates for a centre administrative_contacttype'
         verbose_name_plural = 'issue/due dates for a centre type'
 
 
