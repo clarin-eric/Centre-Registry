@@ -9,21 +9,20 @@
         <title>CLARIN Centre Registry - {% block title %}{% endblock title %}</title>
         {# @formatter:off #}
         <link rel='stylesheet'
-              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/_+DataTables.scss.css'>
+              href="{% static 'centre-registry-app/style/_+DataTables.scss.css' %}"/>
         <link rel='shortcut icon'
-              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/CLARIN_favicon.gif'>
-
+              href="{% static 'centre-registry-app/style/CLARIN_favicon.gif' %}">
         <link rel='stylesheet'
-              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/css/jquery.dataTables.min.css'>
+              href="{% static 'centre-registry-app/datatables/media/css/jquery.dataTables.min.css' %}">
         <link rel='stylesheet'
-              href='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/extensions/ColVis/css/dataTables.colVis.min.css'>
+        href="{% static 'centre-registry-app/datatables/extensions/ColVis/css/dataTables.colVis.min.css' %}">
 
         <script charset='utf-8'
-                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/js/jquery.js'></script>
+                src="{% static 'centre-registry-app/datatables/media/js/jquery.js' %}"></script>
         <script charset='utf-8'
-                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/media/js/jquery.dataTables.min.js'></script>
+                src={% static 'centre-registry-app/datatables/media/js/jquery.dataTables.min.js' %}></script>
         <script charset='utf-8'
-                src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_DATATABLES }}/extensions/ColVis/js/dataTables.colVis.min.js'></script>
+                src={% static 'centre-registry-app/datatables/extensions/ColVis/js/dataTables.colVis.min.js' %}></script>
         {# @formatter:on #}
         <script class='init'>
             $(document).ready(function () {
@@ -111,7 +110,7 @@
                href='/about'>&#x2139; Version {{ VERSION }}</a>
             <a title='CLARIN ERIC'
                href='https://www.clarin.eu/'>{# @formatter:off #}
-                <img src='{{ STATIC_PREFIX }}{{ RESOURCE_LOCATION_CLARIN_STYLE }}/CLARIN-Logo_4C14pure3_noextraneouscanvas.png'
+                <img src="{% static 'centre-registry-app/style/CLARIN-Logo_4C14pure3_noextraneouscanvas.png' %}" alt='CLARIN logo'>
                      alt='CLARIN ERIC logo'/></a>{# @formatter:on #}
             <a title='contacting us'
                href='/contacting'>&#128236; Contacting us</a>

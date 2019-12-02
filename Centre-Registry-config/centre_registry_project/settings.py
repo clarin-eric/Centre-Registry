@@ -44,7 +44,7 @@ SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
 MEDIA_ROOT = ''
-STATIC_URL = 'https://infra.clarin.eu/content/Centre_Registry/'
+STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_DIR,
                    '../../centre-registry-app/centre_registry/static')
 
