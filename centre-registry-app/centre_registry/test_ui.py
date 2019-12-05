@@ -85,7 +85,10 @@ class SystemTestCase(StaticLiveServerTestCase):
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Karls', body.text)
 
-#TODO test contact display in centre view
+    def test_contact_in_centre(self):
+        self.selenium.get(self.live_server_url + '/centre/1')
+        body = self.selenium.find_element_by_tag_name('body')
+        self.assertIN('Hinrichs', body.text)
 
     def test_centres_contacts(self):
         self.selenium.get(self.live_server_url + '/centres_contacts')
