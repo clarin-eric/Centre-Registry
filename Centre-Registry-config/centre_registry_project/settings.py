@@ -12,10 +12,6 @@ try:
 except DistributionNotFound:
     VERSION = 'SNAPSHOT'
 
-# Resource location URLS relative to STATIC_URL.
-RESOURCE_LOCATION_DATATABLES = 'libs/DataTables-1.10.6/'
-RESOURCE_LOCATION_CLARIN_STYLE = 'CLARIN_style/1.0/'
-
 SECRET_KEY = 'testkey1283182183721'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
