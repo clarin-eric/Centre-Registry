@@ -11,7 +11,7 @@ def tracked_by_piwik(request):
 
 def res_locs_relv_to_static(request):
     # pylint: disable=unused-argument
-    if settings.RESOURCE_LOCATION_DATATABLES is not None and if settings.RESOURCE_LOCATION_CLARIN_STYLE is not None:
+    if settings.RESOURCE_LOCATION_DATATABLES is not None and settings.RESOURCE_LOCATION_CLARIN_STYLE is not None:
         return {
             'RESOURCE_LOCATION_DATATABLES': settings.RESOURCE_LOCATION_DATATABLES,
             'RESOURCE_LOCATION_CLARIN_STYLE':
