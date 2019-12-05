@@ -51,7 +51,6 @@ TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
-    'centre_registry.context_processors.res_locs_relv_to_static',
     'centre_registry.context_processors.tracked_by_piwik',
     'centre_registry.context_processors.version', )
 MIDDLEWARE_CLASSES = (
