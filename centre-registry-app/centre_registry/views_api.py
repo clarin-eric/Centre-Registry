@@ -14,6 +14,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext
+from django.template.loader import render_to_string
 
 
 def get_centre(request, centre_id):
@@ -30,7 +31,8 @@ def get_centre(request, centre_id):
     return render(
         request,
         template_name='API/centre.xml',
-        context=request_context,
+        # Djnago 1.11+ requires context in form of dict, flatten() returns RequestContext as dict
+        context=request_context.flatten(),
         content_type='application/xml')
 
 
@@ -42,7 +44,8 @@ def get_all_centres(request):
     return render(
         request,
         template_name='API/all_centres.xml',
-        context=request_context,
+        # Djnago 1.11+ requires context in form of dict, flatten() returns RequestContext as dict
+        context=request_context.flatten(),
         content_type='application/xml')
 
 
@@ -80,5 +83,6 @@ def get_centres_kml(request, types):
     return render(
         request,
         template_name='API/centres_map.kml',
-        context=request_context,
+        # Djnago 1.11+ requires context in form of dict, flatten() returns RequestContext as dict
+        context=request_context.flatten(),
         content_type='application/vnd.google-earth.kml+xml')

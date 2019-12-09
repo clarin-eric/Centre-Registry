@@ -53,7 +53,6 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.core.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'centre_registry.context_processors.tracked_by_piwik',
                 'centre_registry.context_processors.version',
