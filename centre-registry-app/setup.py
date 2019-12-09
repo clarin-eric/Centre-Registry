@@ -9,7 +9,7 @@ from setuptools import setup
 
 __version__ = '2.2.4-dev'
 
-INSTALL_REQUIRES = ['Django==1.9.13', 'django-debug-toolbar==1.9.1']
+INSTALL_REQUIRES = ['Django==2.2.8', 'django-debug-toolbar==2.1']
 TEST_REQUIRES = ['lxml==4.2.4', 'selenium==2.53.6']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(

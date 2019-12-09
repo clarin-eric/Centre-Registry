@@ -47,13 +47,28 @@ STATIC_ROOT = join(PROJECT_DIR,
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.core.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'centre_registry.context_processors.tracked_by_piwik',
+                'centre_registry.context_processors.version',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-    'django.contrib.auth.context_processors.auth',
-    'centre_registry.context_processors.tracked_by_piwik',
-    'centre_registry.context_processors.version', )
-MIDDLEWARE_CLASSES = (
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.core.context_processors.request',
+#     'django.contrib.auth.context_processors.auth',
+#     'centre_registry.context_processors.tracked_by_piwik',
+#     'centre_registry.context_processors.version', )
+MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -109,6 +124,6 @@ LOGGING = {
 }
 
 if DEBUG:
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
+    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
     INSTALLED_APPS += ('debug_toolbar', )
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
