@@ -34,7 +34,7 @@ DATABASES = {
         'NAME': 'mydatabase'
     }
 }
-TIME_ZONE = None  # 'Europe/Berlin'
+TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
 USE_I18N = False

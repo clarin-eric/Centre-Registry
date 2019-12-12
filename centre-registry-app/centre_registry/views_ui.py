@@ -47,7 +47,7 @@ def get_centres_contacts(request):
     return render(
         request,
         template_name='UI/_centres_contacts.html',
-        context=request_context)
+        context=request_context.flatten())
 
 
 def get_consortia(request):
