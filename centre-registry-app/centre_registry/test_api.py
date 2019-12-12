@@ -20,7 +20,7 @@ class APITestCase(unittest.TestCase):
     def setUpClass(cls):
         setup()
         management.call_command(
-            'loaddata', 'test_data.json', verbosity=1, noinput=True)
+            'loaddata', 'test_data.json', verbosity=1)
         super(APITestCase, cls).setUpClass()
 
     # Tests for API v1
