@@ -30,7 +30,7 @@ class SystemTestCase(StaticLiveServerTestCase):
         # TODO: Replace Travis CI & Sauce Labs with generic testing code.
         if is_ci:
             from selenium.webdriver import Remote
-            hub_url = ("{username:s}:{access_key:s}@127.0.0.1:4445"
+            hub_url = ("{username:s}:{access_key:s}@localhost:4445"
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
@@ -63,77 +63,77 @@ class SystemTestCase(StaticLiveServerTestCase):
         cls.selenium.quit()
 
     def test_admin(self):
-        self.selenium.get('127.0.0.1' + '/admin')
+        self.selenium.get(self.live_server_url + '/admin')
 
         self.selenium.find_element_by_id('id_username')
 
     def test_about(self):
-        self.selenium.get('127.0.0.1' + '/about')
+        self.selenium.get(self.live_server_url + '/about')
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Sander Maijers', body.text)
 
     def test_all_centres(self):
-        self.selenium.get('127.0.0.1' + '/all_centres')
+        self.selenium.get(self.live_server_url + '/all_centres')
 
         table = self.selenium.find_element_by_id('all_centres')
         table.find_element_by_tag_name('tr')
 
     def test_centre(self):
-        self.selenium.get('127.0.0.1' + '/centre/1')
+        self.selenium.get(self.live_server_url + '/centre/1')
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Karls', body.text)
 
     def test_contact_in_centre(self):
-        self.selenium.get('127.0.0.1' + '/centre/1')
+        self.selenium.get(self.live_server_url + '/centre/1')
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Margarethe Weber', body.text)
 
     def test_centres_contacts(self):
-        self.selenium.get('127.0.0.1' + '/centres_contacts')
+        self.selenium.get(self.live_server_url + '/centres_contacts')
 
         table = self.selenium.find_element_by_id('centres_contacts')
         table.find_element_by_tag_name('tr')
 
     def test_consortia(self):
-        self.selenium.get('127.0.0.1' + '/consortia')
+        self.selenium.get(self.live_server_url + '/consortia')
 
         table = self.selenium.find_element_by_id('consortia')
         table.find_element_by_tag_name('tr')
 
     def test_contacting(self):
-        self.selenium.get('127.0.0.1' + '/contacting')
+        self.selenium.get(self.live_server_url + '/contacting')
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Contacting', body.text)
 
     def test_contact(self):
-        self.selenium.get('127.0.0.1' + '/contact/1')
+        self.selenium.get(self.live_server_url + '/contact/1')
 
         table = self.selenium.find_element_by_id('contact')
         self.assertIn('ePPN', table.text)
 
     def test_fcs(self):
-        self.selenium.get('127.0.0.1' + '/fcs')
+        self.selenium.get(self.live_server_url + '/fcs')
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('FCS endpoint', body.text)
 
     def test_map(self):
-        self.selenium.get('127.0.0.1' + '/map')
+        self.selenium.get(self.live_server_url + '/map')
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('geographical overview', body.text)
 
     def test_oai_pmh(self):
-        self.selenium.get('127.0.0.1' + '/oai_pmh')
+        self.selenium.get(self.live_server_url + '/oai_pmh')
 
         table = self.selenium.find_element_by_id('oai-pmh_endpoints')
         table.find_element_by_tag_name('tr')
 
     def test_spf(self):
-        self.selenium.get('127.0.0.1' + '/spf')
+        self.selenium.get(self.live_server_url + '/spf')
 
         table = self.selenium.find_element_by_id(
             'saml_service_providers_and_identity_federations')
