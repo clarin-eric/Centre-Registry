@@ -15,7 +15,7 @@ except DistributionNotFound:
 SECRET_KEY = 'testkey1283182183721'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
-DEBUG = True # TODO: templatize
+DEBUG = False # TODO: templatize
 SESSION_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = not DEBUG
