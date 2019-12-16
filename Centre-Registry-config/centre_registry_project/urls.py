@@ -4,12 +4,13 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path
 
 admin.autodiscover()
 admin.site.site_header = settings.ADMIN_TITLE
 
 urlpatterns = [  # pylint: disable=invalid-name
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 
     # REST API v1.
     url(r'^restxml/$', views_api.get_all_centres),

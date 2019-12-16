@@ -202,7 +202,7 @@ class Centre(Model):
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=CASCADE)
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
