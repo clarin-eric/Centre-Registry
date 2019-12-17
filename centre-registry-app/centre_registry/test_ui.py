@@ -11,6 +11,7 @@ except ImportError:
     import simplejson as json
 
 is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
+os.environ['DJANGO_LIVE_TEST_SERVER_ADDRESS'] = 'localhost:8082'
 
 def set_test_status(jobid, passed=True):
     base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
@@ -50,7 +51,6 @@ class SystemTestCase(StaticLiveServerTestCase):
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()
-        cls.selenium.implicitly_wait(10)
 
     @classmethod
     def tearDownClass(cls):
