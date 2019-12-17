@@ -50,6 +50,7 @@ class SystemTestCase(StaticLiveServerTestCase):
         else:
             cls.selenium = WebDriver()
         super(SystemTestCase, cls).setUpClass()
+        cls.selenium.implicitly_wait(10)
 
     @classmethod
     def tearDownClass(cls):
