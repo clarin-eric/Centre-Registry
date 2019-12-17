@@ -34,6 +34,8 @@ DATABASES = {
         'NAME': 'mydatabase'
     }
 }
+DJANGO_LIVE_TEST_SERVER_ADDRESS = 'localhost:8082'
+
 TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1

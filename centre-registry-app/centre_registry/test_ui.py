@@ -11,7 +11,6 @@ except ImportError:
     import simplejson as json
 
 is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
-environ['DJANGO_LIVE_TEST_SERVER_ADDRESS'] = 'localhost:8082'
 
 def set_test_status(jobid, passed=True):
     base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
