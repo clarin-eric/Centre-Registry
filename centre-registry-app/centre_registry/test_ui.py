@@ -24,6 +24,7 @@ def set_test_status(jobid, passed=True):
 
 class SystemTestCase(StaticLiveServerTestCase):
     fixtures = ['test_data.json']
+    port = 9999
 
     @classmethod
     def setUpClass(cls):
