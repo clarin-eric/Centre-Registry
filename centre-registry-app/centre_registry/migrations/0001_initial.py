@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200, unique=True, verbose_name='Name')),
                 ('shorthand', models.CharField(max_length=30, unique=True, verbose_name='Shorthand code')),
-                ('organisation_name', models.CharField(max_length=100, verbose_name='Organisation')),
+                ('organisation_name', models.CharField(max_length=100, verbose_name='OrganisationSet')),
                 ('institution', models.CharField(max_length=200, verbose_name='Institution')),
                 ('working_unit', models.CharField(max_length=200, verbose_name='Working unit')),
                 ('address', models.CharField(max_length=100, verbose_name='Address')),

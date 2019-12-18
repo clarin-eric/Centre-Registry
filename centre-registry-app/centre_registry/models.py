@@ -315,6 +315,14 @@ class OAIPMHEndpoint(Model):
         verbose_name_plural = "OAI-PMH endpoints"
 
 
+class OAIPMHEndpointSet(Model):
+    """
+    Set of OAI-PMH Endpoints.
+    """
+    centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
+    oaipmh_endpoints = ManyToManyField(to=OAIPMHEndpoint, verbose_name='OAI-PMH endpoints')
+
+
 class FCSEndpoint(Model):
     """
     A CLARIN FCS Endpoint.
@@ -360,7 +368,6 @@ class SAMLServiceProvider(Model):
         else:
             return '{entity_id:s} ({centre_shorthand:s})'.format(
                 entity_id=self.entity_id, centre_shorthand='NoCentre')
-
 
     def __str__(self): 
         return self.__unicode__()
