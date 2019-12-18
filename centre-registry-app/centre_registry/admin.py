@@ -20,7 +20,7 @@ class OrphanContactFilter(admin.SimpleListFilter):
         return [
                 ('administrative_contacts', 'Administrative contacts'),
                 ('monitoring_contacts', 'Monitoring contacts'),
-                ('technical_contacts', 'Administrative contacts'),
+                ('technical_contacts', 'Technical contacts'),
                 ('orphan_contacts', 'Orphan contacts'),
                 ]
 
@@ -51,6 +51,7 @@ class OrphanContactFilter(admin.SimpleListFilter):
 
 class ContactAdmin(admin.ModelAdmin):
     list_filter = (OrphanContactFilter, )
+
 
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
