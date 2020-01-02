@@ -332,9 +332,9 @@ class OAIPMHEndpointSet(Model):
             return '{uri:s} ({centre_shorthand:s})'.format(
                 uri=self.oaipmh_endpoints.all()[0], centre_shorthand='NoCentre')
 
-
     def __str__(self):
         return self.__unicode__()
+
 
 class FCSEndpoint(Model):
     """
