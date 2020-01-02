@@ -335,6 +335,11 @@ class OAIPMHEndpointSet(Model):
     def __str__(self):
         return self.__unicode__()
 
+    class Meta:
+        ordering = ('uri', )
+        verbose_name = "OAI-PMH endpoints set"
+        verbose_name_plural = "OAI-PMH endpoints sets"
+
 
 class FCSEndpoint(Model):
     """
