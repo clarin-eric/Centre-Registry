@@ -332,7 +332,7 @@ class OAIPMHEndpointSet(Model):
         return self.__unicode__()
 
     class Meta:
-        ordering = ('uri', )
+        ordering = ('centre', )
         verbose_name = "OAI-PMH endpoints set"
         verbose_name_plural = "OAI-PMH endpoints sets"
 
