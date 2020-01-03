@@ -282,7 +282,6 @@ class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
-    centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     metadata_format = ForeignKey(
         MetadataFormat, verbose_name='Metadata format (historic artifact)', on_delete=PROTECT)
     # TODO: fix old API's XSD to allow more MetadataFormats
@@ -299,12 +298,8 @@ class OAIPMHEndpoint(Model):
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        if self.centre is not None:
-            return '{uri:s} ({centre_shorthand:s})'.format(
-                uri=self.uri, centre_shorthand=self.centre.shorthand)
-        else:
-            return '{uri:s} ({centre_shorthand:s})'.format(
-                uri=self.uri, centre_shorthand='NoCentre')
+        return '{uri:s}'.format(
+            uri=self.uri)
 
     def __str__(self):
         return self.__unicode__()
