@@ -318,25 +318,16 @@ class OAIPMHEndpointSet(Model):
     # TODO figure out on delete for many-to-many. Can set without endpoints exist?
     oaipmh_endpoints = ManyToManyField(to=OAIPMHEndpoint, verbose_name='OAI-PMH endpoints')
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
-    name = CharField(verbose_name='OAI-PMH enpoint URI to be used as set name', max_length=1024, blank=True)
 
     def __unicode__(self):
         # TODO find a way to choose which endpoint's uri will be used for human-readable set name
         # if name uri not chosen use first endpoint uri as name
-        if self.name is None:
-            if self.centre is not None:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand=self.centre.shorthand)
-            else:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand='NoCentre')
+        if self.centre is not None:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand=self.centre.shorthand)
         else:
-            if self.centre is not None:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.name, centre_shorthand=self.centre.shorthand)
-            else:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.name, centre_shorthand='NoCentre')
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand='NoCentre' + str(self.pk))
 
     def __str__(self):
         return self.__unicode__()
