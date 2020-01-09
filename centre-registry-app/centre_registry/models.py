@@ -318,7 +318,6 @@ class OAIPMHEndpointSet(Model):
     # TODO figure out on delete for many-to-many. Can set without endpoints exist?
     oaipmh_endpoints = ManyToManyField(to=OAIPMHEndpoint, verbose_name='OAI-PMH endpoints')
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
-    name = CharField(verbose_name='OAI-PMH endpoint URI to be used as set name', max_length=1024, blank=True)
 
     def __unicode__(self):
         if self.centre is not None:
