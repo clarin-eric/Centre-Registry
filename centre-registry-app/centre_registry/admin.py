@@ -13,8 +13,6 @@ from centre_registry.models import URLReference
 from django.contrib import admin
 
 
-# TODO add admin view for OAI-PMHEndpointSet with choice of Endpoint used for Set naming
-
 class OrphanContactFilter(admin.SimpleListFilter):
     title = 'Orphan contacts'
     parameter_name = 'contact_assignment'
