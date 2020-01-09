@@ -321,22 +321,12 @@ class OAIPMHEndpointSet(Model):
     name = CharField(verbose_name='OAI-PMH endpoint URI to be used as set name', max_length=1024, blank=True)
 
     def __unicode__(self):
-        # TODO find a way to choose which endpoint's uri will be used for human-readable set name
-        # if name uri not chosen use first endpoint uri as a name
-        if self.name is '':
-            if self.centre is not None:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand=self.centre.shorthand)
-            else:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand='NoCentre')
+        if self.centre is not None:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand=self.centre.shorthand)
         else:
-            if self.centre is not None:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.name, centre_shorthand=self.centre.shorthand)
-            else:
-                return '{uri:s} ({centre_shorthand:s})'.format(
-                    uri=self.name, centre_shorthand='NoCentre')
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand='NoCentre' + str(self.pk))
 
     def __str__(self):
         return self.__unicode__()
