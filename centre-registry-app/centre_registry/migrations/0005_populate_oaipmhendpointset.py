@@ -8,9 +8,13 @@ def populate_OAIPMHEndpointSet(apps, schema_editor):
     OAIPMHEndpointSet = apps.get_model('centre_registry', 'OAIPMHEndpointSet')
 
     for endpoint in OAIPMHEndpoint.objects.all():
-        endpoint_set = OAIPMHEndpointSet(centre=endpoint.centre)
-        endpoint_set.save()
-        endpoint_set.oaipmh_endpoints.add(endpoint)
+        if OAIPMHEndpointSet.objects.filter(centre__pk=endpoint.centre.pk):
+            endpoint_set = OAIPMHEndpointSet.objects.get(centre__pk=endpoint.centre.pk)
+            endpoint_set.oaipmh_endpoints.add(endpoint)
+        else:
+            endpoint_set = OAIPMHEndpointSet(centre=endpoint.centre)
+            endpoint_set.save()
+            endpoint_set.oaipmh_endpoints.add(endpoint)
         endpoint_set.save()
 
 

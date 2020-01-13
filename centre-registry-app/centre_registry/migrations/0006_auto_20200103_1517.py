@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0005_auto_20191218_1543'),
+        ('centre_registry', '0005_populate_oaipmhendpointset'),
     ]
 
     operations = [
