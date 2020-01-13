@@ -282,6 +282,7 @@ class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
+    centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     metadata_format = ForeignKey(
         MetadataFormat, verbose_name='Metadata format (historic artifact)', on_delete=PROTECT)
     # TODO: fix old API's XSD to allow more MetadataFormats

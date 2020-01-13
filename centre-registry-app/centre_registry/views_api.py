@@ -24,8 +24,7 @@ def get_centre(request, centre_id):
         request,
         {'centre': centre,
          'oai_pmh_endpoints':
-         [oai_pmh_endpoint for oai_pmh_endpoint in [
-             endpoint_set.oaipmh_endpoints for endpoint_set in OAIPMHEndpointSet.objects.filter(centre__pk=centre.pk)]],
+         [oai_pmh_endpoint for oai_pmh_endpoint in OAIPMHEndpointSet.objects.get(centre__pk=centre.pk).oaipmh_endpoints.all()],
          'fcs_endpoints': FCSEndpoint.objects.filter(centre__pk=centre.pk),
          'url_references': URLReference.objects.filter(centre__pk=centre.pk),
          'url_prefix': request.build_absolute_uri('/')})
