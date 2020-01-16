@@ -29,6 +29,7 @@ def reverse_populate_OAIPMHEndpointSet(apps, schema_editor):
             endpoint.save()
             endpoint_set.oaipmh_endpoints.remove(endpoint)
             endpoint_set.save()
+        endpoint_set.delete()
 
 
 class Migration(migrations.Migration):
