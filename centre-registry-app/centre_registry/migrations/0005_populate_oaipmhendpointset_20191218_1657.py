@@ -24,7 +24,7 @@ def populate_OAIPMHEndpointSet(apps, schema_editor):
 def reverse_populate_OAIPMHEndpointSet(apps, schema_editor):
     OAIPMHEndpointSet = apps.get_model('centre_registry', 'OAIPMHEndpointSet')
     for endpoint_set in OAIPMHEndpointSet.objects.all():
-        for endpoint in endpoint_set.oaipmh_endpoints:
+        for endpoint in endpoint_set.oaipmh_endpoints.all():
             endpoint.centre = endpoint_set.centre
             endpoint.save()
             endpoint_set.oaipmh_endpoints.remove(endpoint)
