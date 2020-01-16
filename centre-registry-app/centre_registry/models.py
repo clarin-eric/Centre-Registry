@@ -318,7 +318,7 @@ class OAIPMHEndpointSet(Model):
     centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     # TODO figure out on delete for many-to-many. Can set without endpoints exist?
     oaipmh_endpoints = ManyToManyField(to=OAIPMHEndpoint, verbose_name='OAI-PMH endpoints')
-    # note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
         if self.centre is not None:

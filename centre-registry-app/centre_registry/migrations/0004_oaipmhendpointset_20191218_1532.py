@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('centre', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='centre_registry.Centre')),
                 ('oaipmh_endpoints', models.ManyToManyField(to='centre_registry.OAIPMHEndpoint', verbose_name='OAI-PMH endpoints')),
+                ('note', models.CharField(blank=True, max_length=1024, verbose_name='Additional note')),
             ],
         ),
     ]

@@ -20,7 +20,15 @@ def populate_OAIPMHEndpointSet(apps, schema_editor):
             endpoint_set.oaipmh_endpoints.add(endpoint)
             endpoint_set.save()
 
-#TODO depopulate
+
+def reverse_populate_OAIPMHEndpointSet(apps, schema_editor):
+    OAIPMHEndpointSet = apps.get_model('centre_registry', 'OAIPMHEndpointSet')
+    for endpoint_set in OAIPMHEndpointSet.objects.all():
+        for endpoint in endpoint_set.oaipmh_endpoints:
+            endpoint.centre = endpoint_set.centre
+            endpoint.save()
+            endpoint_set.oaipmh_endpoints.remove(endpoint)
+            endpoint_set.save()
 
 
 class Migration(migrations.Migration):
@@ -30,5 +38,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(populate_OAIPMHEndpointSet),
+        migrations.RunPython(populate_OAIPMHEndpointSet, reverse_code=reverse_populate_OAIPMHEndpointSet),
     ]
