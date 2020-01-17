@@ -19,7 +19,7 @@ class APITestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         setup()
-        management.call_command('migrate', 'centre_registry', '0001')
+        management.call_command('migrate', 'centre_registry', '0022')
         management.call_command(
             'loaddata', 'test_data.json', verbosity=1)
         management.call_command('migrate')
