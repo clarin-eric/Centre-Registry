@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-import unittest
 from os.path import join
 from traceback import print_exc
 
 from django import setup
-from django.core import management
+from django.test import TestCase
 from django.test import Client
 from lxml.etree import DocumentInvalid
 from lxml.etree import fromstring
@@ -15,13 +14,17 @@ from lxml.etree import XPath
 from pkg_resources import resource_string
 
 
-class APITestCase(unittest.TestCase):
+class APITestCase(TestCase):
     fixtures = ['test_data']
 
     @classmethod
     def setUpClass(cls):
         setup()
         super(APITestCase, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        super(APITestCase, cls).tearDownClass()
 
     # Tests for API v1
     def test_all_centres(self):
