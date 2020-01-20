@@ -16,11 +16,11 @@ from pkg_resources import resource_string
 
 
 class APITestCase(unittest.TestCase):
+    fixtures = ['test_data']
+
     @classmethod
     def setUpClass(cls):
         setup()
-        management.call_command(
-            'loaddata', 'test_data.json', verbosity=1)
         super(APITestCase, cls).setUpClass()
 
     # Tests for API v1
