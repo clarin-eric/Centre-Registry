@@ -45,7 +45,7 @@ USE_L10N = True
 MEDIA_ROOT = ''
 STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_DIR,
-                   '../../centre-registry-app/centre_registry/static')
+                   '../../centre-registry-app/centre_registry/assets')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
