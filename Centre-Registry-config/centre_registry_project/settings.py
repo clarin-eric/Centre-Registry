@@ -31,8 +31,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase'
-    }
+        'NAME': 'mydatabase',
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
+    },
 }
 TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-gb'
