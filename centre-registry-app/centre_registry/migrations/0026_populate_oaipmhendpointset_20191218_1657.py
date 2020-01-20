@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 def populate_OAIPMHEndpointSet(apps, schema_editor):
-    print("HERE!!")
     OAIPMHEndpoint = apps.get_model('centre_registry', 'OAIPMHEndpoint')
     OAIPMHEndpointSet = apps.get_model('centre_registry', 'OAIPMHEndpointSet')
 
