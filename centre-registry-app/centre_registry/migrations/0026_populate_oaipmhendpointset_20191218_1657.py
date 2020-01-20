@@ -35,7 +35,7 @@ def reverse_populate_OAIPMHEndpointSet(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0004_oaipmhendpointset_20191218_1532'),
+        ('centre_registry', '0025_oaipmhendpointset_20191218_1532'),
     ]
 
     operations = [
