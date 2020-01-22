@@ -5,7 +5,7 @@ from json import loads as json_loads
 from centre_registry import models
 from centre_registry.models import Centre
 from centre_registry.models import FCSEndpoint
-from centre_registry.models import OAIPMHEndpointSet
+from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import URLReference
 from django.core import serializers
 from django.core.exceptions import ViewDoesNotExist
@@ -24,7 +24,7 @@ def get_centre(request, centre_id):
         request,
         {'centre': centre,
          'oai_pmh_endpoints':
-         [oai_pmh_endpoint for oai_pmh_endpoint in OAIPMHEndpointSet.objects.filter(centre__pk=centre.pk)[0].oaipmh_endpoints.all()],
+         OAIPMHEndpoint.objects.filter(centre__pk=centre.pk),
          'fcs_endpoints': FCSEndpoint.objects.filter(centre__pk=centre.pk),
          'url_references': URLReference.objects.filter(centre__pk=centre.pk),
          'url_prefix': request.build_absolute_uri('/')})

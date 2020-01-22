@@ -311,32 +311,6 @@ class OAIPMHEndpoint(Model):
         verbose_name_plural = "OAI-PMH endpoints"
 
 
-class OAIPMHEndpointSet(Model):
-    """
-    Set of OAI-PMH Endpoints.
-    """
-    centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
-    # TODO figure out on delete for many-to-many. Can set without endpoints exist?
-    oaipmh_endpoints = ManyToManyField(to=OAIPMHEndpoint, verbose_name='OAI-PMH endpoints')
-    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
-
-    def __unicode__(self):
-        if self.centre is not None:
-            return '{uri:s} ({centre_shorthand:s})'.format(
-                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand=self.centre.shorthand)
-        else:
-            return '{uri:s} ({centre_shorthand:s})'.format(
-                uri=self.oaipmh_endpoints.all()[0].uri, centre_shorthand='NoCentre' + str(self.pk))
-
-    def __str__(self):
-        return self.__unicode__()
-
-    class Meta:
-        ordering = ('centre', )
-        verbose_name = "OAI-PMH endpoints set"
-        verbose_name_plural = "OAI-PMH endpoints sets"
-
-
 class FCSEndpoint(Model):
     """
     A CLARIN FCS Endpoint.

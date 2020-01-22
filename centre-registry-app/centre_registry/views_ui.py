@@ -6,7 +6,7 @@ from centre_registry.models import Centre
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
-from centre_registry.models import OAIPMHEndpointSet
+from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
@@ -82,8 +82,8 @@ def get_fcs(request):
 
 def get_oai_pmh(request):
     request_context = RequestContext(request, {'view': 'oai_pmh',
-                                               'oai_pmh_endpoints_sets':
-                                               OAIPMHEndpointSet.objects.all()})
+                                               'oai_pmh_endpoints':
+                                               OAIPMHEndpoint.objects.all()})
     return render(
         request, template_name='UI/_oai_pmh.html', context=request_context.flatten())
 

@@ -14,42 +14,22 @@
             </tr>
         </thead>
         <tbody>
-            {% for oai_pmh_endpoints_set in oai_pmh_endpoints_sets %}
-                    {% if oai_pmh_endpoints_set.centre %}
+            {% for oai_pmh_endpoint in oai_pmh_endpoints %}
+                <tr>
+		    {% if oai_pmh_endpoint.centre %}
                         <td>
-                            <a href='/centre/{{ oai_pmh_endpoints_set.centre.id }}'>{{ oai_pmh_endpoints_set.centre }}</a>
+                            <a href='/centre/{{ oai_pmh_endpoint.centre.id }}'>{{ oai_pmh_endpoint.centre }}</a>
                         </td>
                     {% else %}
                         <td>
-                            <abbr title='{{ oai_pmh_endpoints_set.note }}'>No centre</abbr>
+                            <abbr title='{{ oai_pmh_endpoint.note }}'>No centre</abbr>
                         </td>
                     {% endif %}
-                        <td>
-                            {% for oai_pmh_endpoint in oai_pmh_endpoints_set.oaipmh_endpoints.all %}
-                                <a href='{{ oai_pmh_endpoint.uri }}'>{{ oai_pmh_endpoint.uri }}</a>
-                                {%  if not forloop.last %}
-                                    <br>
-                                {% endif %}
-                            {%  endfor %}
-                        </td>
-                        <td>
-                            {% for oai_pmh_endpoint in oai_pmh_endpoints_set.oaipmh_endpoints.all %}
-                                <a href='{{ oai_pmh_endpoint.uri }}?verb=Identify'>Query ... </a>
-                                {%  if not forloop.last %}
-                                    <br>
-                                {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {% for oai_pmh_endpoint in oai_pmh_endpoints_set.oaipmh_endpoints.all %}
-                                <a href='{{ oai_pmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
-                                {%  if not forloop.last %}
-                                    <br>
-                                {% endif %}
-                            {% endfor %}
-                        </td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}'>{{ oai_pmh_endpoint.uri }}</a></td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
+                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
                 </tr>
-            {%  endfor %}
+            {% endfor %}
         </tbody>
     </table>
 {% endblock content %}
