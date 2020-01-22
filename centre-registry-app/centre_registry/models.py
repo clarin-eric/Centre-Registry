@@ -202,7 +202,7 @@ class Centre(Model):
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=CASCADE)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
@@ -284,7 +284,7 @@ class OAIPMHEndpoint(Model):
     """
     centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     metadata_format = ForeignKey(
-        MetadataFormat, verbose_name='Metadata format (historic artifact)', on_delete=PROTECT)
+        MetadataFormat, verbose_name='Metadata format (historic artifact)', on_delete=CASCADE)
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
