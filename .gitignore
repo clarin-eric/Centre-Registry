@@ -59,3 +59,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Collected static files
+centre-registry-app/centre_registry/assets
+
+# Databases
+Centre-Registry-config/mydatabase
+Centre-Registry-config/mytestdatabase
