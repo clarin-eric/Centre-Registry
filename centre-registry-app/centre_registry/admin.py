@@ -14,7 +14,7 @@ from django.contrib import admin
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
-    title = 'Orphan contacts'
+    title = 'contact type'
     parameter_name = 'contact_assignment'
 
     def lookups(self, request, model_admin):
