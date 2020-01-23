@@ -12,6 +12,7 @@ except ImportError:
 
 is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
 
+
 def set_test_status(jobid, passed=True):
     base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
     body_content = json.dumps({"passed": passed})
@@ -21,6 +22,7 @@ def set_test_status(jobid, passed=True):
                        headers={"Authorization": "Basic %s" % base64string})
     result = connection.getresponse()
     return result.status == 200
+
 
 class SystemTestCase(StaticLiveServerTestCase):
     fixtures = ['test_data.json']
