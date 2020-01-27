@@ -4,7 +4,6 @@ from traceback import print_exc
 
 from django import setup
 from django.core import serializers
-from django.http import JsonResponse
 from django.test import TestCase
 from django.test import Client
 import json
@@ -173,3 +172,4 @@ class APITestCase(TestCase):
 
         samlserviceprovider_in_response = json.loads(response.content)
         self.assertEqual(samlserviceprovider_in_response, json.loads(serializers.serialize('json', SAMLServiceProvider.objects.all())))
+
