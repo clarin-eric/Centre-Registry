@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from os.path import join
+from os.path import join, dirname, realpath
 from traceback import print_exc
 
 from django import setup
@@ -7,6 +7,8 @@ from django.core import serializers
 from django.test import TestCase
 from django.test import Client
 import json
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 from lxml.etree import DocumentInvalid
 from lxml.etree import fromstring
 from lxml.etree import parse
@@ -30,7 +32,7 @@ from centre_registry.models import URLReference
 
 class APITestCase(TestCase):
     fixtures = ['test_data']
-
+    
     @classmethod
     def setUpClass(cls):
         setup()
@@ -97,41 +99,72 @@ class APITestCase(TestCase):
         client = Client()
         response = client.get('/api/model/Centre', secure=True)
         self.assertEqual(response.status_code, 200)
+        
+        schema = json.loads(resource_string(__name__, join('data', 'centres.json')))
 
         centres_in_response = json.loads(response.content)
-        self.assertEqual(centres_in_response, json.loads(serializers.serialize('json', Centre.objects.all())))
+        try:
+            validate(centres_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_centretype(self):
         client = Client()
         response = client.get('/api/model/CentreType', secure=True)
         self.assertEqual(response.status_code, 200)
 
+        schema = json.loads(resource_string(__name__, join('data', 'centre_type.json')))
+
         centre_types_in_response = json.loads(response.content)
-        self.assertEqual(centre_types_in_response, json.loads(serializers.serialize('json', CentreType.objects.all())))
+        try:
+            validate(centre_types_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
+
 
     def test_get_model_contact(self):
         client = Client()
         response = client.get('/api/model/Contact', secure=True)
         self.assertEqual(response.status_code, 200)
 
+        schema = json.loads(resource_string(__name__, join('data', 'contact.json')))
+
         contacts_in_response = json.loads(response.content)
-        self.assertEqual(contacts_in_response, json.loads(serializers.serialize('json', Contact.objects.all())))
+        try:
+            validate(contacts_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_consortium(self):
         client = Client()
         response = client.get('/api/model/Consortium', secure=True)
         self.assertEqual(response.status_code, 200)
 
+        schema = json.loads(resource_string(__name__, join('data', 'consortium.json')))
+
         consortiums_in_response = json.loads(response.content)
-        self.assertEqual(consortiums_in_response, json.loads(serializers.serialize('json', Consortium.objects.all())))
+        try:
+            validate(consortiums_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_fcsendpoint(self):
         client = Client()
         response = client.get('/api/model/FCSEndpoint', secure=True)
         self.assertEqual(response.status_code, 200)
 
+        schema = json.loads(resource_string(__name__, join('data', 'fcsendpoint.json')))
+
         fcsendpoints_in_response = json.loads(response.content)
-        self.assertEqual(fcsendpoints_in_response, json.loads(serializers.serialize('json', FCSEndpoint.objects.all())))
+        try:
+            validate(fcsendpoints_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_urlreference(self):
         client = Client()
@@ -139,7 +172,13 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         urlreferences_in_response = json.loads(response.content)
-        self.assertEqual(urlreferences_in_response, json.loads(serializers.serialize('json', URLReference.objects.all())))
+        
+        schema = json.loads(resource_string(__name__, join('data', 'urlreference.json')))
+        try:
+            validate(urlreferences_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_metadataformat(self):
         client = Client()
@@ -147,29 +186,54 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         metadataformat_in_response = json.loads(response.content)
-        self.assertEqual(metadataformat_in_response, json.loads(serializers.serialize('json', MetadataFormat.objects.all())))
+
+        schema = json.loads(resource_string(__name__, join('data', 'metadataformat.json')))
+        try:
+            validate(metadataformat_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_oaipmhendpoint(self):
         client = Client()
         response = client.get('/api/model/OAIPMHEndpoint', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        oaipmhendpoint_in_response = json.loads(response.content)
-        self.assertEqual(oaipmhendpoint_in_response, json.loads(serializers.serialize('json', OAIPMHEndpoint.objects.all())))
+        oaipmhendpoints_in_response = json.loads(response.content)
+        
+        schema = json.loads(resource_string(__name__, join('data', 'oaipmhendpoint.json')))
+        try:
+            validate(oaipmhendpoints_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_samlidentityfederation(self):
         client = Client()
         response = client.get('/api/model/SAMLIdentityFederation', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        samlidentityfederation_in_response = json.loads(response.content)
-        self.assertEqual(samlidentityfederation_in_response, json.loads(serializers.serialize('json', SAMLIdentityFederation.objects.all())))
+        samlidentityfederations_in_response = json.loads(response.content)
+        
+        schema = json.loads(resource_string(__name__, join('data', 'samlidentityfederation.json')))
+        try:
+            validate(samlidentityfederations_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
 
     def test_get_model_samlserviceprovider(self):
         client = Client()
         response = client.get('/api/model/SAMLServiceProvider', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        samlserviceprovider_in_response = json.loads(response.content)
-        self.assertEqual(samlserviceprovider_in_response, json.loads(serializers.serialize('json', SAMLServiceProvider.objects.all())))
+        samlserviceproviders_in_response = json.loads(response.content)
+        
+        schema = json.loads(resource_string(__name__, join('data', 'samlserviceprovider.json')))
 
+        self.assertEqual(samlserviceproviders_in_response, json.loads(serializers.serialize('json', SAMLServiceProvider.objects.all())))
+        try:
+            validate(samlserviceproviders_in_response, schema)
+        except ValidationError:
+            print_exc()
+            self.fail()
