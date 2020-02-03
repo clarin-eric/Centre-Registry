@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": 
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "centre": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "centre",
+            "description",
+            "url"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}

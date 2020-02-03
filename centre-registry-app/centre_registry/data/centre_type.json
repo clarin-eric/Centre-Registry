@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items":
+  {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["A", "B", "C", "E", "K", "L", "T"]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items":
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "email_address": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "edupersonprincipalname": {
+              "type": ["string", "null"]
+            },
+            "telephone_number": {
+              "type": "string"
+            },
+            "website_url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email_address",
+            "name",
+            "edupersonprincipalname",
+            "telephone_number",
+            "website_url"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": 
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "entity_id": {
+              "type": "string"
+            },
+            "centre": {
+              "type": "integer"
+            },
+            "status_url": {
+              "type": "string"
+            },
+            "production_status": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entity_id",
+            "centre",
+            "status_url",
+            "production_status",
+            "note"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}

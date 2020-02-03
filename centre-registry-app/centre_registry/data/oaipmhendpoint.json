@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items":
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "centre": {
+              "type": "integer"
+            },
+            "metadata_format": {
+              "type": "integer"
+            },
+            "web_services_set": {
+              "type": "string"
+            },
+            "web_services_type": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "centre",
+            "metadata_format",
+            "web_services_set",
+            "web_services_type",
+            "uri",
+            "note"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}

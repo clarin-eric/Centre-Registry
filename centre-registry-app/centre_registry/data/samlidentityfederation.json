@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": 
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "shorthand": {
+              "type": "string"
+            },
+            "information_url": {
+              "type": "string"
+            },
+            "saml_metadata_url": {
+              "type": "string"
+            },
+            "signing_key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "shorthand",
+            "information_url",
+            "saml_metadata_url",
+            "signing_key"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}
