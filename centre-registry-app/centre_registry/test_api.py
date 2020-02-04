@@ -17,17 +17,7 @@ from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
 
-from centre_registry.models import Centre
-from centre_registry.models import CentreType
-from centre_registry.models import Consortium
-from centre_registry.models import AssessmentDates
-from centre_registry.models import Contact
-from centre_registry.models import FCSEndpoint
-from centre_registry.models import MetadataFormat
 from centre_registry.models import OAIPMHEndpoint
-from centre_registry.models import SAMLIdentityFederation
-from centre_registry.models import SAMLServiceProvider
-from centre_registry.models import URLReference
 
 
 class APITestCase(TestCase):
@@ -50,11 +40,33 @@ class APITestCase(TestCase):
         self.assertEqual(response['Content-Type'], 'application/xml')
 
         xml_tree = fromstring(response.content)
+
         centre_info_url_xpath = XPath(
             '/Centers/CenterProfile/Center_id_link/text()')
         centre_info_urls = centre_info_url_xpath(xml_tree)
-        response = client.get(centre_info_urls[0], secure=True)
-        self.assertEqual(response.status_code, 200)
+
+        schema_root = fromstring(
+            resource_string(__name__, join('data', 'CenterProfile.xsd'))
+        )
+        schema = XMLSchema(schema_root)
+
+        for centre_info_url in centre_info_urls:
+            print(centre_info_url)
+            response = client.get(centre_info_url, secure=True)
+            self.assertEqual(response.status_code, 200)
+
+            try:
+                xml_doc = fromstring(response.content)
+                print(response.content.decode('UTF-8'))
+                schema.assertValid(xml_doc)
+                print("SERVICE TYPE: ")
+                print(type(OAIPMHEndpoint.objects.get(pk=13).web_services_type))
+
+                print(OAIPMHEndpoint.objects.get(pk=13).web_services_type)
+
+            except (XMLSyntaxError, DocumentInvalid):
+                print_exc()
+                self.fail()
 
     def test_centre(self):
         client = Client()
@@ -231,7 +243,6 @@ class APITestCase(TestCase):
         
         schema = json.loads(resource_string(__name__, join('data', 'samlserviceprovider.json')))
 
-        self.assertEqual(samlserviceproviders_in_response, json.loads(serializers.serialize('json', SAMLServiceProvider.objects.all())))
         try:
             validate(samlserviceproviders_in_response, schema)
         except ValidationError:
