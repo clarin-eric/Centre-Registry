@@ -80,6 +80,7 @@
             <xs:enumeration value="DE" ann:label="Germany (DE)"/>
             <xs:enumeration value="DJ" ann:label="Djibouti (DJ)"/>
             <xs:enumeration value="DK" ann:label="Denmark (DK)"/>
+            <xs:enumeration value="DLU" ann:label="Dutch Language Union"/>
             <xs:enumeration value="DM" ann:label="Dominica (DM)"/>
             <xs:enumeration value="DO" ann:label="Dominican Republic (DO)"/>
             <xs:enumeration value="DZ" ann:label="Algeria (DZ)"/>
