@@ -652,7 +652,7 @@
     "model": "centre_registry.consortium",
     "pk": 12,
     "fields": {
-        "country_code": "UK",
+        "country_code": "GB",
         "country_name": "United Kingdom",
         "is_observer": true,
         "name": "",
