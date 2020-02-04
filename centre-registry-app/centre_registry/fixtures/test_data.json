@@ -1855,7 +1855,6 @@
         "centre": 11,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://repos.ids-mannheim.de/oaiprovider/",
         "note": ""
     }
@@ -1879,7 +1878,6 @@
         "centre": 13,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://fedora.clarin-d.uni-saarland.de/oaiprovider/",
         "note": ""
     }
@@ -1927,7 +1925,6 @@
         "centre": 21,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://oaipmh.huygens.knaw.nl/oai",
         "note": ""
     }
@@ -1951,7 +1948,6 @@
         "centre": 22,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://repository.dev.clarin.inl.nl/oai/oai_server.php",
         "note": ""
     }
@@ -1963,7 +1959,6 @@
         "centre": 23,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://www.meertens.knaw.nl/oai/oai_server.php",
         "note": ""
     }
@@ -1975,7 +1970,6 @@
         "centre": 15,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://register.keeleressursid.ee/oaiprovider/oai",
         "note": ""
     }
@@ -2011,7 +2005,6 @@
         "centre": 17,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://metalb.csc.fi/cgi-bin/que",
         "note": ""
     }
@@ -2035,7 +2028,6 @@
         "centre": 26,
         "metadata_format": 2,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://www.ota.ox.ac.uk/cgi-bin/oai.pl",
         "note": ""
     }
@@ -2047,7 +2039,6 @@
         "centre": 14,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://clarin.dk/oaiprovider/",
         "note": ""
     }
@@ -2083,7 +2074,6 @@
         "centre": 20,
         "metadata_format": 1,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler",
         "note": ""
     }
@@ -2095,7 +2085,6 @@
         "centre": 16,
         "metadata_format": 3,
         "web_services_set": "",
-        "web_services_type": "",
         "uri": "http://ws02.iula.upf.edu/corpus_data/oai-iula/oai.pl",
         "note": ""
     }
