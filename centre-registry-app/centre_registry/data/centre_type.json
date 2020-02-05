@@ -15,7 +15,7 @@
           "type": "object",
           "properties": {
             "type": {
-              "enum": ["A", "B", "C", "E", "K", "L", "T"]
+              "enum": ["A", "B", "C", "E", "K", "L", "R"]
             }
           },
           "required": [
