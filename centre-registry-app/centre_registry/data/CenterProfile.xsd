@@ -16,8 +16,11 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="A" dcr:datcat="" ann:label=""/>
             <xs:enumeration value="B" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="K" dcr:datcat="" ann:label=""/>
             <xs:enumeration value="C" dcr:datcat="" ann:label=""/>
             <xs:enumeration value="E" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="R" dcr:datcat="" ann:label=""/>
+            <xs:enumeration value="L" dcr:datcat="" ann:label=""/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="simpletype-Code-clarin.eu.cr1.c_1271859438104">
@@ -165,7 +168,7 @@
             <xs:enumeration value="MF" ann:label="Saint Martin (French part) (MF)"/>
             <xs:enumeration value="MG" ann:label="Madagascar (MG)"/>
             <xs:enumeration value="MH" ann:label="Marshall Islands (MH)"/>
-            <xs:enumeration value="MK" ann:label="Macedonia (MK)"/>
+            <xs:enumeration value="MK" ann:label="North Macedonia (MK)"/>
             <xs:enumeration value="ML" ann:label="Mali (ML)"/>
             <xs:enumeration value="MM" ann:label="Myanmar (MM)"/>
             <xs:enumeration value="MN" ann:label="Mongolia (MN)"/>
