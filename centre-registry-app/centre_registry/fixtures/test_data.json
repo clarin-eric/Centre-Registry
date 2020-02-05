@@ -745,7 +745,7 @@
     "model": "centre_registry.centretype",
     "pk": 4,
     "fields": {
-        "type": "T"
+        "type": "R"
     }
 },
 {
