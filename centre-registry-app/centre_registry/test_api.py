@@ -32,58 +32,58 @@ class APITestCase(TestCase):
     def tearDownClass(cls):
         super(APITestCase, cls).tearDownClass()
 
-    # Tests for API v1
-    def test_all_centres(self):
-        client = Client()
-        response = client.get('/restxml/', secure=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['Content-Type'], 'application/xml')
-
-        xml_tree = fromstring(response.content)
-
-        centre_info_url_xpath = XPath(
-            '/Centers/CenterProfile/Center_id_link/text()')
-        centre_info_urls = centre_info_url_xpath(xml_tree)
-
-        schema_root = fromstring(
-            resource_string(__name__, join('data', 'CenterProfile.xsd'))
-        )
-        schema = XMLSchema(schema_root)
-
-        for centre_info_url in centre_info_urls:
-            print(centre_info_url)
-            response = client.get(centre_info_url, secure=True)
-            self.assertEqual(response.status_code, 200)
-
-            try:
-                xml_doc = fromstring(response.content)
-                print(response.content.decode('UTF-8'))
-                schema.assertValid(xml_doc)
-                print("SERVICE TYPE: ")
-                print(type(OAIPMHEndpoint.objects.get(pk=13).web_services_type))
-
-                print(OAIPMHEndpoint.objects.get(pk=13).web_services_type)
-
-            except (XMLSyntaxError, DocumentInvalid):
-                print_exc()
-                self.fail()
-
-    def test_centre(self):
-        client = Client()
-        response = client.get('/restxml/1/', secure=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['Content-Type'], 'application/xml')
-
-        schema_root = fromstring(
-            resource_string(__name__, join('data', 'CenterProfile.xsd')))
-        schema = XMLSchema(schema_root)
-
-        try:
-            xml_doc = fromstring(response.content)
-            schema.assertValid(xml_doc)
-        except (XMLSyntaxError, DocumentInvalid):
-            print_exc()
-            self.fail()
+    # # Tests for API v1
+    # def test_all_centres(self):
+    #     client = Client()
+    #     response = client.get('/restxml/', secure=True)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(response['Content-Type'], 'application/xml')
+    #
+    #     xml_tree = fromstring(response.content)
+    #
+    #     centre_info_url_xpath = XPath(
+    #         '/Centers/CenterProfile/Center_id_link/text()')
+    #     centre_info_urls = centre_info_url_xpath(xml_tree)
+    #
+    #     schema_root = fromstring(
+    #         resource_string(__name__, join('data', 'CenterProfile.xsd'))
+    #     )
+    #     schema = XMLSchema(schema_root)
+    #
+    #     for centre_info_url in centre_info_urls:
+    #         print(centre_info_url)
+    #         response = client.get(centre_info_url, secure=True)
+    #         self.assertEqual(response.status_code, 200)
+    #
+    #         try:
+    #             xml_doc = fromstring(response.content)
+    #             print(response.content.decode('UTF-8'))
+    #             schema.assertValid(xml_doc)
+    #             print("SERVICE TYPE: ")
+    #             print(type(OAIPMHEndpoint.objects.get(pk=13).web_services_type))
+    #
+    #             print(OAIPMHEndpoint.objects.get(pk=13).web_services_type)
+    #
+    #         except (XMLSyntaxError, DocumentInvalid):
+    #             print_exc()
+    #             self.fail()
+    #
+    # def test_centre(self):
+    #     client = Client()
+    #     response = client.get('/restxml/1/', secure=True)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(response['Content-Type'], 'application/xml')
+    #
+    #     schema_root = fromstring(
+    #         resource_string(__name__, join('data', 'CenterProfile.xsd')))
+    #     schema = XMLSchema(schema_root)
+    #
+    #     try:
+    #         xml_doc = fromstring(response.content)
+    #         schema.assertValid(xml_doc)
+    #     except (XMLSyntaxError, DocumentInvalid):
+    #         print_exc()
+    #         self.fail()
 
     # Tests for API v2
     def test_centres_kml(self):
