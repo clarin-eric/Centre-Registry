@@ -4,7 +4,6 @@ from centre_registry.models import Consortium
 from centre_registry.models import AssessmentDates
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
-from centre_registry.models import MetadataFormat
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
@@ -62,7 +61,6 @@ admin.site.register(CentreType)
 admin.site.register(Consortium)
 admin.site.register(AssessmentDates)
 admin.site.register(FCSEndpoint)
-admin.site.register(MetadataFormat)
 admin.site.register(OAIPMHEndpoint)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)

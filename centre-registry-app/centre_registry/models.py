@@ -48,45 +48,6 @@ def validate_longitude(longitude):
             return
     except Exception as exception:import ast
 
-from django.db import models
-
-
-class StringListField(models.TextField):
-    description = "Array of strings"
-
-    def __init__(self, separator=';', *args, **kwargs):
-        self.separator = separator
-        kwargs['max_length'] = None
-        super().__init__(*args, **kwargs)
-
-    def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
-        if self.separator != ';':
-            kwargs['separator'] = self.separator
-        return name, path, args, kwargs
-
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-        return self.separator.join(value)
-
-    def to_python(self, value):
-        if not value:
-            value = []
-
-        if isinstance(value, list):
-            return value
-
-        return value.split(self.separator)
-
-    def value_to_string(self, obj):
-        value = self.value_from_object(obj)
-        return self.get_prep_value(value)
-
-        raise ValidationError(
-            '{0} is not a valid Decimal Degree longitude. '.format(
-                str(longitude))) from exception
-
 
 class Contact(Model):
     """
@@ -271,28 +232,6 @@ class Centre(Model):
         verbose_name_plural = 'centres'
 
 
-class MetadataFormat(Model):
-    """
-    A metadata format as per OAI-PMH (
-    http://www.openarchives.org/OAI/openarchivesprotocol.html
-    #ListMetadataFormats ).
-    Deprecated, use ListMetadataFormats verb on endpoint instead.
-    """
-    name = CharField(
-        verbose_name='Metadata format name', max_length=30, unique=True)
-
-    def __unicode__(self):
-        return '{name:s}'.format(name=self.name)
-
-    def __str__(self):
-        return self.__unicode__()
-
-    class Meta:
-        ordering = ('name', )
-        verbose_name = 'metadata format'
-        verbose_name_plural = 'metadata formats'
-
-
 class URLReference(Model):
     """
     A web reference (URL) with description.
@@ -320,8 +259,6 @@ class OAIPMHEndpoint(Model):
     An OAI-PMH Endpoint.
     """
     centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
-    metadata_format = ForeignKey(
-        MetadataFormat, verbose_name='Metadata format (historic artifact)', on_delete=CASCADE)
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
