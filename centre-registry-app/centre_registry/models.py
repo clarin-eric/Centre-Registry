@@ -1,6 +1,7 @@
 from decimal import Decimal
 from re import match as re_match
 
+from centre_registry.fields import StringListField
 from django.core.exceptions import ValidationError
 from django.db.models import BooleanField
 from django.db.models import CharField
@@ -45,7 +46,43 @@ def validate_longitude(longitude):
     try:
         if is_valid_longitude(parse_decimal_degree(longitude)):
             return
-    except Exception as exception:
+    except Exception as exception:import ast
+
+from django.db import models
+
+
+class StringListField(models.TextField):
+    description = "Array of strings"
+
+    def __init__(self, separator=';', *args, **kwargs):
+        self.separator = separator
+        kwargs['max_length'] = None
+        super().__init__(*args, **kwargs)
+
+    def deconstruct(self):
+        name, path, args, kwargs = super().deconstruct()
+        if self.separator != ';':
+            kwargs['separator'] = self.separator
+        return name, path, args, kwargs
+
+    def get_prep_value(self, value):
+        if value is None:
+            return value
+        return self.separator.join(value)
+
+    def to_python(self, value):
+        if not value:
+            value = []
+
+        if isinstance(value, list):
+            return value
+
+        return value.split(self.separator)
+
+    def value_to_string(self, obj):
+        value = self.value_from_object(obj)
+        return self.get_prep_value(value)
+
         raise ValidationError(
             '{0} is not a valid Decimal Degree longitude. '.format(
                 str(longitude))) from exception
@@ -297,6 +334,7 @@ class OAIPMHEndpoint(Model):
         max_length=8)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    uri_list = StringListField(verbose_name='List of base URIs', blank=True)
 
     def __unicode__(self):
         return '{uri:s}'.format(
