@@ -192,20 +192,6 @@ class APITestCase(TestCase):
             print_exc()
             self.fail()
 
-    def test_get_model_metadataformat(self):
-        client = Client()
-        response = client.get('/api/model/MetadataFormat', secure=True)
-        self.assertEqual(response.status_code, 200)
-
-        metadataformat_in_response = json.loads(response.content)
-
-        schema = json.loads(resource_string(__name__, join('data', 'metadataformat.json')))
-        try:
-            validate(metadataformat_in_response, schema)
-        except ValidationError:
-            print_exc()
-            self.fail()
-
     def test_get_model_oaipmhendpoint(self):
         client = Client()
         response = client.get('/api/model/OAIPMHEndpoint', secure=True)
