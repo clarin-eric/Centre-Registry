@@ -234,3 +234,13 @@ class APITestCase(TestCase):
         except ValidationError:
             print_exc()
             self.fail()
+
+
+    def test_migrate_uri_to_array(self):
+        for endpoint in OAIPMHEndpoint.objects.all():
+            first_endpoint_for_centre = OAIPMHEndpoint.objects.filter(centre_id=endpoint.centre_id).first()
+            # first_endpoint_for_centre.uri_list.append(endpoint.uri)
+            print("HERE!")
+            uri_list = first_endpoint_for_centre.uri_list
+            print(type(uri_list))
+            print(first_endpoint_for_centre.uri_list)

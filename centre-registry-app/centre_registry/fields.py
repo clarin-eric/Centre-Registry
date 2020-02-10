@@ -1,34 +1,37 @@
 from django.db import models
 
 
-class StringListField(models.TextField):
+class StringListField(models.Field):
     description = "Array of strings"
 
-    def __init__(self, separator=';', *args, **kwargs):
+    def __init__(self, separator='\n', *args, **kwargs):
         self.separator = separator
         kwargs['max_length'] = None
         super().__init__(*args, **kwargs)
 
     def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
-        if self.separator != ';':
-            kwargs['separator'] = self.separator
-        return name, path, args, kwargs
+        return super().deconstruct()
+
+    def db_type(self, connection):
+        return 'stringlist'
+
+    def get_internal_type(self):
+        return "StringListField"
 
     def get_prep_value(self, value):
-        if value is None:
-            return value
         return self.separator.join(value)
 
+    def from_db_value(self, value, expression, connection):
+        return value.split(self.separator)
+
     def to_python(self, value):
-        if not value:
-            value = []
-
-        if isinstance(value, list):
-            return value
-
+        if value is None:
+            return []
         return value.split(self.separator)
 
     def value_to_string(self, obj):
-        value = self.value_from_object(obj)
-        return self.get_prep_value(value)
+        return self.value_from_object(obj)
+
+    def get_separator(self):
+        return self.separator
+
