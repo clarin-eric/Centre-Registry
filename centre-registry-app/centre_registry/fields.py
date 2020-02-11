@@ -20,15 +20,19 @@ class StringListField(models.TextField):
         return "StringListField"
 
     def get_prep_value(self, value):
-        return self.separator.join(value)
+        if value is None:
+            return ''
+        else:
+            return self.separator.join(value)
 
     def from_db_value(self, value, expression, connection):
-        return value
+        return self.to_python(value)
 
     def to_python(self, value):
         if value is None:
-            return None
-        return [i for i in value.split(self.separator) if i]
+            return []
+        return value.split(self.separator)
+
 
     def value_to_string(self, obj):
         return self.separator.join(self.value_from_object(obj))

@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='oaipmhendpoint',
             name='uri_list',
-            field=centre_registry.models.StringListField(blank=True, verbose_name='List of base URIs'),
+            field=centre_registry.models.StringListField(null=True, verbose_name='List of base URIs'),
         ),
     ]

@@ -2064,7 +2064,7 @@
         "web_services_type": "REST",
         "uri": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler",
         "note": "",
-        "uri_list": ""
+        "uri_list": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler\nhttp://oai.clarin-beta.dans.knaw.nl/OAIHandler"
     }
 },
 {
