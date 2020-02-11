@@ -2,3 +2,4 @@
 # Install OS package instead.
 # lxml==3.6.1
 selenium==3.141.0
+jsonschema==3.1.1
