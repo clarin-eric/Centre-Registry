@@ -269,7 +269,7 @@ class OAIPMHEndpoint(Model):
         choices=(('REST', 'REST'), ('SOAP', 'SOAP'), ('WebLicht', 'WebLicht')),
         default='REST',
         max_length=8)
-    uri = URLField(verbose_name='Base URI', max_length=2000)
+    uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     uri_list = StringListField(verbose_name='List of base URIs', help_text='Each URI should start from new line', null=True)
 
