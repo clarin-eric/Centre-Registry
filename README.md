@@ -17,6 +17,17 @@ use in mapping applications. For example: `api/KML/EBC`
 `OAIPMHEndpoint`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
 Gives a JSON representation of all data belonging to that model in the database.
 
+## XML API
+`restxml/`: gives a list of centres including the centre ID in XML.
+
+`restxml/n`, where n is a centre ID: Gives detailed information about a centre in XML that is validated with this schema: ​http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1320657629667/xsd
+
+### Notes on XML API
+Some services (WebLicht?) may depend on optional string-type properties of OAI-PMH endpoints that have been exported since the first API versions:
+
+    `WebServiceType` is the semantic indication of the kind of webservices offered.
+    `WebServicesSet` is just a name for the OAI-PMH set that contains the relevant web service metadata descriptions. It could be anything, so a harvester should be able to deal with arbitrary set names. 
+
 ## Development
 ### Make migrations
 Django wants to detect modifications made to the data model of apps:
