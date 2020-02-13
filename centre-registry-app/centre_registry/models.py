@@ -261,11 +261,6 @@ class OAIPMHEndpoint(Model):
     centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = StringListField(verbose_name='List of base URIs', help_text='Each URI should start from new line', null=True)
-    web_services_type = CharField(
-        verbose_name='Web services type (historic artifact)',
-        choices=(('REST', 'REST'), ('SOAP', 'SOAP'), ('WebLicht', 'WebLicht')),
-        default='REST',
-        max_length=8)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
