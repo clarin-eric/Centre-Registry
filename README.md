@@ -3,7 +3,7 @@
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
 
-## REST API
+## JSON API
 `api/KML/`
 Gives a KML file (Keyhole Markup) with geographical information about all Centres, for use in
 mapping applications.
