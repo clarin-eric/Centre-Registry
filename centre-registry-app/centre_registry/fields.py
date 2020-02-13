@@ -33,6 +33,10 @@ class StringListField(models.TextField):
             return []
         return value.split(self.separator)
 
+    def get_db_prep_save(self, value, connection):
+        if value is None:
+            return ''
+        return self.separator.join(value)
 
     def value_to_string(self, obj):
         return self.separator.join(self.value_from_object(obj))

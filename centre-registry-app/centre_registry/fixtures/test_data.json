@@ -1797,10 +1797,9 @@
     "fields": {
         "centre": 1,
         "web_services_set": "WebLichtWebServices",
-        "web_services_type": "WebLicht",
+        "web_services_type"uri_list =: "WebLicht",
         "uri": "http://weblicht.sfs.uni-tuebingen.de/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1811,8 +1810,7 @@
         "web_services_set": "oai:webservices",
         "web_services_type": "WebLicht",
         "uri": "http://clarinoai.informatik.uni-leipzig.de:8080/oaiprovider/oai",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1823,8 +1821,7 @@
         "web_services_set": "Weblicht",
         "web_services_type": "WebLicht",
         "uri": "http://www.phonetik.uni-muenchen.de/cgi-bin/BASRepository/oaipmh/oai.pl",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1835,8 +1832,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://repos.ids-mannheim.de/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1847,8 +1843,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://corpus1.mpi.nl/ds/oaiprovider/oai2",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1859,8 +1854,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://fedora.clarin-d.uni-saarland.de/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1871,8 +1865,7 @@
         "web_services_set": "WebLichtWebServices",
         "web_services_type": "WebLicht",
         "uri": "http://clarin.bbaw.de:8088/oaiprovider",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1883,8 +1876,7 @@
         "web_services_set": "",
         "web_services_type": "WebLicht",
         "uri": "http://virt-fedora.multilingua.uni-hamburg.de:8080/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1895,8 +1887,7 @@
         "web_services_set": "",
         "web_services_type": "WebLicht",
         "uri": "http://clarin04.ims.uni-stuttgart.de/oaiprovider/oai",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1907,8 +1898,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://oaipmh.huygens.knaw.nl/oai",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1919,8 +1909,7 @@
         "web_services_set": "hdl_11858_00-097C-0000-0023-8C33-2",
         "web_services_type": "WebLicht",
         "uri": "https://lindat.mff.cuni.cz/repository/oai/request",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1931,8 +1920,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://repository.dev.clarin.inl.nl/oai/oai_server.php",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1943,8 +1931,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://www.meertens.knaw.nl/oai/oai_server.php",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1955,8 +1942,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://register.keeleressursid.ee/oaiprovider/oai",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1967,8 +1953,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://clarin.oeaw.ac.at/oaiprovider",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1979,8 +1964,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "https://clarin-pl.eu/oai/request",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -1991,8 +1975,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://metalb.csc.fi/cgi-bin/que",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2003,8 +1986,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://alpha.talkbank.org:8089/talkbank-oai/provider",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2015,8 +1997,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://www.ota.ox.ac.uk/cgi-bin/oai.pl",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2027,8 +2008,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://clarin.dk/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2039,8 +2019,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "https://repository.sfb833.uni-tuebingen.de:8443/oaiprovider/",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2051,8 +2030,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://alpha.talkbank.org:8089/childes-oai/provider",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
@@ -2063,8 +2041,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler",
-        "note": "",
-        "uri_list": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler\nhttp://oai.clarin-beta.dans.knaw.nl/OAIHandler"
+        "note": ""
     }
 },
 {
@@ -2075,8 +2052,7 @@
         "web_services_set": "",
         "web_services_type": "REST",
         "uri": "http://ws02.iula.upf.edu/corpus_data/oai-iula/oai.pl",
-        "note": "",
-        "uri_list": ""
+        "note": ""
     }
 },
 {
