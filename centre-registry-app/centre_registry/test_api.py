@@ -2,6 +2,8 @@
 from os.path import join, dirname, realpath
 from traceback import print_exc
 
+from django.core.management import call_command
+
 from django import setup
 from django.core import serializers
 from django.test import TestCase
@@ -198,7 +200,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         oaipmhendpoints_in_response = json.loads(response.content)
-        
+        print(oaipmhendpoints_in_response)
         schema = json.loads(resource_string(__name__, join('data', 'oaipmhendpoint.json')))
         try:
             validate(oaipmhendpoints_in_response, schema)
@@ -212,7 +214,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         samlidentityfederations_in_response = json.loads(response.content)
-        
+        print(samlidentityfederations_in_response)
         schema = json.loads(resource_string(__name__, join('data', 'samlidentityfederation.json')))
         try:
             validate(samlidentityfederations_in_response, schema)
@@ -234,13 +236,3 @@ class APITestCase(TestCase):
         except ValidationError:
             print_exc()
             self.fail()
-
-
-    def test_migrate_uri_to_array(self):
-        for endpoint in OAIPMHEndpoint.objects.all():
-            first_endpoint_for_centre = OAIPMHEndpoint.objects.filter(centre_id=endpoint.centre_id).first()
-            # first_endpoint_for_centre.uri_list.append(endpoint.uri)
-            print("HERE!")
-            uri_list = first_endpoint_for_centre.uri_list
-            print(type(uri_list))
-            print(first_endpoint_for_centre.uri_list)
