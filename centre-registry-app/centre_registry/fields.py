@@ -1,13 +1,13 @@
 from django.db import models
 from django.forms import CharField, Textarea
+from django.utils.encoding import smart_str
 
 
-class StringListField(models.TextField):
+class StringListField(models.CharField):
     description = "Array of strings"
 
-    def __init__(self, separator='\n', *args, **kwargs):
+    def __init__(self, separator=';', *args, **kwargs):
         self.separator = separator
-        kwargs['max_length'] = None
         super().__init__(*args, **kwargs)
 
     def deconstruct(self):
@@ -40,6 +40,3 @@ class StringListField(models.TextField):
 
     def value_to_string(self, obj):
         return self.separator.join(self.value_from_object(obj))
-
-    def get_separator(self):
-        return self.separator

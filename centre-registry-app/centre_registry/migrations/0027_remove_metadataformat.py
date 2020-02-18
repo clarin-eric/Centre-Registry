@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0027_remove_oaipmhendpoint_metadataformat'),
+        ('centre_registry', '0026_remove_oaipmhendpoint_metadataformat'),
     ]
 
     operations = [
