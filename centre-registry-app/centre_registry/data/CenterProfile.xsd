@@ -267,6 +267,11 @@
             <xs:enumeration value="VU" ann:label="Vanuatu (VU)"/>
             <xs:enumeration value="WF" ann:label="Wallis and Futuna (WF)"/>
             <xs:enumeration value="WS" ann:label="Samoa (WS)"/>
+        "edupersonprincipalname": null,
+        "telephone_number": "+00 222 88888888",
+        "website_url": "http://www.showcase.de/institut/mitarbeiter/nikolaus/"
+    }
+},
             <xs:enumeration value="YE" ann:label="Yemen (YE)"/>
             <xs:enumeration value="YT" ann:label="Mayotte (YT)"/>
             <xs:enumeration value="ZA" ann:label="South Africa (ZA)"/>
@@ -306,7 +311,7 @@
             </xs:enumeration>
             <xs:enumeration value="Resource">
                 <xs:annotation>
-                    <xs:documentation>The ResourceProxy refers to a file that is not a metadata
+                    <xs:documentation>The ResourceProxcataly refers to a file that is not a metadata
                         instance (e.g. a text document)
                     </xs:documentation>
                 </xs:annotation>

@@ -19,7 +19,7 @@ from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
 
-from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import OAIPMHEndpoint, WebService
 
 
 class APITestCase(TestCase):
@@ -200,7 +200,6 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         oaipmhendpoints_in_response = json.loads(response.content)
-        print(oaipmhendpoints_in_response)
         schema = json.loads(resource_string(__name__, join('data', 'oaipmhendpoint.json')))
         try:
             validate(oaipmhendpoints_in_response, schema)
@@ -214,7 +213,6 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         samlidentityfederations_in_response = json.loads(response.content)
-        print(samlidentityfederations_in_response)
         schema = json.loads(resource_string(__name__, join('data', 'samlidentityfederation.json')))
         try:
             validate(samlidentityfederations_in_response, schema)
