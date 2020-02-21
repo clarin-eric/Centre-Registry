@@ -255,7 +255,7 @@ class URLReference(Model):
 
 
 class WebService(Model):
-    web_service = CharField(verbose_name='Web services', max_length=1024)
+    web_service = CharField(verbose_name='Web service', max_length=1024)
 
     def __unicode__(self):
         return '{WebService:s}'.format(
@@ -275,10 +275,9 @@ class OAIPMHEndpoint(Model):
     An OAI-PMH Endpoint.
     """
     centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
-    # TODO: fix old API's XSD to allow more MetadataFormats
-    web_services_set = CharField(verbose_name='List of base URIs', help_text='Each URI should start from new line', null=True, max_length=1024)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    web_services = ManyToManyField(to=WebService, blank=True, related_name="web_services")
 
     def __unicode__(self):
         return '{uri:s}'.format(

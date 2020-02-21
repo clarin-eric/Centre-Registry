@@ -8,6 +8,7 @@ from centre_registry.models import OAIPMHEndpoint, WebService
 def populate_web_service(apps, schema_editor):
     unique_web_services = {_web_service[0] for _web_service in
                            list(OAIPMHEndpoint.objects.values_list("web_services_set").distinct())}
+    unique_web_services.remove('')
     for unique_web_service in unique_web_services:
         web_service = WebService(web_service=unique_web_service)
         web_service.save()

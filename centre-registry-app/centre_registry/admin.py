@@ -8,6 +8,7 @@ from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
+from centre_registry.models import WebService
 from django.contrib import admin
 
 
@@ -52,16 +53,41 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = (OrphanContactFilter, )
 
 
+class WebServiceInline(admin.TabularInline):
+    extra = 0
+    verbose_name = "Web service set"
+    verbose_name_plural = "Web service set"
+    model = OAIPMHEndpoint.web_services.through
+
+
+class OAIPMHEndpointAdmin(admin.ModelAdmin):
+    inlines = [WebServiceInline]
+    exclude = ["web_services"]
+
+
+class AssessmentDateInline(admin.StackedInline):
+    extra = 0
+    verbose_name = "Centre assessment date"
+    verbose_name_plural = "Centre assessment dates"
+    model = Centre.assessmentdates.through
+
+
+class CentreAdmin(admin.ModelAdmin):
+    inlines = [AssessmentDateInline]
+    exclude = ["assessmentdates"]
+
+
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Centre)
+admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
 admin.site.register(AssessmentDates)
 admin.site.register(FCSEndpoint)
-admin.site.register(OAIPMHEndpoint)
+admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(URLReference)
+admin.site.register(WebService)
