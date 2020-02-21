@@ -77,14 +77,22 @@ class CentreAdmin(admin.ModelAdmin):
     exclude = ["assessmentdates"]
 
 
+class AssessmentDateAdmin(admin.ModelAdmin):
+    def get_model_perms(self, request):
+        """
+        Hide model from index
+        """
+        return {}
+
+
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Centre, CentreAdmin)
+admin.site.register(Centre)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
-admin.site.register(AssessmentDates)
+admin.site.register(AssessmentDates, AssessmentDateAdmin)
 admin.site.register(FCSEndpoint)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(SAMLServiceProvider)
