@@ -255,7 +255,7 @@ class URLReference(Model):
 
 
 class WebService(Model):
-    web_service = CharField(verbose_name='Web service', max_length=1024)
+    web_service = CharField(verbose_name='Web service', max_length=1024, unique=True)
 
     def __unicode__(self):
         return '{WebService:s}'.format(

@@ -55,7 +55,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class WebServiceInline(admin.TabularInline):
     extra = 0
-    verbose_name = "Web service set"
+    verbose_name = "web service to set"
     verbose_name_plural = "Web service set"
     model = OAIPMHEndpoint.web_services.through
 
