@@ -9,6 +9,7 @@ def endpoint_webserviceset_to_fk(apps, schema_editor):
     for endpoint in OAIPMHEndpoint.objects.all():
         webservice = WebService.objects.get(web_service=endpoint.web_services_set)
         endpoint.web_services.add(webservice)
+        endpoint.web_services_set = None
         endpoint.save()
 
 

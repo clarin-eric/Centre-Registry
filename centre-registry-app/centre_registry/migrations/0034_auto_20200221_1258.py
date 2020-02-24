@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0034_remove_oaipmhendpoint_web_services_set'),
+        ('centre_registry', '0033_populate_manytomany'),
     ]
 
     operations = [

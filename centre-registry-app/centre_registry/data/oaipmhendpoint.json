@@ -17,8 +17,11 @@
             "centre": {
               "type": "integer"
             },
+            "web_services":{
+              "type": "array"
+            },
             "web_services_set": {
-              "type": "string"
+              "type": "null"
             },
             "uri": {
               "type": "string"

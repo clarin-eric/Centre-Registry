@@ -83,7 +83,7 @@
             <xs:enumeration value="DE" ann:label="Germany (DE)"/>
             <xs:enumeration value="DJ" ann:label="Djibouti (DJ)"/>
             <xs:enumeration value="DK" ann:label="Denmark (DK)"/>
-            <xs:enumeration value="DLU" ann:label="Dutch Language Union"/>
+            <xs:enumeration value="DLU" ann:label="Dutch Language Union (DLU)"/>
             <xs:enumeration value="DM" ann:label="Dominica (DM)"/>
             <xs:enumeration value="DO" ann:label="Dominican Republic (DO)"/>
             <xs:enumeration value="DZ" ann:label="Algeria (DZ)"/>
@@ -267,11 +267,6 @@
             <xs:enumeration value="VU" ann:label="Vanuatu (VU)"/>
             <xs:enumeration value="WF" ann:label="Wallis and Futuna (WF)"/>
             <xs:enumeration value="WS" ann:label="Samoa (WS)"/>
-        "edupersonprincipalname": null,
-        "telephone_number": "+00 222 88888888",
-        "website_url": "http://www.showcase.de/institut/mitarbeiter/nikolaus/"
-    }
-},
             <xs:enumeration value="YE" ann:label="Yemen (YE)"/>
             <xs:enumeration value="YT" ann:label="Mayotte (YT)"/>
             <xs:enumeration value="ZA" ann:label="South Africa (ZA)"/>
@@ -311,7 +306,7 @@
             </xs:enumeration>
             <xs:enumeration value="Resource">
                 <xs:annotation>
-                    <xs:documentation>The ResourceProxcataly refers to a file that is not a metadata
+                    <xs:documentation>The ResourceProxy refers to a file that is not a metadata
                         instance (e.g. a text document)
                     </xs:documentation>
                 </xs:annotation>
@@ -706,24 +701,23 @@
                                                     <xs:element name="Metadata" minOccurs="0" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="MetadataScheme" minOccurs="1"
-                                                                            maxOccurs="unbounded"
-                                                                            type="cmd:complextype-MetadataScheme-9-clarin.eu.cr1.c_1320657629669"
-                                                                            ann:documentation="In which metadata schemes does the center provide records?"
-                                                                            ann:displaypriority="1"/>
-                                                                <xs:element name="WebServicesSet" minOccurs="0"
-                                                                            maxOccurs="1"
-                                                                            ann:documentation="What is the name of the OAI set that contains the (CMDI) metadata records for webservices? Only present in case there are any web services.">
+                                                                <xs:element name="WebServicesSet"
+                                                                            minOccurs="0" maxOccurs="1"
+                                                                            ann:documentation="Set of web service types. Only present in case there are any web services.">
                                                                     <xs:complexType>
-                                                                        <xs:simpleContent>
-                                                                            <xs:extension base="xs:string"/>
-                                                                        </xs:simpleContent>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="WebService"
+                                                                                        minOccurs="0" maxOccurs="unbounded"
+                                                                                        ann:documentation="">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string"/>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
                                                                     </xs:complexType>
                                                                 </xs:element>
-                                                                <xs:element name="WebServiceType" minOccurs="0"
-                                                                            maxOccurs="unbounded"
-                                                                            type="cmd:complextype-WebServiceType-9-clarin.eu.cr1.c_1320657629669"
-                                                                            ann:documentation="A type of web services the center provides metadata for. For example, SOAP or WebLicht."/>
                                                                 <xs:element name="OaiAccessPoint"
                                                                             dcr:datcat="http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320"
                                                                             type="xs:anyURI" minOccurs="1" maxOccurs="1"
