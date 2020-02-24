@@ -7,7 +7,7 @@ from os.path import normpath
 
 from setuptools import setup
 
-__version__ = '2.3.0-dev'
+__version__ = '2.4.0-dev'
 
 INSTALL_REQUIRES = ['Django==2.2.8', 'django-debug-toolbar==2.1']
 TEST_REQUIRES = ['lxml==4.2.4', 'selenium==2.53.6']
