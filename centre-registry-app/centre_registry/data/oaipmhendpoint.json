@@ -20,9 +20,6 @@
             "web_services":{
               "type": "array"
             },
-            "web_services_set": {
-              "type": "null"
-            },
             "uri": {
               "type": "string"
             },
@@ -32,7 +29,6 @@
           },
           "required": [
             "centre",
-            "web_services_set",
             "uri",
             "note"
           ]

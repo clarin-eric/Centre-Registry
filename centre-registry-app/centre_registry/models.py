@@ -279,8 +279,6 @@ class OAIPMHEndpoint(Model):
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     web_services = ManyToManyField(to=WebService, blank=True, related_name="web_services")
     #TODO purging that artifact breaks historical migration chain
-    web_services_set = CharField(help_text='Each URI should start from new line', max_length=1024, null=True,
-                     verbose_name='List of base URIs')
 
     def __unicode__(self):
         return '{uri:s}'.format(
