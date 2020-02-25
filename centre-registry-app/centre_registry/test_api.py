@@ -23,7 +23,7 @@ from centre_registry.models import OAIPMHEndpoint, WebService
 
 
 class APITestCase(TestCase):
-    fixtures = ['test_data2']
+    fixtures = ['test_data']
     
     @classmethod
     def setUpClass(cls):
