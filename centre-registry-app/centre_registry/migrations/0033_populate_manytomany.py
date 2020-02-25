@@ -7,9 +7,14 @@ def endpoint_webserviceset_to_fk(apps, schema_editor):
     OAIPMHEndpoint = apps.get_model("centre_registry", "OAIPMHEndpoint")
     WebService = apps.get_model("centre_registry", "WebService")
     for endpoint in OAIPMHEndpoint.objects.all():
-        webservice = WebService.objects.get(web_service=endpoint.web_services_set)
-        endpoint.web_services.add(webservice)
-        endpoint.web_services_set = None
+        if endpoint.web_services_set != '':
+            try:
+                webservice = WebService.objects.get(web_service=endpoint.web_services_set)
+                endpoint.web_services.add(webservice)
+            except WebService.DoesNotExist:
+                err = open('./../err.txt', 'w+')
+                err.write('endpoint.web_services: ' + endpoint.web_services_set + '\n')
+
         endpoint.save()
 
 
