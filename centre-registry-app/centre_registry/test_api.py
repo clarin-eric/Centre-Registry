@@ -36,6 +36,7 @@ class APITestCase(TestCase):
 
     # Tests for API v1
     def test_all_centres(self):
+
         client = Client()
         response = client.get('/restxml/', secure=True)
         self.assertEqual(response.status_code, 200)
@@ -58,7 +59,7 @@ class APITestCase(TestCase):
             self.assertEqual(response.status_code, 200)
 
             try:
-                print(response.content.decode('utf-8'))
+                response.content.decode('utf-8')
                 xml_doc = fromstring(response.content)
                 schema.assertValid(xml_doc)
 
