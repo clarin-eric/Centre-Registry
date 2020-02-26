@@ -54,7 +54,9 @@
                                 {% for specification in oai_pmh_endpoint.specifications.all %}
                                     <WebServiceSpec>
                                         <WebService>{{ specification.web_service }}</WebService>
+                                        {% if specification.service_type != '' %}
                                         <Type>{{ specification.service_type }}</Type>
+                                        {% endif %}
                                     </WebServiceSpec>
                                 {% endfor %}
                             </OaiPmhEndpointSpecs>

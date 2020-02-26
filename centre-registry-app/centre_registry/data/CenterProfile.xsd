@@ -701,7 +701,7 @@
                                                     <xs:element name="Metadata" minOccurs="0" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="OaiPmhEndpointSpec"
+                                                                <xs:element name="OaiPmhEndpointSpecs"
                                                                             minOccurs="0" maxOccurs="1"
                                                                             ann:documentation="Set of web service types. Only present in case there are any web services.">
                                                                     <xs:complexType>
@@ -714,16 +714,20 @@
                                                                                         <xs:element name="WebService"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
-                                                                                            <xs:simpleContent>
-                                                                                                <xs:extension base="xs:string"/>
-                                                                                            </xs:simpleContent>
+                                                                                            <xs:complexType>
+                                                                                                <xs:simpleContent>
+                                                                                                    <xs:extension base="xs:string"/>
+                                                                                                </xs:simpleContent>
+                                                                                            </xs:complexType>
                                                                                         </xs:element>
                                                                                         <xs:element name="Type"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
-                                                                                            <xs:simpleContent>
-                                                                                                <xs:extension base="xs:string"/>
-                                                                                            </xs:simpleContent>
+                                                                                            <xs:complexType>
+                                                                                                <xs:simpleContent>
+                                                                                                    <xs:extension base="xs:string"/>
+                                                                                                </xs:simpleContent>
+                                                                                            </xs:complexType>
                                                                                         </xs:element>
                                                                                     </xs:sequence>
                                                                                 </xs:complexType>
