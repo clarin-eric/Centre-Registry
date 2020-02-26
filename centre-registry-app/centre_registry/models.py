@@ -234,7 +234,7 @@ class Centre(Model):
 
 class URLReference(Model):
     """
-    A web reference (URL) with description.
+    A web refereweb_servicence (URL) with description.
     """
 
     centre = ForeignKey(Centre, on_delete=CASCADE)
@@ -254,20 +254,26 @@ class URLReference(Model):
         verbose_name_plural = "URL references"
 
 
-class WebService(Model):
-    web_service = CharField(verbose_name='Web service', max_length=1024, unique=True)
+class OAIPMHEndpointSpec(Model):
+    #TODO rename web_service field name
+    web_service = CharField(verbose_name='Web service', max_length=1024)
+    service_type = CharField(verbose_name='Type', max_length=1024, null=True)
 
     def __unicode__(self):
-        return '{WebService:s}'.format(
-            WebService=self.web_service)
+        if self.service_type == '':
+            return '{web_service:s} ({service_type:s})'.format(
+                web_service=self.web_service, service_type='No type')
+        else:
+            return '{web_service:s} ({service_type:s})'.format(
+                web_service=self.web_service, service_type=self.service_type)
 
     def __str__(self):
         return self.__unicode__()
 
     class Meta:
-        ordering = ('web_service', )
-        verbose_name = "Web service"
-        verbose_name_plural = "Web services"
+        ordering = ('web_service', 'service_type')
+        verbose_name = "OAI-PMH endpoint specification"
+        verbose_name_plural = "OAI-PMH endpoint specifications"
 
 
 class OAIPMHEndpoint(Model):
@@ -277,8 +283,7 @@ class OAIPMHEndpoint(Model):
     centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
-    web_services = ManyToManyField(to=WebService, blank=True, related_name="web_services")
-    #TODO purging that artifact breaks historical migration chain
+    specifications = ManyToManyField(to=OAIPMHEndpointSpec, blank=True, related_name="web_services")
 
     def __unicode__(self):
         return '{uri:s}'.format(

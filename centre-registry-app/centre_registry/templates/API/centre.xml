@@ -49,12 +49,15 @@
                 {% if oai_pmh_endpoints %}
                     {% for oai_pmh_endpoint in oai_pmh_endpoints %}
                         <Metadata>
-                            {% if oai_pmh_endpoint.web_services.all %}
-                            <WebServicesSet>
-                                {% for web_service in oai_pmh_endpoint.web_services.all %}
-                                    <WebService>{{ web_service }}</WebService>
+                            {% if oai_pmh_endpoint.specifications.all %}
+                            <OaiPmhEndpointSpecs>
+                                {% for specification in oai_pmh_endpoint.specifications.all %}
+                                    <WebServiceSpec>
+                                        <WebService>{{ specification.web_service }}</WebService>
+                                        <Type>{{ specification.service_type }}</Type>
+                                    </WebServiceSpec>
                                 {% endfor %}
-                            </WebServicesSet>
+                            </OaiPmhEndpointSpecs>
                             {% endif %}
                             <OaiAccessPoint>{{ oai_pmh_endpoint.uri }}</OaiAccessPoint>
                         </Metadata>

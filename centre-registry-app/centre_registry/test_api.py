@@ -19,8 +19,6 @@ from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
 
-from centre_registry.models import OAIPMHEndpoint, WebService
-
 
 class APITestCase(TestCase):
     fixtures = ['test_data']

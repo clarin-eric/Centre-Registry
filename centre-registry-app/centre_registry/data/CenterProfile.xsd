@@ -701,18 +701,31 @@
                                                     <xs:element name="Metadata" minOccurs="0" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="WebServicesSet"
+                                                                <xs:element name="OaiPmhEndpointSpec"
                                                                             minOccurs="0" maxOccurs="1"
                                                                             ann:documentation="Set of web service types. Only present in case there are any web services.">
                                                                     <xs:complexType>
                                                                         <xs:sequence>
-                                                                            <xs:element name="WebService"
+                                                                            <xs:element name="WebServiceSpec"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
                                                                                 <xs:complexType>
-                                                                                    <xs:simpleContent>
-                                                                                        <xs:extension base="xs:string"/>
-                                                                                    </xs:simpleContent>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="WebService"
+                                                                                        minOccurs="0" maxOccurs="unbounded"
+                                                                                        ann:documentation="">
+                                                                                            <xs:simpleContent>
+                                                                                                <xs:extension base="xs:string"/>
+                                                                                            </xs:simpleContent>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Type"
+                                                                                        minOccurs="0" maxOccurs="unbounded"
+                                                                                        ann:documentation="">
+                                                                                            <xs:simpleContent>
+                                                                                                <xs:extension base="xs:string"/>
+                                                                                            </xs:simpleContent>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
                                                                                 </xs:complexType>
                                                                             </xs:element>
                                                                         </xs:sequence>
