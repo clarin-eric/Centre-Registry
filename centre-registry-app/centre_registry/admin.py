@@ -62,7 +62,7 @@ class OAIPMHEndpointSpecInLine(admin.TabularInline):
 
 class OAIPMHEndpointAdmin(admin.ModelAdmin):
     inlines = [OAIPMHEndpointSpecInLine]
-    exclude = ["specifications"]
+    exclude = ["oai_pmh_sets"]
 
 
 class AssessmentDateInline(admin.StackedInline):

@@ -256,16 +256,16 @@ class URLReference(Model):
 
 class OAIPMHEndpointSet(Model):
     #TODO rename web_service field name
-    set_spec = CharField(verbose_name='Web service', max_length=1024)
-    set_type = CharField(verbose_name='Type', max_length=1024, null=True)
+    set_spec = CharField(verbose_name='Set specification', max_length=1024)
+    set_type = CharField(verbose_name='Set type', max_length=1024, null=True)
 
     def __unicode__(self):
         if self.set_type == '':
             return '{set_spec:s} ({set_type:s})'.format(
-                set_spec=self.set_type, set_type='No type')
+                set_spec=self.set_spec, set_type='No type')
         else:
             return '{set_spec:s} ({set_type:s})'.format(
-                set_spec=self.set_type, set_type=self.set_type)
+                set_spec=self.set_spec, set_type=self.set_type)
 
     def __str__(self):
         return self.__unicode__()
