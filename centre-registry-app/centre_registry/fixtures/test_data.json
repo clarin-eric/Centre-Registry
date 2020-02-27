@@ -1792,51 +1792,51 @@
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 2,
     "fields": {
-        "web_service": "hdl_11858_00-097C-0000-0023-8C33-2",
-        "service_type": ""
+        "set_spec": "hdl_11858_00-097C-0000-0023-8C33-2",
+        "set_type": ""
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 3,
     "fields": {
-        "web_service": "oai:webservices",
-        "service_type": ""
+        "set_spec": "oai:webservices",
+        "set_type": ""
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 4,
     "fields": {
-        "web_service": "WebLicht",
-        "service_type": ""
+        "set_spec": "WebLicht",
+        "set_type": ""
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 5,
     "fields": {
-        "web_service": "WebLichtWebServices",
-        "service_type": ""
+        "set_spec": "WebLichtWebServices",
+        "set_type": ""
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 6,
     "fields": {
-        "web_service": "WebLicht",
-        "service_type": "CLARINType"
+        "set_spec": "WebLicht",
+        "set_type": "CLARINType"
     }
 },
 {
-    "model": "centre_registry.oaipmhendpointspec",
+    "model": "centre_registry.oaipmhendpointset",
     "pk": 7,
     "fields": {
-        "web_service": "WebLichtWebService",
-        "service_type": "TestType"
+        "set_spec": "WebLichtWebService",
+        "set_type": "TestType"
     }
 },
 {
@@ -1846,7 +1846,7 @@
         "centre": 1,
         "uri": "http://weblicht.sfs.uni-tuebingen.de/oaiprovider/",
         "note": "",
-        "specifications": [
+        "oai_pmh_sets": [
             6,
             5
         ]
@@ -1859,7 +1859,7 @@
         "centre": 4,
         "uri": "http://clarinoai.informatik.uni-leipzig.de:8080/oaiprovider/oai",
         "note": "",
-        "specifications": [
+        "oai_pmh_sets": [
             3
         ]
     }
@@ -1871,7 +1871,7 @@
         "centre": 5,
         "uri": "http://www.phonetik.uni-muenchen.de/cgi-bin/BASRepository/oaipmh/oai.pl",
         "note": "",
-        "specifications": [
+        "oai_pmh_sets": [
             4
         ]
     }
@@ -1883,7 +1883,7 @@
         "centre": 11,
         "uri": "http://repos.ids-mannheim.de/oaiprovider/",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1893,7 +1893,7 @@
         "centre": 24,
         "uri": "http://corpus1.mpi.nl/ds/oaiprovider/oai2",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1903,7 +1903,7 @@
         "centre": 13,
         "uri": "http://fedora.clarin-d.uni-saarland.de/oaiprovider/",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1913,7 +1913,7 @@
         "centre": 6,
         "uri": "http://clarin.bbaw.de:8088/oaiprovider",
         "note": "",
-        "specifications": [
+        "oai_pmh_sets": [
             5
         ]
     }
@@ -1925,7 +1925,7 @@
         "centre": 9,
         "uri": "http://virt-fedora.multilingua.uni-hamburg.de:8080/oaiprovider/",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1935,7 +1935,7 @@
         "centre": 10,
         "uri": "http://clarin04.ims.uni-stuttgart.de/oaiprovider/oai",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1945,7 +1945,7 @@
         "centre": 21,
         "uri": "http://oaipmh.huygens.knaw.nl/oai",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1955,7 +1955,7 @@
         "centre": 3,
         "uri": "https://lindat.mff.cuni.cz/repository/oai/request",
         "note": "",
-        "specifications": [
+        "oai_pmh_sets": [
             2
         ]
     }
@@ -1967,7 +1967,7 @@
         "centre": 22,
         "uri": "http://repository.dev.clarin.inl.nl/oai/oai_server.php",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1977,7 +1977,7 @@
         "centre": 23,
         "uri": "http://www.meertens.knaw.nl/oai/oai_server.php",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1987,7 +1987,7 @@
         "centre": 15,
         "uri": "http://register.keeleressursid.ee/oaiprovider/oai",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -1997,7 +1997,7 @@
         "centre": 2,
         "uri": "http://clarin.oeaw.ac.at/oaiprovider",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2007,7 +2007,7 @@
         "centre": 25,
         "uri": "https://clarin-pl.eu/oai/request",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2017,7 +2017,7 @@
         "centre": 17,
         "uri": "http://metalb.csc.fi/cgi-bin/que",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2027,7 +2027,7 @@
         "centre": 18,
         "uri": "http://alpha.talkbank.org:8089/talkbank-oai/provider",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2037,7 +2037,7 @@
         "centre": 26,
         "uri": "http://www.ota.ox.ac.uk/cgi-bin/oai.pl",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2047,7 +2047,7 @@
         "centre": 14,
         "uri": "http://clarin.dk/oaiprovider/",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2057,7 +2057,7 @@
         "centre": 1,
         "uri": "https://repository.sfb833.uni-tuebingen.de:8443/oaiprovider/",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2067,7 +2067,7 @@
         "centre": 18,
         "uri": "http://alpha.talkbank.org:8089/childes-oai/provider",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2077,7 +2077,7 @@
         "centre": 20,
         "uri": "http://oai.clarin-beta.dans.knaw.nl/OAIHandler",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {
@@ -2087,7 +2087,7 @@
         "centre": 16,
         "uri": "http://ws02.iula.upf.edu/corpus_data/oai-iula/oai.pl",
         "note": "",
-        "specifications": []
+        "oai_pmh_sets": []
     }
 },
 {

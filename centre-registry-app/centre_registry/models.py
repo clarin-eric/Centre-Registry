@@ -254,24 +254,24 @@ class URLReference(Model):
         verbose_name_plural = "URL references"
 
 
-class OAIPMHEndpointSpec(Model):
+class OAIPMHEndpointSet(Model):
     #TODO rename web_service field name
-    web_service = CharField(verbose_name='Web service', max_length=1024)
-    service_type = CharField(verbose_name='Type', max_length=1024, null=True)
+    set_spec = CharField(verbose_name='Web service', max_length=1024)
+    set_type = CharField(verbose_name='Type', max_length=1024, null=True)
 
     def __unicode__(self):
-        if self.service_type == '':
-            return '{web_service:s} ({service_type:s})'.format(
-                web_service=self.web_service, service_type='No type')
+        if self.set_type == '':
+            return '{set_spec:s} ({set_type:s})'.format(
+                set_spec=self.set_type, set_type='No type')
         else:
-            return '{web_service:s} ({service_type:s})'.format(
-                web_service=self.web_service, service_type=self.service_type)
+            return '{set_spec:s} ({set_type:s})'.format(
+                set_spec=self.set_type, set_type=self.set_type)
 
     def __str__(self):
         return self.__unicode__()
 
     class Meta:
-        ordering = ('web_service', 'service_type')
+        ordering = ('set_spec', 'set_type')
         verbose_name = "OAI-PMH endpoint specification"
         verbose_name_plural = "OAI-PMH endpoint specifications"
 
@@ -283,7 +283,7 @@ class OAIPMHEndpoint(Model):
     centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
-    specifications = ManyToManyField(to=OAIPMHEndpointSpec, blank=True, related_name="web_services")
+    oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
 
     def __unicode__(self):
         return '{uri:s}'.format(

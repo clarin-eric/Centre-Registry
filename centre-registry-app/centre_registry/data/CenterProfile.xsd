@@ -701,17 +701,17 @@
                                                     <xs:element name="Metadata" minOccurs="0" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="OaiPmhEndpointSpecs"
+                                                                <xs:element name="OaiPmhSets"
                                                                             minOccurs="0" maxOccurs="1"
                                                                             ann:documentation="Set of web service types. Only present in case there are any web services.">
                                                                     <xs:complexType>
                                                                         <xs:sequence>
-                                                                            <xs:element name="WebServiceSpec"
+                                                                            <xs:element name="Set"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
                                                                                 <xs:complexType>
                                                                                     <xs:sequence>
-                                                                                        <xs:element name="WebService"
+                                                                                        <xs:element name="SetSpec"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
                                                                                             <xs:complexType>
@@ -720,7 +720,7 @@
                                                                                                 </xs:simpleContent>
                                                                                             </xs:complexType>
                                                                                         </xs:element>
-                                                                                        <xs:element name="Type"
+                                                                                        <xs:element name="SetType"
                                                                                         minOccurs="0" maxOccurs="unbounded"
                                                                                         ann:documentation="">
                                                                                             <xs:complexType>

@@ -8,7 +8,7 @@ from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
-from centre_registry.models import OAIPMHEndpointSpec
+from centre_registry.models import OAIPMHEndpointSet
 from django.contrib import admin
 
 
@@ -55,9 +55,9 @@ class ContactAdmin(admin.ModelAdmin):
 
 class OAIPMHEndpointSpecInLine(admin.TabularInline):
     extra = 0
-    verbose_name = "Specification"
-    verbose_name_plural = "Endpoint specifications"
-    model = OAIPMHEndpoint.specifications.through
+    verbose_name = "OAI-PMH Set"
+    verbose_name_plural = "OAI-PMH Sets"
+    model = OAIPMHEndpoint.oai_pmh_sets.through
 
 
 class OAIPMHEndpointAdmin(admin.ModelAdmin):
@@ -98,4 +98,4 @@ admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(URLReference)
-admin.site.register(OAIPMHEndpointSpec)
+admin.site.register(OAIPMHEndpointSet)
