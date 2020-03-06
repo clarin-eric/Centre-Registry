@@ -10,6 +10,8 @@ def create_oaipmh_sets(apps, schema_editor):
                            list(OAIPMHEndpoint.objects.values_list("web_services_set", "web_services_type").distinct())}
 
     for unique_oaipmh_set in unique_oaipmh_sets:
+        if unique_oaipmh_set["web_services_type"] == "":
+            unique_oaipmh_set["web_services_type"] = "VLOSet"
         oaipmh_endpoit_set = OAIPMHEndpointSet(set_spec=unique_oaipmh_set["web_services_set"], set_type=unique_oaipmh_set["web_services_type"])
         oaipmh_endpoit_set.save()
 
