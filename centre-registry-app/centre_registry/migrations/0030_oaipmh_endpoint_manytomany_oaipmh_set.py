@@ -23,7 +23,7 @@ def revert_oaipmh_endpoint_manytomany_oaipmh_set(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0032_create_oaipmh_sets'),
+        ('centre_registry', '0029_create_oaipmh_sets'),
     ]
 
     operations = [
