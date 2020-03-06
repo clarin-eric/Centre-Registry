@@ -5,7 +5,7 @@ from django.db import migrations
 
 def create_oaipmh_sets(apps, schema_editor):
     OAIPMHEndpoint = apps.get_model("centre_registry", "OAIPMHEndpoint")
-    OAIPMHEndpointSet = apps.get_model("centre_registndpoint_ry", "OAIPMHEndpointSet")
+    OAIPMHEndpointSet = apps.get_model("centre_registry", "OAIPMHEndpointSet")
     unique_oaipmh_sets = {set_spec_type for set_spec_type in
                            list(OAIPMHEndpoint.objects.values_list("web_services_set", "web_services_type").distinct())}
 
@@ -14,7 +14,8 @@ def create_oaipmh_sets(apps, schema_editor):
             continue
         if unique_oaipmh_set["web_services_type"] == "":
             unique_oaipmh_set["web_services_type"] = "VLOSet"
-        oaipmh_endpoit_set = OAIPMHEndpointSet(set_spec=unique_oaipmh_set["web_services_set"], set_type=unique_oaipmh_set["web_services_type"])
+        oaipmh_endpoit_set = OAIPMHEndpointSet(
+            set_spec=unique_oaipmh_set["web_services_set"], set_type=unique_oaipmh_set["web_services_type"])
         oaipmh_endpoit_set.save()
 
 
