@@ -279,7 +279,7 @@ class URLReference(Model):
 class OAIPMHEndpointSet(Model):
     #TODO rename web_service field name
     set_spec = CharField(verbose_name='Set specification', max_length=1024)
-    set_type = CharField(verbose_name='Set type', max_length=1024, null=True)
+    set_type = CharField(verbose_name='Set type', max_length=1024)
 
     def __unicode__(self):
         if self.set_type == '':
@@ -302,13 +302,15 @@ class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
-    centre = ForeignKey(Centre, blank=True, on_delete=CASCADE)
+    centre = ForeignKey(Centre, blank=True, null=True, on_delete=CASCADE)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
     metadata_format = ForeignKey(
         MetadataFormat, verbose_name='Metadata format (historic artifact)',
-        on_delete=CASCADE)
+        on_delete=CASCADE,
+        blank=True,
+        null=True)
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
@@ -316,7 +318,6 @@ class OAIPMHEndpoint(Model):
         blank=True,)
     web_services_type = CharField(
         verbose_name='Web services type (historic artifact)',
-        choices=(('REST', 'REST'), ('SOAP', 'SOAP'), ('WebLicht', 'WebLicht')),
         default='REST',
         max_length=8)
 
