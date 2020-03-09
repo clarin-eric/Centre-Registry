@@ -15,7 +15,7 @@
           "type": "object",
           "properties": {
             "centre": {
-              "type": "integer"
+              "type": ["null","integer"]
             },
             "web_services":{
               "type": "array"

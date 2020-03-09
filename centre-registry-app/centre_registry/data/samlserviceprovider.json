@@ -18,7 +18,7 @@
               "type": "string"
             },
             "centre": {
-              "type": "integer"
+              "type": ["null","integer"]
             },
             "status_url": {
               "type": "string"
