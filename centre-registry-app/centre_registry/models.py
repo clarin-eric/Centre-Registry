@@ -307,12 +307,13 @@ class OAIPMHEndpoint(Model):
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
     metadata_format = ForeignKey(
-        MetadataFormat, verbose_name='Metadata format (historic artifact)')
+        MetadataFormat, verbose_name='Metadata format (historic artifact)',
+        on_delete=CASCADE)
     # TODO: fix old API's XSD to allow more MetadataFormats
     web_services_set = CharField(
         verbose_name='Web services set (historic artifact)',
         max_length=100,
-        blank=True)
+        blank=True,)
     web_services_type = CharField(
         verbose_name='Web services type (historic artifact)',
         choices=(('REST', 'REST'), ('SOAP', 'SOAP'), ('WebLicht', 'WebLicht')),
