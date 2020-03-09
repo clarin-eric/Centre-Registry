@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0027_remove_metadataformat'),
+        ('centre_registry', '0025_auto_20200122_1858'),
        ]
 
     operations = [
