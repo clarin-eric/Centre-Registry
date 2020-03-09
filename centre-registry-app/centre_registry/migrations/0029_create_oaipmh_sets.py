@@ -7,15 +7,17 @@ def create_oaipmh_sets(apps, schema_editor):
     OAIPMHEndpoint = apps.get_model("centre_registry", "OAIPMHEndpoint")
     OAIPMHEndpointSet = apps.get_model("centre_registry", "OAIPMHEndpointSet")
     unique_oaipmh_sets = {set_spec_type for set_spec_type in
-                           list(OAIPMHEndpoint.objects.values_list("web_services_set", "web_services_type").distinct())}
+                           OAIPMHEndpoint.objects.values_list("web_services_set", "web_services_type").distinct()}
 
     for unique_oaipmh_set in unique_oaipmh_sets:
-        if unique_oaipmh_set["web_services_set"] == "":
+        set_spec = unique_oaipmh_set[0]
+        set_type = unique_oaipmh_set[1]
+        if set_spec == "":
             continue
-        if unique_oaipmh_set["web_services_type"] == "":
-            unique_oaipmh_set["web_services_type"] = "VLOSet"
+        if set_type == "":
+            set_type = "VLOSet"
         oaipmh_endpoit_set = OAIPMHEndpointSet(
-            set_spec=unique_oaipmh_set["web_services_set"], set_type=unique_oaipmh_set["web_services_type"])
+            set_spec=set_spec, set_type=set_type)
         oaipmh_endpoit_set.save()
 
 

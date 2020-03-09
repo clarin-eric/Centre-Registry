@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='oaipmhendpoint',
             name='centre',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='centre_registry.Centre'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='centre_registry.Centre'),
         ),
     ]
