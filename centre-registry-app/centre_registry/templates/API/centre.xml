@@ -54,9 +54,7 @@
                                 {% for set in oai_pmh_endpoint.oai_pmh_sets.all %}
                                     <Set>
                                         <SetSpec>{{ set.set_spec }}</SetSpec>
-                                        {% if specification.set_type != '' %}
                                         <SetType>{{ set.set_type }}</SetType>
-                                        {% endif %}
                                     </Set>
                                 {% endfor %}
                             </OaiPmhSets>

@@ -751,8 +751,13 @@
                                                                 </xs:element>
                                                                 <xs:element name="WebServiceType" minOccurs="0"
                                                                             maxOccurs="unbounded"
-                                                                            type="cmd:complextype-WebServiceType-9-clarin.eu.cr1.c_1320657629669"
-                                                                            ann:documentation="A type of web services the center provides metadata for. For example, SOAP or WebLicht."/>
+                                                                            ann:documentation="A type of web services the center provides metadata for. For example, SOAP or WebLicht.">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string"/>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
                                                                 <xs:element name="OaiAccessPoint"
                                                                             dcr:datcat="http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320"
                                                                             type="xs:anyURI" minOccurs="1" maxOccurs="1"
