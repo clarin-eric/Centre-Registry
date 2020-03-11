@@ -9,6 +9,7 @@ from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
 from centre_registry.models import OAIPMHEndpointSet
+from centre_registry.models import MetadataFormat
 from django.contrib import admin
 
 
@@ -88,6 +89,8 @@ class AssessmentDateAdmin(admin.ModelAdmin):
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
+
+admin.site.register(MetadataFormat)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)

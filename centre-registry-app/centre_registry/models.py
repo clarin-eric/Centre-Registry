@@ -294,8 +294,8 @@ class OAIPMHEndpointSet(Model):
 
     class Meta:
         ordering = ('set_spec', 'set_type')
-        verbose_name = "OAI-PMH endpoint specification"
-        verbose_name_plural = "OAI-PMH endpoint specifications"
+        verbose_name = "OAI-PMH Set"
+        verbose_name_plural = "OAI-PMH Sets"
 
 
 class OAIPMHEndpoint(Model):
@@ -330,8 +330,8 @@ class OAIPMHEndpoint(Model):
 
     class Meta:
         ordering = ('uri', )
-        verbose_name = "OAI-PMH endpoint"
-        verbose_name_plural = "OAI-PMH endpoints"
+        verbose_name = "OAI-PMH Endpoint"
+        verbose_name_plural = "OAI-PMH Endpoints"
 
 
 class FCSEndpoint(Model):
