@@ -113,7 +113,7 @@ class Migration(migrations.Migration):
                 ('is_observer', models.BooleanField(
                     default=False, verbose_name='Is observer (not member)?')),
                 ('name', models.CharField(
-                    max_length=20, unique=True, verbose_name='Name')),
+                    max_length=20, verbose_name='Name')),
                 ('website_url', models.URLField(
                     max_length=2000, verbose_name='Website URL')),
                 ('alias', models.CharField(
@@ -159,7 +159,8 @@ class Migration(migrations.Migration):
                     verbose_name='ID')),
                 ('uri', models.URLField(
                     max_length=2000, unique=True, verbose_name='Base URI')),
-                ('centre', models.ForeignKey(to='centre_registry.Centre', on_delete=django.db.models.deletion.SET_NULL)),
+                ('centre', models.ForeignKey(to='centre_registry.Centre', on_delete=django.db.models.deletion.SET_NULL,
+                                             null=True)),
             ],
             options={
                 'verbose_name_plural': 'FCS endpoints',
@@ -204,7 +205,7 @@ class Migration(migrations.Migration):
                     max_length=2000, unique=True, verbose_name='Base URI')),
                 ('centre', models.ForeignKey(
                     to='centre_registry.Centre',
-                    on_delete=django.db.models.deletion.SET_NULL)),
+                    on_delete=django.db.models.deletion.SET_NULL, null=True)),
                 ('metadata_format', models.ForeignKey(
                     to='centre_registry.MetadataFormat',
                     verbose_name='Metadata format',
@@ -250,7 +251,7 @@ class Migration(migrations.Migration):
                     max_length=1024, blank=True, verbose_name='Status URL')),
                 ('centre', models.ForeignKey(
                     to='centre_registry.Centre',
-                    on_delete=django.db.models.deletion.SET_NULL)),
+                    on_delete=django.db.models.deletion.SET_NULL, null=True)),
             ],
             options={
                 'verbose_name_plural': 'SAML Service Providers',

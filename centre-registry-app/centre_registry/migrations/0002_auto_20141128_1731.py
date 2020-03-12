@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
             model_name='consortium',
             name='name',
             field=models.CharField(
-                max_length=40, verbose_name='Name', unique=True),
+                max_length=40, verbose_name='Name'),
             preserve_default=True, ),
         migrations.AlterField(
             model_name='contact',
