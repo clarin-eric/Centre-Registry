@@ -7,16 +7,14 @@ from os.path import normpath
 
 from setuptools import setup
 
-__version__ = '2.4.0-dev'
-
 INSTALL_REQUIRES = ['Django==2.2.8', 'django-debug-toolbar==2.1']
 TEST_REQUIRES = ['lxml==4.2.4', 'selenium==2.53.6']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_app',
-    version=__version__,
     use_scm_version = {
         "root": "..",
+        "fallback_version": "unknown"
     },
     setup_requires=['setuptools_scm'],
     packages=['centre_registry'],
