@@ -15,10 +15,14 @@ chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_app',
     version=__version__,
+    use_scm_version = {
+        "root": "..",
+    },
+    setup_requires=['setuptools_scm'],
     packages=['centre_registry'],
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
-    test_requires=TEST_REQUIRES,
+    tests_require=TEST_REQUIRES,
     license='GPLv3',
     description='CLARIN Centre Registry, a Django application. ',
     long_description='See README.md',
