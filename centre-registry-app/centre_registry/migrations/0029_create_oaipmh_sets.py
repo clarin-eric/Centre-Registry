@@ -30,11 +30,12 @@ def revert_create_oaipmh_sets(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
+    atomic = False
     dependencies = [
-        ('centre_registry', '0028_auto_20200306_1701'),
+        ('centre_registry', '0028_auto_20200316_2108'),
     ]
 
     operations = [
-        migrations.RunPython(create_oaipmh_sets, revert_create_oaipmh_sets),
+        migrations.RunPython(create_oaipmh_sets, reverse_code=revert_create_oaipmh_sets),
 
     ]

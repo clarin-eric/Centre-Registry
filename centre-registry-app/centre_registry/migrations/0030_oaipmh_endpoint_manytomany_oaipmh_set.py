@@ -30,11 +30,12 @@ def revert_oaipmh_endpoint_manytomany_oaipmh_set(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
+    atomic = False
 
     dependencies = [
         ('centre_registry', '0029_create_oaipmh_sets'),
     ]
 
     operations = [
-        migrations.RunPython(oaipmh_endpoint_manytomany_oaipmh_set, revert_oaipmh_endpoint_manytomany_oaipmh_set)
+        migrations.RunPython(oaipmh_endpoint_manytomany_oaipmh_set, reverse_code=revert_oaipmh_endpoint_manytomany_oaipmh_set)
     ]
