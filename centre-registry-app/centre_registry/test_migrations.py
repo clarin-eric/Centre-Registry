@@ -4,6 +4,8 @@ from django import setup
 from django.test import TransactionTestCase
 from django_test_migrations.migrator import Migrator
 import glob
+import os
+import pathlib
 
 
 class MigrationChainTest(TransactionTestCase):
@@ -19,16 +21,17 @@ class MigrationChainTest(TransactionTestCase):
         super(MigrationChainTest, cls).tearDownClass()
 
     def test_migration_chain(self):
-        migration_dir_path = './migrations'
-        migrations = glob.glob(migration_dir_path)
-        if not migrations:
-            self.fail("No migrations files have been found in: " + migration_dir_path)
+        app_dir_path = pathlib.Path(__file__).parent
+        migrations_dir_path = app_dir_path.joinpath('migrations')
+        migrations = sorted(glob.glob(str(migrations_dir_path) + '/[0-9]*'))
 
+        if not migrations:
+            self.fail("No migrations files have been found in: " + migrations_dir_path)
         migrator = Migrator(database='default')
 
         # roll back to init state
-        init_state = migrator.before(migrate_from=("centre_registry", migrations[0]))
+        init_state = migrator.before(migrate_from=("centre_registry", os.path.splitext(os.path.basename(migrations[0]))[0]))
 
         # roll forward to final state
-        final_state = migrator.after(migrate_to=("centre_registry", migrations[-1]))
+        final_state = migrator.after(migrate_to=("centre_registry", os.path.splitext(os.path.basename(migrations[-1]))[0]))
         migrator.reset()
