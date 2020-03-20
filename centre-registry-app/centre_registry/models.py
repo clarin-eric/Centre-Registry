@@ -1,7 +1,6 @@
 from decimal import Decimal
 from re import match as re_match
 
-from centre_registry.fields import StringListField
 from django.core.exceptions import ValidationError
 from django.db.models import BooleanField
 from django.db.models import CharField
