@@ -51,7 +51,8 @@
                         <Metadata>
                             <MetadataScheme>{{ oai_pmh_endpoint.metadata_format }}</MetadataScheme>
                             {% if oai_pmh_endpoint.web_services_set %}
-                                <WebServicesSet>{{ oai_pmh_endpoint.web_services_set }}</WebServicesSet> {% endif %}
+                            <WebServicesSet>{{ oai_pmh_endpoint.web_services_set }}</WebServicesSet>
+                            {% endif %}
                             <WebServiceType>{{ oai_pmh_endpoint.web_services_type }}</WebServiceType>
                             <OaiAccessPoint>{{ oai_pmh_endpoint.uri }}</OaiAccessPoint>
                             {% if oai_pmh_endpoint.oai_pmh_sets.all %}
