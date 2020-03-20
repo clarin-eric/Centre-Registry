@@ -2,7 +2,7 @@
 <CMD xmlns="http://www.clarin.eu/cmd/"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      CMDVersion="1.1"
-     xsi:schemaLocation="http://www.clarin.eu/cmd/ https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1583768728297/xsd">
+     xsi:schemaLocation="http://www.clarin.eu/cmd/ https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728297/xsd">
     <Header/>
     <Resources>
         <ResourceProxyList/>
