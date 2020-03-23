@@ -24,7 +24,7 @@ def get_about(request):
 def get_all_centres(request):
     request_context = RequestContext(request, {'view': 'all_centres',
                                                'all_centres':
-                                               Centre.objects.all()})
+                                                   Centre.objects.all()})
     return render(
         request, template_name='UI/_all_centres.html', context=request_context.flatten())
 
@@ -35,7 +35,7 @@ def get_centre(request, centre_id):
         request, {'view': 'centre',
                   'centre': centre,
                   'url_references':
-                  URLReference.objects.filter(centre__pk=centre.pk)})
+                      URLReference.objects.filter(centre__pk=centre.pk)})
     return render(
         request, template_name='UI/_centre.html', context=request_context.flatten())
 
@@ -43,7 +43,7 @@ def get_centre(request, centre_id):
 def get_centres_contacts(request):
     request_context = RequestContext(request, {'view': 'centres_contacts',
                                                'all_centres':
-                                               Centre.objects.all()})
+                                                   Centre.objects.all()})
     return render(
         request,
         template_name='UI/_centres_contacts.html',
@@ -53,7 +53,7 @@ def get_centres_contacts(request):
 def get_consortia(request):
     request_context = RequestContext(request, {'view': 'consortia',
                                                'consortia':
-                                               Consortium.objects.all()})
+                                                   Consortium.objects.all()})
     return render(
         request, template_name='UI/_consortia.html', context=request_context.flatten())
 
@@ -73,31 +73,43 @@ def get_contacting(request):
 
 
 def get_fcs(request):
+    fcs_endpoints = FCSEndpoint.objects.all()
+    centre_fcs_endpoints_dict = {}
+
+    for endpoint in fcs_endpoints:
+        centre = endpoint.centre
+        if not centre:
+            centre = "NoCentre"
+        if centre in centre_fcs_endpoints_dict.keys():
+            centre_fcs_endpoints_dict[centre].append(endpoint)
+        else:
+            centre_fcs_endpoints_dict[centre] = [endpoint]
+
     request_context = RequestContext(request, {'view': 'fcs',
                                                'fcs_endpoints':
-                                               FCSEndpoint.objects.all()})
+                                                   FCSEndpoint.objects.all()})
     return render(
         request, template_name='UI/_fcs.html', context=request_context.flatten())
 
 
 def get_oai_pmh(request):
     oai_pmh_endpoints = OAIPMHEndpoint.objects.all()
-    centre_endpoints_hash = {}
+    centre_endpoints_dict = {}
+
     for endpoint in oai_pmh_endpoints:
         centre = endpoint.centre
         if not centre:
             centre = "NoCentre"
+        if centre in centre_endpoints_dict.keys():
+            centre_endpoints_dict[centre].append(endpoint)
         else:
-            if centre in centre_endpoints_hash.keys():
-                centre_endpoints_hash[centre].append(endpoint)
-            else:
-                centre_endpoints_hash[centre] = [endpoint]
+            centre_endpoints_dict[centre] = [endpoint]
 
     request_context = RequestContext(request, {'view': 'oai_pmh',
                                                'centre_oaipmh_endpoints_grouped':
-                                                centre_endpoints_hash,
-
-                                               OAIPMHEndpoint.objects.all()})
+                                                   centre_endpoints_dict,
+                                               'oai_pmh_endpoints':
+                                                   oai_pmh_endpoints})
     return render(
         request, template_name='UI/_oai_pmh.html', context=request_context.flatten())
 
@@ -111,6 +123,18 @@ def get_map(request):
 
 
 def get_spf(request):
+    saml_service_providers = SAMLServiceProvider.objects.all()
+    centre_saml_providers_dict = {}
+
+    for endpoint in saml_service_providers:
+        centre = endpoint.centre
+        if not centre:
+            centre = "NoCentre"
+        if centre in centre_saml_providers_dict.keys():
+            centre_saml_providers_dict[centre].append(endpoint)
+        else:
+            centre_saml_providers_dict[centre] = [endpoint]
+
     processed_sps_across_id_feds = loads(
         urlopen('https://infra.clarin.eu/aai/sps_at_identity_federations/'
                 'summary.json').read().decode('utf-8'))
@@ -134,11 +158,13 @@ def get_spf(request):
 
     request_dict = {'view': 'spf',
                     'saml_service_providers':
-                    SAMLServiceProvider.objects.all(),
+                        saml_service_providers,
+                    'centre_saml_providers_dict':
+                        centre_saml_providers_dict,
                     'saml_id_feds':
-                    saml_id_feds,
+                        saml_id_feds,
                     'processed_sps_across_id_feds':
-                    processed_sps_across_id_feds2}
+                        processed_sps_across_id_feds2}
     request_context = RequestContext(request, request_dict)
     return render(
         request, template_name='UI/_spf.html', context=request_context.flatten())
