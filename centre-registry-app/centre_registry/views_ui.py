@@ -87,7 +87,9 @@ def get_fcs(request):
 
     request_context = RequestContext(request, {'view': 'fcs',
                                                'fcs_endpoints':
-                                                   FCSEndpoint.objects.all()})
+                                                   FCSEndpoint.objects.all(),
+                                               'centre_fcs_endpoints_dict':
+                                                   centre_fcs_endpoints_dict})
     return render(
         request, template_name='UI/_fcs.html', context=request_context.flatten())
 
@@ -105,8 +107,10 @@ def get_oai_pmh(request):
         else:
             centre_endpoints_dict[centre] = [endpoint]
 
+    print(centre_endpoints_dict)
+
     request_context = RequestContext(request, {'view': 'oai_pmh',
-                                               'centre_oaipmh_endpoints_grouped':
+                                               'centre_endpoints_dict':
                                                    centre_endpoints_dict,
                                                'oai_pmh_endpoints':
                                                    oai_pmh_endpoints})
