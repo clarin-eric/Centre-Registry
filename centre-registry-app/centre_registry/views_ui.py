@@ -81,8 +81,22 @@ def get_fcs(request):
 
 
 def get_oai_pmh(request):
+    oai_pmh_endpoints = OAIPMHEndpoint.objects.all()
+    centre_endpoints_hash = {}
+    for endpoint in oai_pmh_endpoints:
+        centre = endpoint.centre
+        if not centre:
+            centre = "NoCentre"
+        else:
+            if centre in centre_endpoints_hash.keys():
+                centre_endpoints_hash[centre].append(endpoint)
+            else:
+                centre_endpoints_hash[centre] = [endpoint]
+
     request_context = RequestContext(request, {'view': 'oai_pmh',
-                                               'oai_pmh_endpoints':
+                                               'centre_oaipmh_endpoints_grouped':
+                                                centre_endpoints_hash,
+
                                                OAIPMHEndpoint.objects.all()})
     return render(
         request, template_name='UI/_oai_pmh.html', context=request_context.flatten())

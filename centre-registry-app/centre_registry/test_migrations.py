@@ -26,7 +26,7 @@ class MigrationChainTest(TransactionTestCase):
         migrations = sorted(glob.glob(str(migrations_dir_path) + '/[0-9]*'))
 
         if not migrations:
-            self.fail("No migrations files have been found in: " + migrations_dir_path)
+            self.fail("No migration files have been found in: " + migrations_dir_path)
         migrator = Migrator(database='default')
 
         # roll back to init state
