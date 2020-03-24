@@ -50,6 +50,8 @@ STATIC_ROOT = join(PROJECT_DIR,
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+CENTER_PROFILE_XSD = 'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728295/xsd'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

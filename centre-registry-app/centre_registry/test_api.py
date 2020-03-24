@@ -1,11 +1,9 @@
 #!/usr/bin/env python
-from os.path import join, dirname, realpath
+from os.path import join
 from traceback import print_exc
 
-from django.core.management import call_command
-
 from django import setup
-from django.core import serializers
+from django.conf import settings
 from django.test import TestCase
 from django.test import Client
 import json
@@ -18,7 +16,7 @@ from lxml.etree import XMLSchema
 from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
-
+from urllib.request import urlopen
 
 class APITestCase(TestCase):
     fixtures = ['test_data']
@@ -46,10 +44,7 @@ class APITestCase(TestCase):
             '/Centers/CenterProfile/Center_id_link/text()')
         centre_info_urls = centre_info_url_xpath(xml_tree)
 
-        schema_root = fromstring(
-            resource_string(__name__, join('data', 'CenterProfile.xsd'))
-        )
-
+        schema_root = parse(urlopen(settings.CENTER_PROFILE_XSD))
         schema = XMLSchema(schema_root)
 
         for centre_info_url in centre_info_urls:
@@ -71,8 +66,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Type'], 'application/xml')
 
-        schema_root = fromstring(
-            resource_string(__name__, join('data', 'CenterProfile.xsd')))
+        schema_root = parse(urlopen(settings.CENTER_PROFILE_XSD))
         schema = XMLSchema(schema_root)
 
         try:
@@ -131,7 +125,6 @@ class APITestCase(TestCase):
         except ValidationError:
             print_exc()
             self.fail()
-
 
     def test_get_model_contact(self):
         client = Client()
