@@ -51,6 +51,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+CENTRE_REGISTRY_XSD_URL = 'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728295/xsd'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -60,6 +62,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'centre_registry.context_processors.tracked_by_piwik',
                 'centre_registry.context_processors.version',
+                'centre_registry.context_processors.centre_profile_xsd_url',
                 'django.contrib.messages.context_processors.messages',
             ],
         },

@@ -20,8 +20,6 @@ from urllib.request import urlopen
 
 class APITestCase(TestCase):
     fixtures = ['test_data']
-    centre_schema_uri = open('centre-registry-app/centre_registry/templates/API/centre.xml') \
-                        .readlines()[4].split()[-1].split('"')[0]
 
     @classmethod
     def setUpClass(cls):
@@ -46,7 +44,7 @@ class APITestCase(TestCase):
             '/Centers/CenterProfile/Center_id_link/text()')
         centre_info_urls = centre_info_url_xpath(xml_tree)
 
-        schema_root = parse(urlopen(self.centre_schema_uri))
+        schema_root = parse(urlopen(settings.CENTRE_REGISTRY_XSD_URL))
         schema = XMLSchema(schema_root)
 
         for centre_info_url in centre_info_urls:
@@ -68,7 +66,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Type'], 'application/xml')
 
-        schema_root = parse(urlopen(self.centre_schema_uri))
+        schema_root = parse(urlopen(settings.CENTRE_REGISTRY_XSD_URL))
         schema = XMLSchema(schema_root)
 
         try:
