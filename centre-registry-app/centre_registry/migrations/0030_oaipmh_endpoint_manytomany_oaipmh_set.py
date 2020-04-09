@@ -9,8 +9,6 @@ def oaipmh_endpoint_manytomany_oaipmh_set(apps, schema_editor):
     for endpoint in OAIPMHEndpoint.objects.all():
         web_services_set = endpoint.web_services_set
         web_services_type = endpoint.web_services_type
-        if web_services_set == "":
-            continue
         if web_services_type == "":
             web_services_type = "VLOSet"
             endpoint.web_services_type = web_services_type

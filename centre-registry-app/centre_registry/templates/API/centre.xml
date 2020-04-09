@@ -50,8 +50,8 @@
                     {% for oai_pmh_endpoint in oai_pmh_endpoints %}
                         <Metadata>
                             <OaiAccessPoint>{{ oai_pmh_endpoint.uri }}</OaiAccessPoint>
-                            <OaiPmhSets>
                             {% if oai_pmh_endpoint.oai_pmh_sets.all %}
+                            <OaiPmhSets>
 
                                 {% for set in oai_pmh_endpoint.oai_pmh_sets.all %}
                                     <Set>
@@ -59,14 +59,8 @@
                                         <SetType>{{ set.set_type }}</SetType>
                                     </Set>
                                 {% endfor %}
-
-                                {% else %}
-                                <Set>
-                                    <SetSpec />
-                                    <SetType />
-                                </Set>
-                            {% endif %}
                             </OaiPmhSets>
+                            {% endif %}
                         </Metadata>
                     {% endfor %}
                 {% endif %}
