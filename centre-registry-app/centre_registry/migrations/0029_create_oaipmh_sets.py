@@ -12,8 +12,14 @@ def create_oaipmh_sets(apps, schema_editor):
     for unique_oaipmh_set in unique_oaipmh_sets:
         set_spec = unique_oaipmh_set[0]
         set_type = unique_oaipmh_set[1]
+
         if set_type == "":
             set_type = "VLOSet"
+
+        if set_spec == "":
+            if set_type != "WebLicht":
+                continue
+
         oaipmh_endpoit_set = OAIPMHEndpointSet(
             set_spec=set_spec, set_type=set_type)
         oaipmh_endpoit_set.save()

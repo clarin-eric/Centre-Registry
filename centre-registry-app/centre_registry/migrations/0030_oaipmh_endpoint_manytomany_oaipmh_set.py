@@ -9,12 +9,14 @@ def oaipmh_endpoint_manytomany_oaipmh_set(apps, schema_editor):
     for endpoint in OAIPMHEndpoint.objects.all():
         web_services_set = endpoint.web_services_set
         web_services_type = endpoint.web_services_type
-        if web_services_type == "":
+        if web_services_set == "":
+            if web_services_type != "Weblicht":
+                continue
+        elif web_services_type == "":
             web_services_type = "VLOSet"
             endpoint.web_services_type = web_services_type
             endpoint.save()
-        with open("./test.txt", "w+") as a:
-            a.write(web_services_set + '\t' + web_services_type)
+
         oaipmh_set = OAIPMHEndpointSet.objects.get(set_spec=web_services_set, set_type=web_services_type)
 
         endpoint.oai_pmh_sets.add(oaipmh_set)
