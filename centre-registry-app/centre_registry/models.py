@@ -48,28 +48,6 @@ def validate_longitude(longitude):
     except Exception as exception:import ast
 
 
-class MetadataFormat(Model):
-    """
-    A metadata format as per OAI-PMH (
-    http://www.openarchives.org/OAI/openarchivesprotocol.html
-    #ListMetadataFormats ).
-    Deprecated, use ListMetadataFormats verb on endpoint instead.
-    """
-    name = CharField(
-        verbose_name='Metadata format name', max_length=30, unique=True)
-
-    def __unicode__(self):
-        return '{name:s}'.format(name=self.name)
-
-    def __str__(self):
-        return self.__unicode__()
-
-    class Meta:
-        ordering = ('name', )
-        verbose_name = 'metadata format'
-        verbose_name_plural = 'metadata formats'
-
-
 class Contact(Model):
     """
     A contact person.
@@ -305,20 +283,6 @@ class OAIPMHEndpoint(Model):
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
-    metadata_format = ForeignKey(
-        MetadataFormat, verbose_name='Metadata format (historic artifact)',
-        on_delete=CASCADE,
-        blank=True,
-        null=True)
-    # TODO: fix old API's XSD to allow more MetadataFormats
-    web_services_set = CharField(
-        verbose_name='Web services set (historic artifact)',
-        max_length=100,
-        blank=True,)
-    web_services_type = CharField(
-        verbose_name='Web services type (historic artifact)',
-        default='REST',
-        max_length=8)
 
     def __unicode__(self):
         return '{uri:s}'.format(
