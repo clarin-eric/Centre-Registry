@@ -277,8 +277,8 @@ class URLReference(Model):
 
 class OAIPMHEndpointSet(Model):
     #TODO rename web_service field name
-    set_spec = CharField(verbose_name='Set specification', max_length=1024)
-    set_type = CharField(verbose_name='Set type', max_length=1024)
+    set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
+    set_type = CharField(verbose_name='Set type', max_length=1024, default='VLOSet')
 
     def __unicode__(self):
         if self.set_type == '':
