@@ -33,7 +33,7 @@ class SystemTestCase(StaticLiveServerTestCase):
         # TODO: Replace Travis CI & Sauce Labs with generic testing code.
         if is_ci:
             from selenium.webdriver import Remote
-            hub_url = ("{username:s}:{access_key:s}@localhost:4445"
+            hub_url = ("{username:s}:{access_key:s}@ondemand.us-west-1.saucelabs.com:443/wd/hub"
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
@@ -48,7 +48,7 @@ class SystemTestCase(StaticLiveServerTestCase):
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
-                command_executor="http://{hub_url:s}/wd/hub"
+                command_executor="https://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
             cls.selenium = WebDriver()
