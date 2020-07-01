@@ -11,6 +11,7 @@ from django.db.models import Model
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
+from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
 
 
 def parse_decimal_degree(degree):
@@ -44,10 +45,7 @@ def validate_longitude(longitude):
     try:
         if is_valid_longitude(parse_decimal_degree(longitude)):
             return
-    except Exception as exception:
-        raise ValidationError(
-            '{0} is not a valid Decimal Degree longitude. '.format(
-                str(longitude))) from exception
+    except Exception as exception:import ast
 
 
 class Contact(Model):
@@ -157,7 +155,7 @@ class AssessmentDates(Model):
 
     class Meta:
         ordering = ('issuedate', 'duedate')
-        verbose_name = 'issue/due dates for a centre type'
+        verbose_name = 'issue/due dates for a centre administrative_contacttype'
         verbose_name_plural = 'issue/due dates for a centre type'
 
 
@@ -193,15 +191,15 @@ class Centre(Model):
     )
 
     administrative_contact = ForeignKey(
-        Contact, related_name='administrative_contact')
-    technical_contact = ForeignKey(Contact, related_name='technical_contact')
+        Contact, related_name='administrative_contact', on_delete=PROTECT)
+    technical_contact = ForeignKey(Contact, related_name='technical_contact', on_delete=PROTECT)
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
@@ -233,34 +231,12 @@ class Centre(Model):
         verbose_name_plural = 'centres'
 
 
-class MetadataFormat(Model):
-    """
-    A metadata format as per OAI-PMH (
-    http://www.openarchives.org/OAI/openarchivesprotocol.html
-    #ListMetadataFormats ).
-    Deprecated, use ListMetadataFormats verb on endpoint instead.
-    """
-    name = CharField(
-        verbose_name='Metadata format name', max_length=30, unique=True)
-
-    def __unicode__(self):
-        return '{name:s}'.format(name=self.name)
-
-    def __str__(self):
-        return self.__unicode__()
-
-    class Meta:
-        ordering = ('name', )
-        verbose_name = 'metadata format'
-        verbose_name_plural = 'metadata formats'
-
-
 class URLReference(Model):
     """
-    A web reference (URL) with description.
+    A web refereweb_servicence (URL) with description.
     """
 
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, on_delete=CASCADE)
     description = CharField(verbose_name='Content description', max_length=300)
     url = URLField(verbose_name='URL', max_length=2000, unique=True)
 
@@ -277,48 +253,65 @@ class URLReference(Model):
         verbose_name_plural = "URL references"
 
 
+class OAIPMHEndpointSet(Model):
+    #TODO rename web_service field name
+    set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
+    set_type = CharField(verbose_name='Set type', max_length=1024, default='VLOSet')
+
+    def __unicode__(self):
+        if self.set_type == '':
+            return '{set_spec:s} ({set_type:s})'.format(
+                set_spec=self.set_spec, set_type='No type')
+        else:
+            return '{set_spec:s} ({set_type:s})'.format(
+                set_spec=self.set_spec, set_type=self.set_type)
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        ordering = ('set_spec', 'set_type')
+        verbose_name = "OAI-PMH Set"
+        verbose_name_plural = "OAI-PMH Sets"
+
+
 class OAIPMHEndpoint(Model):
     """
     An OAI-PMH Endpoint.
     """
-    centre = ForeignKey(Centre)
-    metadata_format = ForeignKey(
-        MetadataFormat, verbose_name='Metadata format (historic artifact)')
-    # TODO: fix old API's XSD to allow more MetadataFormats
-    web_services_set = CharField(
-        verbose_name='Web services set (historic artifact)',
-        max_length=100,
-        blank=True)
-    web_services_type = CharField(
-        verbose_name='Web services type (historic artifact)',
-        choices=(('REST', 'REST'), ('SOAP', 'SOAP'), ('WebLicht', 'WebLicht')),
-        default='REST',
-        max_length=8)
+    centre = ForeignKey(Centre, blank=True, null=True, on_delete=CASCADE)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
 
     def __unicode__(self):
-        return '{uri:s} ({centre_shorthand:s})'.format(
-            uri=self.uri, centre_shorthand=self.centre.shorthand)
+        return '{uri:s}'.format(
+            uri=self.uri)
 
     def __str__(self):
         return self.__unicode__()
 
     class Meta:
         ordering = ('uri', )
-        verbose_name = "OAI-PMH endpoint"
-        verbose_name_plural = "OAI-PMH endpoints"
+        verbose_name = "OAI-PMH Endpoint"
+        verbose_name_plural = "OAI-PMH Endpoints"
 
 
 class FCSEndpoint(Model):
     """
     A CLARIN FCS Endpoint.
     """
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        return '{uri:s} ({centre_shorthand:s})'.format(
-            uri=self.uri, centre_shorthand=self.centre.shorthand)
+        if self.centre is not None:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand=self.centre.shorthand)
+        else:
+            return '{uri:s} ({centre_shorthand:s})'.format(
+                uri=self.uri, centre_shorthand='NoCentre')
 
     def __str__(self):
         return self.__unicode__()
@@ -335,17 +328,22 @@ class SAMLServiceProvider(Model):
     """
     entity_id = CharField(
         verbose_name='Entity ID', max_length=1024, unique=True)
-    centre = ForeignKey(Centre)
+    centre = ForeignKey(Centre, null=True, blank=True, on_delete=SET_NULL)
     status_url = URLField(
         verbose_name='Status URL', max_length=1024, blank=True)
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
+    note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
 
     def __unicode__(self):
-        return '{entity_id:s} ({centre_shorthand:s})'.format(
-            entity_id=self.entity_id, centre_shorthand=self.centre.shorthand)
+        if self.centre is not None:
+            return '{entity_id:s} ({centre_shorthand:s})'.format(
+                entity_id=self.entity_id, centre_shorthand=self.centre.shorthand)
+        else:
+            return '{entity_id:s} ({centre_shorthand:s})'.format(
+                entity_id=self.entity_id, centre_shorthand='NoCentre')
 
-    def __str__(self):
+    def __str__(self): 
         return self.__unicode__()
 
     class Meta:
@@ -379,3 +377,5 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
+
+

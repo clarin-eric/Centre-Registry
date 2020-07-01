@@ -12,18 +12,21 @@ except ImportError:
 
 is_ci = (environ.get('TRAVIS') or '').lower() == 'true'
 
+
 def set_test_status(jobid, passed=True):
     base64string = str(base64.b64encode(bytes('%s:%s' % (environ["SAUCE_USERNAME"], environ["SAUCE_ACCESS_KEY"]),'utf-8')))[1:]
     body_content = json.dumps({"passed": passed})
-    connection =  http.client.HTTPSConnection("saucelabs.com")
+    connection = http.client.HTTPSConnection("saucelabs.com")
     connection.request('PUT', '/rest/v1/%s/jobs/%s' % (environ["SAUCE_USERNAME"], jobid),
                        body_content,
                        headers={"Authorization": "Basic %s" % base64string})
     result = connection.getresponse()
     return result.status == 200
 
+
 class SystemTestCase(StaticLiveServerTestCase):
     fixtures = ['test_data.json']
+    port = 9999
 
     @classmethod
     def setUpClass(cls):
@@ -84,6 +87,11 @@ class SystemTestCase(StaticLiveServerTestCase):
 
         body = self.selenium.find_element_by_tag_name('body')
         self.assertIn('Karls', body.text)
+
+    def test_contact_in_centre(self):
+        self.selenium.get(self.live_server_url + '/centre/1')
+        body = self.selenium.find_element_by_tag_name('body')
+        self.assertIn('Margarethe Weber', body.text)
 
     def test_centres_contacts(self):
         self.selenium.get(self.live_server_url + '/centres_contacts')

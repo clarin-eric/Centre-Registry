@@ -7,14 +7,16 @@ from os.path import normpath
 
 from setuptools import setup
 
-# TODO: Tie version to git tag.
-__version__ = '2.2.4'
 
-INSTALL_REQUIRES = ['centre-registry-app==2.2.4']
+INSTALL_REQUIRES = ['centre-registry-app']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_config',
-    version=__version__,
+    use_scm_version={
+        "root": "..",
+        "fallback_version": "2.3.0.dev0"
+    },
+    setup_requires=['setuptools_scm'],
     packages=['centre_registry_project'],
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,

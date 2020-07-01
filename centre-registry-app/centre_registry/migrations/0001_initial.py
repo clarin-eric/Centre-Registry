@@ -2,6 +2,7 @@
 import centre_registry.models
 from django.db import migrations
 from django.db import models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -112,7 +113,7 @@ class Migration(migrations.Migration):
                 ('is_observer', models.BooleanField(
                     default=False, verbose_name='Is observer (not member)?')),
                 ('name', models.CharField(
-                    max_length=20, unique=True, verbose_name='Name')),
+                    max_length=20, verbose_name='Name')),
                 ('website_url', models.URLField(
                     max_length=2000, verbose_name='Website URL')),
                 ('alias', models.CharField(
@@ -158,7 +159,8 @@ class Migration(migrations.Migration):
                     verbose_name='ID')),
                 ('uri', models.URLField(
                     max_length=2000, unique=True, verbose_name='Base URI')),
-                ('centre', models.ForeignKey(to='centre_registry.Centre')),
+                ('centre', models.ForeignKey(to='centre_registry.Centre', on_delete=django.db.models.deletion.SET_NULL,
+                                             null=True)),
             ],
             options={
                 'verbose_name_plural': 'FCS endpoints',
@@ -201,10 +203,13 @@ class Migration(migrations.Migration):
                     verbose_name='Web services type (e.g. SOAP; REST)')),
                 ('uri', models.URLField(
                     max_length=2000, unique=True, verbose_name='Base URI')),
-                ('centre', models.ForeignKey(to='centre_registry.Centre')),
+                ('centre', models.ForeignKey(
+                    to='centre_registry.Centre',
+                    on_delete=django.db.models.deletion.SET_NULL, null=True)),
                 ('metadata_format', models.ForeignKey(
                     to='centre_registry.MetadataFormat',
-                    verbose_name='Metadata format')),
+                    verbose_name='Metadata format',
+                    on_delete=django.db.models.deletion.SET_NULL)),
             ],
             options={
                 'verbose_name_plural': 'OAI-PMH endpoints',
@@ -244,7 +249,9 @@ class Migration(migrations.Migration):
                     max_length=1024, unique=True, verbose_name='Entity ID')),
                 ('status_url', models.URLField(
                     max_length=1024, blank=True, verbose_name='Status URL')),
-                ('centre', models.ForeignKey(to='centre_registry.Centre')),
+                ('centre', models.ForeignKey(
+                    to='centre_registry.Centre',
+                    on_delete=django.db.models.deletion.SET_NULL, null=True)),
             ],
             options={
                 'verbose_name_plural': 'SAML Service Providers',
@@ -263,7 +270,9 @@ class Migration(migrations.Migration):
                     max_length=300, verbose_name='Content description')),
                 ('url', models.URLField(
                     max_length=2000, unique=True, verbose_name='URL')),
-                ('centre', models.ForeignKey(to='centre_registry.Centre')),
+                ('centre', models.ForeignKey(
+                    to='centre_registry.Centre',
+                    on_delete=django.db.models.deletion.CASCADE)),
             ],
             options={
                 'verbose_name_plural': 'URL references',
@@ -283,19 +292,23 @@ class Migration(migrations.Migration):
             name='administrative_contact',
             field=models.ForeignKey(
                 related_name='administrative_contact',
-                to='centre_registry.Contact'),
+                to='centre_registry.Contact',
+                on_delete=django.db.models.deletion.PROTECT),
             preserve_default=True, ),
         migrations.AddField(
             model_name='centre',
             name='consortium',
-            field=models.ForeignKey(to='centre_registry.Consortium'),
+            field=models.ForeignKey(
+                to='centre_registry.Consortium',
+                on_delete=django.db.models.deletion.SET_NULL),
             preserve_default=True, ),
         migrations.AddField(
             model_name='centre',
             name='technical_contact',
             field=models.ForeignKey(
                 related_name='technical_contact',
-                to='centre_registry.Contact'),
+                to='centre_registry.Contact',
+                on_delete=django.db.models.deletion.SET_NULL),
             preserve_default=True, ),
         migrations.AddField(
             model_name='centre',

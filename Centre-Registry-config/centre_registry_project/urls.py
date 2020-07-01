@@ -2,16 +2,15 @@ from centre_registry import views_api
 from centre_registry import views_ui
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path
 
 admin.autodiscover()
 admin.site.site_header = settings.ADMIN_TITLE
 
-urlpatterns = patterns(  # pylint: disable=invalid-name
-    '',
-    url(r'^admin/', include(admin.site.urls)),
+urlpatterns = [  # pylint: disable=invalid-name
+    path('admin/', admin.site.urls),
 
     # REST API v1.
     url(r'^restxml/$', views_api.get_all_centres),
@@ -33,4 +32,5 @@ urlpatterns = patterns(  # pylint: disable=invalid-name
     url(r'^fcs$', views_ui.get_fcs),
     url(r'^map', views_ui.get_map),
     url(r'^oai_pmh$', views_ui.get_oai_pmh),
-    url(r'^spf$', views_ui.get_spf), )
+    url(r'^spf$', views_ui.get_spf), 
+    ]

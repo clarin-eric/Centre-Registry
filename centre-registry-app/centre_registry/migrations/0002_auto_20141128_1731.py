@@ -2,7 +2,7 @@
 import centre_registry.models
 from django.db import migrations
 from django.db import models
-
+import django.db.models.deletion
 
 class Migration(migrations.Migration):
     dependencies = [('centre_registry', '0001_initial'), ]
@@ -12,7 +12,8 @@ class Migration(migrations.Migration):
             model_name='centre',
             name='consortium',
             field=models.ForeignKey(
-                blank=True, to='centre_registry.Consortium', null=True),
+                blank=True, to='centre_registry.Consortium', null=True,
+                on_delete=django.db.models.deletion.SET_NULL),
             preserve_default=True, ),
         migrations.AlterField(
             model_name='centre',
@@ -54,7 +55,7 @@ class Migration(migrations.Migration):
             model_name='consortium',
             name='name',
             field=models.CharField(
-                max_length=40, verbose_name='Name', unique=True),
+                max_length=40, verbose_name='Name'),
             preserve_default=True, ),
         migrations.AlterField(
             model_name='contact',

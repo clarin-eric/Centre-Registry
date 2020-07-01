@@ -12,14 +12,10 @@ try:
 except DistributionNotFound:
     VERSION = 'SNAPSHOT'
 
-# Resource location URLS relative to STATIC_URL.
-RESOURCE_LOCATION_DATATABLES = 'libs/DataTables-1.10.6/'
-RESOURCE_LOCATION_CLARIN_STYLE = 'CLARIN_style/1.0/'
-
 SECRET_KEY = 'testkey1283182183721'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
-DEBUG = False # TODO: templatize
+DEBUG = True # TODO: templatize
 SESSION_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = not DEBUG
@@ -35,30 +31,50 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase'
-    }
+        'NAME': 'mydatabase',
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
+    },
 }
-TIME_ZONE = None  # 'Europe/Berlin'
+TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
 MEDIA_ROOT = ''
-STATIC_URL = 'https://infra.clarin.eu/content/Centre_Registry/'
+STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_DIR,
-                   '../../centre-registry-app/centre_registry/static')
+                   '../../centre-registry-app/centre_registry/assets')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+CENTRE_REGISTRY_XSD_URL = 'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728295/xsd'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'centre_registry.context_processors.tracked_by_piwik',
+                'centre_registry.context_processors.version',
+                'centre_registry.context_processors.centre_profile_xsd_url',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-    'django.contrib.auth.context_processors.auth',
-    'centre_registry.context_processors.res_locs_relv_to_static',
-    'centre_registry.context_processors.tracked_by_piwik',
-    'centre_registry.context_processors.version', )
-MIDDLEWARE_CLASSES = (
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.core.context_processors.request',
+#     'django.contrib.auth.context_processors.auth',
+#     'centre_registry.context_processors.tracked_by_piwik',
+#     'centre_registry.context_processors.version', )
+MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -114,6 +130,6 @@ LOGGING = {
 }
 
 if DEBUG:
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
+    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
     INSTALLED_APPS += ('debug_toolbar', )
     DEBUG_TOOLBAR_PATCH_SETTINGS = False

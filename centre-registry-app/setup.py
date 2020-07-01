@@ -7,18 +7,21 @@ from os.path import normpath
 
 from setuptools import setup
 
-__version__ = '2.2.4'
+INSTALL_REQUIRES = ['Django==2.2.8', 'django-debug-toolbar==2.1']
+TEST_REQUIRES = ['lxml==4.2.4', 'selenium==2.53.6', 'jsonschema==3.1.1', 'django-test-migrations==0.2.0']
 
-INSTALL_REQUIRES = ['Django==1.9.13', 'django-debug-toolbar==1.9.1']
-TEST_REQUIRES = ['lxml==4.2.4', 'selenium==3.141.0']
 chdir(normpath(join(abspath(__file__), pardir)))
 setup(
     name='centre_registry_app',
-    version=__version__,
+    use_scm_version={
+        "root": "..",
+        "fallback_version": "2.3.0.dev0"
+    },
+    setup_requires=['setuptools_scm'],
     packages=['centre_registry'],
     include_package_data=True,
     install_requires=INSTALL_REQUIRES,
-    test_requires=TEST_REQUIRES,
+    tests_require=TEST_REQUIRES,
     license='GPLv3',
     description='CLARIN Centre Registry, a Django application. ',
     long_description='See README.md',

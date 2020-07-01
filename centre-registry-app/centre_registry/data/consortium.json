@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items":
+  {
+    "type": "object",
+    "properties": {
+      "model": {
+        "type": "string"
+      },
+      "pk": {
+        "type": "integer"
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+           "country_code": {
+              "type": "string"
+            },
+            "country_name": {
+              "type": "string"
+            },
+            "is_observer": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "website_url": {
+              "type": "string"
+            },
+            "alias": {
+              "type": "string"
+            }
+         },
+      "required": [
+        "country_code",
+        "country_name",
+        "is_observer",
+        "name",
+        "website_url",
+        "alias"
+      ]
+      }
+    },
+  "required": [
+    "model",
+    "pk",
+    "fields"
+  ]
+}
+}

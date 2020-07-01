@@ -9,15 +9,10 @@ def tracked_by_piwik(request):
         return {}
 
 
-def res_locs_relv_to_static(request):
-    # pylint: disable=unused-argument
-    return {
-        'RESOURCE_LOCATION_DATATABLES': settings.RESOURCE_LOCATION_DATATABLES,
-        'RESOURCE_LOCATION_CLARIN_STYLE':
-        settings.RESOURCE_LOCATION_CLARIN_STYLE
-    }
-
-
 def version(request):
     # pylint: disable=unused-argument
     return {'VERSION': settings.VERSION}
+
+
+def centre_profile_xsd_url(request):
+    return {'CENTRE_PROFILE_XSD_URL': settings.CENTRE_REGISTRY_XSD_URL}
