@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items":
+    {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pk": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "shorthand": {
+              "type": "string"
+            },
+            "organisation_name": {
+              "type": "string"
+            },
+            "institution": {
+              "type": "string"
+            },
+            "working_unit": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": "string"
+            },
+            "longitude": {
+              "type": "string"
+            },
+            "type_status": {
+              "type": "string"
+            },
+            "administrative_contact": {
+              "type": "integer"
+            },
+            "technical_contact": {
+              "type": "integer"
+            },
+            "website_url": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "expertise": {
+              "type": "string"
+            },
+            "consortium": {
+              "type": "integer"
+            },
+            "type_certificate_url": {
+              "type": "string"
+            },
+            "dsa_url": {
+              "type": "string"
+            },
+            "pid_status": {
+              "type": "string"
+            },
+            "long_term_archiving_policy": {
+              "type": "string"
+            },
+            "repository_system": {
+              "type": "string"
+            },
+            "strict_versioning": {
+              "type": "boolean"
+            },
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "assessmentdates": {
+              "type": "array",
+              "items": {}
+            },
+            "monitoring_contacts": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "shorthand",
+            "organisation_name",
+            "institution",
+            "working_unit",
+            "address",
+            "postal_code",
+            "city",
+            "latitude",
+            "longitude",
+            "type_status",
+            "administrative_contact",
+            "technical_contact",
+            "website_url",
+            "description",
+            "expertise",
+            "consortium",
+            "type_certificate_url",
+            "dsa_url",
+            "pid_status",
+            "long_term_archiving_policy",
+            "repository_system",
+            "strict_versioning",
+            "type",
+            "assessmentdates",
+            "monitoring_contacts"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "pk",
+        "fields"
+      ]
+    }
+}

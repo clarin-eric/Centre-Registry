@@ -1,7 +1,7 @@
 # pylint: disable=invalid-name
 from django.db import migrations
 from django.db import models
-
+import django.db.models.deletion
 
 class Migration(migrations.Migration):
     dependencies = [('centre_registry', '0011_auto_20150424_1336'), ]
@@ -28,5 +28,6 @@ class Migration(migrations.Migration):
             name='metadata_format',
             field=models.ForeignKey(
                 verbose_name='Metadata format (historic artifact)',
-                to='centre_registry.MetadataFormat'), ),
+                to='centre_registry.MetadataFormat',
+                on_delete=django.db.models.deletion.CASCADE), ),
     ]

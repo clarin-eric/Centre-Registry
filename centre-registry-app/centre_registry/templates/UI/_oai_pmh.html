@@ -1,4 +1,5 @@
 {% extends 'UI/_.html' %}
+{% load utils %}
 {% block title %}OAI-PMH endpoints{% endblock title %}
 {% block content %}
     <p>Please visit <a href='//www.clarin.eu/content/oai-pmh'>this</a> page for more information about the use of <abbr title='Open Archives Initiative Protocol for Metadata Harvesting '>OAI-PMH</abbr> in CLARIN. </p>
@@ -14,22 +15,48 @@
             </tr>
         </thead>
         <tbody>
-            {% for oai_pmh_endpoint in oai_pmh_endpoints %}
+        {% for centre in centre_endpoints_dict.keys %}
                 <tr>
-		    {% if oai_pmh_endpoint.centre %}
-                        <td>
-                            <a href='/centre/{{ oai_pmh_endpoint.centre.id }}'>{{ oai_pmh_endpoint.centre }}</a>
-                        </td>
-                    {% else %}
-                        <td>
-                            <abbr title='{{ oai_pmh_endpoint.note }}'>No centre</abbr>
-                        </td>
+		    {% if centre == 'NoCentre' %}
+                {% for oaipmh_endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    <td>
+                        <abbr title='{{ oaipmh_endpoint.note }}'>No centre</abbr>
+                    </td>
+                    <td><a href='{{ oaipmh_endpoint.uri }}'>{{ oaipmh_endpoint.uri }}</a></td>
+                    <td><a href='{{ oaipmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
+                    <td><a href='{{ oaipmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
+                {% endfor %}
+            {% else %}
+                <td>
+                    <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
+                </td>
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
+                    {% if not forloop.last %}
+                    <br>
                     {% endif %}
-                    <td><a href='{{ oai_pmh_endpoint.uri }}'>{{ oai_pmh_endpoint.uri }}</a></td>
-                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
-                    <td><a href='{{ oai_pmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
+                {% endfor %}
+                </td>
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
+                    {% if not forloop.last %}
+                    <br>
+                    {% endif %}
+                {% endfor %}
+                </td>
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
+                    {% if not forloop.last %}
+                    <br>
+                    {% endif %}
+                {% endfor %}
+                </td>
+            {% endif %}
                 </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
 {% endblock content %}

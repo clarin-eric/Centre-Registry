@@ -2,7 +2,7 @@
 <CMD xmlns="http://www.clarin.eu/cmd/"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      CMDVersion="1.1"
-     xsi:schemaLocation="http://www.clarin.eu/cmd/ https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1320657629667/xsd">
+     xsi:schemaLocation="http://www.clarin.eu/cmd/ {{ CENTRE_PROFILE_XSD_URL }}">
     <Header/>
     <Resources>
         <ResourceProxyList/>
@@ -49,11 +49,18 @@
                 {% if oai_pmh_endpoints %}
                     {% for oai_pmh_endpoint in oai_pmh_endpoints %}
                         <Metadata>
-                            <MetadataScheme>{{ oai_pmh_endpoint.metadata_format }}</MetadataScheme>
-                            {% if oai_pmh_endpoint.web_services_set %}
-                                <WebServicesSet>{{ oai_pmh_endpoint.web_services_set }}</WebServicesSet> {% endif %}
-                            <WebServiceType>{{ oai_pmh_endpoint.web_services_type }}</WebServiceType>
                             <OaiAccessPoint>{{ oai_pmh_endpoint.uri }}</OaiAccessPoint>
+                            {% if oai_pmh_endpoint.oai_pmh_sets.all %}
+                            <OaiPmhSets>
+
+                                {% for set in oai_pmh_endpoint.oai_pmh_sets.all %}
+                                    <Set>
+                                        <SetSpec>{{ set.set_spec }}</SetSpec>
+                                        <SetType>{{ set.set_type }}</SetType>
+                                    </Set>
+                                {% endfor %}
+                            </OaiPmhSets>
+                            {% endif %}
                         </Metadata>
                     {% endfor %}
                 {% endif %}

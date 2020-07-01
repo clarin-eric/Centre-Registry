@@ -46,17 +46,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='fcsendpoint',
             name='centre',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='centre_registry.Centre'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='centre_registry.Centre'),
         ),
         migrations.AlterField(
             model_name='oaipmhendpoint',
             name='centre',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='centre_registry.Centre'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='centre_registry.Centre'),
         ),
         migrations.AlterField(
             model_name='samlserviceprovider',
             name='centre',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='centre_registry.Centre'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='centre_registry.Centre'),
         ),
         migrations.AlterField(
             model_name='samlserviceprovider',
