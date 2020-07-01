@@ -3,7 +3,7 @@
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
 
-## REST API
+## JSON API
 `api/KML/`
 Gives a KML file (Keyhole Markup) with geographical information about all Centres, for use in
 mapping applications.
@@ -16,6 +16,17 @@ use in mapping applications. For example: `api/KML/EBC`
 `Centre`, `Contact`, `Consortium`, `FCSEndpoint`, `URLReference`, `MetadataFormat`,
 `OAIPMHEndpoint`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
 Gives a JSON representation of all data belonging to that model in the database.
+
+## XML API
+`restxml/`: gives a list of centres including the centre ID in XML.
+
+`restxml/n`, where n is a centre ID: Gives detailed information about a centre in XML that is validated with this schema: ​http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1320657629667/xsd
+
+### Notes on XML API
+Some services (WebLicht?) may depend on optional string-type properties of OAI-PMH endpoints that have been exported since the first API versions:
+
+    `WebServiceType` is the semantic indication of the kind of webservices offered.
+    `WebServicesSet` is just a name for the OAI-PMH set that contains the relevant web service metadata descriptions. It could be anything, so a harvester should be able to deal with arbitrary set names. 
 
 ## Development
 ### Make migrations
