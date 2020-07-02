@@ -261,7 +261,7 @@ class OAIPMHEndpointSet(Model):
     def __unicode__(self):
         if self.set_spec == '':
             return '{set_spec:s} ({set_type:s})'.format(
-                set_spec=set_type='No spec', set_type=self.set_type)
+                set_spec='No spec', set_type=self.set_type)
         else:
             return '{set_spec:s} ({set_type:s})'.format(
                 set_spec=self.set_spec, set_type=self.set_type)
