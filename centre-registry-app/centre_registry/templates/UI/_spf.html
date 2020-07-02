@@ -72,7 +72,7 @@
                     <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
                 </td>
 
-                <td>
+                <td class="dt-nowrap">
                 {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
                     {{ saml_service_provider.entity_id }}
                     {% if not forloop.last %}
