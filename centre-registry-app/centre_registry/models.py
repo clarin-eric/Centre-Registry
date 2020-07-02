@@ -259,9 +259,9 @@ class OAIPMHEndpointSet(Model):
     set_type = CharField(verbose_name='Set type', max_length=1024, default='VLOSet')
 
     def __unicode__(self):
-        if self.set_type == '':
+        if self.set_spec == '':
             return '{set_spec:s} ({set_type:s})'.format(
-                set_spec=self.set_spec, set_type='No type')
+                set_spec=set_type='No spec', set_type=self.set_type)
         else:
             return '{set_spec:s} ({set_type:s})'.format(
                 set_spec=self.set_spec, set_type=self.set_type)
