@@ -139,8 +139,9 @@ class AssessmentDates(Model):
     type = ManyToManyField(to=CentreType, verbose_name='Type')
 
     def __unicode__(self):
+        types = u", ".join([x.type for x in self.type.all()])
         return u'[{0}] valid till [{1}] for {2}'.format(
-            self.issuedate, self.duedate, self.type.all()
+            self.issuedate, self.duedate, types
         )
 
     def __str__(self):
