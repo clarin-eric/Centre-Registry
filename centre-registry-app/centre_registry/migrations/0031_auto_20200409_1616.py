@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='oaipmhendpointset',
             name='set_type',
-            field=models.CharField(default='VLOSet', max_length=1024, verbose_name='Set type'),
+            field=models.CharField(default='VLO', max_length=1024, verbose_name='Set type'),
         ),
     ]

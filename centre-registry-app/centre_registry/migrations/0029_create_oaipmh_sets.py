@@ -14,7 +14,7 @@ def create_oaipmh_sets(apps, schema_editor):
         set_type = unique_oaipmh_set[1]
 
         if set_type == "":
-            set_type = "VLOSet"
+            set_type = "VLO"
 
         if set_spec == "":
             if set_type != "WebLicht":

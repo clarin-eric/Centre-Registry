@@ -13,7 +13,7 @@ def oaipmh_endpoint_manytomany_oaipmh_set(apps, schema_editor):
             if web_services_type != "WebLicht":
                 continue
         elif web_services_type == "":
-            web_services_type = "VLOSet"
+            web_services_type = "VLO"
             endpoint.web_services_type = web_services_type
             endpoint.save()
 
