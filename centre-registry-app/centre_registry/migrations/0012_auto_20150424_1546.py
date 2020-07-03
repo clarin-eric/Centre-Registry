@@ -26,8 +26,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='oaipmhendpoint',
             name='metadata_format',
-            field=models.ForeignKey(
-                verbose_name='Metadata format (historic artifact)',
-                to='centre_registry.MetadataFormat',
-                on_delete=django.db.models.deletion.CASCADE), ),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='centre_registry.MetadataFormat', verbose_name='Metadata format (historic artifact)'),
     ]
