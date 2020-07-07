@@ -18,14 +18,14 @@
            class='datatables-table stripe order-column row-border'>
         <thead>
         <tr>
-            <th>Centre shorthand</th>
-            <th><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
-            <th><abbr title='Does this SP have production status?'>Prod. status</abbr></th>
-            <th><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
+            <th class="dt-nowrap">Centre shorthand</th>
+            <th class="dt-nowrap"><abbr title='Service Provider Federation'>SPF</abbr> SP's entity ID</th>
+            <th class="dt-center"><abbr title='Does this SP have production status?'>Production status</abbr></th>
+            <th class="dt-center"><abbr title='Technical status website for this SP'>⚙ status</abbr></th>
             {% for saml_identity_federation in saml_id_feds %}
                 {# TODO: Do not handle such a special case like 'CLARIN IdP'. #}
                 {% if saml_identity_federation.shorthand != 'CLARIN IdP' %}
-                    <th>
+                    <th class="dt-nowrap">
                         <a href='{{ saml_identity_federation.saml_metadata_url }}'>{{ saml_identity_federation.shorthand }}</a>
                     </th>
                 {% endif %}
@@ -72,7 +72,7 @@
                     <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
                 </td>
 
-                <td>
+                <td class="dt-nowrap">
                 {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
                     {{ saml_service_provider.entity_id }}
                     {% if not forloop.last %}

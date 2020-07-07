@@ -209,6 +209,7 @@ class Migration(migrations.Migration):
                 ('metadata_format', models.ForeignKey(
                     to='centre_registry.MetadataFormat',
                     verbose_name='Metadata format',
+                    null=True,
                     on_delete=django.db.models.deletion.SET_NULL)),
             ],
             options={
