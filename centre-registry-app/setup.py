@@ -15,7 +15,7 @@ setup(
     name='centre_registry_app',
     use_scm_version={
         "root": "..",
-        "fallback_version": "2.3.0.dev0"
+        "fallback_version": "2.3.1.dev0"
     },
     setup_requires=['setuptools_scm'],
     packages=['centre_registry'],
