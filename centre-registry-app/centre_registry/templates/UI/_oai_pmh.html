@@ -27,9 +27,7 @@
                     <td>
                 {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
                     {% for set in endpoint.oai_pmh_sets.all %}
-                        {{ set.set_spec }}({{ set.set_type }})
-                        {% if not forloop.last %}
-                            &comma;&nbsp;
+                        {{ set.set_spec }}({{ set.set_type }}){% if not forloop.last %}&comma;
                         {% endif %}
                     {% endfor %}
                     {% if not forloop.last %}
@@ -55,9 +53,7 @@
                 <td>
                 {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
                     {% for set in endpoint.oai_pmh_sets.all %}
-                        {{ set.set_spec }}({{ set.set_type }})
-                        {% if not forloop.last %}
-                            &comma;&nbsp;
+                        {{ set.set_spec }}({{ set.set_type }}){% if not forloop.last %}&comma;
                         {% endif %}
                     {% endfor %}
                     {% if not forloop.last %}
