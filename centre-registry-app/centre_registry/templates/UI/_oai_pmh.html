@@ -47,12 +47,16 @@
                         <br>
                     {% endif %}
                     <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
-                    {% if endpoint.oai_pmh_sets.all %}
+                    <br>
+                    {% for set in endpoint.oai_pmh_sets.all %}
+                        {% if not forloop.first %}
+                            <br>
+                        {% endif %}
+                    &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                    {% endfor %}
+                    {% if not forloop.last %}
                         <br>
                     {% endif %}
-                    {% for set in endpoint.oai_pmh_sets.all %}
-                        {{ set.set_spec }} ({{ set.set_type }}){% if not forloop.last %}&comma;{% endif %}
-                    {% endfor %}
                 {% endfor %}
                 </td>
                 <td>
