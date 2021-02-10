@@ -1,4 +1,4 @@
-[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=sauce-ci)](https://travis-ci.com/clarin-eric/Centre-Registry)
+[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=master)](https://travis-ci.com/clarin-eric/Centre-Registry)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/centre-registry)](https://app.saucelabs.com/u/centre-registry)
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
@@ -84,7 +84,7 @@ After each commit (or PR), Travis CI will:
 - connect to Sauce Labs and run the UI (Selenium-based) tests targeting multiple browsers.
 
 Current overall status of Travis build and tests:
-[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=sauce-ci)](https://travis-ci.com/clarin-eric/Centre-Registry)
+[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=master)](https://travis-ci.com/clarin-eric/Centre-Registry)
 
 In the last stage of the build and test process, the continuous integration system will run all UI tests for multiple browser and operating system combinations.
 
