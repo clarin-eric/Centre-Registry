@@ -29,7 +29,7 @@
                         <a href='{{ oaipmh_endpoint.uri }}'>{{ oaipmh_endpoint.uri }}</a>
                         {% for set in endpoint_sets_dict|get_value_from_dict:oaipmh_endpoint %}
                             <br>
-                            {{ set.set_spec }} ({{ set.set_type }})
+                        &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
                         {% endfor %}
                     {% endfor %}
                 </td>
