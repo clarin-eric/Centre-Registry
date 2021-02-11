@@ -32,11 +32,30 @@
                         &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
                         {% endfor %}
                     {% endfor %}
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    {% if not forloop.first %}
+                        <br>
+                    {% endif %}
+                    <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
+                    <br>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
+                {% endfor %}
                 </td>
-                <td><a href='{{ oaipmh_endpoint.uri }}?verb=Identify'>Query ... </a>
-
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    {% if not forloop.first %}
+                        <br>
+                    {% endif %}
+                    <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
+                    <br>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
+                {% endfor %}
                 </td>
-                <td><a href='{{ oaipmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
             {% else %}
                 <td>
                     <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
