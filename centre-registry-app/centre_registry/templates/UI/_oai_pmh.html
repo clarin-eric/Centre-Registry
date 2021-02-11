@@ -30,6 +30,8 @@
                         {% for set in endpoint_sets_dict|get_value_from_dict:oaipmh_endpoint %}
                             <br>
                         &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                        {% empty %}
+                            <br>
                         {% endfor %}
                     {% endfor %}
                 <td>
@@ -66,11 +68,8 @@
                         <br>
                     {% endif %}
                     <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
-                    <br>
                     {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
-                        {% if not forloop.first %}
-                            <br>
-                        {% endif %}
+                        <br>
                     &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
                     {% endfor %}
                     {% if not forloop.last %}
