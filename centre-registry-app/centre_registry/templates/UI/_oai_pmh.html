@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Centre shorthand</th>
-                <th>Endpoint base URI</th>
+                <th>Endpoint base URI with sets</th>
                 <th>Information</th>
                 <th>Metadata formats</th>
             </tr>
@@ -29,7 +29,11 @@
                         <a href='{{ oaipmh_endpoint.uri }}'>{{ oaipmh_endpoint.uri }}</a>
                         {% for set in endpoint_sets_dict|get_value_from_dict:oaipmh_endpoint %}
                             <br>
-                        &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                        {% if set.set_spec %}
+                            &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                        {% else %}
+                            &emsp;<small> &lt;no spec&gt; ({{ set.set_type }})</small>
+                        {% endif %}
                         {% empty %}
                             <br>
                         {% endfor %}
@@ -70,7 +74,11 @@
                     <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
                     {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
                         <br>
-                    &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                    {% if set.set_spec %}
+                        &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                    {% else %}
+                        &emsp;<small> &lt;no spec&gt; ({{ set.set_type }})</small>
+                    {% endif %}
                     {% endfor %}
                     {% if not forloop.last %}
                         <br>
