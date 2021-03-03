@@ -9,72 +9,104 @@
         <thead>
             <tr>
                 <th>Centre shorthand</th>
-                <th>Endpoint base URI</th>
-                <th>OAI-PMH sets</th>
+                <th>Endpoint base URI with sets</th>
                 <th>Information</th>
                 <th>Metadata formats</th>
             </tr>
         </thead>
         <tbody>
         {% for centre in centre_endpoints_dict.keys %}
-                <tr>
+            <tr>
 		    {% if centre == 'NoCentre' %}
-                {% for oaipmh_endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
                     <td>
                         <abbr title='{{ oaipmh_endpoint.note }}'>No centre</abbr>
                     </td>
-                    <td><a href='{{ oaipmh_endpoint.uri }}'>{{ oaipmh_endpoint.uri }}</a></td>
                     <td>
-                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                    {% for set in endpoint.oai_pmh_sets.all %}
-                        {{ set.set_spec }}({{ set.set_type }}){% if not forloop.last %}&comma;
+                    {% for oaipmh_endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                        {% if not forloop.first %}
+                            <br>
                         {% endif %}
+                        <a href='{{ oaipmh_endpoint.uri }}'>{{ oaipmh_endpoint.uri }}</a>
+                        {% for set in endpoint_sets_dict|get_value_from_dict:oaipmh_endpoint %}
+                            <br>
+                        {% if set.set_spec %}
+                            &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                        {% else %}
+                            &emsp;<small> &lt;no spec&gt; ({{ set.set_type }})</small>
+                        {% endif %}
+                        {% empty %}
+                            <br>
+                        {% endfor %}
                     {% endfor %}
-                    {% if not forloop.last %}
-                    <br>
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    {% if not forloop.first %}
+                        <br>
                     {% endif %}
+                    <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
+                    <br>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
                 {% endfor %}
                 </td>
-                    <td><a href='{{ oaipmh_endpoint.uri }}?verb=Identify'>Query ... </a></td>
-                    <td><a href='{{ oaipmh_endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a></td>
+                <td>
+                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    {% if not forloop.first %}
+                        <br>
+                    {% endif %}
+                    <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
+                    <br>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
                 {% endfor %}
+                </td>
             {% else %}
                 <td>
                     <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
                 </td>
                 <td>
                 {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                    <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
-                    {% if not forloop.last %}
-                    <br>
+                    {% if not forloop.first %}
+                        <br>
                     {% endif %}
-                {% endfor %}
-                </td>
-                <td>
-                {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                    {% for set in endpoint.oai_pmh_sets.all %}
-                        {{ set.set_spec }}({{ set.set_type }}){% if not forloop.last %}&comma;
-                        {% endif %}
+                    <a href='{{ endpoint.uri }}'>{{ endpoint.uri }}</a>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% if set.set_spec %}
+                        &emsp;<small>{{ set.set_spec }} ({{ set.set_type }})</small>
+                    {% else %}
+                        &emsp;<small> &lt;no spec&gt; ({{ set.set_type }})</small>
+                    {% endif %}
                     {% endfor %}
                     {% if not forloop.last %}
-                    <br>
+                        <br>
                     {% endif %}
                 {% endfor %}
                 </td>
                 <td>
                 {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
+                    {% if not forloop.first %}
+                        <br>
+                    {% endif %}
                     <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
-                    {% if not forloop.last %}
                     <br>
-                    {% endif %}
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
                 {% endfor %}
                 </td>
                 <td>
                 {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                    <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
-                    {% if not forloop.last %}
-                    <br>
+                    {% if not forloop.first %}
+                        <br>
                     {% endif %}
+                    <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
+                    <br>
+                    {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
+                        <br>
+                    {% endfor %}
                 {% endfor %}
                 </td>
             {% endif %}
