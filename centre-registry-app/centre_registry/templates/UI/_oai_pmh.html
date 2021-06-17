@@ -39,28 +39,10 @@
                             {% endfor %}
                         </td>
                         <td>
-                            {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                                {% if not forloop.first %}
-                                    <br>
-                                {% endif %}
-                                <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
-                                <br>
-                                {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
-                                    <br>
-                                {% endfor %}
-                            {% endfor %}
+                            <a href='{{ endpoint.uri }}?verb=Identify'>Query ... </a>
                         </td>
                         <td>
-                            {% for endpoint in centre_endpoints_dict|get_value_from_dict:centre %}
-                                {% if not forloop.first %}
-                                    <br>
-                                {% endif %}
-                                <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
-                                <br>
-                                {% for set in endpoint_sets_dict|get_value_from_dict:endpoint %}
-                                    <br>
-                                {% endfor %}
-                            {% endfor %}
+                            <a href='{{ endpoint.uri }}?verb=ListMetadataFormats'>Query ... </a>
                         </td>
                     </tr>
                 {% endfor %}
