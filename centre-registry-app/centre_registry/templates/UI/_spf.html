@@ -34,9 +34,9 @@
         </thead>
         <tbody>
         {% for centre in centre_saml_providers_dict.keys %}
-            <tr>
             {% if centre == 'NoCentre' %}
                 {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
+                <tr>
                     <td>
                         <abbr title='{{ saml_service_provider.note }}'>No centre</abbr>
                     </td>
@@ -66,54 +66,28 @@
                         {% endif %}
                         </td>
                     {% endfor %}
+                </tr>
                 {% endfor %}
             {% else %}
-                <td>
-                    <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
-                </td>
+                <tr>
+                    <td>
+                        <a href='/centre/{{ centre.id }}'>{{ centre }}</a>
+                    </td>
 
-                <td class="dt-nowrap">
-                {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
-                    {{ saml_service_provider.entity_id }}
-                    {% if not forloop.last %}
-                        <br>
-                    {% endif %}
-                {% endfor %}
-                </td>
+                    <td class="dt-nowrap">
+                    {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
+                        {{ saml_service_provider.entity_id }}
+                        {% if not forloop.last %}
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                    </td>
 
-                <td class='non_textual'>
-                {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
-                    {% if saml_service_provider.production_status %}
-                        <span class='positive'><a
-                                href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
-                    {% else %}
-                        <span class='negative'>✗</span>
-                    {% endif %}
-                    {% if not forloop.last %}
-                        <br>
-                    {% endif %}
-                {% endfor %}
-                </td>
-
-                <td class='non_textual'>
-                {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
-                    {% if saml_service_provider.status_url %}
-                        <a href='{{ saml_service_provider.status_url }}'>⚙</a>
-                    {% else %}
-                        <em>none</em>
-                    {% endif %}
-                    {% if not forloop.last %}
-                        <br>
-                    {%  endif %}
-                {% endfor %}
-                </td>
-
-                {% for identity_federation, sps in processed_sps_across_id_feds.items %}
                     <td class='non_textual'>
                     {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
-                        {% if saml_service_provider.entity_id in sps %}
-                            <a href='https://infra.clarin.eu/aai/sps_at_identity_federations/{{ identity_federation|urlencode }}/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml.diff'><span
-                                    class='positive'>Δ</span></a>
+                        {% if saml_service_provider.production_status %}
+                            <span class='positive'><a
+                                    href='https://infra.clarin.eu/aai/sps_at_identity_federations/CLARIN%20IdP/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml'>✓</a></span>
                         {% else %}
                             <span class='negative'>✗</span>
                         {% endif %}
@@ -122,8 +96,36 @@
                         {% endif %}
                     {% endfor %}
                     </td>
-                {% endfor %}
-            </tr>
+
+                    <td class='non_textual'>
+                    {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
+                        {% if saml_service_provider.status_url %}
+                            <a href='{{ saml_service_provider.status_url }}'>⚙</a>
+                        {% else %}
+                            <em>none</em>
+                        {% endif %}
+                        {% if not forloop.last %}
+                            <br>
+                        {%  endif %}
+                    {% endfor %}
+                    </td>
+
+                    {% for identity_federation, sps in processed_sps_across_id_feds.items %}
+                        <td class='non_textual'>
+                        {% for saml_service_provider in centre_saml_providers_dict|get_value_from_dict:centre %}
+                            {% if saml_service_provider.entity_id in sps %}
+                                <a href='https://infra.clarin.eu/aai/sps_at_identity_federations/{{ identity_federation|urlencode }}/{{ saml_service_provider.entity_id|urlencode:''|urlencode:'' }}.xml.diff'><span
+                                        class='positive'>Δ</span></a>
+                            {% else %}
+                                <span class='negative'>✗</span>
+                            {% endif %}
+                            {% if not forloop.last %}
+                                <br>
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
             {% endif %}
         {% endfor %}
         </tbody>
