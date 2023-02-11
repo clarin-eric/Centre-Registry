@@ -7,7 +7,7 @@ from os.path import normpath
 
 from setuptools import setup
 
-INSTALL_REQUIRES = ['Django==4.0.9', 'django-debug-toolbar==2.2.1']
+INSTALL_REQUIRES = ['Django==4.1.6', 'django-debug-toolbar==3.8.1']
 TEST_REQUIRES = ['lxml==4.6.5', 'selenium==3.141.0', 'jsonschema==3.2.0', 'django-test-migrations==1.0.0']
 
 chdir(normpath(join(abspath(__file__), pardir)))
