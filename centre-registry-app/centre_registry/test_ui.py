@@ -139,6 +139,6 @@ class SystemTestCase(StaticLiveServerTestCase):
     def test_spf(self):
         self.selenium.get(self.live_server_url + '/spf')
 
-        table = self.selenium.find_elementBy.ID, (By.ID, 
+        table = self.selenium.find_element(By.ID, 
             'saml_service_providers_and_identity_federations')
         table.find_element(By.TAG_NAME, 'tr')
