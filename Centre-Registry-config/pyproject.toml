@@ -1,6 +1,6 @@
-[project]
+[tool.poetry]
 name = "Centre-Registry-config"
-description = "CLARIN Centre Registry Django configuration"
+description = "CLARIN Centre Registry Django project configuration"
 version = "3.0.0-dev"
 license = "../LICENSE.txt"
 authors = [
@@ -16,10 +16,10 @@ maintainers = [
 ]
 
 packages = [
-    { include = "centre_registry_config" },
+    { include = "centre_registry_project" },
 ]
 
-[project.urls]
+[tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
 documentation = "https://trac.clarin.eu/wiki/Centre%20Registry"
 homepage = "https://centres.clarin.eu/"
@@ -29,6 +29,5 @@ repository = "https://github.com/clarin-eric/Centre-Registry/"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-dependencies = [
-    'centre-registry-app'
-]
+[tool.poetry.dependencies]
+centre-registry-app = "3.0.0-dev0"
