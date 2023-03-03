@@ -1,8 +1,8 @@
 from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.webdriver import WebDriver
 import http.client
 import base64
 
@@ -39,13 +39,16 @@ class SystemTestCase(StaticLiveServerTestCase):
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
-                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                 "browserName": environ["browserName"],
-                "build": environ["TRAVIS_BUILD_NUMBER"],
-                "platform": environ["platform"],
-                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
-                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
-                "version": environ["version"]
+                "browserVersion": environ["browserVersion"],
+                "platformName": environ["platformName"],
+                "sauce:options": {
+                    "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
+                    "build": environ["TRAVIS_BUILD_NUMBER"],
+                    "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
+                    "tunnelName": environ["TRAVIS_JOB_NUMBER"]
+                }
+                
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
