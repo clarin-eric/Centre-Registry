@@ -42,10 +42,10 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                 "browserName": environ["browserName"],
                 "build": environ["TRAVIS_BUILD_NUMBER"],
-                "platform": environ["platform"],
+                "platformName": environ["platform"],
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
-                "tunnel-identifier": environ["TRAVIS_JOB_NUMBER"],
-                "version": environ["version"]
+                "tunnelName": environ["TRAVIS_JOB_NUMBER"],
+                "browserVersion": environ["version"]
             }
             cls.selenium = Remote(
                 desired_capabilities=desired_capabilities,
