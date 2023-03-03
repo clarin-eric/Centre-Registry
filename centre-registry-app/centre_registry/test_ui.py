@@ -41,9 +41,8 @@ class SystemTestCase(StaticLiveServerTestCase):
                 access_key=environ["SAUCE_ACCESS_KEY"]))
             desired_capabilities = {
                 "browserName": environ["browserName"],
-                "browserVersion": environ["version"],
-                "platformName": environ["platform"],
-                "headless": "true",
+                "browserVersion": environ["browserVersion"],
+                "platformName": environ["platformName"],
                 "sauce:options": {
                     "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                     "build": environ["TRAVIS_BUILD_NUMBER"],
