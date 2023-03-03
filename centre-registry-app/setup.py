@@ -26,7 +26,7 @@ setup(
     description='CLARIN Centre Registry, a Django application. ',
     long_description='See README.md',
     url='https://trac.clarin.eu/wiki/Centre%20Registry',
-    author=['Beatriz Sanchez Bribian', 'Sander Maijers', 'Michał Gawor', 'André Moreira'],
+    author=['Michał Gawor', 'André Moreira', 'Sander Maijers', 'Beatriz Sanchez Bribian'],
     author_email=['centre-registry@clarin.eu'],
     zip_safe=True,
     classifiers=[
