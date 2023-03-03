@@ -8,7 +8,7 @@ env:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
     - SETUPTOOLS_SCM_PRETEND_VERSION=${TRAVIS_TAG:-2.3.4.dev+$TRAVIS_BRANCH-$TRAVIS_COMMIT}
   jobs:
-    - browserName='chrome' platform='Linux' version='90'
+    - browserName='chrome' platform='Linux' version='48'
     - browserName='chrome' platform='Windows 10' version='78'
     - browserName='chrome' platform='OS X 10.14' version='78'
     - browserName='chrome' platform='Linux' version='latest'
