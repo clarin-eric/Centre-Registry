@@ -3,7 +3,6 @@ from os import environ
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import http.client
@@ -41,22 +40,20 @@ class SystemTestCase(StaticLiveServerTestCase):
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
-            options = new Options()
-            options = {
+            desired_cap = {
                 "browserName": environ["browserName"],
+                "browserVersion": environ["version"],
                 "platformName": environ["platform"],
-                "tunnelName": environ["TRAVIS_JOB_NUMBER"],
-                "browserVersion": environ["version"]
+                "sauce:options": {
+                    "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
+                    "build": environ["TRAVIS_BUILD_NUMBER"],
+                    "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
+                    "tunnelName": environ["TRAVIS_JOB_NUMBER"]
+                }
+                
             }
-            sause_options = {
-                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
-                "build": environ["TRAVIS_BUILD_NUMBER"],
-                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"]
-            }
-
-            options.set_capability('sauce:options', sauce_options)
             cls.selenium = Remote(
-                options=options,
+                options=desired_cap,
                 command_executor="https://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
