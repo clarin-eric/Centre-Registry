@@ -43,6 +43,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "browserName": environ["browserName"],
                 "browserVersion": environ["version"],
                 "platformName": environ["platform"],
+                "headless": "true",
                 "sauce:options": {
                     "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
                     "build": environ["TRAVIS_BUILD_NUMBER"],
