@@ -3,8 +3,8 @@ from os import environ
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import time
 import http.client
 import base64
@@ -41,17 +41,22 @@ class SystemTestCase(StaticLiveServerTestCase):
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
-            desired_capabilities = {
-                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
+            options = new Options()
+            options = {
                 "browserName": environ["browserName"],
-                "build": environ["TRAVIS_BUILD_NUMBER"],
                 "platformName": environ["platform"],
-                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
                 "tunnelName": environ["TRAVIS_JOB_NUMBER"],
                 "browserVersion": environ["version"]
             }
+            sause_options = {
+                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
+                "build": environ["TRAVIS_BUILD_NUMBER"],
+                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"]
+            }
+
+            options.set_capability('sauce:options', options)
             cls.selenium = Remote(
-                desired_capabilities=desired_capabilities,
+                options=options,
                 command_executor="https://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
@@ -71,11 +76,6 @@ class SystemTestCase(StaticLiveServerTestCase):
 
     def test_admin(self):
         self.selenium.get(self.live_server_url + '/admin')
-
-        # add some wait time here by using either `time.sleep(5)` or WebDriverWait
-        # time.sleep(5)
-        wait = WebDriverWait(self.selenium, 10)
-        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '#id_username')))
 
         self.selenium.find_element(By.ID, 'id_username')
 
