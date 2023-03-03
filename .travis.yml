@@ -6,27 +6,38 @@ python:
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
-    - SETUPTOOLS_SCM_PRETEND_VERSION=${TRAVIS_TAG:2.3.4.dev+$TRAVIS_BRANCH-$TRAVIS_COMMIT}
+    - SETUPTOOLS_SCM_PRETEND_VERSION=${TRAVIS_TAG:-2.3.4.dev+$TRAVIS_BRANCH-$TRAVIS_COMMIT}
   jobs:
-    - browserName='chrome' platform='Linux' version='48'
-    - browserName='chrome' platform='Windows 10' version='78'
-    - browserName='chrome' platform='OS X 10.14' version='78'
-    - browserName='chrome' platform='Linux' version='latest'
-    - browserName='chrome' platform='Windows 10' version='latest'
-    - browserName='chrome' platform='OS X 10.14' version='latest'
-    - browserName='firefox' platform='Linux' version='45'
-    - browserName='firefox' platform='Windows 10' version='70'
-    - browserName='firefox' platform='OS X 10.14' version='70'
-    - browserName='firefox' platform='Linux' version='latest'
-    - browserName='firefox' platform='Windows 10' version='latest'
-    - browserName='firefox' platform='OS X 10.14' version='latest'
-    - browserName='internet explorer' platform='Windows 10' version='11'
-    - browserName='internet explorer' platform='Windows 10' version='latest'
-    - browserName='MicrosoftEdge' platform='Windows 10' version='18'
-    - browserName='MicrosoftEdge' platform='Windows 10' version='latest'
-    - browserName='safari' platform='OS X 10.14' version='12'
-    - browserName='safari' platform='OS X 10.13' version='13'
-    - browserName='safari' platform='OS X 10.14' version='latest'
+
+    - browserName='chrome' platformName='Windows 10' browserVersion='78'
+    - browserName='chrome' platformName='Windows 11' browserVersion='78'
+    - browserName='chrome' platformName='macOS 10.14' browserVersion='78'
+    - browserName='chrome' platformName='macOS 13' browserVersion='78'
+    - browserName='chrome' platformName='Windows 10' browserVersion='latest'
+    - browserName='chrome' platformName='macOS 10.14' browserVersion='latest'
+    - browserName='chrome' platformName='Windows 11' browserVersion='latest'
+    - browserName='chrome' platformName='macOS 13' browserVersion='latest'
+    - browserName='firefox' platformName='Windows 10' browserVersion='70'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='70'
+    - browserName='firefox' platformName='Windows 11' browserVersion='70'
+    - browserName='firefox' platformName='macOS 13' browserVersion='70'
+    - browserName='firefox' platformName='Windows 10' browserVersion='latest'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='latest'
+    - browserName='firefox' platformName='Linux' browserVersion='latest'
+    - browserName='firefox' platformName='Windows 11' browserVersion='latest'
+    - browserName='firefox' platformName='macOS 13' browserVersion='latest'
+    - browserName='internet explorer' platformName='Windows 10' browserVersion='11'
+    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='18'
+    - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='79'
+    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='latest'
+    - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='latest'
+    - browserName='safari' platformName='macOS 10.13' browserVersion='13'
+    - browserName='safari' platformName='macOS 10.14' browserVersion='12'
+    - browserName='safari' platformName='macOS 10.15' browserVersion='13'
+    - browserName='safari' platformName='macOS 11' browserVersion='14'
+    - browserName='safari' platformName='macOS 12' browserVersion='16'
+    - browserName='safari' platformName='macOS 13' browserVersion='16'
+    - browserName='safari' platformName='macOS 13' browserVersion='latest'
 addons:
   sauce_connect: true
 install:
