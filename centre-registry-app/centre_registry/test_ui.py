@@ -74,7 +74,7 @@ class SystemTestCase(StaticLiveServerTestCase):
 
         # add some wait time here by using either `time.sleep(5)` or WebDriverWait
         # time.sleep(5)
-        wait = WebDriverWait(selenium, 10)
+        wait = WebDriverWait(self.selenium, 10)
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '#id_username')))
 
         self.selenium.find_element(By.ID, 'id_username')
