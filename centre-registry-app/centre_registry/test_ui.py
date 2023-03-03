@@ -3,7 +3,6 @@ from os import environ
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 import http.client
 import base64
 
