@@ -3,6 +3,9 @@ from os import environ
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
 import http.client
 import base64
 
@@ -68,6 +71,11 @@ class SystemTestCase(StaticLiveServerTestCase):
 
     def test_admin(self):
         self.selenium.get(self.live_server_url + '/admin')
+        
+# add some wait time here by using either `time.sleep(5)` or WebDriverWait
+# time.sleep(5)
+wait = WebDriverWait(selenium, 10)
+wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '#id_username')))
 
         self.selenium.find_element(By.ID, 'id_username')
 
