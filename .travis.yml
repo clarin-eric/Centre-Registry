@@ -23,7 +23,6 @@ env:
     - browserName='firefox' platformName='macOS 13' browserVersion='70'
     - browserName='firefox' platformName='Windows 10' browserVersion='latest'
     - browserName='firefox' platformName='macOS 10.14' browserVersion='latest'
-    - browserName='firefox' platformName='Linux' browserVersion='latest'
     - browserName='firefox' platformName='Windows 11' browserVersion='latest'
     - browserName='firefox' platformName='macOS 13' browserVersion='latest'
     - browserName='internet explorer' platformName='Windows 10' browserVersion='11'
