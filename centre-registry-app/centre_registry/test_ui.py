@@ -54,7 +54,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"]
             }
 
-            options.set_capability('sauce:options', options)
+            options.set_capability('sauce:options', sauce_options)
             cls.selenium = Remote(
                 options=options,
                 command_executor="https://{hub_url:s}/wd/hub"
