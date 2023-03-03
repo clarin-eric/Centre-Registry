@@ -30,8 +30,8 @@ class MigrationChainTest(TransactionTestCase):
         migrator = Migrator(database='default')
 
         # roll back to init state
-        init_state = migrator.before(migrate_from=("centre_registry", os.path.splitext(os.path.basename(migrations[0]))[0]))
+        init_state = migrator.apply_initial_migration(migrate_from=("centre_registry", os.path.splitext(os.path.basename(migrations[0]))[0]))
 
         # roll forward to final state
-        final_state = migrator.after(migrate_to=("centre_registry", os.path.splitext(os.path.basename(migrations[-1]))[0]))
+        final_state = migrator.apply_tested_migration(migrate_to=("centre_registry", os.path.splitext(os.path.basename(migrations[-1]))[0]))
         migrator.reset()
