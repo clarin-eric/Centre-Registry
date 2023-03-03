@@ -1,4 +1,4 @@
 lxml==4.9.2
-selenium==3.142.7
+selenium==3.141.0
 jsonschema==4.17.3
 django-test-migrations==1.2.0
