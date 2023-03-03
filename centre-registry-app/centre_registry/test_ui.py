@@ -3,7 +3,6 @@ from os import environ
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 import time
 import http.client
 import base64
@@ -40,7 +39,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
-            desired_cap = {
+            desired_capabilities = {
                 "browserName": environ["browserName"],
                 "browserVersion": environ["version"],
                 "platformName": environ["platform"],
@@ -53,7 +52,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 
             }
             cls.selenium = Remote(
-                options=desired_cap,
+                desired_capabilities=desired_capabilities,
                 command_executor="https://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
