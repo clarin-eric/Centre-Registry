@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os.path
 from os.path import join
 from traceback import print_exc
 
@@ -88,7 +89,7 @@ class APITestCase(TestCase):
         # other XSDs using relative names, which
         # does not work well with Python package resources, that should not
         # be located to an absolute location.
-        schema_doc = parse("http://www.opengis.net/kml/2.2")
+        schema_doc = parse(urlopen("http://www.opengis.net/kml/2.2"))
         schema = XMLSchema(schema_doc)
 
         try:
