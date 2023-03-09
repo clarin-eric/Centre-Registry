@@ -55,7 +55,7 @@ class SystemTestCase(StaticLiveServerTestCase):
                 command_executor="https://{hub_url:s}/wd/hub"
                     .format(hub_url=hub_url))
         else:
-            cls.selenium = WebDriver()
+            cls.selenium = webdriver.FireFox()
         super(SystemTestCase, cls).setUpClass()
 
     @classmethod
