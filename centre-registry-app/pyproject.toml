@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "centre_registry_app"
 description = "CLARIN Centre Registry, a Django application. "
-version = "3.0.0-dev"
+version = "2.3.5-dev"
 license = "../LICENSE.txt"
 authors = [
     "Beatriz Sanchez Bribian",
@@ -26,8 +26,8 @@ homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
-Django = '4.1.6'
-django-debug-toolbar = '3.8.1'
+Django = '2.2.28'
+django-debug-toolbar = '2.1'
 
 [tool.poetry.group.test.dependencies]
 lxml = '4.9.2'
