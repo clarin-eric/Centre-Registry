@@ -28,6 +28,7 @@ ADMINS = ('CLARIN ERIC sysops', 'sysops@clarin.eu')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ADMIN_TITLE = "Centre Registry administration"
 MANAGERS = ADMINS
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'centre_registry.context_processors.version',
                 'centre_registry.context_processors.centre_profile_xsd_url',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },

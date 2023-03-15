@@ -18,6 +18,7 @@ from lxml.etree import XPath
 from pkg_resources import resource_string
 from urllib.request import urlopen
 
+
 class APITestCase(TestCase):
     fixtures = ['test_data']
 
@@ -88,7 +89,7 @@ class APITestCase(TestCase):
         # other XSDs using relative names, which
         # does not work well with Python package resources, that should not
         # be located to an absolute location.
-        schema_doc = parse("http://www.opengis.net/kml/2.2")
+        schema_doc = parse(urlopen("http://www.opengis.net/kml/2.2"))
         schema = XMLSchema(schema_doc)
 
         try:

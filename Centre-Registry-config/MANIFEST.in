@@ -1,8 +1,0 @@
-include README.md setup.py manage.py *.py MANIFEST.in setup.cfg
-recursive-include centre_registry_project *
-
-global-exclude __pycache__/*
-global-exclude .deps/*
-global-exclude *.pyd
-global-exclude *.pyc
-global-exclude .DS_Store
