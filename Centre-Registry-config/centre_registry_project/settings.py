@@ -97,6 +97,7 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
+                  'django_extensions',
                   'centre_registry', )
 LOGGING = {
     'version': 1,
