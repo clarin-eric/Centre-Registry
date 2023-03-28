@@ -232,6 +232,10 @@ class Centre(Model):
         verbose_name_plural = 'centres'
 
 
+class KCentre(Model):
+    pass
+
+
 class URLReference(Model):
     """
     A web refereweb_servicence (URL) with description.
