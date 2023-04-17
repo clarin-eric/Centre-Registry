@@ -1160,7 +1160,7 @@
     "fields": {
         "name": "Eberhard Karls Universität Tübingen",
         "shorthand": "EKUT",
-        "organisation_fk": null,
+        "organisation_fk": 11,
         "organisation_name": "Eberhard Karls Universität Tübingen ",
         "institution": "Seminar für Sprachwissenschaft",
         "working_unit": "Allgemeine Sprachwissenschaft und Computerlinguistik ",
@@ -1195,7 +1195,7 @@
     "fields": {
         "name": "CLARIN Centre Vienna",
         "shorthand": "CCV",
-        "organisation_fk": null,
+        "organisation_fk": 4,
         "organisation_name": "Austrian Academy of Sciences",
         "institution": "Institute for Corpus Linguistics and Text Technology",
         "working_unit": "ICLTT",
@@ -1233,7 +1233,7 @@
     "fields": {
         "name": "LINDAT/CLARIN",
         "shorthand": "LINDAT",
-        "organisation_fk": null,
+        "organisation_fk": 20,
         "organisation_name": "ÚFAL MFF UK - Linguistics",
         "institution": "Univerzita Karlova v Praze",
         "working_unit": "LINDAT/CLARIN",
@@ -1268,7 +1268,7 @@
     "fields": {
         "name": "ASV Leipzig",
         "shorthand": "ASV",
-        "organisation_fk": null,
+        "organisation_fk": 1,
         "organisation_name": "Abteilung Automatische Sprachverarbeitung",
         "institution": "Universität Leipzig",
         "working_unit": "Institut für Informatik",
@@ -1306,7 +1306,7 @@
     "fields": {
         "name": "Bayerisches Archiv für Sprachsignale",
         "shorthand": "BAS",
-        "organisation_fk": null,
+        "organisation_fk": 2,
         "organisation_name": "Bayerisches Archiv für Sprachsignale",
         "institution": "Ludwig-Maximilians-Universität München",
         "working_unit": "BAS CLARIN-D Centre",
@@ -1344,7 +1344,7 @@
     "fields": {
         "name": "Berlin-Brandenburg Academy of Sciences and Humanities",
         "shorthand": "BBAW",
-        "organisation_fk": null,
+        "organisation_fk": 3,
         "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
         "institution": "Union of the German academies of sciences and humanities ",
         "working_unit": "Deutsches Textarchiv",
@@ -1382,7 +1382,7 @@
     "fields": {
         "name": "Forschungzentrum Jülich",
         "shorthand": "FZJ",
-        "organisation_fk": null,
+        "organisation_fk": 13,
         "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
         "institution": "Institute for Advanced Simulation",
         "working_unit": "Jülich Supercomputing Centre",
@@ -1417,7 +1417,7 @@
     "fields": {
         "name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "shorthand": "GWDG",
-        "organisation_fk": null,
+        "organisation_fk": 14,
         "organisation_name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "institution": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "working_unit": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
@@ -1454,7 +1454,7 @@
     "fields": {
         "name": "Hamburger Zentrum für Sprachkorpora",
         "shorthand": "HZSK",
-        "organisation_fk": null,
+        "organisation_fk": 15,
         "organisation_name": "Hamburger Zentrum für Sprachkorpora",
         "institution": "Universität Hamburg",
         "working_unit": "HZSK CLARIN D-Centre",
@@ -1489,7 +1489,7 @@
     "fields": {
         "name": "Institut für Maschinelle Sprachverarbeitung",
         "shorthand": "IMS",
-        "organisation_fk": null,
+        "organisation_fk": 18,
         "organisation_name": "Institut für Maschinelle Sprachverarbeitung ",
         "institution": "Universität Stuttgart",
         "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
@@ -1524,7 +1524,7 @@
     "fields": {
         "name": "Institut für Deutsche Sprache",
         "shorthand": "IDS",
-        "organisation_fk": null,
+        "organisation_fk": 17,
         "organisation_name": "Institut für Deutsche Sprache",
         "institution": "Leibniz Gemeinschaft",
         "working_unit": "Institut für Deutsche Sprache",
@@ -1561,7 +1561,7 @@
     "fields": {
         "name": "Rechenzentrum Garching",
         "shorthand": "RZG",
-        "organisation_fk": null,
+        "organisation_fk": 24,
         "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut für Plasmaphysik ",
         "institution": "Max Planck Gesellschaft",
         "working_unit": "RZG",
@@ -1596,7 +1596,7 @@
     "fields": {
         "name": "Universität des Saarlandes ",
         "shorthand": "UdS",
-        "organisation_fk": null,
+        "organisation_fk": 28,
         "organisation_name": "Fachrichtung 4.6",
         "institution": "Universität des Saarlandes",
         "working_unit": "Englische Sprach- und Übersetzungswissenschaft",
@@ -1631,7 +1631,7 @@
     "fields": {
         "name": "The CLARIN Centre at University of Copenhagen",
         "shorthand": "CLARIN-DK-UCPH",
-        "organisation_fk": null,
+        "organisation_fk": 6,
         "organisation_name": "University of Copenhagen",
         "institution": "Faculty of Humanities",
         "working_unit": "Center for Sprogteknologi",
@@ -1669,7 +1669,7 @@
     "fields": {
         "name": "Center of Estonian Language Resources",
         "shorthand": "CELR/EKK",
-        "organisation_fk": null,
+        "organisation_fk": 5,
         "organisation_name": "Eesti Keeleressursside Keskus",
         "institution": "University of Tartu",
         "working_unit": "Eesti Keeleressursside Keskus",
@@ -1707,7 +1707,7 @@
     "fields": {
         "name": "IULA-UPF-CC-CLARIN",
         "shorthand": "UPF",
-        "organisation_fk": null,
+        "organisation_fk": 27,
         "organisation_name": "Institut Universitari de Lingüística Aplicada",
         "institution": "Universitat Pompeu Fabra",
         "working_unit": "Institut Universitari de Lingüística Aplicada",
@@ -1742,7 +1742,7 @@
     "fields": {
         "name": "The Language Bank of Finland",
         "shorthand": "FIN-CLARIN",
-        "organisation_fk": null,
+        "organisation_fk": 12,
         "organisation_name": "The Department of Modern Languages",
         "institution": "University of Helsinki (UHEL) ",
         "working_unit": "FIN-CLARIN",
@@ -1777,7 +1777,7 @@
     "fields": {
         "name": "CMU-TalkBank",
         "shorthand": "CMU",
-        "organisation_fk": null,
+        "organisation_fk": 8,
         "organisation_name": "TalkBank",
         "institution": "Carnegie Mellon University ",
         "working_unit": "Psychology and Language Technologies Institute",
@@ -1812,7 +1812,7 @@
     "fields": {
         "name": "Dutch-Flemish Human Language Technology Agency",
         "shorthand": "DLU",
-        "organisation_fk": null,
+        "organisation_fk": 10,
         "organisation_name": "HLT Agency",
         "institution": "Dutch Language Union",
         "working_unit": "HLT Agency",
@@ -1847,7 +1847,7 @@
     "fields": {
         "name": "Data Archiving and Networked Services",
         "shorthand": "DANS",
-        "organisation_fk": null,
+        "organisation_fk": 9,
         "organisation_name": "Data Archiving and Networked Services",
         "institution": "Royal Netherlands Academy of Arts and Sciences",
         "working_unit": "DANS",
@@ -1885,7 +1885,7 @@
     "fields": {
         "name": "Huygens ING",
         "shorthand": "Huygens",
-        "organisation_fk": null,
+        "organisation_fk": 16,
         "organisation_name": "Huygens Institute for the History of the Netherlands",
         "institution": "Royal Dutch Academy of Sciences",
         "working_unit": "Huygens ING",
@@ -1922,7 +1922,7 @@
     "fields": {
         "name": "Instituut voor Nederlandse Lexicologie",
         "shorthand": "INL",
-        "organisation_fk": null,
+        "organisation_fk": 19,
         "organisation_name": "Instituut voor Nederlandse Lexicologie",
         "institution": "Instituut voor Nederlandse Lexicologie",
         "working_unit": "Instituut voor Nederlandse Lexicologie",
@@ -1957,7 +1957,7 @@
     "fields": {
         "name": "Meertens Instituut",
         "shorthand": "MI",
-        "organisation_fk": null,
+        "organisation_fk": 21,
         "organisation_name": "Meertens Instituut",
         "institution": "Royal Netherlands Academy of Arts and Sciences",
         "working_unit": "Meertens Instituut",
@@ -1992,7 +1992,7 @@
     "fields": {
         "name": "MPI for Psycholinguistics",
         "shorthand": "MPI-PL",
-        "organisation_fk": null,
+        "organisation_fk": 22,
         "organisation_name": "Max Planck Institute for Psycholinguistics",
         "institution": "Max Planck Gesellschaft (MPG)",
         "working_unit": "The Language Archive",
@@ -2029,7 +2029,7 @@
     "fields": {
         "name": "CLARIN-PL Language Technology Centre",
         "shorthand": "CLARIN-PL1",
-        "organisation_fk": null,
+        "organisation_fk": 7,
         "organisation_name": "Institute of Informatics",
         "institution": "Wroclaw University of Technology ",
         "working_unit": "CLARIN-PL",
@@ -2067,7 +2067,7 @@
     "fields": {
         "name": "Oxford Text Archive",
         "shorthand": "OTA",
-        "organisation_fk": null,
+        "organisation_fk": 23,
         "organisation_name": "Oxford Text Archive ",
         "institution": "University of Oxford",
         "working_unit": "IT Services",
@@ -2102,7 +2102,7 @@
     "fields": {
         "name": "Utrecht Institute of Linguistics OTS",
         "shorthand": "UIL-OTS",
-        "organisation_fk": null,
+        "organisation_fk": 26,
         "organisation_name": "The Netherlands CLARIN Office",
         "institution": "Utrecht University",
         "working_unit": "UiL-OTS",
@@ -2139,7 +2139,7 @@
     "fields": {
         "name": "Speech & Language Data Repository",
         "shorthand": "SLDR",
-        "organisation_fk": null,
+        "organisation_fk": 25,
         "organisation_name": "Laboratoire Parole et Langage (LPL)",
         "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
         "working_unit": "UMR 7309",
