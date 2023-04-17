@@ -5,6 +5,7 @@ from centre_registry.models import AssessmentDates
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
@@ -95,6 +96,7 @@ admin.site.register(CentreType)
 admin.site.register(Consortium)
 admin.site.register(AssessmentDates, AssessmentDateAdmin)
 admin.site.register(FCSEndpoint)
+admin.site.register(Organisation)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)

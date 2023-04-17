@@ -763,11 +763,404 @@
     }
 },
 {
+    "model": "centre_registry.organisation",
+    "pk": 1,
+    "fields": {
+        "organisation_name": "Abteilung Automatische Sprachverarbeitung",
+        "institution": "Universität Leipzig",
+        "working_unit": "Institut für Informatik",
+        "address": "Augustusplatz 10",
+        "postal_code": "04109",
+        "city": "Leipzig",
+        "latitude": "51.338548",
+        "longitude": "12.378735"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 2,
+    "fields": {
+        "organisation_name": "Bayerisches Archiv für Sprachsignale",
+        "institution": "Ludwig-Maximilians-Universität München",
+        "working_unit": "BAS CLARIN-D Centre",
+        "address": "Schellingstraße 3",
+        "postal_code": "80799",
+        "city": "München",
+        "latitude": "48.149216",
+        "longitude": "11.579364"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 3,
+    "fields": {
+        "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
+        "institution": "Union of the German academies of sciences and humanities ",
+        "working_unit": "Deutsches Textarchiv",
+        "address": "Jägerstraße 23",
+        "postal_code": "10117",
+        "city": "Berlin",
+        "latitude": "52.514156",
+        "longitude": "13.394324"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 4,
+    "fields": {
+        "organisation_name": "Austrian Academy of Sciences",
+        "institution": "Institute for Corpus Linguistics and Text Technology",
+        "working_unit": "ICLTT",
+        "address": "Sonnenfelsgasse 19",
+        "postal_code": "1010",
+        "city": "Wien",
+        "latitude": "48.209279",
+        "longitude": "16.377077"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 5,
+    "fields": {
+        "organisation_name": "Eesti Keeleressursside Keskus",
+        "institution": "University of Tartu",
+        "working_unit": "Eesti Keeleressursside Keskus",
+        "address": "Juhan Liivi 2-340",
+        "postal_code": "50409",
+        "city": "Tartu",
+        "latitude": "58.378389",
+        "longitude": "26.714716"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 6,
+    "fields": {
+        "organisation_name": "University of Copenhagen",
+        "institution": "Faculty of Humanities",
+        "working_unit": "Center for Sprogteknologi",
+        "address": "Njalsgade 140",
+        "postal_code": "2300",
+        "city": "København",
+        "latitude": "55.661566",
+        "longitude": "12.591780"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 7,
+    "fields": {
+        "organisation_name": "Institute of Informatics",
+        "institution": "Wroclaw University of Technology ",
+        "working_unit": "CLARIN-PL",
+        "address": "wybrzeże Stanisława Wyspiańskiego 27",
+        "postal_code": "50-370",
+        "city": "Wrocław",
+        "latitude": "51.107122",
+        "longitude": "17.063023"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 8,
+    "fields": {
+        "organisation_name": "TalkBank",
+        "institution": "Carnegie Mellon University ",
+        "working_unit": "Psychology and Language Technologies Institute",
+        "address": "5000 Forbes Avenue",
+        "postal_code": "PA 15213",
+        "city": "Pittsburgh",
+        "latitude": "40.440988",
+        "longitude": "-79.94231"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 9,
+    "fields": {
+        "organisation_name": "Data Archiving and Networked Services",
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "working_unit": "DANS",
+        "address": "Anna van Saksenlaan 51",
+        "postal_code": "2593 HW",
+        "city": "Den Haag",
+        "latitude": "52.080776",
+        "longitude": "4.345627"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 10,
+    "fields": {
+        "organisation_name": "HLT Agency",
+        "institution": "Dutch Language Union",
+        "working_unit": "HLT Agency",
+        "address": "Lange Voorhout 19",
+        "postal_code": "2514 EB",
+        "city": "Den Haag",
+        "latitude": "52.082325",
+        "longitude": "4.312237"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 11,
+    "fields": {
+        "organisation_name": "Eberhard Karls Universität Tübingen ",
+        "institution": "Seminar für Sprachwissenschaft",
+        "working_unit": "Allgemeine Sprachwissenschaft und Computerlinguistik ",
+        "address": "Wilhelmstraße 19-23",
+        "postal_code": "72074",
+        "city": "Tübingen",
+        "latitude": "48.527037",
+        "longitude": "9.062002"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 12,
+    "fields": {
+        "organisation_name": "The Department of Modern Languages",
+        "institution": "University of Helsinki (UHEL) ",
+        "working_unit": "FIN-CLARIN",
+        "address": "Unioninkatu 40",
+        "postal_code": "00170",
+        "city": "Helsinki",
+        "latitude": "60.172839",
+        "longitude": "24.950366"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 13,
+    "fields": {
+        "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
+        "institution": "Institute for Advanced Simulation",
+        "working_unit": "Jülich Supercomputing Centre",
+        "address": "IEK-7, Wilhelm-Johnen-Straße",
+        "postal_code": "52428",
+        "city": "Jülich",
+        "latitude": "50.905369",
+        "longitude": "6.404938"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 14,
+    "fields": {
+        "organisation_name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "institution": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "working_unit": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "address": "Am Faßberg 11",
+        "postal_code": "37077",
+        "city": "Göttingen",
+        "latitude": "51.562323",
+        "longitude": "9.970938"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 15,
+    "fields": {
+        "organisation_name": "Hamburger Zentrum für Sprachkorpora",
+        "institution": "Universität Hamburg",
+        "working_unit": "HZSK CLARIN D-Centre",
+        "address": "Max-Brauer-Allee 60",
+        "postal_code": "22765",
+        "city": "Hamburg",
+        "latitude": "53.553724",
+        "longitude": "9.939426"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 16,
+    "fields": {
+        "organisation_name": "Huygens Institute for the History of the Netherlands",
+        "institution": "Royal Dutch Academy of Sciences",
+        "working_unit": "Huygens ING",
+        "address": "Prins Willem-Alexanderhof 5",
+        "postal_code": "2595 BE",
+        "city": "Den Haag",
+        "latitude": "52.081972",
+        "longitude": "4.327001"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 17,
+    "fields": {
+        "organisation_name": "Institut für Deutsche Sprache",
+        "institution": "Leibniz Gemeinschaft",
+        "working_unit": "Institut für Deutsche Sprache",
+        "address": "R5 6-13",
+        "postal_code": "68161",
+        "city": "Mannheim",
+        "latitude": "49.488122",
+        "longitude": "8.472311"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 18,
+    "fields": {
+        "organisation_name": "Institut für Maschinelle Sprachverarbeitung ",
+        "institution": "Universität Stuttgart",
+        "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
+        "address": "Pfaffenwaldring 5b",
+        "postal_code": "70569",
+        "city": "Stuttgart",
+        "latitude": "48.746750",
+        "longitude": "9.108240"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 19,
+    "fields": {
+        "organisation_name": "Instituut voor Nederlandse Lexicologie",
+        "institution": "Instituut voor Nederlandse Lexicologie",
+        "working_unit": "Instituut voor Nederlandse Lexicologie",
+        "address": "Matthias de Vrieshof 3",
+        "postal_code": "2311 BZ",
+        "city": "Leiden",
+        "latitude": "52.158137",
+        "longitude": "4.480772"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 20,
+    "fields": {
+        "organisation_name": "ÚFAL MFF UK - Linguistics",
+        "institution": "Univerzita Karlova v Praze",
+        "working_unit": "LINDAT/CLARIN",
+        "address": "Malostranské náměstí 25",
+        "postal_code": "118 00",
+        "city": "Praha",
+        "latitude": "50.088521",
+        "longitude": "14.403265"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 21,
+    "fields": {
+        "organisation_name": "Meertens Instituut",
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "working_unit": "Meertens Instituut",
+        "address": "Joan Muyskenweg 25",
+        "postal_code": "1096 CJ",
+        "city": "Amsterdam",
+        "latitude": "52.331909",
+        "longitude": "4.914635"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 22,
+    "fields": {
+        "organisation_name": "Max Planck Institute for Psycholinguistics",
+        "institution": "Max Planck Gesellschaft (MPG)",
+        "working_unit": "The Language Archive",
+        "address": "Wundtlaan 1",
+        "postal_code": "6525 XD",
+        "city": "Nijmegen",
+        "latitude": "51.818046",
+        "longitude": "5.857079"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 23,
+    "fields": {
+        "organisation_name": "Oxford Text Archive ",
+        "institution": "University of Oxford",
+        "working_unit": "IT Services",
+        "address": "16 Wellington Square",
+        "postal_code": "OX1 2HY",
+        "city": "Oxford",
+        "latitude": "51.757571",
+        "longitude": "-1.261824"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 24,
+    "fields": {
+        "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut für Plasmaphysik ",
+        "institution": "Max Planck Gesellschaft",
+        "working_unit": "RZG",
+        "address": "Boltzmannstraße 2",
+        "postal_code": "85748",
+        "city": "Garching",
+        "latitude": "48.263477",
+        "longitude": "11.671697"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 25,
+    "fields": {
+        "organisation_name": "Laboratoire Parole et Langage (LPL)",
+        "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
+        "working_unit": "UMR 7309",
+        "address": "5 avenue Pasteur",
+        "postal_code": "13100",
+        "city": "Aix-en-Provence",
+        "latitude": "43.535070",
+        "longitude": "5.446179"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 26,
+    "fields": {
+        "organisation_name": "The Netherlands CLARIN Office",
+        "institution": "Utrecht University",
+        "working_unit": "UiL-OTS",
+        "address": "Trans 10",
+        "postal_code": "3512 JK ",
+        "city": "Utrecht",
+        "latitude": "52.090132",
+        "longitude": "5.122917"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 27,
+    "fields": {
+        "organisation_name": "Institut Universitari de Lingüística Aplicada",
+        "institution": "Universitat Pompeu Fabra",
+        "working_unit": "Institut Universitari de Lingüística Aplicada",
+        "address": "Carrer de Roc Boronat, 138",
+        "postal_code": "08018",
+        "city": "Barcelona",
+        "latitude": "41.403964",
+        "longitude": "2.193464"
+    }
+},
+{
+    "model": "centre_registry.organisation",
+    "pk": 28,
+    "fields": {
+        "organisation_name": "Fachrichtung 4.6",
+        "institution": "Universität des Saarlandes",
+        "working_unit": "Englische Sprach- und Übersetzungswissenschaft",
+        "address": "Campus A2.2",
+        "postal_code": "66123",
+        "city": "Saarbrücken",
+        "latitude": "49.256004",
+        "longitude": "7.039011"
+    }
+},
+{
     "model": "centre_registry.centre",
     "pk": 1,
     "fields": {
         "name": "Eberhard Karls Universität Tübingen",
         "shorthand": "EKUT",
+        "organisation_fk": null,
         "organisation_name": "Eberhard Karls Universität Tübingen ",
         "institution": "Seminar für Sprachwissenschaft",
         "working_unit": "Allgemeine Sprachwissenschaft und Computerlinguistik ",
@@ -802,6 +1195,7 @@
     "fields": {
         "name": "CLARIN Centre Vienna",
         "shorthand": "CCV",
+        "organisation_fk": null,
         "organisation_name": "Austrian Academy of Sciences",
         "institution": "Institute for Corpus Linguistics and Text Technology",
         "working_unit": "ICLTT",
@@ -839,6 +1233,7 @@
     "fields": {
         "name": "LINDAT/CLARIN",
         "shorthand": "LINDAT",
+        "organisation_fk": null,
         "organisation_name": "ÚFAL MFF UK - Linguistics",
         "institution": "Univerzita Karlova v Praze",
         "working_unit": "LINDAT/CLARIN",
@@ -873,6 +1268,7 @@
     "fields": {
         "name": "ASV Leipzig",
         "shorthand": "ASV",
+        "organisation_fk": null,
         "organisation_name": "Abteilung Automatische Sprachverarbeitung",
         "institution": "Universität Leipzig",
         "working_unit": "Institut für Informatik",
@@ -910,6 +1306,7 @@
     "fields": {
         "name": "Bayerisches Archiv für Sprachsignale",
         "shorthand": "BAS",
+        "organisation_fk": null,
         "organisation_name": "Bayerisches Archiv für Sprachsignale",
         "institution": "Ludwig-Maximilians-Universität München",
         "working_unit": "BAS CLARIN-D Centre",
@@ -947,6 +1344,7 @@
     "fields": {
         "name": "Berlin-Brandenburg Academy of Sciences and Humanities",
         "shorthand": "BBAW",
+        "organisation_fk": null,
         "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
         "institution": "Union of the German academies of sciences and humanities ",
         "working_unit": "Deutsches Textarchiv",
@@ -984,6 +1382,7 @@
     "fields": {
         "name": "Forschungzentrum Jülich",
         "shorthand": "FZJ",
+        "organisation_fk": null,
         "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
         "institution": "Institute for Advanced Simulation",
         "working_unit": "Jülich Supercomputing Centre",
@@ -1018,6 +1417,7 @@
     "fields": {
         "name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "shorthand": "GWDG",
+        "organisation_fk": null,
         "organisation_name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "institution": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "working_unit": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
@@ -1054,6 +1454,7 @@
     "fields": {
         "name": "Hamburger Zentrum für Sprachkorpora",
         "shorthand": "HZSK",
+        "organisation_fk": null,
         "organisation_name": "Hamburger Zentrum für Sprachkorpora",
         "institution": "Universität Hamburg",
         "working_unit": "HZSK CLARIN D-Centre",
@@ -1088,6 +1489,7 @@
     "fields": {
         "name": "Institut für Maschinelle Sprachverarbeitung",
         "shorthand": "IMS",
+        "organisation_fk": null,
         "organisation_name": "Institut für Maschinelle Sprachverarbeitung ",
         "institution": "Universität Stuttgart",
         "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
@@ -1122,6 +1524,7 @@
     "fields": {
         "name": "Institut für Deutsche Sprache",
         "shorthand": "IDS",
+        "organisation_fk": null,
         "organisation_name": "Institut für Deutsche Sprache",
         "institution": "Leibniz Gemeinschaft",
         "working_unit": "Institut für Deutsche Sprache",
@@ -1158,6 +1561,7 @@
     "fields": {
         "name": "Rechenzentrum Garching",
         "shorthand": "RZG",
+        "organisation_fk": null,
         "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut für Plasmaphysik ",
         "institution": "Max Planck Gesellschaft",
         "working_unit": "RZG",
@@ -1192,6 +1596,7 @@
     "fields": {
         "name": "Universität des Saarlandes ",
         "shorthand": "UdS",
+        "organisation_fk": null,
         "organisation_name": "Fachrichtung 4.6",
         "institution": "Universität des Saarlandes",
         "working_unit": "Englische Sprach- und Übersetzungswissenschaft",
@@ -1226,6 +1631,7 @@
     "fields": {
         "name": "The CLARIN Centre at University of Copenhagen",
         "shorthand": "CLARIN-DK-UCPH",
+        "organisation_fk": null,
         "organisation_name": "University of Copenhagen",
         "institution": "Faculty of Humanities",
         "working_unit": "Center for Sprogteknologi",
@@ -1263,6 +1669,7 @@
     "fields": {
         "name": "Center of Estonian Language Resources",
         "shorthand": "CELR/EKK",
+        "organisation_fk": null,
         "organisation_name": "Eesti Keeleressursside Keskus",
         "institution": "University of Tartu",
         "working_unit": "Eesti Keeleressursside Keskus",
@@ -1300,6 +1707,7 @@
     "fields": {
         "name": "IULA-UPF-CC-CLARIN",
         "shorthand": "UPF",
+        "organisation_fk": null,
         "organisation_name": "Institut Universitari de Lingüística Aplicada",
         "institution": "Universitat Pompeu Fabra",
         "working_unit": "Institut Universitari de Lingüística Aplicada",
@@ -1334,6 +1742,7 @@
     "fields": {
         "name": "The Language Bank of Finland",
         "shorthand": "FIN-CLARIN",
+        "organisation_fk": null,
         "organisation_name": "The Department of Modern Languages",
         "institution": "University of Helsinki (UHEL) ",
         "working_unit": "FIN-CLARIN",
@@ -1368,6 +1777,7 @@
     "fields": {
         "name": "CMU-TalkBank",
         "shorthand": "CMU",
+        "organisation_fk": null,
         "organisation_name": "TalkBank",
         "institution": "Carnegie Mellon University ",
         "working_unit": "Psychology and Language Technologies Institute",
@@ -1402,6 +1812,7 @@
     "fields": {
         "name": "Dutch-Flemish Human Language Technology Agency",
         "shorthand": "DLU",
+        "organisation_fk": null,
         "organisation_name": "HLT Agency",
         "institution": "Dutch Language Union",
         "working_unit": "HLT Agency",
@@ -1436,6 +1847,7 @@
     "fields": {
         "name": "Data Archiving and Networked Services",
         "shorthand": "DANS",
+        "organisation_fk": null,
         "organisation_name": "Data Archiving and Networked Services",
         "institution": "Royal Netherlands Academy of Arts and Sciences",
         "working_unit": "DANS",
@@ -1473,6 +1885,7 @@
     "fields": {
         "name": "Huygens ING",
         "shorthand": "Huygens",
+        "organisation_fk": null,
         "organisation_name": "Huygens Institute for the History of the Netherlands",
         "institution": "Royal Dutch Academy of Sciences",
         "working_unit": "Huygens ING",
@@ -1509,6 +1922,7 @@
     "fields": {
         "name": "Instituut voor Nederlandse Lexicologie",
         "shorthand": "INL",
+        "organisation_fk": null,
         "organisation_name": "Instituut voor Nederlandse Lexicologie",
         "institution": "Instituut voor Nederlandse Lexicologie",
         "working_unit": "Instituut voor Nederlandse Lexicologie",
@@ -1543,6 +1957,7 @@
     "fields": {
         "name": "Meertens Instituut",
         "shorthand": "MI",
+        "organisation_fk": null,
         "organisation_name": "Meertens Instituut",
         "institution": "Royal Netherlands Academy of Arts and Sciences",
         "working_unit": "Meertens Instituut",
@@ -1577,6 +1992,7 @@
     "fields": {
         "name": "MPI for Psycholinguistics",
         "shorthand": "MPI-PL",
+        "organisation_fk": null,
         "organisation_name": "Max Planck Institute for Psycholinguistics",
         "institution": "Max Planck Gesellschaft (MPG)",
         "working_unit": "The Language Archive",
@@ -1613,6 +2029,7 @@
     "fields": {
         "name": "CLARIN-PL Language Technology Centre",
         "shorthand": "CLARIN-PL1",
+        "organisation_fk": null,
         "organisation_name": "Institute of Informatics",
         "institution": "Wroclaw University of Technology ",
         "working_unit": "CLARIN-PL",
@@ -1650,6 +2067,7 @@
     "fields": {
         "name": "Oxford Text Archive",
         "shorthand": "OTA",
+        "organisation_fk": null,
         "organisation_name": "Oxford Text Archive ",
         "institution": "University of Oxford",
         "working_unit": "IT Services",
@@ -1684,6 +2102,7 @@
     "fields": {
         "name": "Utrecht Institute of Linguistics OTS",
         "shorthand": "UIL-OTS",
+        "organisation_fk": null,
         "organisation_name": "The Netherlands CLARIN Office",
         "institution": "Utrecht University",
         "working_unit": "UiL-OTS",
@@ -1720,6 +2139,7 @@
     "fields": {
         "name": "Speech & Language Data Repository",
         "shorthand": "SLDR",
+        "organisation_fk": null,
         "organisation_name": "Laboratoire Parole et Langage (LPL)",
         "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
         "working_unit": "UMR 7309",

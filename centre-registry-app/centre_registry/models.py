@@ -164,6 +164,24 @@ class Organisation(Model):
     organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
     institution = CharField(verbose_name='Institution', max_length=200, blank=True)
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
+    address = CharField(verbose_name='Address', max_length=100)
+    postal_code = CharField(verbose_name='Postal code', max_length=20)
+    city = CharField(verbose_name='City', max_length=100)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
+
+    def __unicode__(self):
+        return '{organisation_name:s} {institution:s}'.format(
+            organisation_name=self.organisation_name, institution=self.institution)
+
+    def __str__(self):
+        return self.__unicode__()
 
     class Meta:
         ordering = ('organisation_name', )
