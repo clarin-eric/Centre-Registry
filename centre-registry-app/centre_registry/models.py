@@ -232,8 +232,23 @@ class Centre(Model):
         verbose_name_plural = 'centres'
 
 
-class KCentre(Model):
-    pass
+# class KCentre(Model):
+#     centre = ForeignKey(Centre, related_name='centre')
+#       name = CharField(verbose_name='Name', max_length=200, unique=True)
+#       shorthand = CharField(verbose_name='Shorthand code', max_length=30, unique=True)
+#     class Meta:
+#         verbose_name = 'k-centre'
+#         verbose_name_plural = 'k-centres'
+
+class Organisation(Model):
+    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
+    institution = CharField(verbose_name='Institution', max_length=200, blank=True)
+    working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
+
+    class Meta:
+        ordering = ('organisation_name', )
+        verbose_name = 'organisation'
+        verbose_name_plural = 'organisations'
 
 
 class URLReference(Model):
