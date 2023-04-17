@@ -26,8 +26,9 @@ homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
-Django = '4.1.6'
-django-debug-toolbar = '3.8.1'
+Django = '4.1.7'
+django-debug-toolbar = '4.0.0'
+django-extensions = '3.2.1'
 
 [tool.poetry.group.test.dependencies]
 lxml = '4.9.2'
