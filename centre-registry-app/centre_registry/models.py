@@ -177,8 +177,8 @@ class Organisation(Model):
         max_length=20)
 
     def __unicode__(self):
-        return '{organisation_name:s} {institution:s}'.format(
-            organisation_name=self.organisation_name, institution=self.institution)
+        return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
+            organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
 
     def __str__(self):
         return self.__unicode__()
@@ -197,20 +197,6 @@ class Centre(Model):
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
     organisation_fk = ForeignKey(Organisation, on_delete=CASCADE, blank=True, null=True)
-    organisation_name = CharField(verbose_name='Organisation', max_length=100)
-    institution = CharField(verbose_name='Institution', max_length=200)
-    working_unit = CharField(verbose_name='Working unit', max_length=200)
-    address = CharField(verbose_name='Address', max_length=100)
-    postal_code = CharField(verbose_name='Postal code', max_length=20)
-    city = CharField(verbose_name='City', max_length=100)
-    latitude = CharField(
-        verbose_name='Latitude (from e.g. Google Maps)',
-        validators=[validate_latitude],
-        max_length=20)
-    longitude = CharField(
-        verbose_name='Longitude (from e.g. Google Maps)',
-        validators=[validate_longitude],
-        max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type')
     type_status = CharField(
@@ -251,7 +237,7 @@ class Centre(Model):
 
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(
-            shorthand=self.shorthand, city=self.city)
+            shorthand=self.shorthand, city=getattr(self.organisation_fk, 'city'))
 
     def __str__(self):
         return self.__unicode__()
