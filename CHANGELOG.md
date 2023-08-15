@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.1.0] - TBD
+
+### Changed features
+- sqlite3 -> postgres db backend migration
+
 
 ## [3.0.0] - TBD
 
