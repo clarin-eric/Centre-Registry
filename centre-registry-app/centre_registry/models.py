@@ -1,10 +1,11 @@
 from decimal import Decimal
-from djangoarrayfield import DjangoArrayField
 from re import match as re_match
 
 from django.core.exceptions import ValidationError
+from django.contrib.postgres.fields import ArrayField
 from django.db.models import BooleanField
 from django.db.models import CharField
+from django.db.models import DateTimeField
 from django.db.models import EmailField
 from django.db.models import ForeignKey
 from django.db.models import ManyToManyField
@@ -13,6 +14,8 @@ from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
 from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
+
+
 
 
 def parse_decimal_degree(degree):
@@ -197,7 +200,20 @@ class Centre(Model):
     name = CharField(verbose_name='Name', max_length=200, unique=True)
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
-    organisation_fk = ForeignKey(Organisation, on_delete=CASCADE, blank=True, null=True)
+    organisation_name = CharField(verbose_name='Organisation', max_length=100)
+    institution = CharField(verbose_name='Institution', max_length=200)
+    working_unit = CharField(verbose_name='Working unit', max_length=200)
+    address = CharField(verbose_name='Address', max_length=100)
+    postal_code = CharField(verbose_name='Postal code', max_length=20)
+    city = CharField(verbose_name='City', max_length=100)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type')
     type_status = CharField(
@@ -237,8 +253,9 @@ class Centre(Model):
         verbose_name='Strict versioning?', default=False)
 
     def __unicode__(self):
-        return '{shorthand:s} ({city:s})'.format(
-            shorthand=self.shorthand, city=getattr(self.organisation_fk, 'city'))
+        # return '{shorthand:s} ({city:s})'.format(
+        #     shorthand=self.shorthand, city=getattr(self.organisation_fk, 'city'))
+        return '{shorthand:s}'.format(shorthand=self.shorthand)
 
     def __str__(self):
         return self.__unicode__()
@@ -247,55 +264,6 @@ class Centre(Model):
         ordering = ('shorthand', )
         verbose_name = 'centre'
         verbose_name_plural = 'centres'
-
-
-class KCentreServiceType(Model):
-    service_type = CharField(verbose_name='KCentre service type', max_length=200, unique=True)
-
-    class Meta:
-        verbose_name = 'Service type'
-        verbose_name_plural = 'Service types'
-
-
-class ResourceFamily(Model):
-    resource_family = CharField(verbose_name='Resource family', max_length=200, unique=True)
-
-    class Meta:
-        verbose_name = 'Resource family'
-        verbose_name_plural = 'Resource families'
-
-
-class KCentreStatus(Model):
-    status = CharField(verbose_name='Status', max_length=100, unique=True)
-
-    class Meta:
-        verbose_name = 'KCentre status'
-        verbose_name_plural = 'KCentre statuses'
-
-
-class KCentre(Model):
-    audiences = DjangoArrayField[str](verbose_name='Audience list')
-    competence = CharField(verbose_name='Competence description', max_length=2000)
-    data_types = DjangoArrayField[str](verbose_name='Data types') # FK? not many uniques
-    generic_topics = DjangoArrayField[str](verbose_name='Generic topics') # rather not FK, many uniques
-    keywords = DjangoArrayField[str](verbose_name='Keywords') # sparsely populated, shdn't be mandatory? FK?
-    language_processing_spec = DjangoArrayField[str](verbose_name='Language processing specifics') # Confirm naming
-    linguistic_topics = DjangoArrayField[str](verbose_name='Linguistic topics')
-    pid = URLField(verbose_name='PID', unique=True)
-    tour_de_clarin_interview = URLField(verbose_name='TdC interview URL')
-    tour_de_clarin_intro = URLField(verbose_name='TdC intro URL')
-    website_language = DjangoArrayField[str](verbose_name='Website language') # FK to some ISO693-3 set of langs?
-
-    # FK's
-    centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
-    resource_families_fks = ManyToManyField(to=ResourceFamily, related_name='resource_families')
-    secondary_hosts_fks = ManyToManyField(to=Organisation, related_name='secondary_hosts')
-    service_type_fk = ManyToManyField(to=KCentreServiceType, related_name='service_types')
-    status_fk = ForeignKey(KCentreStatus, related_name='kcentre_status', on_delete=PROTECT)
-
-    class Meta:
-        verbose_name = 'k-centre'
-        verbose_name_plural = 'k-centres'
 
 
 class URLReference(Model):
@@ -410,7 +378,7 @@ class SAMLServiceProvider(Model):
             return '{entity_id:s} ({centre_shorthand:s})'.format(
                 entity_id=self.entity_id, centre_shorthand='NoCentre')
 
-    def __str__(self): 
+    def __str__(self):
         return self.__unicode__()
 
     class Meta:
@@ -444,5 +412,3 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
-
-

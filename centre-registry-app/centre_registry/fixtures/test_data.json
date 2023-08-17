@@ -763,149 +763,11 @@
     }
 },
 {
-    "model": "centre_registry.organisation",
+    "model": "centre_registry.centre",
     "pk": 1,
     "fields": {
-        "organisation_name": "Abteilung Automatische Sprachverarbeitung",
-        "institution": "Universität Leipzig",
-        "working_unit": "Institut für Informatik",
-        "address": "Augustusplatz 10",
-        "postal_code": "04109",
-        "city": "Leipzig",
-        "latitude": "51.338548",
-        "longitude": "12.378735"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 2,
-    "fields": {
-        "organisation_name": "Bayerisches Archiv für Sprachsignale",
-        "institution": "Ludwig-Maximilians-Universität München",
-        "working_unit": "BAS CLARIN-D Centre",
-        "address": "Schellingstraße 3",
-        "postal_code": "80799",
-        "city": "München",
-        "latitude": "48.149216",
-        "longitude": "11.579364"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 3,
-    "fields": {
-        "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
-        "institution": "Union of the German academies of sciences and humanities ",
-        "working_unit": "Deutsches Textarchiv",
-        "address": "Jägerstraße 23",
-        "postal_code": "10117",
-        "city": "Berlin",
-        "latitude": "52.514156",
-        "longitude": "13.394324"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 4,
-    "fields": {
-        "organisation_name": "Austrian Academy of Sciences",
-        "institution": "Institute for Corpus Linguistics and Text Technology",
-        "working_unit": "ICLTT",
-        "address": "Sonnenfelsgasse 19",
-        "postal_code": "1010",
-        "city": "Wien",
-        "latitude": "48.209279",
-        "longitude": "16.377077"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 5,
-    "fields": {
-        "organisation_name": "Eesti Keeleressursside Keskus",
-        "institution": "University of Tartu",
-        "working_unit": "Eesti Keeleressursside Keskus",
-        "address": "Juhan Liivi 2-340",
-        "postal_code": "50409",
-        "city": "Tartu",
-        "latitude": "58.378389",
-        "longitude": "26.714716"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 6,
-    "fields": {
-        "organisation_name": "University of Copenhagen",
-        "institution": "Faculty of Humanities",
-        "working_unit": "Center for Sprogteknologi",
-        "address": "Njalsgade 140",
-        "postal_code": "2300",
-        "city": "København",
-        "latitude": "55.661566",
-        "longitude": "12.591780"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 7,
-    "fields": {
-        "organisation_name": "Institute of Informatics",
-        "institution": "Wroclaw University of Technology ",
-        "working_unit": "CLARIN-PL",
-        "address": "wybrzeże Stanisława Wyspiańskiego 27",
-        "postal_code": "50-370",
-        "city": "Wrocław",
-        "latitude": "51.107122",
-        "longitude": "17.063023"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 8,
-    "fields": {
-        "organisation_name": "TalkBank",
-        "institution": "Carnegie Mellon University ",
-        "working_unit": "Psychology and Language Technologies Institute",
-        "address": "5000 Forbes Avenue",
-        "postal_code": "PA 15213",
-        "city": "Pittsburgh",
-        "latitude": "40.440988",
-        "longitude": "-79.94231"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 9,
-    "fields": {
-        "organisation_name": "Data Archiving and Networked Services",
-        "institution": "Royal Netherlands Academy of Arts and Sciences",
-        "working_unit": "DANS",
-        "address": "Anna van Saksenlaan 51",
-        "postal_code": "2593 HW",
-        "city": "Den Haag",
-        "latitude": "52.080776",
-        "longitude": "4.345627"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 10,
-    "fields": {
-        "organisation_name": "HLT Agency",
-        "institution": "Dutch Language Union",
-        "working_unit": "HLT Agency",
-        "address": "Lange Voorhout 19",
-        "postal_code": "2514 EB",
-        "city": "Den Haag",
-        "latitude": "52.082325",
-        "longitude": "4.312237"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 11,
-    "fields": {
+        "name": "Eberhard Karls Universität Tübingen",
+        "shorthand": "EKUT",
         "organisation_name": "Eberhard Karls Universität Tübingen ",
         "institution": "Seminar für Sprachwissenschaft",
         "working_unit": "Allgemeine Sprachwissenschaft und Computerlinguistik ",
@@ -913,254 +775,7 @@
         "postal_code": "72074",
         "city": "Tübingen",
         "latitude": "48.527037",
-        "longitude": "9.062002"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 12,
-    "fields": {
-        "organisation_name": "The Department of Modern Languages",
-        "institution": "University of Helsinki (UHEL) ",
-        "working_unit": "FIN-CLARIN",
-        "address": "Unioninkatu 40",
-        "postal_code": "00170",
-        "city": "Helsinki",
-        "latitude": "60.172839",
-        "longitude": "24.950366"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 13,
-    "fields": {
-        "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
-        "institution": "Institute for Advanced Simulation",
-        "working_unit": "Jülich Supercomputing Centre",
-        "address": "IEK-7, Wilhelm-Johnen-Straße",
-        "postal_code": "52428",
-        "city": "Jülich",
-        "latitude": "50.905369",
-        "longitude": "6.404938"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 14,
-    "fields": {
-        "organisation_name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
-        "institution": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
-        "working_unit": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
-        "address": "Am Faßberg 11",
-        "postal_code": "37077",
-        "city": "Göttingen",
-        "latitude": "51.562323",
-        "longitude": "9.970938"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 15,
-    "fields": {
-        "organisation_name": "Hamburger Zentrum für Sprachkorpora",
-        "institution": "Universität Hamburg",
-        "working_unit": "HZSK CLARIN D-Centre",
-        "address": "Max-Brauer-Allee 60",
-        "postal_code": "22765",
-        "city": "Hamburg",
-        "latitude": "53.553724",
-        "longitude": "9.939426"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 16,
-    "fields": {
-        "organisation_name": "Huygens Institute for the History of the Netherlands",
-        "institution": "Royal Dutch Academy of Sciences",
-        "working_unit": "Huygens ING",
-        "address": "Prins Willem-Alexanderhof 5",
-        "postal_code": "2595 BE",
-        "city": "Den Haag",
-        "latitude": "52.081972",
-        "longitude": "4.327001"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 17,
-    "fields": {
-        "organisation_name": "Institut für Deutsche Sprache",
-        "institution": "Leibniz Gemeinschaft",
-        "working_unit": "Institut für Deutsche Sprache",
-        "address": "R5 6-13",
-        "postal_code": "68161",
-        "city": "Mannheim",
-        "latitude": "49.488122",
-        "longitude": "8.472311"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 18,
-    "fields": {
-        "organisation_name": "Institut für Maschinelle Sprachverarbeitung ",
-        "institution": "Universität Stuttgart",
-        "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
-        "address": "Pfaffenwaldring 5b",
-        "postal_code": "70569",
-        "city": "Stuttgart",
-        "latitude": "48.746750",
-        "longitude": "9.108240"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 19,
-    "fields": {
-        "organisation_name": "Instituut voor Nederlandse Lexicologie",
-        "institution": "Instituut voor Nederlandse Lexicologie",
-        "working_unit": "Instituut voor Nederlandse Lexicologie",
-        "address": "Matthias de Vrieshof 3",
-        "postal_code": "2311 BZ",
-        "city": "Leiden",
-        "latitude": "52.158137",
-        "longitude": "4.480772"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 20,
-    "fields": {
-        "organisation_name": "ÚFAL MFF UK - Linguistics",
-        "institution": "Univerzita Karlova v Praze",
-        "working_unit": "LINDAT/CLARIN",
-        "address": "Malostranské náměstí 25",
-        "postal_code": "118 00",
-        "city": "Praha",
-        "latitude": "50.088521",
-        "longitude": "14.403265"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 21,
-    "fields": {
-        "organisation_name": "Meertens Instituut",
-        "institution": "Royal Netherlands Academy of Arts and Sciences",
-        "working_unit": "Meertens Instituut",
-        "address": "Joan Muyskenweg 25",
-        "postal_code": "1096 CJ",
-        "city": "Amsterdam",
-        "latitude": "52.331909",
-        "longitude": "4.914635"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 22,
-    "fields": {
-        "organisation_name": "Max Planck Institute for Psycholinguistics",
-        "institution": "Max Planck Gesellschaft (MPG)",
-        "working_unit": "The Language Archive",
-        "address": "Wundtlaan 1",
-        "postal_code": "6525 XD",
-        "city": "Nijmegen",
-        "latitude": "51.818046",
-        "longitude": "5.857079"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 23,
-    "fields": {
-        "organisation_name": "Oxford Text Archive ",
-        "institution": "University of Oxford",
-        "working_unit": "IT Services",
-        "address": "16 Wellington Square",
-        "postal_code": "OX1 2HY",
-        "city": "Oxford",
-        "latitude": "51.757571",
-        "longitude": "-1.261824"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 24,
-    "fields": {
-        "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut für Plasmaphysik ",
-        "institution": "Max Planck Gesellschaft",
-        "working_unit": "RZG",
-        "address": "Boltzmannstraße 2",
-        "postal_code": "85748",
-        "city": "Garching",
-        "latitude": "48.263477",
-        "longitude": "11.671697"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 25,
-    "fields": {
-        "organisation_name": "Laboratoire Parole et Langage (LPL)",
-        "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
-        "working_unit": "UMR 7309",
-        "address": "5 avenue Pasteur",
-        "postal_code": "13100",
-        "city": "Aix-en-Provence",
-        "latitude": "43.535070",
-        "longitude": "5.446179"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 26,
-    "fields": {
-        "organisation_name": "The Netherlands CLARIN Office",
-        "institution": "Utrecht University",
-        "working_unit": "UiL-OTS",
-        "address": "Trans 10",
-        "postal_code": "3512 JK ",
-        "city": "Utrecht",
-        "latitude": "52.090132",
-        "longitude": "5.122917"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 27,
-    "fields": {
-        "organisation_name": "Institut Universitari de Lingüística Aplicada",
-        "institution": "Universitat Pompeu Fabra",
-        "working_unit": "Institut Universitari de Lingüística Aplicada",
-        "address": "Carrer de Roc Boronat, 138",
-        "postal_code": "08018",
-        "city": "Barcelona",
-        "latitude": "41.403964",
-        "longitude": "2.193464"
-    }
-},
-{
-    "model": "centre_registry.organisation",
-    "pk": 28,
-    "fields": {
-        "organisation_name": "Fachrichtung 4.6",
-        "institution": "Universität des Saarlandes",
-        "working_unit": "Englische Sprach- und Übersetzungswissenschaft",
-        "address": "Campus A2.2",
-        "postal_code": "66123",
-        "city": "Saarbrücken",
-        "latitude": "49.256004",
-        "longitude": "7.039011"
-    }
-},
-{
-    "model": "centre_registry.centre",
-    "pk": 1,
-    "fields": {
-        "name": "Eberhard Karls Universität Tübingen",
-        "shorthand": "EKUT",
-        "organisation_fk": 11,
+        "longitude": "9.062002",
         "type_status": "",
         "administrative_contact": 1,
         "technical_contact": 1,
@@ -1187,7 +802,14 @@
     "fields": {
         "name": "CLARIN Centre Vienna",
         "shorthand": "CCV",
-        "organisation_fk": 4,
+        "organisation_name": "Austrian Academy of Sciences",
+        "institution": "Institute for Corpus Linguistics and Text Technology",
+        "working_unit": "ICLTT",
+        "address": "Sonnenfelsgasse 19",
+        "postal_code": "1010",
+        "city": "Wien",
+        "latitude": "48.209279",
+        "longitude": "16.377077",
         "type_status": "",
         "administrative_contact": 2,
         "technical_contact": 3,
@@ -1217,7 +839,14 @@
     "fields": {
         "name": "LINDAT/CLARIN",
         "shorthand": "LINDAT",
-        "organisation_fk": 20,
+        "organisation_name": "ÚFAL MFF UK - Linguistics",
+        "institution": "Univerzita Karlova v Praze",
+        "working_unit": "LINDAT/CLARIN",
+        "address": "Malostranské náměstí 25",
+        "postal_code": "118 00",
+        "city": "Praha",
+        "latitude": "50.088521",
+        "longitude": "14.403265",
         "type_status": "",
         "administrative_contact": 4,
         "technical_contact": 5,
@@ -1244,7 +873,14 @@
     "fields": {
         "name": "ASV Leipzig",
         "shorthand": "ASV",
-        "organisation_fk": 1,
+        "organisation_name": "Abteilung Automatische Sprachverarbeitung",
+        "institution": "Universität Leipzig",
+        "working_unit": "Institut für Informatik",
+        "address": "Augustusplatz 10",
+        "postal_code": "04109",
+        "city": "Leipzig",
+        "latitude": "51.338548",
+        "longitude": "12.378735",
         "type_status": "",
         "administrative_contact": 6,
         "technical_contact": 7,
@@ -1274,7 +910,14 @@
     "fields": {
         "name": "Bayerisches Archiv für Sprachsignale",
         "shorthand": "BAS",
-        "organisation_fk": 2,
+        "organisation_name": "Bayerisches Archiv für Sprachsignale",
+        "institution": "Ludwig-Maximilians-Universität München",
+        "working_unit": "BAS CLARIN-D Centre",
+        "address": "Schellingstraße 3",
+        "postal_code": "80799",
+        "city": "München",
+        "latitude": "48.149216",
+        "longitude": "11.579364",
         "type_status": "",
         "administrative_contact": 8,
         "technical_contact": 9,
@@ -1304,7 +947,14 @@
     "fields": {
         "name": "Berlin-Brandenburg Academy of Sciences and Humanities",
         "shorthand": "BBAW",
-        "organisation_fk": 3,
+        "organisation_name": "Berlin-Brandenburg Academy of Sciences and Humanities",
+        "institution": "Union of the German academies of sciences and humanities ",
+        "working_unit": "Deutsches Textarchiv",
+        "address": "Jägerstraße 23",
+        "postal_code": "10117",
+        "city": "Berlin",
+        "latitude": "52.514156",
+        "longitude": "13.394324",
         "type_status": "",
         "administrative_contact": 10,
         "technical_contact": 11,
@@ -1334,7 +984,14 @@
     "fields": {
         "name": "Forschungzentrum Jülich",
         "shorthand": "FZJ",
-        "organisation_fk": 13,
+        "organisation_name": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
+        "institution": "Institute for Advanced Simulation",
+        "working_unit": "Jülich Supercomputing Centre",
+        "address": "IEK-7, Wilhelm-Johnen-Straße",
+        "postal_code": "52428",
+        "city": "Jülich",
+        "latitude": "50.905369",
+        "longitude": "6.404938",
         "type_status": "",
         "administrative_contact": 12,
         "technical_contact": 12,
@@ -1361,7 +1018,14 @@
     "fields": {
         "name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
         "shorthand": "GWDG",
-        "organisation_fk": 14,
+        "organisation_name": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "institution": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "working_unit": "Gesellschaft für wissenschaftliche Datenverarbeitung mbH",
+        "address": "Am Faßberg 11",
+        "postal_code": "37077",
+        "city": "Göttingen",
+        "latitude": "51.562323",
+        "longitude": "9.970938",
         "type_status": "",
         "administrative_contact": 13,
         "technical_contact": 13,
@@ -1390,7 +1054,14 @@
     "fields": {
         "name": "Hamburger Zentrum für Sprachkorpora",
         "shorthand": "HZSK",
-        "organisation_fk": 15,
+        "organisation_name": "Hamburger Zentrum für Sprachkorpora",
+        "institution": "Universität Hamburg",
+        "working_unit": "HZSK CLARIN D-Centre",
+        "address": "Max-Brauer-Allee 60",
+        "postal_code": "22765",
+        "city": "Hamburg",
+        "latitude": "53.553724",
+        "longitude": "9.939426",
         "type_status": "",
         "administrative_contact": 14,
         "technical_contact": 15,
@@ -1417,7 +1088,14 @@
     "fields": {
         "name": "Institut für Maschinelle Sprachverarbeitung",
         "shorthand": "IMS",
-        "organisation_fk": 18,
+        "organisation_name": "Institut für Maschinelle Sprachverarbeitung ",
+        "institution": "Universität Stuttgart",
+        "working_unit": "Lehrstuhl Grundlagen der Computerlinguistik ",
+        "address": "Pfaffenwaldring 5b",
+        "postal_code": "70569",
+        "city": "Stuttgart",
+        "latitude": "48.746750",
+        "longitude": "9.108240",
         "type_status": "",
         "administrative_contact": 16,
         "technical_contact": 17,
@@ -1444,7 +1122,14 @@
     "fields": {
         "name": "Institut für Deutsche Sprache",
         "shorthand": "IDS",
-        "organisation_fk": 17,
+        "organisation_name": "Institut für Deutsche Sprache",
+        "institution": "Leibniz Gemeinschaft",
+        "working_unit": "Institut für Deutsche Sprache",
+        "address": "R5 6-13",
+        "postal_code": "68161",
+        "city": "Mannheim",
+        "latitude": "49.488122",
+        "longitude": "8.472311",
         "type_status": "",
         "administrative_contact": 18,
         "technical_contact": 19,
@@ -1473,7 +1158,14 @@
     "fields": {
         "name": "Rechenzentrum Garching",
         "shorthand": "RZG",
-        "organisation_fk": 24,
+        "organisation_name": "Rechenzentrum der Max-Planck-Gesellschaft am Max-Planck-Institut für Plasmaphysik ",
+        "institution": "Max Planck Gesellschaft",
+        "working_unit": "RZG",
+        "address": "Boltzmannstraße 2",
+        "postal_code": "85748",
+        "city": "Garching",
+        "latitude": "48.263477",
+        "longitude": "11.671697",
         "type_status": "",
         "administrative_contact": 20,
         "technical_contact": 21,
@@ -1500,7 +1192,14 @@
     "fields": {
         "name": "Universität des Saarlandes ",
         "shorthand": "UdS",
-        "organisation_fk": 28,
+        "organisation_name": "Fachrichtung 4.6",
+        "institution": "Universität des Saarlandes",
+        "working_unit": "Englische Sprach- und Übersetzungswissenschaft",
+        "address": "Campus A2.2",
+        "postal_code": "66123",
+        "city": "Saarbrücken",
+        "latitude": "49.256004",
+        "longitude": "7.039011",
         "type_status": "",
         "administrative_contact": 22,
         "technical_contact": 23,
@@ -1527,7 +1226,14 @@
     "fields": {
         "name": "The CLARIN Centre at University of Copenhagen",
         "shorthand": "CLARIN-DK-UCPH",
-        "organisation_fk": 6,
+        "organisation_name": "University of Copenhagen",
+        "institution": "Faculty of Humanities",
+        "working_unit": "Center for Sprogteknologi",
+        "address": "Njalsgade 140",
+        "postal_code": "2300",
+        "city": "København",
+        "latitude": "55.661566",
+        "longitude": "12.591780",
         "type_status": "",
         "administrative_contact": 24,
         "technical_contact": 25,
@@ -1557,7 +1263,14 @@
     "fields": {
         "name": "Center of Estonian Language Resources",
         "shorthand": "CELR/EKK",
-        "organisation_fk": 5,
+        "organisation_name": "Eesti Keeleressursside Keskus",
+        "institution": "University of Tartu",
+        "working_unit": "Eesti Keeleressursside Keskus",
+        "address": "Juhan Liivi 2-340",
+        "postal_code": "50409",
+        "city": "Tartu",
+        "latitude": "58.378389",
+        "longitude": "26.714716",
         "type_status": "Aiming for B. ",
         "administrative_contact": 26,
         "technical_contact": 27,
@@ -1587,7 +1300,14 @@
     "fields": {
         "name": "IULA-UPF-CC-CLARIN",
         "shorthand": "UPF",
-        "organisation_fk": 27,
+        "organisation_name": "Institut Universitari de Lingüística Aplicada",
+        "institution": "Universitat Pompeu Fabra",
+        "working_unit": "Institut Universitari de Lingüística Aplicada",
+        "address": "Carrer de Roc Boronat, 138",
+        "postal_code": "08018",
+        "city": "Barcelona",
+        "latitude": "41.403964",
+        "longitude": "2.193464",
         "type_status": "",
         "administrative_contact": 28,
         "technical_contact": 28,
@@ -1614,7 +1334,14 @@
     "fields": {
         "name": "The Language Bank of Finland",
         "shorthand": "FIN-CLARIN",
-        "organisation_fk": 12,
+        "organisation_name": "The Department of Modern Languages",
+        "institution": "University of Helsinki (UHEL) ",
+        "working_unit": "FIN-CLARIN",
+        "address": "Unioninkatu 40",
+        "postal_code": "00170",
+        "city": "Helsinki",
+        "latitude": "60.172839",
+        "longitude": "24.950366",
         "type_status": "Aiming for B.",
         "administrative_contact": 29,
         "technical_contact": 30,
@@ -1641,7 +1368,14 @@
     "fields": {
         "name": "CMU-TalkBank",
         "shorthand": "CMU",
-        "organisation_fk": 8,
+        "organisation_name": "TalkBank",
+        "institution": "Carnegie Mellon University ",
+        "working_unit": "Psychology and Language Technologies Institute",
+        "address": "5000 Forbes Avenue",
+        "postal_code": "PA 15213",
+        "city": "Pittsburgh",
+        "latitude": "40.440988",
+        "longitude": "-79.94231",
         "type_status": "",
         "administrative_contact": 32,
         "technical_contact": 31,
@@ -1668,7 +1402,14 @@
     "fields": {
         "name": "Dutch-Flemish Human Language Technology Agency",
         "shorthand": "DLU",
-        "organisation_fk": 10,
+        "organisation_name": "HLT Agency",
+        "institution": "Dutch Language Union",
+        "working_unit": "HLT Agency",
+        "address": "Lange Voorhout 19",
+        "postal_code": "2514 EB",
+        "city": "Den Haag",
+        "latitude": "52.082325",
+        "longitude": "4.312237",
         "type_status": "Aiming for B.",
         "administrative_contact": 33,
         "technical_contact": 33,
@@ -1695,7 +1436,14 @@
     "fields": {
         "name": "Data Archiving and Networked Services",
         "shorthand": "DANS",
-        "organisation_fk": 9,
+        "organisation_name": "Data Archiving and Networked Services",
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "working_unit": "DANS",
+        "address": "Anna van Saksenlaan 51",
+        "postal_code": "2593 HW",
+        "city": "Den Haag",
+        "latitude": "52.080776",
+        "longitude": "4.345627",
         "type_status": "Aiming for B.",
         "administrative_contact": 34,
         "technical_contact": 34,
@@ -1725,7 +1473,14 @@
     "fields": {
         "name": "Huygens ING",
         "shorthand": "Huygens",
-        "organisation_fk": 16,
+        "organisation_name": "Huygens Institute for the History of the Netherlands",
+        "institution": "Royal Dutch Academy of Sciences",
+        "working_unit": "Huygens ING",
+        "address": "Prins Willem-Alexanderhof 5",
+        "postal_code": "2595 BE",
+        "city": "Den Haag",
+        "latitude": "52.081972",
+        "longitude": "4.327001",
         "type_status": "",
         "administrative_contact": 35,
         "technical_contact": 35,
@@ -1754,7 +1509,14 @@
     "fields": {
         "name": "Instituut voor Nederlandse Lexicologie",
         "shorthand": "INL",
-        "organisation_fk": 19,
+        "organisation_name": "Instituut voor Nederlandse Lexicologie",
+        "institution": "Instituut voor Nederlandse Lexicologie",
+        "working_unit": "Instituut voor Nederlandse Lexicologie",
+        "address": "Matthias de Vrieshof 3",
+        "postal_code": "2311 BZ",
+        "city": "Leiden",
+        "latitude": "52.158137",
+        "longitude": "4.480772",
         "type_status": "",
         "administrative_contact": 36,
         "technical_contact": 37,
@@ -1781,7 +1543,14 @@
     "fields": {
         "name": "Meertens Instituut",
         "shorthand": "MI",
-        "organisation_fk": 21,
+        "organisation_name": "Meertens Instituut",
+        "institution": "Royal Netherlands Academy of Arts and Sciences",
+        "working_unit": "Meertens Instituut",
+        "address": "Joan Muyskenweg 25",
+        "postal_code": "1096 CJ",
+        "city": "Amsterdam",
+        "latitude": "52.331909",
+        "longitude": "4.914635",
         "type_status": "",
         "administrative_contact": 38,
         "technical_contact": 38,
@@ -1808,7 +1577,14 @@
     "fields": {
         "name": "MPI for Psycholinguistics",
         "shorthand": "MPI-PL",
-        "organisation_fk": 22,
+        "organisation_name": "Max Planck Institute for Psycholinguistics",
+        "institution": "Max Planck Gesellschaft (MPG)",
+        "working_unit": "The Language Archive",
+        "address": "Wundtlaan 1",
+        "postal_code": "6525 XD",
+        "city": "Nijmegen",
+        "latitude": "51.818046",
+        "longitude": "5.857079",
         "type_status": "",
         "administrative_contact": 39,
         "technical_contact": 39,
@@ -1837,7 +1613,14 @@
     "fields": {
         "name": "CLARIN-PL Language Technology Centre",
         "shorthand": "CLARIN-PL1",
-        "organisation_fk": 7,
+        "organisation_name": "Institute of Informatics",
+        "institution": "Wroclaw University of Technology ",
+        "working_unit": "CLARIN-PL",
+        "address": "wybrzeże Stanisława Wyspiańskiego 27",
+        "postal_code": "50-370",
+        "city": "Wrocław",
+        "latitude": "51.107122",
+        "longitude": "17.063023",
         "type_status": "Aiming for B. ",
         "administrative_contact": 40,
         "technical_contact": 41,
@@ -1867,7 +1650,14 @@
     "fields": {
         "name": "Oxford Text Archive",
         "shorthand": "OTA",
-        "organisation_fk": 23,
+        "organisation_name": "Oxford Text Archive ",
+        "institution": "University of Oxford",
+        "working_unit": "IT Services",
+        "address": "16 Wellington Square",
+        "postal_code": "OX1 2HY",
+        "city": "Oxford",
+        "latitude": "51.757571",
+        "longitude": "-1.261824",
         "type_status": "Aiming for B.",
         "administrative_contact": 42,
         "technical_contact": 42,
@@ -1894,7 +1684,14 @@
     "fields": {
         "name": "Utrecht Institute of Linguistics OTS",
         "shorthand": "UIL-OTS",
-        "organisation_fk": 26,
+        "organisation_name": "The Netherlands CLARIN Office",
+        "institution": "Utrecht University",
+        "working_unit": "UiL-OTS",
+        "address": "Trans 10",
+        "postal_code": "3512 JK ",
+        "city": "Utrecht",
+        "latitude": "52.090132",
+        "longitude": "5.122917",
         "type_status": "Trust Centre, no standard assessment in place",
         "administrative_contact": 43,
         "technical_contact": 44,
@@ -1923,7 +1720,14 @@
     "fields": {
         "name": "Speech & Language Data Repository",
         "shorthand": "SLDR",
-        "organisation_fk": 25,
+        "organisation_name": "Laboratoire Parole et Langage (LPL)",
+        "institution": "Centre National de la Recherche Scientifique (CNRS) and Aix-Marseille University",
+        "working_unit": "UMR 7309",
+        "address": "5 avenue Pasteur",
+        "postal_code": "13100",
+        "city": "Aix-en-Provence",
+        "latitude": "43.535070",
+        "longitude": "5.446179",
         "type_status": "",
         "administrative_contact": 45,
         "technical_contact": 46,
@@ -1942,2242 +1746,6 @@
         ],
         "assessmentdates": [],
         "monitoring_contacts": []
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 1,
-    "fields": {
-        "service_type": "Access to data"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 2,
-    "fields": {
-        "service_type": "Access to tools"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 3,
-    "fields": {
-        "service_type": "User assistance"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 4,
-    "fields": {
-        "service_type": "Training"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 5,
-    "fields": {
-        "service_type": "Helpdesk"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 6,
-    "fields": {
-        "service_type": "How-to documents"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 7,
-    "fields": {
-        "service_type": "Access to Tools"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 8,
-    "fields": {
-        "service_type": "User forum"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 9,
-    "fields": {
-        "service_type": "FAQ"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 10,
-    "fields": {
-        "service_type": "Access to documentation"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 11,
-    "fields": {
-        "service_type": "Data processing on demand"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 12,
-    "fields": {
-        "service_type": "Depositing"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 13,
-    "fields": {
-        "service_type": "Technical support / user assistance"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 14,
-    "fields": {
-        "service_type": "Technical support"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 15,
-    "fields": {
-        "service_type": "Web-hosting"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 16,
-    "fields": {
-        "service_type": "how-to documents"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 17,
-    "fields": {
-        "service_type": "access to document templates"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 18,
-    "fields": {
-        "service_type": "Trainings"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 19,
-    "fields": {
-        "service_type": "Data archiving"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 20,
-    "fields": {
-        "service_type": "Data curation"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 21,
-    "fields": {
-        "service_type": "Data deposit"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 22,
-    "fields": {
-        "service_type": "Help/support"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 23,
-    "fields": {
-        "service_type": "Guidelines and online information resources"
-    }
-},
-{
-    "model": "centre_registry.kcentreservicetype",
-    "pk": 24,
-    "fields": {
-        "service_type": "Access to document templates"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 1,
-    "fields": {
-        "resource_family": ""
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 2,
-    "fields": {
-        "resource_family": "Oral history collections"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 3,
-    "fields": {
-        "resource_family": "Parliamentary corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 4,
-    "fields": {
-        "resource_family": "Historical corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 5,
-    "fields": {
-        "resource_family": "Literary corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 6,
-    "fields": {
-        "resource_family": "Lexica"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 7,
-    "fields": {
-        "resource_family": "Multimodal corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 8,
-    "fields": {
-        "resource_family": "Parallel corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 9,
-    "fields": {
-        "resource_family": "Spoken corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 10,
-    "fields": {
-        "resource_family": "Dictionaries"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 11,
-    "fields": {
-        "resource_family": "Conceptual resources"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 12,
-    "fields": {
-        "resource_family": "Glossaries Wordlists"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 13,
-    "fields": {
-        "resource_family": "L2 learner corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 14,
-    "fields": {
-        "resource_family": "Manually annotated corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 15,
-    "fields": {
-        "resource_family": "Newspaper corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 16,
-    "fields": {
-        "resource_family": "Glossaries"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 17,
-    "fields": {
-        "resource_family": "Normalization"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 18,
-    "fields": {
-        "resource_family": "Named entity recognition"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 19,
-    "fields": {
-        "resource_family": "Part-of-speech tagging and lemmatization"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 20,
-    "fields": {
-        "resource_family": "Computer-mediated communication corpora (social media)"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 21,
-    "fields": {
-        "resource_family": "Reference corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 22,
-    "fields": {
-        "resource_family": "Web corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 23,
-    "fields": {
-        "resource_family": "Sign language corpora"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 24,
-    "fields": {
-        "resource_family": "Corpora of academic texts"
-    }
-},
-{
-    "model": "centre_registry.resourcefamily",
-    "pk": 25,
-    "fields": {
-        "resource_family": "Wordlists"
-    }
-},
-{
-    "model": "centre_registry.kcentrestatus",
-    "pk": 1,
-    "fields": {
-        "status": "['active']"
-    }
-},
-{
-    "model": "centre_registry.kcentrestatus",
-    "pk": 2,
-    "fields": {
-        "status": "['suspended']"
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 1,
-    "fields": {
-        "audiences": [
-            "Researchers from Humanities and Social Sciences (and beyond) interested in Spanish, Basque, Catalan and Galician"
-        ],
-        "competence": "The Spanish CLARIN K-Centre aims to provide knowledge, services, consultancy and specialized web services to the Humanities and Social Science research communities. Our web services and consultancy is about how to use and research with basic tools that can handle and exploit textual data at least in the four (co)official languages (Spanish, Catalan, Galician, Basque) and English, which is one of the most important sources of information for many HSC disciplines.",
-        "data_types": [
-            "Lexical databases: general, sentiment, NERC",
-            "Syntax Tree banks",
-            "Discourse Tree banks: correference, relational",
-            "Spoken databases",
-            "Semantic annotation: semantic roles, word sense",
-            "Error annotation",
-            "Image bank (wikimedia)",
-            "Conversational QA"
-        ],
-        "generic_topics": [
-            "Grammars",
-            "Finite-State Applications",
-            "Statistical Methods",
-            "Neural Networks"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "morphology",
-            "syntax",
-            "semantics",
-            "discourse"
-        ],
-        "linguistic_topics": [
-            "general linguistics (phonology, morphology, syntax, semantics, pragmatics)",
-            "computational linguistics",
-            "corpus linguistics",
-            "applied linguistics",
-            "stylistics"
-        ],
-        "pid": "http://hdl.handle.net/11372/DOC-111",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/spanish-clarin-knowledge-centre",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-jose-perez-navarro",
-        "website_language": [
-            "Spanish",
-            "Basque",
-            "Catalan",
-            "Galician"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            3,
-            4
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 2,
-    "fields": {
-        "audiences": [
-            "Research groups and projects wishing to construct and deposit treebanks",
-            "Researchers, developers and students wishing to explore treebanks"
-        ],
-        "competence": "We can assist in making treebanks accessible and and searchable on our two websites. We provide documentation, guidelines and user support for the online exploration of the available treebanks. We can assist in the online construction of LFG treebanks as parsed corpora and in the online editing of Universal Dependency treebanks. We disseminate our knowledge through occasional tutorials and workshops on treebanking.",
-        "data_types": [
-            "Treebanks"
-        ],
-        "generic_topics": [
-            "Formats",
-            "Standards"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Building treebanks",
-            "Editing treebanks",
-            "Processing treebanks",
-            "Disambiguating treebanks",
-            "Parsing corpora",
-            "Syntactic annotation",
-            "Alignment of treebanks",
-            "Integration of treebanks"
-        ],
-        "linguistic_topics": [
-            "Syntax",
-            "Morphology",
-            "Semantics",
-            "Pragmatics"
-        ],
-        "pid": "https://hdl.handle.net/1839/00-DOCS.CLARIN.EU-114",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/blog-post-clarin-knowledge-centre-treebanking",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/clarin-k-centre-treebanking-interview-helge-dyvik",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 3,
-    "fields": {
-        "audiences": [
-            "Archivists",
-            "Computational linguists",
-            "Computer scientists",
-            "Historians",
-            "Language teachers",
-            "Librarians",
-            "Linguists",
-            "Phoneticians",
-            "Speech Pathologists",
-            "Sociologists",
-            "Sociolinguists"
-        ],
-        "competence": "Technical advice on speech analysis relating to all aspects of speech technology, including speech science, speech applications, and speech in interaction.",
-        "data_types": [
-            "Acoustic and language models",
-            "Biosignals related to spoken interaction",
-            "Dictionaries",
-            "Pronunciation data",
-            "Vocabularies"
-        ],
-        "generic_topics": [
-            "ASR",
-            "Data management",
-            "Deep learning",
-            "Evaluation",
-            "Legal issues",
-            "Tools",
-            "Visualization"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Speech analysis",
-            "Speech modelling",
-            "Speech processing",
-            "Speech recognition",
-            "Speech synthesis"
-        ],
-        "linguistic_topics": [
-            "Phonetics",
-            "Speech pathology"
-        ],
-        "pid": "https://hdl.handle.net/1839/00-DOCS.CLARIN.EU-117",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            2,
-            3
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            3,
-            4,
-            5,
-            7
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 4,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "Computational linguists",
-            "Sociolinguists",
-            "Language and literature researchers",
-            "Citizen scientists"
-        ],
-        "competence": "- Danish language and Danish sign language;\n- Danish language resources;\n- language technology tools for Danish;\n- Natural language processing methods",
-        "data_types": [
-            "Text corpora",
-            "Wordnets",
-            "Lexica",
-            "Multimodal annotations"
-        ],
-        "generic_topics": [
-            "Natural language processing",
-            "Basic processing/annotation of corpora",
-            "Data management",
-            "Standards"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Tokenization",
-            "PoS tagging",
-            "Lemmatization",
-            "Named entity tagging",
-            "Parsing",
-            "TEI annotation",
-            "Corpus tools",
-            "Natural language processing tools"
-        ],
-        "linguistic_topics": [
-            "morphology",
-            "Syntax",
-            "Semantics",
-            "Pragmatics",
-            "Lexicography",
-            "Multimodality"
-        ],
-        "pid": "https://hdl.handle.net/1839/00-DOCS.CLARIN.EU-118",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-danish-clarin-knowledge-centre-dansk",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-sidsel-boldsen",
-        "website_language": [
-            "Danish"
-        ],
-        "centre_fk": 14,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            4,
-            5,
-            6
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            5,
-            6
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 5,
-    "fields": {
-        "audiences": [
-            "linguists",
-            "psycholinguistics",
-            "developmental psychologists",
-            "computer scientists",
-            "educators",
-            "clinicians"
-        ],
-        "competence": "Our centre is happy to provide advice on tools, corpora, and methods for the study of first and second language learning, conversational interactions, and a variety of language and developmental disabilities including aphasia, stuttering, TBI, dementia, and ASD.",
-        "data_types": [
-            "Corpora, both text and multimodal",
-            "clinical data"
-        ],
-        "generic_topics": [
-            ""
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "speech analysis",
-            "archiving",
-            "fluency",
-            "lexical access"
-        ],
-        "linguistic_topics": [
-            "language development",
-            "conversation",
-            "language disorders",
-            "child language",
-            "second language",
-            "bilingualism",
-            "conversations"
-        ],
-        "pid": "https://hdl.handle.net/1839/00-DOCS.CLARIN.EU-134",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/talkbank-clarin-knowledge-centre",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-nan-bernstein-ratner",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": 18,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            4,
-            5,
-            6,
-            8
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 6,
-    "fields": {
-        "audiences": [
-            "Students, teachers and researchers in social sciences and humanities with an interest in the languages of Sweden",
-            "Representatives of cultural heritage institutions",
-            "Citizen scientists",
-            "More generally those who are interested in the use of NLP tools and services to explore collections of written and spoken material in Swedish."
-        ],
-        "competence": "The SWELANG K-centre offers advice on the languages, dialects and other parts of the intangible cultural heritage of Sweden. The focus is on the use of digital language resources and tools for collecting, processing and making language data available for research and development.",
-        "data_types": [
-            "Dictionaries",
-            "Term banks",
-            "Translation memories"
-        ],
-        "generic_topics": [
-            "Language policy and planning",
-            "Swedish dialects",
-            "Folkloristics",
-            "Digital humanities",
-            "Metadata",
-            "OCR",
-            "Machine learning",
-            "Legal issues"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Basic language processing",
-            "Information extraction",
-            "Topic modelling"
-        ],
-        "linguistic_topics": [
-            "Language policy and planning",
-            "Language infrastructure",
-            "Language resources",
-            "Language technology",
-            "Dialect studies",
-            "Sociolinguistics",
-            "Plain language and language comprehensibility",
-            "Terminology Lexicography"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-136",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-clarin-knowledge-centre-languages-sweden",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/clarin-k-centre-languages-sweden-interview-susanne-nylund-skog",
-        "website_language": [
-            "Swedish"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            4,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            5,
-            9,
-            10,
-            11,
-            12,
-            13
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 7,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "Behavioural and cultural scientists"
-        ],
-        "competence": "CLARIN-MULTISENS provides advice on multimodal and sensor-based methods including EEG (Electroencephalography), eye-tracking, articulography, virtual reality, motion capture, and language related data such as audiovisual recordings and textual representations",
-        "data_types": [
-            "Dictionaries",
-            "Language models",
-            "Lexical and typological/morphosyntactic databases"
-        ],
-        "generic_topics": [
-            "Multimodal and sensor-based methods",
-            "EEG",
-            "Eye-tracking",
-            "Articulography",
-            "Virtual reality",
-            "Motion capture",
-            "audio-visual-recording",
-            "Working with GIS"
-        ],
-        "keywords": [
-            "Interdisciplinary research",
-            "Methodological know-how",
-            "E-science"
-        ],
-        "language_processing_spec": [
-            "Information extraction",
-            "Keystroke logging",
-            "Named entity recognition",
-            "Text mining",
-            "Visual prosody"
-        ],
-        "linguistic_topics": [
-            "Comparative and phylogenetic linguistics",
-            "Dialect studies",
-            "Field linguistics",
-            "Language diversity",
-            "Language learning",
-            "Language production",
-            "Neurolinguistics",
-            "Phonetics",
-            "Psycholinguistics"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-137",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-lund-university-humanities-lab-knowledge-centre",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-gerd-carling",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            2,
-            4,
-            7,
-            9,
-            13,
-            14
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            3,
-            4,
-            5,
-            12,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 8,
-    "fields": {
-        "audiences": [
-            "linguists",
-            "computational linguists",
-            "economists",
-            "sociologists",
-            "psychologists",
-            "media researchers",
-            "researchers of communication",
-            "literature researchers"
-        ],
-        "competence": "Provides wide knowledge on the methods of natural language analysis with a special emphasis put on the analysis of Polish language. Offers support for all types of applications of Language Technology for Polish, both mono and multilingual ones.",
-        "data_types": [
-            "corpora",
-            "dictionaries",
-            "records of speech",
-            "language models",
-            "treebanks",
-            "wordnets"
-        ],
-        "generic_topics": [
-            "Data management",
-            "Legal issues",
-            "Machine learning",
-            "Metadata",
-            "OCR",
-            "Standards",
-            "Language normalization",
-            "Data acquisition",
-            "Support in preparing grants' proposals"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Polish language processing",
-            "topic modeling",
-            "stylometry",
-            "speech recognition",
-            "named entity recognition",
-            "corpora creation and management",
-            "parallel corpora",
-            "wordnets",
-            "text mining",
-            "information extraction",
-            "word sense disambiguation"
-        ],
-        "linguistic_topics": [
-            "semantics",
-            "morphology",
-            "syntax",
-            "phonetics",
-            "discourse analysis",
-            "stylistics",
-            "phraseology",
-            "lexicography",
-            "terminology",
-            "translation studies"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-140",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-knowledge-centre-polish-language-technology",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-dominika-hadro",
-        "website_language": [
-            "Polish"
-        ],
-        "centre_fk": 25,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            5,
-            8,
-            9,
-            15
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 9,
-    "fields": {
-        "audiences": [
-            "researchers",
-            "librarians",
-            "archivists",
-            "digital humanists",
-            "computer scientists in topics related to digitisation"
-        ],
-        "competence": "IMPACT-CKC (IMPACT centre of competence - CLARIN K-centre in digitisation), as knowledge centre offers expertise and resources to institutions and researchers looking for advice in digitisation and related fields. The IMPACT-CKC resources include a collection of high quality images with associated ground truth, historical lexica for 10 languages, training materials and registries on tools, initiatives, datasets and competitions relevant to digitisation and related fields.",
-        "data_types": [
-            "lexical data",
-            "language models",
-            "linked open data",
-            "ontologies"
-        ],
-        "generic_topics": [
-            "OCR",
-            "digitisation",
-            "visualisation",
-            "evaluation of tools"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "basic language processing",
-            "information extraction"
-        ],
-        "linguistic_topics": [
-            "corpus linguistics",
-            "diachronic language resources",
-            "language learning"
-        ],
-        "pid": "http://hdl.handle.net/11372/DOC-148",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-impact-ckc-k-centre",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-mikel-iruskieta",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            4,
-            5,
-            6,
-            7,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            3,
-            4
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 10,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Computer scientists",
-            "Language teachers",
-            "Linguists",
-            "Psycholinguists",
-            "Sociolinguists"
-        ],
-        "competence": "Provides information, consulting and technical assistance on all topics related to corpus linguistics. This includes data formats, annotation, corpus querying, corpus linguistics methodology, statistical methods etc. Another specialization of the centre is empirical research on the Czech language.",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            ""
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Basic language processing",
-            "Processing of morphologically rich languages"
-        ],
-        "linguistic_topics": [
-            "Applied linguistics",
-            "Corpus linguistics",
-            "Diachronic language studies",
-            "Dialect studies",
-            "Discourse",
-            "Language learning"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-147",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-czech-clarin-knowledge-centre-corpus-linguistics",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-ondrej-tichy",
-        "website_language": [
-            "Czech"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            4,
-            5,
-            8,
-            9,
-            13,
-            14,
-            15,
-            20,
-            21
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            11,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 11,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "Phoneticians",
-            "Psycholinguists",
-            "Historians",
-            "Literary scientists",
-            "Art historians",
-            "Digital humanities researchers",
-            "Economists",
-            "General public"
-        ],
-        "competence": "Language technology and resources for Swedish, Swedish Sign Language, and multilingual settings. Expertise in the processing of parallel corpora including alignment and machine translation, pretrained language models, cross-linguistically consistent annotation within the framework of Universal Dependencies, and computation and evaluation of measures of text complexity.",
-        "data_types": [
-            "Parallel corpora",
-            "Treebanks",
-            "Language models",
-            "Typological databases",
-            "Text",
-            "Video",
-            "Audio"
-        ],
-        "generic_topics": [
-            "Natural language processing",
-            "Corpus annotation",
-            "Machine learning",
-            "Digital humanities"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Language processing pipelines",
-            "Part-of-speech tagging",
-            "Named entity recognition",
-            "Syntactic parsing",
-            "Machine translation",
-            "Processing of discourse relations",
-            "Pretrained models",
-            "Text simplification"
-        ],
-        "linguistic_topics": [
-            "Computational linguistics",
-            "Language diversity",
-            "Field linguistics",
-            "Language learning",
-            "Neurolinguistics",
-            "Phonetics",
-            "Phonology",
-            "Pragmatics",
-            "Psycholinguistics",
-            "Semantics"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-151",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            13
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            3,
-            4,
-            5,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 12,
-    "fields": {
-        "audiences": [
-            "researchers in the humanities, with an interest in different aspects of historical texts",
-            "historians",
-            "social scientists",
-            "researchers in literature and history of ideas",
-            "historical linguists",
-            "computational linguists",
-            "researchers working in the field of digital humanities"
-        ],
-        "competence": "Diachrionic text collections, historical texts, and tools and resources for processing and analysing them",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            "Diachronic corpora",
-            "Natural language processing for historical text",
-            "spelling normalization",
-            "digital humanities"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Diachronic language processing"
-        ],
-        "linguistic_topics": [
-            "Diachronic language studies"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-149",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            "Swedish"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            17
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            2,
-            14,
-            15
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 13,
-    "fields": {
-        "audiences": [
-            "Terminologists",
-            "Translation studies researchers",
-            "Linguists",
-            "Computational linguists",
-            "Citizen scientists"
-        ],
-        "competence": "The K-centre provides information and training to users on the preparation and documentation of translation-related resources, in particular terminology resources and translation corpora. This includes inquiries submitted to the Helpdesk related to tools, methods, data, and guidance in seeking further expert support. The service does not focus on language resources in particular languages, but is language independent.",
-        "data_types": [
-            "Term banks",
-            "Translation memories",
-            "Translation corpora"
-        ],
-        "generic_topics": [
-            ""
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Machine translation"
-        ],
-        "linguistic_topics": [
-            "Terminology",
-            "Translation studies"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-150",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            6
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 14,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Computer scientists",
-            "Citizen scientists",
-            "Historians",
-            "Language teachers",
-            "Linguists",
-            "Sociolinguists",
-            "Sociologists"
-        ],
-        "competence": "CLASSLA offers expertise on language resources and technologies for South Slavic languages. It provides information on freely available lexicons and corpora, which can be used in research in the social sciences and humanities. The CLASSLA pipeline allows researchers to perform language processing of their texts to produce their own corpora. The centre provides guidance in how to use the available resources and technologies in research.",
-        "data_types": [
-            "Manually annotated datasets",
-            "Corpora",
-            "Language models",
-            "Treebanks"
-        ],
-        "generic_topics": [
-            "Evaluation of tools",
-            "Machine learning",
-            "Deep learning"
-        ],
-        "keywords": [
-            "Processing of closely related languages",
-            "Language variation",
-            "Spatial language variation"
-        ],
-        "language_processing_spec": [
-            "Basic language processing",
-            "Information extraction",
-            "Language understanding",
-            "Named entity recognition",
-            "Processing of morphologically rich languages",
-            "Speech recognition"
-        ],
-        "linguistic_topics": [
-            "Applied linguistics",
-            "Dialect studies",
-            "Sociolinguistics"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-153",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-clarin-knowledge-centre-south-slavic-languages-classla",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-zrinka-kolakovic",
-        "website_language": [
-            "Slovenian",
-            "Slovene",
-            "Croatian",
-            "Bosnian",
-            "Serbian",
-            "Montenegrin",
-            "Macedonian",
-            "Bulgarian"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            4,
-            5,
-            15,
-            20,
-            22
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            9,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 15,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Computer scientists",
-            "Linguists",
-            "Historians",
-            "Language teachers",
-            "Library staff",
-            "Sociolinguists",
-            "Sociologists",
-            "Programmers",
-            "Archivists",
-            "Citizen scientists"
-        ],
-        "competence": "Knowledge about text and speech processing of Belarusian and other languages; Knowledge about Belarusian language learning; - Tools and resources for text and speech processing for Belarusian and other languages",
-        "data_types": [
-            "Dictionaries",
-            "Language models",
-            "Term banks (UDC Codes)",
-            "Typological databases",
-            "Dialectological Maps"
-        ],
-        "generic_topics": [
-            "Language use in specific domains (a legal document translation, UDC classification for libraries)",
-            "Working with maps"
-        ],
-        "keywords": [
-            "Online platform",
-            "Natural language processing"
-        ],
-        "language_processing_spec": [
-            "Speech synthesis",
-            "Speech recognition (word, intonation, emotion, pathology)",
-            "Text generation",
-            "Characters and Words counting",
-            "Information extraction",
-            "Language generation",
-            "Language understanding",
-            "Machine translation",
-            "Processing of morphologically rich languages",
-            "Summarization",
-            "Text mining",
-            "Word sense disambiguation",
-            "Basic language processing",
-            "Dictionary Processing",
-            "Lemmatization",
-            "Part-of-Speech Tagging",
-            "Spell-checking",
-            "Transliteration (Convert from Cyrillic to Latin letters)",
-            "Homograph Identification",
-            "Machine translation"
-        ],
-        "linguistic_topics": [
-            "Applied linguistics",
-            "Dialect studies",
-            "Field linguistics",
-            "Language learning",
-            "Lexical studies",
-            "Morphology",
-            "Phonetics",
-            "Phonology",
-            "Syntax",
-            "Pragmatics",
-            "Semantics",
-            "Terminology",
-            "Translation studies"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-159",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            "Belarusian"
-        ],
-        "centre_fk": null,
-        "status_fk": 2,
-        "resource_families_fks": [
-            10,
-            19
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            6,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 16,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Language Technology developers",
-            "Language teachers",
-            "Linguists",
-            "Philologists",
-            "Sign language community",
-            "Political scientists",
-            "Social Scientists",
-            "Digital humanists"
-        ],
-        "competence": "CLARIN K-Centre NLP:EL is an information service offering expertise and advice on (a) Language Technology for Greek, (b) on the issue of digital readiness of Greek (i.e. how ready is Greek for the digital age, as regards digital resources and language processing tools), and (c) on Greek Sign Language. It provides guidance for the development and annotation of language resources, for the findability, accessibility and use of existing language processing tools and web services, for the development of new technologies for language processing, as well as useful information and support regarding the fields of dynamic sign language synthesis, and special communication and interaction interfaces.;\nNLP:EL provides its services through two channels: it operates a helpdesk where users can address questions concerning the above issues. Besides responding to questions on these topics, it also provides informative material and documentation relevant to these issues; this material includes (but is not limited to) (i) scientific publications and presentations on Natural Language Processing (NLP) research and applications for Greek and Greek sign language, (ii) guides and tutorials on language processing tools and services for Greek and Greek sign language, (iii) direct connection to the specialized Sign Language Technologies website and (iv) direct connection to the CLARIN:EL infrastructure, where the users can find a catalogue of digital language resources and language processing tools, more detailed information and further training and dissemination material.",
-        "data_types": [
-            "Translation memories",
-            "Term banks",
-            "Treebanks",
-            "Lexical conceptual resources",
-            "Dictionaries",
-            "Ontologies",
-            "Thesauri",
-            "Language models"
-        ],
-        "generic_topics": [
-            ""
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Language processing",
-            "Processing of morphologically rich languages",
-            "Information extraction",
-            "Named entity recognition",
-            "Text mining",
-            "Machine translation",
-            "Sign language technologies",
-            "Speech recognition",
-            "Speech synthesis"
-        ],
-        "linguistic_topics": [
-            "Lexicography",
-            "Morphology",
-            "Syntax",
-            "Terminology",
-            "Corpus linguistics"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-158",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/nlpel-knowledge-centre-greek",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-titika-dimitroulia",
-        "website_language": [
-            "Greek",
-            "Greek sign language"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            4,
-            8,
-            15,
-            20
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            6,
-            10
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 17,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "Sociolinguists",
-            "Language teachers",
-            "Computational linguists",
-            "Literature",
-            "Language diachrony"
-        ],
-        "competence": "Corpus linguistics with a special focus on the French language and the languages of France",
-        "data_types": [
-            "Text",
-            "TEI",
-            "Spoken language",
-            "Video"
-        ],
-        "generic_topics": [
-            "Legal issues"
-        ],
-        "keywords": [
-            "Continuous education"
-        ],
-        "language_processing_spec": [
-            "Corpus format and tools for creating and analysis corpora"
-        ],
-        "linguistic_topics": [
-            "Format and tools for corpus studies",
-            "Multilingual, multimodal corpora"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-160",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-french-clarin-knowledge-centre-corli-corpora-languages-and-interaction",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-thomas-gaillat",
-        "website_language": [
-            "French"
-        ],
-        "centre_fk": 27,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            6
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 18,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Linguists",
-            "Language teachers",
-            "Sociologists",
-            "Citizen scientists"
-        ],
-        "competence": "The CLARIN Knowledge Centre for Computer-Mediated Communication and Social Media offers expertise on language resources and technologies for Computer-Mediated Communication and Social Media. Its basic activities are to (1) give researchers, students, and other interested parties information about the available resources, technologies, and community activities, (2) support interested parties in producing, modifying or publishing relevant resources and technologies and (3) organize training activities.",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            "Data management",
-            "Legal issues",
-            "Ethical issues",
-            "Standards"
-        ],
-        "keywords": [
-            "Qualitative and quantitative linguistic analyses",
-            "Processing of non-standard language (learner language and web corpora)"
-        ],
-        "language_processing_spec": [
-            "Corpus data representation",
-            "Basic natural language processing",
-            "Proper data deposition"
-        ],
-        "linguistic_topics": [
-            "Morphology",
-            "Syntax",
-            "Semantics",
-            "Stylistics"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-162",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            20
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            3,
-            5,
-            8,
-            9,
-            10
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 19,
-    "fields": {
-        "audiences": [
-            "Digital philologists",
-            "Computational philologists",
-            "Scholars in literary studies",
-            "Art historians",
-            "Cultural heritage scholars",
-            "Computational Linguists"
-        ],
-        "competence": "The CLARIN Knowledge Centre for Digital and Public Textual Scholarship offers expertise on methods, data, instruments and technologies relevant in the field of Philological and Literary Studies, History, Art History and Cultural Heritage. Its actions aim at 1) sharing information with scholars and students about the state of the art in digital scholarly editing and text annotation through Domain-Specific Languages; 2) supporting scholars and students in the creation and publication of digital scholarly editions and resources; 3) organizing training activities (for example webinars, workshops, and summer schools).",
-        "data_types": [
-            "XML-TEI encoded documents",
-            "Treebanks",
-            "Wordnets",
-            "Dictionaries",
-            "Ontologies"
-        ],
-        "generic_topics": [
-            "Text encoding",
-            "Linked Open Data",
-            "Domain-Specific Languages"
-        ],
-        "keywords": [
-            "Data modeling in the domain of philological and literary studies",
-            "Software engineering in the domain of philological and literary studies"
-        ],
-        "language_processing_spec": [
-            "Automated text encoding",
-            "Information extraction",
-            "Domain-Specific Language parsing"
-        ],
-        "linguistic_topics": [
-            "Text encoding",
-            "Phonology",
-            "Morphology",
-            "Syntax",
-            "Semantics",
-            "Lexicography"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-165",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            4,
-            5,
-            6,
-            8,
-            10,
-            11,
-            14
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            3,
-            4,
-            5,
-            9
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 20,
-    "fields": {
-        "audiences": [
-            "linguists",
-            "psychologists",
-            "neuroscientists",
-            "computer scientists",
-            "speech and language therapists",
-            "education specialists"
-        ],
-        "competence": "Atypical communication encompasses language and speech as encountered during (second) language acquisition and development, and in language disorders, but also more broadly in bilingual language development and in sign language. ACE is specialised in this type of research and concomitant infrastructural issues related to data acquisition, processing and sharing, which is typically highly characterised by sensitivity issues. For data storage and access the centre collaborates with MPI's TLA (The Language Archive) which is a CLARIN B Centre and also based in Nijmegen. We publish in English and Dutch but have expertise in many European languages.",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            "Critical Data Management",
-            "Legal and ethical issues"
-        ],
-        "keywords": [
-            "Language acquisition",
-            "sign language",
-            "language pathologies"
-        ],
-        "language_processing_spec": [
-            ""
-        ],
-        "linguistic_topics": [
-            "Language acquisition (L1 and L2)",
-            "language disorders",
-            "Language learning"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-154",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-knowledge-centre-atypical-communication-expertise",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-katarzyna-klessa-and-anita-lorenc",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            6,
-            7,
-            9,
-            14,
-            16,
-            23
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            5,
-            9,
-            12,
-            14,
-            16,
-            17
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 21,
-    "fields": {
-        "audiences": [
-            "Researchers",
-            "Innovators",
-            "Citizen scientists",
-            "Students",
-            "Language professionals",
-            "Users in general whose activities resort to research results from the Science and Technology of Language"
-        ],
-        "competence": "The Science and Technology of the Portuguese Language is the thematic area of this CLARIN Knowledge Centre. Related to the Portuguese language, it covers all topics, from Phonetics to Discourse and Dialogue, considering all language functions, from communicative performance to cultural expression, approached by all disciplines, from Theoretical Linguistics to Language Technology, covering all language variants, from national standard varieties across the world to dialects of professional groups, taking into account all media of representation, from audio to brain imageology recordings.",
-        "data_types": [
-            "Corpora, written, spoken and multi-modal",
-            "Word embeddings",
-            "Language models",
-            "Dictionaries",
-            "Ontologies",
-            "Term banks",
-            "Translation memories",
-            "Treebanks",
-            "Typological databases",
-            "Wordnets",
-            "Lexica",
-            "Conceptual Resources",
-            "Glossaries",
-            "Wordlists",
-            "Speech databases",
-            "Multi-modal databases"
-        ],
-        "generic_topics": [
-            "Data management",
-            "Ethical issues",
-            "Evaluation of tools",
-            "Language use in specific domains (e.g. legal or medical language)",
-            "Legal issues",
-            "Metadata",
-            "Standards",
-            "Visualisation"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Language understanding",
-            "Language generation",
-            "Speech recognition and transcription",
-            "Speech synthesis",
-            "Muliti-modal processing",
-            "Information extraction",
-            "Text mining",
-            "Conversational interfaces and chatbots",
-            "Machine translation",
-            "Summarization",
-            "Question answering",
-            "Subtitling",
-            "Tokenization",
-            "POS tagging",
-            "Named entity recognition",
-            "Word sense disambiguation",
-            "Syntactic analysis",
-            "Semantic analysis",
-            "Anaphora resolution",
-            "Dialogue processing",
-            "Speaker detection"
-        ],
-        "linguistic_topics": [
-            "Anthropological Linguistics",
-            "Applied Linguistics",
-            "Clinical Linguistics",
-            "Cognitive Science",
-            "Computational Linguistics",
-            "Discipline of Linguistics",
-            "Discourse Analysis",
-            "Forensic Linguistics",
-            "General Linguistics",
-            "Genetic Classification",
-            "Historical Linguistics",
-            "History of Linguistics",
-            "Language Acquisition",
-            "Language Documentation",
-            "Lexicography",
-            "Linguistic Theories",
-            "Morphology",
-            "Neurolinguistics",
-            "Philosophy of Language",
-            "Phonetics",
-            "Phonology",
-            "Pragmatics",
-            "Psycholinguistics",
-            "Semantics",
-            "Sociolinguistics",
-            "Syntax",
-            "Text/Corpus Linguistics",
-            "Translation",
-            "Typology",
-            "Writing Systems"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-155",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-portugal",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-pilar-barbosa",
-        "website_language": [
-            "Portuguese"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            4,
-            5,
-            7,
-            8,
-            9,
-            13,
-            14,
-            15,
-            20,
-            21,
-            24
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            5,
-            14
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 22,
-    "fields": {
-        "audiences": [
-            "scholars",
-            "source communities",
-            "linguists",
-            "ethnomusicologists",
-            "social / cultural anthropologists",
-            "historians",
-            "archivists",
-            "audio-visual conservators",
-            "museums",
-            "media",
-            "artists",
-            "teachers"
-        ],
-        "competence": "As an audio and audio-visual archive with numerous collections of unique research recordings from all across the world, covering a time-span of 120 years, the Phonogrammarchiv offers various services: Besides providing access to its rich data and metadata resources (remote & onsite), it advises scholars on audio-visual research methodology in the social sciences & humanities and on technologies of audio and audio-visual documentation, supporting them with necessary recording equipment. In addition, it widely shares its broad expertise on topics such as restoration, digitisation, format obsolescence, cataloguing, metadata, long-term preservation and storage.",
-        "data_types": [
-            "audio data",
-            "audio-visual data"
-        ],
-        "generic_topics": [
-            "physical restoration of audio-visual media",
-            "digitisation of audio-visual media",
-            "format migration of audio-visual media",
-            "metadata of audio-visual media",
-            "long-term preservation & storage of audio-visual data",
-            "audio-visual fieldwork & documentation",
-            "legal issues",
-            "ethical issues",
-            "data management"
-        ],
-        "keywords": [
-            "ethnomusicology",
-            "musicology",
-            "linguistics",
-            "field linguistics",
-            "social / cultural anthropology",
-            "history",
-            "African studies",
-            "conservation",
-            "postcolonial studies",
-            "sound studies"
-        ],
-        "language_processing_spec": [
-            ""
-        ],
-        "linguistic_topics": [
-            "field linguistics",
-            "dialect studies",
-            "corpus linguistics",
-            "language documentation",
-            "oral history"
-        ],
-        "pid": "http://hdl.handle.net/11372/DOC-113",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-phonogrammarchiv-austrian-academy-sciences-clarin-knowledge-centre",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-beate-eder-jordan",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            9
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            5,
-            18
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 23,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Computer scientists",
-            "Language teachers"
-        ],
-        "competence": "SAFMORIL brings together researchers and developers in the area of computational morphology and its Natural language processing applications. The focus of SAFMORIL is actual, working systems and frameworks based on linguistic principles providing linguistically motivated analyses and generation outputs. Such systems are relevant in particular for languages with rich morphologies. SAFMORIL offers online courses for developing morphologies, tokenizers and spell-checkers, and a repository for storing morphologies.",
-        "data_types": [
-            "Lexical resources containing inflectional, derivational and compounding information",
-            "morphosyntactic grammars",
-            "language models",
-            "Morphological Lexicons",
-            "Grammars"
-        ],
-        "generic_topics": [
-            "Finite-State Applications",
-            "Statistical Methods",
-            "Neural Networks"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Processing of morphologically rich languages"
-        ],
-        "linguistic_topics": [
-            "Morphology",
-            "Morphosyntax"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-156",
-        "tour_de_clarin_interview": "https://www.clarin.eu/blog/tour-de-clarin-clarin-knowledge-centre-systems-and-frameworks-morphologically-rich-languages",
-        "tour_de_clarin_intro": "https://www.clarin.eu/blog/tour-de-clarin-interview-jack-rueter",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            4,
-            5
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 24,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "field linguists",
-            "typologists",
-            "language communities of endangered languages"
-        ],
-        "competence": "The CLARIN Knowledge-Centre for linguistic diversity and language documentation offers expertise on data and data-related methods, technology and background information on language resources and tools to researchers - including students and native speakers. CKLD provides information and assistance relating to fieldwork and data-related methodological aspects and in particular relating to equipment, digital tools, methods, where to find data and information, whom to contact for specialist information on particular regions or language families.",
-        "data_types": [
-            "audio-visual collections",
-            "typological databases"
-        ],
-        "generic_topics": [
-            "linguistic fieldwork",
-            "endangered languages",
-            "language typology"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            ""
-        ],
-        "linguistic_topics": [
-            "language documentation",
-            "linguistic typology",
-            "linguistic fieldwork"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-142",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            9,
-            10,
-            14,
-            25
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            4,
-            5,
-            6
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 25,
-    "fields": {
-        "audiences": [
-            "Computational linguists",
-            "Linguists",
-            "Language teachers",
-            "Historians",
-            "Library staff",
-            "Sociologists",
-            "Students",
-            "Citizen scientists"
-        ],
-        "competence": "K-Dutch is the place for researchers who want to find out more about the Dutch language: linguistic properties, language advice, available tools and resources, etymology, dialects and many other things. K-Dutch is hosted by the Instituut voor de Nederlandse Taal (Dutch Language Institute), which is also a CLARIN-B centre and host of many tools, lexica and corpora for Dutch, which are, in general, freely available.",
-        "data_types": [
-            "Language models",
-            "Dictionaries / Lexica",
-            "Treebanks",
-            "Wordnets",
-            "Linked open data",
-            "Ontologies",
-            "Termbanks"
-        ],
-        "generic_topics": [
-            "Artificial intelligence",
-            "Natural language processing",
-            "Machine learning",
-            "Data mining",
-            "Lexicography",
-            "Linked data"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Basic language processing (spell check, pos-tagging, lemmatisation)",
-            "Deep parsing",
-            "Information extraction",
-            "Machine translation",
-            "Processing of historical variants of Dutch",
-            "Speech recognition",
-            "Speech synthesis",
-            "Text mining",
-            "Terminology extraction",
-            "Corpus querying",
-            "Treebank querying"
-        ],
-        "linguistic_topics": [
-            "Morphology",
-            "Syntax",
-            "Semantics",
-            "Language learning",
-            "Translation studies",
-            "Diachronic language studies",
-            "Phonology",
-            "Terminology",
-            "Dialectology",
-            "Lexicography",
-            "Natural Language Processing"
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-163",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            "Dutch"
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            13,
-            14,
-            15,
-            20,
-            21,
-            24,
-            25
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            9,
-            10,
-            12
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 26,
-    "fields": {
-        "audiences": [
-            "Researchers",
-            "Students",
-            "Social and humanities scientists",
-            "Teachers",
-            "General public",
-            "Citizen scientists",
-            "Journalists",
-            "Politicians"
-        ],
-        "competence": "Provides expertise in open data, data management, data sharing, data access, data archiving, and legal and ethical issues related to data protection and GDPR. Sikt has extensive data collections focusing on social sciences, humanities and medical and health research, and offers online services to make it easier to find and share research data.",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            "Data archiving",
-            "Data curation",
-            "Data management",
-            "Data management planning",
-            "Legal and ethical issues",
-            "GDPR",
-            "Data dissemination",
-            "Metadata",
-            "Survey data"
-        ],
-        "keywords": [
-            "Data Protection Service",
-            "Training"
-        ],
-        "language_processing_spec": [
-            ""
-        ],
-        "linguistic_topics": [
-            ""
-        ],
-        "pid": "https://hdl.handle.net/11372/DOC-146",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            1
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            4,
-            9,
-            10,
-            19,
-            20,
-            21,
-            22,
-            23
-        ]
-    }
-},
-{
-    "model": "centre_registry.kcentre",
-    "pk": 27,
-    "fields": {
-        "audiences": [
-            "Linguists",
-            "Language teachers",
-            "Computational linguists",
-            "Language learners",
-            "Citizen scientists"
-        ],
-        "competence": "The CLARIN Knowledge Centre for Learner Corpora offers advice and training services on the collection and use of learner corpora (i.e. electronic collections of language data produced by second or foreign language learners) for theoretical and applied purposes.",
-        "data_types": [
-            ""
-        ],
-        "generic_topics": [
-            "Ethical issues",
-            "Metadata"
-        ],
-        "keywords": [
-            ""
-        ],
-        "language_processing_spec": [
-            "Part-of-speech tagging",
-            "Parsing",
-            "Measuring readabity",
-            "Automatic annotation",
-            "Natural language processing"
-        ],
-        "linguistic_topics": [
-            "Applied linguistics",
-            "Corpus linguistics",
-            "Second language acquisition",
-            "Computational linguistics",
-            "Translation studies",
-            "Language variation",
-            "Learner corpus design",
-            "Learner corpus compilation",
-            "Spoken data transcription",
-            "Manual annotation",
-            "Learner corpus research",
-            "Discourse",
-            "Phraseology",
-            "Linguistic complexity"
-        ],
-        "pid": "",
-        "tour_de_clarin_interview": "",
-        "tour_de_clarin_intro": "",
-        "website_language": [
-            ""
-        ],
-        "centre_fk": null,
-        "status_fk": 1,
-        "resource_families_fks": [
-            8,
-            9,
-            13,
-            14,
-            15,
-            20,
-            21,
-            24
-        ],
-        "secondary_hosts_fks": [],
-        "service_type_fk": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            9,
-            10,
-            14,
-            24
-        ]
     }
 },
 {

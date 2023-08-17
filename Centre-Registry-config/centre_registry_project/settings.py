@@ -31,13 +31,17 @@ MANAGERS = ADMINS
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
-        'TEST': {
-            'NAME': 'mytestdatabase',
-        },
-    },
+        'ENGINE': 'django.db.backends.postgresql',
+        "HOST": "localhost",
+        "USER": "cr",
+        "PASSWORD": "",
+        "NAME": "cr",
+        "PORT": "5432",
+    }
 }
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+]
 TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
@@ -98,7 +102,7 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
                   'django_extensions',
-                  'centre_registry', )
+                  'centre_registry')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

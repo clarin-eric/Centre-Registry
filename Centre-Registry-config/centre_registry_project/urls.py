@@ -1,15 +1,14 @@
 from centre_registry import views_api
 from centre_registry import views_ui
-from django.urls import include, re_path
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import re_path
 
 admin.autodiscover()
 admin.site.site_header = settings.ADMIN_TITLE
 
 urlpatterns = [  # pylint: disable=invalid-name
-    path('admin/', admin.site.urls),
+    re_path('admin/', admin.site.urls),
 
     # REST API v1.
     re_path(r'^restxml/$', views_api.get_all_centres),
