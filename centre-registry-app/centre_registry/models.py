@@ -266,6 +266,88 @@ class Centre(Model):
         verbose_name_plural = 'centres'
 
 
+class KCentreServiceType(Model):
+    service_type = CharField(verbose_name='KCentre service type', max_length=200, unique=True)
+
+    class Meta:
+        verbose_name = 'Service type'
+        verbose_name_plural = 'Service types'
+
+    def __unicode__(self):
+        return '{service_type:s}'.format(service_type=self.service_type)
+
+    def __str__(self):
+        return self.__unicode__()
+
+
+class ResourceFamily(Model):
+    resource_family = CharField(verbose_name='Resource family', max_length=200, unique=True)
+
+    class Meta:
+        verbose_name = 'Resource family'
+        verbose_name_plural = 'Resource families'
+
+    def __unicode__(self):
+        return '{resource_family:s}'.format(resource_family=self.resource_family)
+
+    def __str__(self):
+        return self.__unicode__()
+
+
+class KCentreStatus(Model):
+    status = CharField(verbose_name='Status', max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'KCentre status'
+        verbose_name_plural = 'KCentre statuses'
+
+    def __unicode__(self):
+        return '{status:s}'.format(status=self.status)
+
+    def __str__(self):
+        return self.__unicode__()
+
+
+class KCentre(Model):
+    audiences = ArrayField(base_field=CharField(), verbose_name='Audience list')
+    competence = CharField(verbose_name='Competence description', max_length=2000)
+    data_types = ArrayField(base_field=CharField(), verbose_name='Data types') # FK? not many uniques
+    generic_topics = ArrayField(base_field=CharField(), verbose_name='Generic topics') # rather not FK, many uniques
+    keywords = ArrayField(base_field=CharField(), verbose_name='Keywords') # sparsely populated, shdn't be mandatory? FK?
+    language_processing_spec = ArrayField(base_field=CharField(), verbose_name='Language processing specifics') # Confirm naming
+    linguistic_topics = ArrayField(base_field=CharField(), verbose_name='Linguistic topics')
+    pid = URLField(verbose_name='PID', unique=True)
+    tour_de_clarin_interview = URLField(verbose_name='TdC interview URL')
+    tour_de_clarin_intro = URLField(verbose_name='TdC intro URL')
+    website_language = ArrayField(base_field=CharField(), verbose_name='Website language') # FK to some ISO693-3 set of langs?
+
+    # FK's
+    centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
+    resource_families_fks = ManyToManyField(to=ResourceFamily, related_name='resource_families')
+    secondary_hosts_fks = ManyToManyField(to=Organisation, related_name='secondary_hosts')
+    service_type_fk = ManyToManyField(to=KCentreServiceType, related_name='service_types')
+    status_fk = ForeignKey(KCentreStatus, related_name='kcentre_status', on_delete=PROTECT)
+
+    def __unicode__(self):
+        if self.centre_fk is not None:
+            return '{centre_name:s}'.format(centre_name=self.centre_fk.name)
+        else:
+            return "None"
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        verbose_name = 'k-centre'
+        verbose_name_plural = 'k-centres'
+
+
+class KCentreFormQueue(KCentre):
+    submission_date = DateTimeField(verbose_name='Form submission date', auto_now_add=True)
+    review_date = DateTimeField(verbose_name='Form review date', blank=True, null=True)
+    comment = CharField(verbose_name='Comment', max_length=2000)
+
+
 class URLReference(Model):
     """
     A web refereweb_servicence (URL) with description.
