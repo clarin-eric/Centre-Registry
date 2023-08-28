@@ -21,7 +21,7 @@ def forwards(apps, schema_editor):
     ResourceFamilyModel = apps.get_model("centre_registry", "ResourceFamily")
     SEP = ';'
 
-    kcentres_df = pandas.read_csv("/kcentres.csv", sep='#')
+    kcentres_df = pandas.read_csv("/home/gawor/Documents/clarin_projects/Centre-Registry/kcentres.csv", sep='#')
     kcentres_df = kcentres_df.fillna('')
     for _, row in kcentres_df.iterrows():
         service_types_strs = row["ServiceTypes"].split(sep=SEP)

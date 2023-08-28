@@ -91,7 +91,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='kcentre',
-            name='service_type_fk',
+            name='service_type_fks',
             field=models.ManyToManyField(related_name='service_types', to='centre_registry.kcentreservicetype'),
         ),
         migrations.AddField(
