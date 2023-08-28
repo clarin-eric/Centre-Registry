@@ -88,7 +88,7 @@ def forwards(apps, schema_editor):
             status_fk=status,
         )
         kcentre.save()
-        kcentre.service_type_fk.set(service_types_objs)
+        kcentre.service_type_fks.set(service_types_objs)
         kcentre.resource_families_fks.set(resource_families_objs)
         kcentre.save()
 
