@@ -8,7 +8,7 @@ admin.autodiscover()
 admin.site.site_header = settings.ADMIN_TITLE
 
 urlpatterns = [  # pylint: disable=invalid-name
-    re_path('admin/', admin.site.urls),
+    re_path(r'admin/', admin.site.urls),
 
     # REST API v1.
     re_path(r'^restxml/$', views_api.get_all_centres),
@@ -22,6 +22,7 @@ urlpatterns = [  # pylint: disable=invalid-name
     re_path(r'^$', views_ui.get_all_centres),
     re_path(r'^centre/(?P<centre_id>\d+)$', views_ui.get_centre),
     re_path(r'^all_centres$', views_ui.get_all_centres),
+    re_path(r'^all_kcentres$', views_ui.get_all_kcentres),
     re_path(r'^about$', views_ui.get_about),
     re_path(r'^contacting$', views_ui.get_contacting),
     re_path(r'^contact/(?P<contact_id>\d+)$', views_ui.get_contact),

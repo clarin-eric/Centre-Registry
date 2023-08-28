@@ -80,7 +80,6 @@ TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
 #     'django.contrib.auth.context_processors.auth',
 #     'centre_registry.context_processors.tracked_by_piwik',
 #     'centre_registry.context_processors.version', )
-FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -103,6 +102,7 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
+                  'django.contrib.postgres',
                   'django_extensions',
                   'centre_registry')
 LOGGING = {

@@ -91,10 +91,6 @@ class AssessmentDateAdmin(admin.ModelAdmin):
         return {}
 
 
-class KCentreAdmin(admin.ModelAdmin):
-    form = KCentreForm
-
-
 # class KCentreCentreInline(admin.ModelAdmin):
 #     form = CentreInlineFormSet
 
@@ -108,7 +104,7 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
-admin.site.register(KCentre, KCentreAdmin)
+admin.site.register(KCentre)
 admin.site.register(KCentreServiceType)
 admin.site.register(KCentreStatus)
 admin.site.register(FCSEndpoint)
