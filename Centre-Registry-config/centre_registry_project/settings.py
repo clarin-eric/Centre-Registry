@@ -28,7 +28,7 @@ ADMINS = ('CLARIN ERIC sysops', 'sysops@clarin.eu')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ADMIN_TITLE = "Centre Registry administration"
 MANAGERS = ADMINS
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -80,6 +80,8 @@ TEMPLATE_LOADERS = ('django.template.loaders.app_directories.Loader', )
 #     'django.contrib.auth.context_processors.auth',
 #     'centre_registry.context_processors.tracked_by_piwik',
 #     'centre_registry.context_processors.version', )
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',

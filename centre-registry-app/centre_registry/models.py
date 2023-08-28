@@ -16,8 +16,6 @@ from django.db.models import DateField
 from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
 
 
-
-
 def parse_decimal_degree(degree):
     """
     Extracts a float decimal degree from a string.
@@ -315,7 +313,9 @@ class KCentre(Model):
     generic_topics = ArrayField(base_field=CharField(), verbose_name='Generic topics') # rather not FK, many uniques
     keywords = ArrayField(base_field=CharField(), verbose_name='Keywords') # sparsely populated, shdn't be mandatory? FK?
     language_processing_spec = ArrayField(base_field=CharField(), verbose_name='Language processing specifics') # Confirm naming
+    languages_processed = ArrayField(base_field=CharField(), verbose_name='Languages processed')
     linguistic_topics = ArrayField(base_field=CharField(), verbose_name='Linguistic topics')
+    modalities = ArrayField(base_field=CharField(), verbose_name="Modalities")
     pid = URLField(verbose_name='PID', unique=True)
     tour_de_clarin_interview = URLField(verbose_name='TdC interview URL')
     tour_de_clarin_intro = URLField(verbose_name='TdC intro URL')
@@ -325,12 +325,12 @@ class KCentre(Model):
     centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
     resource_families_fks = ManyToManyField(to=ResourceFamily, related_name='resource_families')
     secondary_hosts_fks = ManyToManyField(to=Organisation, related_name='secondary_hosts')
-    service_type_fk = ManyToManyField(to=KCentreServiceType, related_name='service_types')
+    service_type_fks = ManyToManyField(to=KCentreServiceType, related_name='service_types')
     status_fk = ForeignKey(KCentreStatus, related_name='kcentre_status', on_delete=PROTECT)
 
     def __unicode__(self):
         if self.centre_fk is not None:
-            return '{centre_name:s}'.format(centre_name=self.centre_fk.name)
+            return self.centre_fk.__unicode__()
         else:
             return "None"
 

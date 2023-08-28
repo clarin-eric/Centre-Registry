@@ -3,17 +3,18 @@ from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
-# from centre_registry.models import KCentre
-# from centre_registry.models import KCentreServiceType
-# from centre_registry.models import KCentreStatus
+from centre_registry.models import KCentre
+from centre_registry.models import KCentreServiceType
+from centre_registry.models import KCentreStatus
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import OAIPMHEndpointSet
-# from centre_registry.models import Organisation
-# from centre_registry.models import ResourceFamily
+from centre_registry.models import Organisation
+from centre_registry.models import ResourceFamily
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
+from centre_registry.forms import KCentreForm
 from django.contrib import admin
 
 
@@ -90,6 +91,14 @@ class AssessmentDateAdmin(admin.ModelAdmin):
         return {}
 
 
+class KCentreAdmin(admin.ModelAdmin):
+    form = KCentreForm
+
+
+# class KCentreCentreInline(admin.ModelAdmin):
+#     form = CentreInlineFormSet
+
+
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
@@ -99,14 +108,14 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
-# admin.site.register(KCentre)
-# admin.site.register(KCentreServiceType)
-# admin.site.register(KCentreStatus)
+admin.site.register(KCentre, KCentreAdmin)
+admin.site.register(KCentreServiceType)
+admin.site.register(KCentreStatus)
 admin.site.register(FCSEndpoint)
-# admin.site.register(Organisation)
+admin.site.register(Organisation)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(OAIPMHEndpointSet)
-# admin.site.register(ResourceFamily)
+admin.site.register(ResourceFamily)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(URLReference)

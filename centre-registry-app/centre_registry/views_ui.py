@@ -6,6 +6,7 @@ from centre_registry.models import Centre
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
+from centre_registry.models import KCentre
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
@@ -27,6 +28,16 @@ def get_all_centres(request):
                                                    Centre.objects.all()})
     return render(
         request, template_name='UI/_all_centres.html', context=request_context.flatten())
+
+
+def get_all_kcentres(request):
+    request_context: RequestContext = RequestContext(request,
+                                                     {'view': 'all_kcentres',
+                                                      'all_kcentres':
+                                                          KCentre.objects.all()})
+
+    return render(
+        request, template_name='UI/_all_kcentres.html', context=request_context.flatten())
 
 
 def get_centre(request, centre_id):
