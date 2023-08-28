@@ -55,21 +55,35 @@ def forwards(apps, schema_editor):
         except Exception as e:
             centre = None
 
+        # prepare values, santitise empty strings
+        audiences = row['Audiences'].replace('\n', '').split(sep=SEP)
+        competence = row['CompetenceArea']
+        data_types = row['DataTypes'].replace('\n', '').split(sep=SEP)
+        generic_topics = row['GenericTopics'].replace('\n', '').split(sep=SEP)
+        keywords = row['KeyWords'].replace('\n', '').split(sep=SEP)
+        languages_processed = row['Languages'].replace('\n', '').split(sep=SEP)
+        language_processing_spec = row['LangProcessing'].replace('\n', '').split(sep=SEP)
+        lingustic_topics = row['LingTopics'].replace('\n', '').split(sep=SEP)
+        modalities = row['Modalities'].replace('\n', '').split(sep=SEP)
+        pid = row['PID']
+        tour_de_clarin_interview = row['TdCIntro']
+        tour_de_clarin_intro = row['TdCInterview']
+        website_language = row['PortalLang'].replace('\n', '').split(sep=SEP)
 
         kcentre = KCentreModel(
-            audiences=row['Audiences'].split(sep=SEP),
-            competence=row['CompetenceArea'],
-            data_types=row['DataTypes'].split(sep=SEP),
-            generic_topics=row['GenericTopics'].split(sep=SEP),
-            keywords=row['KeyWords'].split(sep=SEP),
-            languages_processed=row['Languages'],
-            language_processing_spec=row['LangProcessing'].split(sep=SEP),
-            linguistic_topics=row['LingTopics'].split(sep=SEP),
-            modalities=row['Modalities'].split(sep=SEP),
-            pid=row['PID'],
-            tour_de_clarin_interview=row['TdCIntro'],
-            tour_de_clarin_intro=row['TdCInterview'],
-            website_language=row['PortalLang'].split(sep=SEP),
+            audiences=audiences,
+            competence=competence,
+            data_types=data_types,
+            generic_topics=generic_topics,
+            keywords=keywords,
+            languages_processed=languages_processed,
+            language_processing_spec=language_processing_spec,
+            linguistic_topics=lingustic_topics,
+            modalities=modalities,
+            pid=pid,
+            tour_de_clarin_interview=tour_de_clarin_interview,
+            tour_de_clarin_intro=tour_de_clarin_intro,
+            website_language=website_language,
             centre_fk=centre,
             status_fk=status,
         )
