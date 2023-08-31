@@ -36,7 +36,7 @@ def forwards(apps, schema_editor):
             resource_family_obj, _ = ResourceFamilyModel.objects.get_or_create(resource_family=resource_family_str)
             resource_families_objs.append(resource_family_obj)
 
-        status_str = row["Status"].split(sep=SEP)
+        status_str = row["Status"]
         status, _ = KCentreStatusModel.objects.get_or_create(status=status_str)
 
         centre = None
