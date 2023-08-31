@@ -45,7 +45,6 @@ def forwards(apps, schema_editor):
             centre_id = int(centre_id)
         except ValueError:
             centre_id = None
-        logger.critical(f"DEBUG Centre ID {centre_id}")
         # REMOVE TRY CATCH FOR PRODUCTION MIGRATION, NO FIXTURES GENERATED FOR NEW MODELS YET
         try:
             if centre_id is not None:
@@ -69,6 +68,12 @@ def forwards(apps, schema_editor):
         tour_de_clarin_interview = row['TdCIntro']
         tour_de_clarin_intro = row['TdCInterview']
         website_language = row['PortalLang'].replace('\n', '').split(sep=SEP)
+
+        logger.critical(f"#################################################")
+        logger.critical(f"DEBUG LANGS {languages_processed}")
+        logger.critical(f"DEBUG LANGPROC {language_processing_spec}")
+        logger.critical(f"DEBUG AUDIENCE {audiences}")
+        logger.critical(f"_________________________________________________")
 
         kcentre = KCentreModel(
             audiences=audiences,

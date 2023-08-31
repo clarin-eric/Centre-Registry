@@ -48,7 +48,23 @@ def get_centre(request, centre_id):
                   'url_references':
                       URLReference.objects.filter(centre__pk=centre.pk)})
     return render(
-        request, template_name='UI/_centre.html', context=request_context.flatten())
+        request,
+        template_name='UI/_centre.html',
+        context=request_context.flatten())
+
+
+def get_kcentre(request, kcentre_id):
+    kcentre = get_object_or_404(KCentre, pk=kcentre_id)
+    centre = kcentre.centre_fk
+    request_context = RequestContext(
+        request, {'view': 'kcentre',
+                  'centre': centre,
+                  'kcentre': kcentre}
+    )
+    return render(
+        request,
+        template_name='UI/_kcentre.html',
+        context=request_context.flatten())
 
 
 def get_centres_contacts(request):
@@ -66,7 +82,9 @@ def get_consortia(request):
                                                'consortia':
                                                    Consortium.objects.all()})
     return render(
-        request, template_name='UI/_consortia.html', context=request_context.flatten())
+        request,
+        template_name='UI/_consortia.html',
+        context=request_context.flatten())
 
 
 def get_contact(request, contact_id):
