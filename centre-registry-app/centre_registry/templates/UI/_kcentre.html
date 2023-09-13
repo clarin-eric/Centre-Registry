@@ -1,0 +1,96 @@
+{% extends 'UI/_.html' %}
+{% block content %}
+    <div class="content">
+    <h1> {{ centre.name }} </h1>
+    <table id='centre'>
+        <tr>
+            <th>Audiences</th>
+            <td>
+                {% for audience in kcentre.audiences %}
+                    {{ audience }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Competence</th>
+            <td>
+                {{ kcentre.competence }}
+            </td>
+        </tr>
+        <tr>
+            <th>Data types</th>
+            <td>
+                {% for data_type in kcentre.data_types %}
+                    {{ data_type }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Generic topics</th>
+            <td>
+                {% for topic in kcentre.generic_topics %}
+                    {{ topic }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Keywords</th>
+            <td>
+                {% for keyword in kcentre.keywords %}
+                    {{ keyword }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Languages processing specialisation</th>
+            <td>
+                {% for lang_spec in kcentre.language_processing_spec %}
+                    {{ lang_spec }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Languages processed</th>
+            <td>
+                {% for lang_proc in kcentre.languages_processed %}
+                    {{ lang_proc }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Modalities</th>
+            <td>
+                {% for modality in kcentre.modalities %}
+                    {{ modality }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>PID</th>
+            <td>
+                {{ kcentre.pid }}
+            </td>
+        </tr>
+        <tr>
+            <th><div class="tooltip">TdC<span class="tooltiptext">Tour de Clarin</span></div> Interview</th>
+            <td>
+                {{ kcentre.tour_de_clarin_interview }}
+            </td>
+        </tr>
+        <tr>
+            <th><div class="tooltip">TdC<span class="tooltiptext">Tour de Clarin</span></div> Intro</th>
+            <td>
+                {{ kcentre.tour_de_clarin_intro }}
+            </td>
+        </tr>
+        <tr>
+            <th>Website Languages</th>
+            <td>
+                {% for website_lang in kcentre.website_language %}
+                    {{ website_lang }}{% if not forloop.last %};<br>{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    </div>
+{% endblock %}

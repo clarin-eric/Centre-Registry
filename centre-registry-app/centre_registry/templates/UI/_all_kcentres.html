@@ -1,0 +1,75 @@
+{% extends 'UI/_.html' %}
+{% block title %}K-Centres{% endblock title %}
+{% block content %}
+    <div class='table-reponsive'>
+        <table id='all_kcentres'
+               class='datatables-table stripe order-column row-border'>
+            <thead>
+                <tr>
+                    <th>KCentre</th>
+                    <th>Shorthand</th>
+                    <th>Status</th>
+                    <th>Target Audiences</th>
+                    <th>Service Types</th>
+                    <th>Generic Topics</th>
+                    <th>Languages</th>
+                    <th>Language Processing Specialisation</th>
+                    <th>Linguistic Topics</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for kcentre in all_kcentres %}
+                    <tr>
+                        <td>
+                            <a href='/kcentre/{{ kcentre.id }}'>{{ kcentre.centre_fk.name }}</a>
+                        </td>
+                        <td>
+                            {% if kcentre.centre_fk.website_url %}<a href='{{ kcentre.centre_fk.website_url }}'>{% endif %}
+                            {{ kcentre.centre_fk.shorthand }}
+                            {% if kcentre.centre_fk.website_url %}</a>{% endif %}
+                        </td>
+                        <td>
+                            {{ kcentre.status_fk }}
+                        </td>
+                        <td>
+                            {% for audience in kcentre.audiences %}
+                                {{ audience }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for service_type in kcentre.service_type_fks.all %}
+                                {{ service_type }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for generic_topic in kcentre.generic_topics %}
+                                {{ generic_topic }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for language in kcentre.languages_processed %}
+                                {{ language }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for language_spec in kcentre.language_processing_spec %}
+                                {{ language_spec }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for ling_topic in kcentre.linguistic_topics %}
+                                {{ ling_topic }}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
