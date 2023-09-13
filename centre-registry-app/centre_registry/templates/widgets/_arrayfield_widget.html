@@ -1,0 +1,16 @@
+// Dynamic array input for centre_registry.widgets.ArrayFieldInputWidget
+// Shamelessly copied and parametrised based on:
+// https://stackoverflow.com/questions/53777136/dynamic-html-form-elements-as-array
+
+{% load static %}
+<script src="{% static 'centre-registry-app/arrayfield/js/arrayfield.js' %}"
+        defer
+        data-input-name="{{ widget.name }}"></script>
+
+<div class="inputs">
+    {% for val in widget.value %}
+        <input type="{{ widget.type }}" name="{{ widget.name }}" value="{{ val }}">
+    {% endfor %}
+    <input type="{{ widget.type }}" name="{{ widget.name }}" value="">
+</div>
+<a href="#" class="addRow"> New {{ widget.name }}</a>
