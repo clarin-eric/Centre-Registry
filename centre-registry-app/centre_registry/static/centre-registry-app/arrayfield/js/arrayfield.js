@@ -1,26 +1,38 @@
-//Initialization of array
-let javascriptArray = [];
-const data = document.currentScript.dataset;
-const inputName = data.inputName;
+var inputLengths = {}
 
-//Function to replicate fields in the form
-function replicateFields(){
-    var elementToReplicate = $('.inputs').first(), //Only clone first group of inputs
-        clonedElement = elementToReplicate.clone();//Cloned the element
-    clonedElement.find('input').val(''); //Clear cloned elements value on each new addition
-    clonedElement.insertBefore($('form a'));
+function replicateFields(fieldName, inputLengths){
+    let elementToReplicate = $('#input_' + fieldName + "0"),
+        clonedElement = elementToReplicate.clone();
+    let inputFieldID = 'input_' + fieldName + String(inputLengths[ fieldName ]);
+    $(clonedElement).attr('name', inputFieldID);
+    $(clonedElement).attr('id', inputFieldID)
+    $(clonedElement).val('');
+    let lastInputInArray = $('#input_' + fieldName + String( inputLengths[ fieldName ] - 1));
+    $(lastInputInArray).after(clonedElement[0]);
+    $(lastInputInArray).after("<br/>")
+    inputLengths[ fieldName ] = inputLengths[ fieldName ] + 1;
 }
 
-//Calling function on click
-$('.addRow').click(function(){
-    replicateFields();
-});
+function countInputs(fieldName){
+    let arrayInputField = $('#input_' + fieldName + "0");
+    let arrayLength = 0;
+    while(arrayInputField.length > 0){
+        arrayLength++;
+        arrayInputField = $('#input_' + String(fieldName + arrayLength));
+    }
+    return arrayLength;
+}
 
-//Go through inputs filling up the array.
-$('form').submit(function(){
-    $('.inputs').each(function(){
-        javascriptArray.push($(this).find('input[name='+$(inputName)+']').val());
-    });
-    console.log(javascriptArray);
-    return false; // remove this to submit the form.
+$(document).ready(function() {
+  let addButtons = $('.addNewInput');
+  $.each(addButtons, function( button ){
+      button = addButtons[button]
+      let bid = button.id
+      inputLengths[ button.id ] = countInputs(button.id);
+  });
+
+
+  $(addButtons).click(function() {
+      replicateFields(this.id, inputLengths);
+  });
 });

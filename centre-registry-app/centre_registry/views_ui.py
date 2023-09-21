@@ -1,7 +1,13 @@
+import logging
 from collections import OrderedDict
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.template import RequestContext
 from json import loads
 from urllib.request import urlopen
 
+from centre_registry.forms import KCentreForm
 from centre_registry.models import Centre
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
@@ -11,9 +17,7 @@ from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
-from django.shortcuts import get_object_or_404
-from django.shortcuts import render
-from django.template import RequestContext
+
 
 
 def get_about(request):
@@ -208,3 +212,16 @@ def get_spf(request):
     request_context = RequestContext(request, request_dict)
     return render(
         request, template_name='UI/_spf.html', context=request_context.flatten())
+
+
+def get_kcentre_edit_form(request: HttpRequest, kcentre_id) -> HttpResponse:
+    kcentre = get_object_or_404(KCentre, pk=kcentre_id)
+    kcentre_form: KCentreForm = KCentreForm(request.GET)
+    request_context: RequestContext = RequestContext(request, {"kcentre": kcentre})
+    if kcentre_form.is_valid():
+        pass
+    else:
+        kcentre_form = KCentreForm(instance=kcentre)
+        request_context.push({"kcentre_form": kcentre_form})
+
+    return render(request, template_name='UI/_kcentre_edit_form.html', context=request_context.flatten())

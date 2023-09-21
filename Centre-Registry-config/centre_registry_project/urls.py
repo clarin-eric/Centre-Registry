@@ -30,6 +30,7 @@ urlpatterns = [  # pylint: disable=invalid-name
     re_path(r'^contact/(?P<contact_id>\d+)$', views_ui.get_contact),
     re_path(r'^fcs$', views_ui.get_fcs),
     re_path(r'^kcentre/(?P<kcentre_id>\d+)$', views_ui.get_kcentre),
+    re_path(r'^kcentre_edit/(?P<kcentre_id>\d+)$', views_ui.get_kcentre_edit_form),
     re_path(r'^map', views_ui.get_map),
     re_path(r'^oai_pmh$', views_ui.get_oai_pmh),
     re_path(r'^spf$', views_ui.get_spf),
