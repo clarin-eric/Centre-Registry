@@ -104,7 +104,9 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.admindocs',
                   'django.contrib.postgres',
                   'django_extensions',
-                  'centre_registry')
+                  'centre_registry',
+                  # 'centre_registry.admin.CentreRegistryAdminConfig',
+                  )
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

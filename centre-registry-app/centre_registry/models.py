@@ -342,10 +342,13 @@ class KCentre(Model):
         verbose_name_plural = 'k-centres'
 
 
-class KCentreFormQueue(KCentre):
-    submission_date = DateTimeField(verbose_name='Form submission date', auto_now_add=True)
-    review_date = DateTimeField(verbose_name='Form review date', blank=True, null=True)
-    comment = CharField(verbose_name='Comment', max_length=2000)
+class KCentreFormModel(KCentre):
+    created_at = DateTimeField(auto_now_add=True)
+    updated_at = DateTimeField(auto_now=True)
+
+
+class OrganisationForm(Organisation):
+    pass
 
 
 class URLReference(Model):

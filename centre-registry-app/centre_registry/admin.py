@@ -4,18 +4,41 @@ from centre_registry.models import CentreType
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
 from centre_registry.models import KCentre
+from centre_registry.models import KCentreFormModel
 from centre_registry.models import KCentreServiceType
 from centre_registry.models import KCentreStatus
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
+from centre_registry.models import OrganisationForm
 from centre_registry.models import ResourceFamily
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
-from centre_registry.forms import KCentreForm
+
 from django.contrib import admin
+
+
+# class CentreRegistryAdminSite(admin.AdminSite):
+#     def get_app_list(self, request):
+#         app_list = super().get_app_list(request)
+#         app_list += [
+#             {
+#                 "name": "KCentre Edit Form Moderation",
+#                 "app_label": "centre_registry",
+#                 # "app_url": "/admin/test_view",
+#                 "models": [
+#                     {
+#                         "name": "Centre Registry",
+#                         "object_name": "centre_registry_edit_form",
+#                         "admin_url": "/admin/kcentre_form_moderation/",
+#                         "view_only": True,
+#                     }
+#                 ],
+#             }
+#         ]
+#         return app_list
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
@@ -105,10 +128,12 @@ admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
 admin.site.register(KCentre)
+admin.site.register(KCentreFormModel)
 admin.site.register(KCentreServiceType)
 admin.site.register(KCentreStatus)
 admin.site.register(FCSEndpoint)
 admin.site.register(Organisation)
+admin.site.register(OrganisationForm)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(OAIPMHEndpointSet)
 admin.site.register(ResourceFamily)

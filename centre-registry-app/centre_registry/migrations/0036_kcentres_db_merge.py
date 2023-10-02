@@ -69,12 +69,6 @@ def forwards(apps, schema_editor):
         tour_de_clarin_intro = row['TdCInterview']
         website_language = row['PortalLang'].replace('\n', '').split(sep=SEP)
 
-        logger.critical(f"#################################################")
-        logger.critical(f"DEBUG LANGS {languages_processed}")
-        logger.critical(f"DEBUG LANGPROC {language_processing_spec}")
-        logger.critical(f"DEBUG AUDIENCE {audiences}")
-        logger.critical(f"_________________________________________________")
-
         kcentre = KCentreModel(
             audiences=audiences,
             competence=competence,
