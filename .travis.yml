@@ -1,8 +1,8 @@
 os: linux
-dist: xenial
+dist: bionic
 language: python
 python:
-  - "3.9"
+  - "3.11"
 env:
   global:
     - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
@@ -16,10 +16,10 @@ env:
     - browserName='chrome' platformName='macOS 10.14' browserVersion='latest'
     - browserName='chrome' platformName='Windows 11' browserVersion='latest'
     - browserName='chrome' platformName='macOS 13' browserVersion='latest'
-    - browserName='firefox' platformName='Windows 10' browserVersion='70'
-    - browserName='firefox' platformName='macOS 10.14' browserVersion='70'
-    - browserName='firefox' platformName='Windows 11' browserVersion='70'
-    - browserName='firefox' platformName='macOS 13' browserVersion='70'
+    - browserName='firefox' platformName='Windows 10' browserVersion='78'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='78'
+    - browserName='firefox' platformName='Windows 11' browserVersion='78'
+    - browserName='firefox' platformName='macOS 13' browserVersion='78'
     - browserName='firefox' platformName='Windows 10' browserVersion='latest'
     - browserName='firefox' platformName='macOS 10.14' browserVersion='latest'
     - browserName='firefox' platformName='Windows 11' browserVersion='latest'

@@ -2,6 +2,12 @@ from os import environ
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver import Remote
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.ie.options import Options as IeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.safari.options import Options as SafariOptions
 from selenium.webdriver.common.by import By
 import http.client
 import base64
@@ -30,44 +36,52 @@ class SystemTestCase(StaticLiveServerTestCase):
     port = 9999
 
     @classmethod
-    def setUpClass(cls):
-        # TODO: Replace Travis CI & Sauce Labs with generic testing code.
+    def setUpClass(self):
         if is_ci:
-            from selenium.webdriver import Remote
             hub_url = ("{username:s}:{access_key:s}@ondemand.us-west-1.saucelabs.com"
                 .format(
                 username=environ["SAUCE_USERNAME"],
                 access_key=environ["SAUCE_ACCESS_KEY"]))
-            desired_capabilities = {
-                "browserName": environ["browserName"],
-                "browserVersion": environ["browserVersion"],
-                "platformName": environ["platformName"],
-                "sauce:options": {
-                    "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
-                    "build": environ["TRAVIS_BUILD_NUMBER"],
-                    "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
-                    "tunnelName": environ["TRAVIS_JOB_NUMBER"]
-                }
-                
+
+            match environ["browserName"]:
+                case "firefox":
+                    options = FirefoxOptions();
+                case "chrome":
+                    options = ChromeOptions();
+                case "MicrosoftEdge":
+                    options = EdgeOptions();
+                case "internet explorer":
+                    options = IeOptions();
+                case "safari":
+                    options = SafariOptions();
+
+            options.browser_version = environ["browserVersion"]
+            options.platform_name = environ["platformName"]
+            options.headless = True
+
+            sauce_options = {
+                "name": "centre-registry_" + environ["TRAVIS_JOB_NUMBER"],
+                "build": environ["TRAVIS_BUILD_NUMBER"],
+                "tags": [environ["TRAVIS_PYTHON_VERSION"], "CI"],
+                "tunnelName": environ["TRAVIS_JOB_NUMBER"]   
             }
-            cls.selenium = Remote(
-                desired_capabilities=desired_capabilities,
-                command_executor="https://{hub_url:s}/wd/hub"
-                    .format(hub_url=hub_url))
+            options.set_capability('sauce:options', sauce_options)
+            self.selenium = Remote(command_executor="https://{hub_url:s}/wd/hub"
+                    .format(hub_url=hub_url), options=options)
         else:
-            cls.selenium = webdriver.Firefox()
-        super(SystemTestCase, cls).setUpClass()
+            self.selenium = webdriver.Firefox()
+        super(SystemTestCase, self).setUpClass()
 
     @classmethod
-    def tearDownClass(cls):
-        super(SystemTestCase, cls).tearDownClass()
+    def tearDownClass(self):
+        super(SystemTestCase, self).tearDownClass()
         
         if is_ci:
-            print ("SESSIONID: " + cls.selenium.session_id)
+            print ("SESSIONID: " + self.selenium.session_id)
             pass_status = environ["TRAVIS_TEST_RESULT"] == '0'
-            set_test_status(cls.selenium.session_id, passed=pass_status)
+            set_test_status(self.selenium.session_id, passed=pass_status)
 
-        cls.selenium.quit()
+        self.selenium.quit()
 
     def test_admin(self):
         self.selenium.get(self.live_server_url + '/admin')
