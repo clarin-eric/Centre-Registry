@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.ie.options import Options as IeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
 from selenium.webdriver.common.by import By
@@ -49,6 +50,8 @@ class SystemTestCase(StaticLiveServerTestCase):
                     options = ChromeOptions();
                 case "MicrosoftEdge":
                     options = EdgeOptions();
+                case "internet explorer":
+                    options = IeOptions();
                 case "safari":
                     options = SafariOptions();
 
