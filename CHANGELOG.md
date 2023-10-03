@@ -6,7 +6,7 @@
 ### Changed features
 - Django 2.2.25 to 4.1.12
 - Upgrade lxml to 4.9.3
-- Upgrade UI tests to Selenium 4
+- Upgrade Selenium to 4.13.0
 - Build config changed from setup.py to pyproject.toml
 - Build backend from setuptools to poetry
 
