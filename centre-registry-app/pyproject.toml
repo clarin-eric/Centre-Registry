@@ -30,7 +30,7 @@ Django = '4.1.12'
 django-debug-toolbar = '3.8.1'
 
 [tool.poetry.group.test.dependencies]
-lxml = '4.9.2'
+lxml = '4.9.3'
 selenium = '4.8.2'
 jsonschema = '4.17.3'
 django-test-migrations = '1.2.0'
