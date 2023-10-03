@@ -35,7 +35,7 @@ class SystemTestCase(StaticLiveServerTestCase):
     port = 9999
 
     @classmethod
-    def setUp(self):
+    def setUpClass(self):
         # TODO: Replace Travis CI & Sauce Labs with generic testing code.
         if is_ci:
             hub_url = ("{username:s}:{access_key:s}@ondemand.us-west-1.saucelabs.com"
@@ -53,7 +53,6 @@ class SystemTestCase(StaticLiveServerTestCase):
                 case "safari":
                     options = SafariOptions();
 
-            options.browser_name = environ["browserName"]
             options.browser_version = environ["browserVersion"]
             options.platform_name = environ["platformName"]
             options.headless = True
@@ -69,11 +68,11 @@ class SystemTestCase(StaticLiveServerTestCase):
                     .format(hub_url=hub_url), options=options)
         else:
             self.selenium = webdriver.Firefox()
-        super(SystemTestCase, self).setUp()
+        super(SystemTestCase, self).setUpClass()
 
     @classmethod
-    def tearDown(self):
-        super(SystemTestCase, self).tearDown()
+    def tearDownClass(self):
+        super(SystemTestCase, self).tearDownClass()
         
         if is_ci:
             print ("SESSIONID: " + self.selenium.session_id)
