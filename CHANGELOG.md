@@ -4,7 +4,7 @@
 ## [3.0.0] - 03.10.2023
 
 ### Changed features
-- Django 2.2.25 to 4.1.6
+- Django 2.2.25 to 4.1.12
 - Upgrade UI tests to Selenium 4
 - Build config changed from setup.py to pyproject.toml
 - Build backend from setuptools to poetry
