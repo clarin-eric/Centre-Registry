@@ -36,7 +36,6 @@ class SystemTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(self):
-        # TODO: Replace Travis CI & Sauce Labs with generic testing code.
         if is_ci:
             hub_url = ("{username:s}:{access_key:s}@ondemand.us-west-1.saucelabs.com"
                 .format(
