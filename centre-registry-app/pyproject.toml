@@ -26,7 +26,7 @@ homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
-Django = '4.1.12'
+Django = '4.1.11'
 django-debug-toolbar = '4.2.0'
 
 [tool.poetry.group.test.dependencies]

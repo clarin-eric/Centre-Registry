@@ -4,7 +4,7 @@
 ## [3.0.0] - 03.10.2023
 
 ### Changed features
-- Django 2.2.25 to 4.1.12
+- Django 2.2.25 to 4.1.11
 - Other updated dependencies:
   - Selenium to 4.13.0
   - Jsonschema to 4.19.1
