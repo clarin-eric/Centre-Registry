@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os.path
 from os.path import join
 from traceback import print_exc
 
