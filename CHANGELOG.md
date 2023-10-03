@@ -9,6 +9,7 @@
   - Selenium to 4.13.0
   - Jsonschema to 4.19.1
   - django-test-migrations to 1.3.0
+  - django-debug-toolbar 4.2.0
   - lxml to 4.9.3
 - Build config changed from setup.py to pyproject.toml
 - Build backend from setuptools to poetry

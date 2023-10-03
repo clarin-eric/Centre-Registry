@@ -27,7 +27,7 @@ repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
 Django = '4.1.12'
-django-debug-toolbar = '3.8.1'
+django-debug-toolbar = '4.2.0'
 
 [tool.poetry.group.test.dependencies]
 lxml = '4.9.3'
