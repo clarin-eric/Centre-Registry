@@ -37,7 +37,7 @@ class SystemTestCase(StaticLiveServerTestCase):
     @classmethod
     def setUp(self):
         # TODO: Replace Travis CI & Sauce Labs with generic testing code.
-        if not is_ci:
+        if is_ci:
             hub_url = ("{username:s}:{access_key:s}@ondemand.us-west-1.saucelabs.com"
                 .format(
                 username=environ["SAUCE_USERNAME"],
