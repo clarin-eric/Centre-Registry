@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.forms.models import model_to_dict
 from django.urls import path
 
 from centre_registry.models import AssessmentDates
@@ -43,11 +44,21 @@ class CentreRegistryAdminSite(admin.AdminSite):
 
 @admin.action(description="Accept selected edit requests")
 def publish_kcentres(modeladmin, request, queryset):
+    # TODO that has to be terribly slow, each __in requires JOIN
     centre_fks = Centre.objects.filter(KCentreFormModel__in=queryset).distinct()
     resource_families_fks = ResourceFamily.objects.filter(KCentreFormModel__in=queryset).distinct()
     secondary_hosts_fks = Organisation.objects.filter(KCentreFormModel__in=queryset).distinct()
     service_type_fks = KCentreServiceType.objects.filter(KCentreFormModel__in=queryset).distinct()
     status_fks = KCentreStatus.objects.fitler(KCentreFormModel__in=queryset).distinct()
+
+    centre_fks.update(published=True)
+    resource_families_fks.update(published=True)
+    secondary_hosts_fks.update(published=True)
+    service_type_fks.update(published=True)
+    status_fks.update(published=True)
+
+    for kcentre_form_instance in queryset:
+        fields_dict = model_to_dict(kcentre_form_instance, exclude=["created_at", "updated_at", "kcentre_fk"])
 
 
 class KCentreFormAdmin(admin.ModelAdmin):
@@ -146,7 +157,6 @@ admin.site.register(KCentreServiceType)
 admin.site.register(KCentreStatus)
 admin.site.register(FCSEndpoint)
 admin.site.register(Organisation)
-admin.site.register(OrganisationForm)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(OAIPMHEndpointSet)
 admin.site.register(ResourceFamily)

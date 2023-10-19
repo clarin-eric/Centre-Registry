@@ -1,0 +1,15 @@
+<div class="content" xmlns="http://www.w3.org/1999/html">
+    <table id="edit_form_{{ form.name }}">
+    {% for field in form %}
+        <tr>
+            <th>
+                {{ field.label_tag }}
+            </th>
+            <td>
+                {{ field.errors }}
+                {{ field }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</div>

@@ -21,7 +21,6 @@ from centre_registry.models import URLReference
 from centre_registry.utils import get_object_or_None
 
 
-
 def get_centre(request, centre_id):
     """API v1"""
     centre = get_object_or_404(Centre, pk=centre_id)
@@ -93,7 +92,7 @@ def get_centres_kml(request, types):
         content_type='application/vnd.google-earth.kml+xml')
 
 
-def post_kcentre_form(request: HttpRequest) -> HttpResponse:
+def post_kcentre_form(request: HttpRequest, kcentre_id) -> HttpResponse:
     """
     Save K-Centre form into moderation queue
     """

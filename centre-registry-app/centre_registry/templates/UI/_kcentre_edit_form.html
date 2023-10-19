@@ -1,0 +1,9 @@
+{% extends 'UI/_.html' %}
+{% block content %}
+    <div id="kncetre_form">
+        <form action="/submit_kcentre_form/" method="post">
+            {{ kcentre_form }}
+            <button type="submit">Submit changes</button>
+        </form>
+    </div>
+{% endblock %}
