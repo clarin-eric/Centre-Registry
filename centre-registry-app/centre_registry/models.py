@@ -319,7 +319,7 @@ class KCentre(Model):
     pid = URLField(verbose_name='PID', unique=True)
     tour_de_clarin_interview = URLField(verbose_name='TdC interview URL')
     tour_de_clarin_intro = URLField(verbose_name='TdC intro URL')
-    website_language = ArrayField(base_field=CharField(), verbose_name='Website language') # FK to some ISO693-3 set of langs?
+    website_language = ArrayField(base_field=CharField(), verbose_name='Website language') # FCe  to some ISO693-3 set of langs?
 
     # FK's
     centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
@@ -340,15 +340,6 @@ class KCentre(Model):
     class Meta:
         verbose_name = 'k-centre'
         verbose_name_plural = 'k-centres'
-
-
-class KCentreFormModel(KCentre):
-    created_at = DateTimeField(auto_now_add=True)
-    updated_at = DateTimeField(auto_now=True)
-
-
-class OrganisationForm(Organisation):
-    pass
 
 
 class URLReference(Model):
@@ -497,3 +488,37 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
+
+
+"""
+KCentre Form model and shadow models for moderation form to allow creation fk candidates outside of production database 
+without a risk of production data corruption by unauthorised user making KCentre edit request
+"""
+
+
+class KCentreFormModel(KCentre):
+    created_at = DateTimeField(auto_now_add=True)
+    updated_at = DateTimeField(auto_now=True)
+    published = BooleanField(default=False)
+
+    centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
+
+
+class ShadowCentre(Centre):
+    pass
+
+
+class ShadowResourceFamilies(ResourceFamily):
+    pass
+
+
+class ShadowOrganisation(Organisation):
+    pass
+
+
+class ShadowKCentreServiceType(KCentreServiceType):
+    pass
+
+
+class ShadowKCentreStatus(KCentreStatus):
+    pass

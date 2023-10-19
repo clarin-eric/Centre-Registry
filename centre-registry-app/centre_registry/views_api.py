@@ -1,20 +1,25 @@
-from inspect import getmembers as inspect_getmembers
-from inspect import isclass as inspect_isclass
-from json import loads as json_loads
-
-from centre_registry import models
-from centre_registry.models import Centre
-from centre_registry.models import FCSEndpoint
-from centre_registry.models import OAIPMHEndpoint
-from centre_registry.models import URLReference
 from django.core import serializers
 from django.core.exceptions import ViewDoesNotExist
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext
 from django.template.loader import render_to_string
+from inspect import getmembers as inspect_getmembers
+from inspect import isclass as inspect_isclass
+from json import loads as json_loads
+from typing import Union
+
+from centre_registry import models  # TODO investigate redundant import of entire model.py
+from centre_registry.forms import KCentreForm
+from centre_registry.models import Centre
+from centre_registry.models import FCSEndpoint
+from centre_registry.models import KCentre
+from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import URLReference
+from centre_registry.utils import get_object_or_None
+
 
 
 def get_centre(request, centre_id):
@@ -86,3 +91,19 @@ def get_centres_kml(request, types):
         # Djnago 1.11+ requires context in form of dict, flatten() returns RequestContext as dict
         context=request_context.flatten(),
         content_type='application/vnd.google-earth.kml+xml')
+
+
+def post_kcentre_form(request: HttpRequest) -> HttpResponse:
+    """
+    Save K-Centre form into moderation queue
+    """
+    kcentre_form: KCentreForm = KCentreForm(request.POST)
+    kcentre: Union[object, None] = get_object_or_None(KCentre, pk=kcentre_id)
+    request_context: RequestContext = RequestContext(request, {"kcentre": kcentre})
+    if kcentre_form.is_valid():
+        pass
+    else:
+        kcentre_form = KCentreForm(instance=kcentre)
+        request_context.push({"kcentre_form": kcentre_form})
+
+    return render(request, template_name='UI/_kcentre_edit_form.html', context=request_context.flatten())

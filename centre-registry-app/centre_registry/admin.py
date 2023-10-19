@@ -1,3 +1,6 @@
+from django.contrib import admin
+from django.urls import path
+
 from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
@@ -11,34 +14,44 @@ from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
-from centre_registry.models import OrganisationForm
 from centre_registry.models import ResourceFamily
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
 
-from django.contrib import admin
+
+class CentreRegistryAdminSite(admin.AdminSite):
+    def get_app_list(self, request):
+        app_list = super().get_app_list(request)
+        app_list += [
+            {
+                "name": "KCentre Edit Form Moderation",
+                "app_label": "KCentre moderation",
+                "app_url": "/admin/moderation",
+                "models": [
+                    {
+                        "name": "KCentreFormModel",
+                        "object_name": "centre_registry_edit_form",
+                        "admin_url": "/admin/moderation/kcentre_form_moderation/",
+                        "view_only": True,
+                    }
+                ],
+            }
+        ]
+        return app_list
 
 
-# class CentreRegistryAdminSite(admin.AdminSite):
-#     def get_app_list(self, request):
-#         app_list = super().get_app_list(request)
-#         app_list += [
-#             {
-#                 "name": "KCentre Edit Form Moderation",
-#                 "app_label": "centre_registry",
-#                 # "app_url": "/admin/test_view",
-#                 "models": [
-#                     {
-#                         "name": "Centre Registry",
-#                         "object_name": "centre_registry_edit_form",
-#                         "admin_url": "/admin/kcentre_form_moderation/",
-#                         "view_only": True,
-#                     }
-#                 ],
-#             }
-#         ]
-#         return app_list
+@admin.action(description="Accept selected edit requests")
+def publish_kcentres(modeladmin, request, queryset):
+    centre_fks = Centre.objects.filter(KCentreFormModel__in=queryset).distinct()
+    resource_families_fks = ResourceFamily.objects.filter(KCentreFormModel__in=queryset).distinct()
+    secondary_hosts_fks = Organisation.objects.filter(KCentreFormModel__in=queryset).distinct()
+    service_type_fks = KCentreServiceType.objects.filter(KCentreFormModel__in=queryset).distinct()
+    status_fks = KCentreStatus.objects.fitler(KCentreFormModel__in=queryset).distinct()
+
+
+class KCentreFormAdmin(admin.ModelAdmin):
+    actions = [publish_kcentres]
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
@@ -117,7 +130,7 @@ class AssessmentDateAdmin(admin.ModelAdmin):
 # class KCentreCentreInline(admin.ModelAdmin):
 #     form = CentreInlineFormSet
 
-
+admin.site = CentreRegistryAdminSite()
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
