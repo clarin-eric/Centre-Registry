@@ -10,6 +10,7 @@ from django.db.models import EmailField
 from django.db.models import ForeignKey
 from django.db.models import ManyToManyField
 from django.db.models import Model
+from django.db.models import OneToOneField
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
@@ -496,29 +497,37 @@ without a risk of production data corruption by unauthorised user making KCentre
 """
 
 
-class KCentreFormModel(KCentre):
-    created_at = DateTimeField(auto_now_add=True)
-    updated_at = DateTimeField(auto_now=True)
-    published = BooleanField(default=False)
-
-    centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
-
-
 class ShadowCentre(Centre):
+    # fk_centre = OneToOneField(Centre, on_delete=CASCADE, blank=True, null=True)
     pass
 
 
 class ShadowResourceFamilies(ResourceFamily):
+    # fk_resource_family = OneToOneField(ResourceFamily, on_delete=CASCADE, blank=True, null=True)
     pass
 
 
 class ShadowOrganisation(Organisation):
+    # fk_organisation = OneToOneField(Organisation, on_delete=CASCADE, blank=True, null=True)
     pass
 
 
 class ShadowKCentreServiceType(KCentreServiceType):
+    # fk_kcentre_service_type = OneToOneField(KCentreServiceType, on_delete=CASCADE, blank=True, null=True)
     pass
 
 
 class ShadowKCentreStatus(KCentreStatus):
+    # fk_kcentre_status = OneToOneField(KCentreStatus, on_delete=CASCADE, blank=True, null=True)
     pass
+
+
+class ShadowKCentre(KCentre):
+    created_at = DateTimeField(auto_now_add=True)
+    updated_at = DateTimeField(auto_now=True)
+    published = BooleanField(default=False)
+
+    # KCentre to edit, if None it's new KCentre instance candidate
+    kcentre_fk = OneToOneField(KCentre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
+
+
