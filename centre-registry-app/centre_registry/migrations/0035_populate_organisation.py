@@ -25,7 +25,6 @@ def forwards(apps, schema_editor):
                                                                city=city,
                                                                latitude=latitude,
                                                                longitude=longitude)
-        organisation_object.save()
 
         organisation_fk = organisation_object
         centre_object.organisation_fk = organisation_fk

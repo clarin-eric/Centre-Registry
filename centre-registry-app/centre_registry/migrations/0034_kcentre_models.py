@@ -69,16 +69,6 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Resource families',
             },
         ),
-        migrations.CreateModel(
-            name='KCentreFormQueue',
-            fields=[
-                ('kcentre_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='centre_registry.kcentre')),
-                ('submission_date', models.DateTimeField(auto_now_add=True, verbose_name='Form submission date')),
-                ('review_date', models.DateTimeField(blank=True, null=True, verbose_name='Form review date')),
-                ('comment', models.CharField(max_length=2000, verbose_name='Comment')),
-            ],
-            bases=('centre_registry.kcentre',),
-        ),
         migrations.AddField(
             model_name='kcentre',
             name='resource_families_fks',

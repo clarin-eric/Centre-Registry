@@ -55,11 +55,6 @@ class Migration(migrations.Migration):
             bases=('centre_registry.organisation',),
         ),
         migrations.AddField(
-            model_name='centre',
-            name='organisation_fk',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='centre_registry.organisation'),
-        ),
-        migrations.AddField(
             model_name='shadowkcentre',
             name='shadow_kcentre_service_type_fks',
             field=models.ManyToManyField(related_name='shadow_kcentre', to='centre_registry.shadowkcentreservicetype'),

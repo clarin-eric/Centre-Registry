@@ -30,4 +30,10 @@ class Migration(migrations.Migration):
                 'ordering': ('organisation_name',),
             },
         ),
+        migrations.AddField(
+            model_name='centre',
+            name='organisation_fk',
+            field=models.ForeignKey(null=True, on_delete=models.deletion.PROTECT,
+                                    to='centre_registry.organisation'),
+        ),
     ]
