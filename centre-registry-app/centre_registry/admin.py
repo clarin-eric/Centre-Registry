@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.urls import path
 
 
 from centre_registry.actions import publish_kcentres
@@ -22,31 +23,49 @@ from centre_registry.models import URLReference
 from centre_registry.models import ShadowCentre
 from centre_registry.models import ShadowKCentre
 from centre_registry.models import ShadowKCentreServiceType
+from centre_registry.models import ShadowKCentreStatus
 from centre_registry.models import ShadowOrganisation
 from centre_registry.utils import get_object_or_None
 from centre_registry.utils import materialise_shadow
 from centre_registry.utils import materialise_shadows
 
 
-class CentreRegistryAdminSite(admin.AdminSite):
-    def get_app_list(self, request):
-        app_list = super().get_app_list(request)
-        app_list += [
-            {
-                "name": "KCentre Edit Form Moderation",
-                "app_label": "KCentre moderation",
-                "app_url": "/admin/moderation",
-                "models": [
-                    {
-                        "name": "ShadowKCentre",
-                        "object_name": "centre_registry_edit_form",
-                        "admin_url": "/admin/moderation/kcentre_form_moderation/",
-                        "view_only": True,
-                    }
-                ],
-            }
-        ]
-        return app_list
+# class CentreRegistryAdminSite(admin.AdminSite):
+#     def __init__(self):
+#         super().__init__()
+#
+#     def get_app_list(self, request):
+#         app_list = super().get_app_list(request)
+#         app_list += [
+#             {
+#                 "name": "KCentre Edit Form Moderation",
+#                 "app_label": "KCentre moderation",
+#                 "app_url": "/admin/moderation",
+#                 "models": [
+#                     {
+#                         "model": "centre_registry.models.ShadowKCentre",
+#                         "name": "ShadowKCentres",
+#                         "object_name": "ShadowKCentre",
+#                         "admin_url": "/admin/moderation/kcentre_form_moderation/",
+#                     }
+#                 ],
+#             }
+#         ]
+#         return app_list
+#
+#     def get_urls(self):
+#         urls = super().get_urls()
+#         moderation_url = [
+#             path('admin/moderation/kcentre_form_moderation/', None)
+#         ]
+#         return urls + moderation_url
+#
+#
+#     def moderation_view(self, request):
+#         context = dict(
+#             self.admin_site.each_context(request)
+#         )
+#         pass
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
@@ -129,7 +148,7 @@ class KCentreModerationAdmin(admin.ModelAdmin):
 # class KCentreCentreInline(admin.ModelAdmin):
 #     form = CentreInlineFormSet
 
-admin.site = CentreRegistryAdminSite()
+# admin.site = CentreRegistryAdminSite()
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
@@ -147,7 +166,11 @@ admin.site.register(Organisation)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(OAIPMHEndpointSet)
 admin.site.register(ResourceFamily)
+admin.site.register(ShadowCentre)
 admin.site.register(ShadowKCentre, KCentreModerationAdmin)
+admin.site.register(ShadowKCentreServiceType)
+admin.site.register(ShadowKCentreStatus)
+admin.site.register(ShadowOrganisation)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(URLReference)

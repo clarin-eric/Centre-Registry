@@ -61,8 +61,7 @@ def materialise_shadows(shadow_objects: Iterable[object], model_class: Callable[
 def populate_shadow_tables():
     organisations = Organisation.objects.all()
     for organisation in organisations:
-        shadow_organisation = ShadowOrganisation(fk_organisation=organisation, **model_to_dict(organisation))
-        shadow_organisation.save()
+        shadow_organisation = ShadowOrganisation.objects.create(fk_organisation=organisation, **model_to_dict(organisation))
     centres = Centre.objects.all()
     for centre in centres:
         ShadowOrganisation.filter(fk_organisation__pk=centre.organisation_name)
