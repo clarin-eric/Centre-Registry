@@ -1,6 +1,6 @@
 from django.core import serializers
 from django.core.exceptions import ViewDoesNotExist
-from django.db.models import Q
+from django.db.models import Model, Q
 from django.http import JsonResponse, HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
@@ -18,7 +18,9 @@ from centre_registry.models import FCSEndpoint
 from centre_registry.models import KCentre
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import URLReference
+from centre_registry.models import ShadowKCentre
 from centre_registry.utils import get_object_or_None
+
 
 
 def get_centre(request, centre_id):
@@ -92,17 +94,13 @@ def get_centres_kml(request, types):
         content_type='application/vnd.google-earth.kml+xml')
 
 
-def post_kcentre_form(request: HttpRequest, kcentre_id) -> HttpResponse:
+def post_kcentre_form(request: HttpRequest, request_context: dict) -> HttpResponse:
     """
     Save K-Centre form into moderation queue
     """
-    kcentre_form: KCentreForm = KCentreForm(request.POST)
-    kcentre: Union[object, None] = get_object_or_None(KCentre, pk=kcentre_id)
-    request_context: RequestContext = RequestContext(request, {"kcentre": kcentre})
-    if kcentre_form.is_valid():
-        pass
-    else:
-        kcentre_form = KCentreForm(instance=kcentre)
-        request_context.push({"kcentre_form": kcentre_form})
+    kcentre_form_data = request_context['kcentre_form_data']
 
-    return render(request, template_name='UI/_kcentre_edit_form.html', context=request_context.flatten())
+    # create and save KCentre's shadow instance, creation of related handled by exposing
+    # admin widget to ShadowModels in the form
+    ShadowKCentre.objects.create(**kcentre_form_data)
+    return HttpResponse(status=200)

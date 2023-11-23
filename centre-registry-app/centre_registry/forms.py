@@ -1,11 +1,21 @@
-from django.forms import (CharField, HiddenInput, ModelForm, ModelChoiceField, ModelMultipleChoiceField,
-                          URLField, Textarea)
+from django.forms import (CharField, HiddenInput, ModelForm, ModelChoiceField, ModelMultipleChoiceField, Textarea)
 from django.contrib import admin
 from django.contrib.admin.widgets import FilteredSelectMultiple, RelatedFieldWidgetWrapper
 from django.contrib.postgres.fields.array import SimpleArrayField # as BaseArrayField
 
-from .models import Centre, KCentre, KCentreFormModel, ResourceFamily, Organisation, KCentreServiceType, KCentreStatus
-from .widgets import ArrayFieldInputWidget
+from centre_registry.models import Centre
+from centre_registry.models import KCentre
+from centre_registry.models import KCentreServiceType
+from centre_registry.models import KCentreStatus
+from centre_registry.models import ResourceFamily
+from centre_registry.models import ShadowCentre
+from centre_registry.models import ShadowKCentre
+from centre_registry.models import ShadowKCentreServiceType
+from centre_registry.models import ShadowKCentreStatus
+from centre_registry.models import ShadowOrganisation
+
+
+from centre_registry.widgets import ArrayFieldInputWidget
 
 
 # class SimpleArrayField(BaseArrayField):
@@ -20,7 +30,7 @@ from .widgets import ArrayFieldInputWidget
 
 class KCentreForm(ModelForm):
     class Meta:
-        model = KCentreFormModel
+        model = ShadowKCentre
         fields = ["audiences", "competence", "data_types", "generic_topics", "keywords", "language_processing_spec",
                   "linguistic_topics", "modalities", "pid", "tour_de_clarin_interview", "tour_de_clarin_intro",
                   "website_language", "centre_fk", "kcentre_fk", "resource_families_fks"]
@@ -49,22 +59,24 @@ class KCentreForm(ModelForm):
 
 
     # FK's
-    centre_fk = ModelChoiceField(queryset=Centre.objects.all(), label="Centre", required=False)
-    kcentre_fk = ModelChoiceField(queryset=KCentre.objects.all(), label="KCentre", required=False)
-    resource_families_fks = ModelMultipleChoiceField(queryset=ResourceFamily.objects.all(), label="Resource families",
-                                                     required=False)
-    secondary_hosts_fks = ModelMultipleChoiceField(queryset=Organisation.objects.all(), label="Secondary host",
-                                                   required=False,
-                                                   widget=RelatedFieldWidgetWrapper(
-                                                       widget=FilteredSelectMultiple('Organisation',
-                                                                                     False),
-                                                       rel=KCentreFormModel.secondary_hosts_fks.rel,
-                                                       admin_site=admin.site))
-    service_type_fk = ModelMultipleChoiceField(queryset=KCentreServiceType.objects.all(), label="Service type",
-                                               required=False,
-                                               widget=RelatedFieldWidgetWrapper(
-                                                   widget=FilteredSelectMultiple('Service Type',
-                                                                                 False),
-                                                   rel=KCentreFormModel.service_type_fks.rel,
-                                                   admin_site=admin.site))
-    status_fk = ModelChoiceField(queryset=KCentreStatus.objects.all(), label="Status", required=False)
+    shadow_centre_fk = ModelChoiceField(queryset=ShadowCentre.objects.all(), label="Centre", required=True)
+    shadow_resource_families_fks = ModelMultipleChoiceField(queryset=ResourceFamily.objects.all(),
+                                                            label="Resource families",
+                                                            required=False)
+    shadow_secondary_hosts_fks = ModelMultipleChoiceField(queryset=ShadowOrganisation.objects.all(),
+                                                          label="Secondary host",
+                                                          required=False,
+                                                          widget=RelatedFieldWidgetWrapper(
+                                                              widget=FilteredSelectMultiple('Organisation',
+                                                                                            False),
+                                                              rel=ShadowKCentre.secondary_hosts_fks.rel,
+                                                              admin_site=admin.site))
+    shadow_service_type_fks = ModelMultipleChoiceField(queryset=ShadowKCentreServiceType.objects.all(),
+                                                       label="Service type",
+                                                       required=False,
+                                                       widget=RelatedFieldWidgetWrapper(
+                                                           widget=FilteredSelectMultiple('Service Type',
+                                                                                         False),
+                                                           rel=ShadowKCentre.service_type_fks.rel,
+                                                           admin_site=admin.site))
+    shadow_kcentre_status_fk = ModelChoiceField(queryset=KCentreStatus.objects.all(), label="Status", required=False)

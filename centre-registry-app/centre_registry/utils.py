@@ -4,8 +4,9 @@ Utility functions
 
 from django.shortcuts import _get_queryset
 from django.forms.models import model_to_dict
+from typing import Callable, Iterable
 
-# Production models with not moderated Shadows
+# Production models
 from centre_registry.models import Centre
 from centre_registry.models import KCentre
 from centre_registry.models import KCentreServiceType
@@ -19,18 +20,7 @@ from centre_registry.models import ShadowCentre
 from centre_registry.models import ShadowKCentre
 from centre_registry.models import ShadowKCentreServiceType
 from centre_registry.models import ShadowKCentreStatus
-from centre_registry.models import ShadowResourceFamily
 from centre_registry.models import ShadowOrganisation
-
-
-MODEL_SHADOW_PAIRS = [
-    (Organisation, ShadowOrganisation),
-    (Centre, ShadowCentre),
-    (KCentreServiceType, ShadowKCentreServiceType),
-    (KCentreStatus, ShadowKCentreStatus),
-    (ResourceFamily, ShadowResourceFamily),
-    (KCentre, ShadowKCentre),
-]
 
 ################################################################################
 # SOURCE:
@@ -55,12 +45,20 @@ def get_object_or_None(klass, *args, **kwargs):
 ################################################################################
 
 
-def drop_shadow_tables_data():
-    for _, shadow_model in MODEL_SHADOW_PAIRS:
-        shadow_model.objects.all().delete()
+def materialise_shadow(shadow_object: object, model_class: Callable[[dict], Model]):
+    model_dict = model_to_dict(shadow_object)
+    return model_class.objects.create(**model_dict)
 
 
-def populate_shadow_tables_data():
+def materialise_shadows(shadow_objects: Iterable[object], model_class: Callable[[dict], Model]):
+    queryset = model_class.objects.none()
+    for shadow_object in shadow_objects:
+        # queryset merge operator
+        queryset |= materialise_shadow(shadow_object, model_class)
+    return queryset
+
+
+def populate_shadow_tables():
     organisations = Organisation.objects.all()
     for organisation in organisations:
         shadow_organisation = ShadowOrganisation(fk_organisation=organisation, **model_to_dict(organisation))
@@ -68,5 +66,4 @@ def populate_shadow_tables_data():
     centres = Centre.objects.all()
     for centre in centres:
         ShadowOrganisation.filter(fk_organisation__pk=centre.organisation_name)
-        shadow_centre = ShadowCentre(fk_centre=centre, **model_to_dict(centre))
-
+        shadow_centre = ShadowCentre.objects.create(fk_centre=centre, **model_to_dict(centre))

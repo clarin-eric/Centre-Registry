@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.template import RequestContext
 from json import loads
 from urllib.request import urlopen
+import requests
 from typing import Union
 
 from centre_registry.forms import KCentreForm
@@ -17,8 +18,10 @@ from centre_registry.models import KCentre
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import ShadowKCentre
 from centre_registry.models import URLReference
 from centre_registry.utils import get_object_or_None
+from centre_registry.views_api import post_kcentre_form
 
 
 def get_about(request):
@@ -215,18 +218,24 @@ def get_spf(request):
         request, template_name='UI/_spf.html', context=request_context.flatten())
 
 
-def get_kcentre_edit_form(request: HttpRequest, kcentre_id: Union[int, None] = None) -> HttpResponse:
-    kcentre: Union[object, None] = None
+def get_kcentre_edit_form(request: HttpRequest, kcentre_id=None) -> HttpResponse:
+    kcentre = None
     if kcentre_id is not None:
         kcentre = get_object_or_None(KCentre, pk=kcentre_id)
     kcentre_form: KCentreForm = KCentreForm(request.GET)
     request_context: RequestContext = RequestContext(request, {"kcentre": kcentre})
     if kcentre_form.is_valid():
+        kcentre_form_data = kcentre_form.cleaned_data
+        kcentre_form_data['kcentre_fk'] = kcentre
+        request_context.push({"kcentre_form_data": kcentre_form_data})
 
-        return HttpResponseRedirect()
+        # create and save KCentre's shadow instance, creation of related handled by exposing
+        # admin widget to ShadowModels in the form
+        return post_kcentre_form(request, request_context.flatten())
+
     else:
         if kcentre is not None:
-            kcentre_form = KCentreForm(instance=kcentre, kcentre_fk=kcentre_id)
+            kcentre_form = KCentreForm(instance=kcentre)
         request_context.push({"kcentre_form": kcentre_form})
 
     return render(request, template_name='UI/_kcentre_edit_form.html', context=request_context.flatten())

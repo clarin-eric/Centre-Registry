@@ -200,6 +200,7 @@ class Centre(Model):
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
     organisation_name = CharField(verbose_name='Organisation', max_length=100)
+    organisation_fk = ForeignKey(Organisation, on_delete=PROTECT, null=True)
     institution = CharField(verbose_name='Institution', max_length=200)
     working_unit = CharField(verbose_name='Working unit', max_length=200)
     address = CharField(verbose_name='Address', max_length=100)
@@ -498,28 +499,24 @@ without a risk of production data corruption by unauthorised user making KCentre
 
 
 class ShadowCentre(Centre):
-    # fk_centre = OneToOneField(Centre, on_delete=CASCADE, blank=True, null=True)
-    pass
-
-
-class ShadowResourceFamilies(ResourceFamily):
-    # fk_resource_family = OneToOneField(ResourceFamily, on_delete=CASCADE, blank=True, null=True)
+    shadow_organisation_fk = ForeignKey(Centre, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
     pass
 
 
 class ShadowOrganisation(Organisation):
-    # fk_organisation = OneToOneField(Organisation, on_delete=CASCADE, blank=True, null=True)
-    pass
+    organisation_fk = ForeignKey(Organisation, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
 
 
 class ShadowKCentreServiceType(KCentreServiceType):
-    # fk_kcentre_service_type = OneToOneField(KCentreServiceType, on_delete=CASCADE, blank=True, null=True)
-    pass
+    kcentre_service_type_fk = ForeignKey(KCentreServiceType,
+                                         on_delete=CASCADE,
+                                         blank=True,
+                                         null=True,
+                                         related_name='shadow')
 
 
 class ShadowKCentreStatus(KCentreStatus):
-    # fk_kcentre_status = OneToOneField(KCentreStatus, on_delete=CASCADE, blank=True, null=True)
-    pass
+    kcentre_status_fk = ForeignKey(KCentreStatus, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
 
 
 class ShadowKCentre(KCentre):
@@ -527,7 +524,11 @@ class ShadowKCentre(KCentre):
     updated_at = DateTimeField(auto_now=True)
     published = BooleanField(default=False)
 
+    shadow_centre_fk = ForeignKey(ShadowCentre, on_delete=CASCADE, related_name='shadow_kcentre')
+    shadow_resource_families_fk = ForeignKey(ResourceFamily, on_delete=CASCADE, related_name='shadow_kcentre')
+    shadow_kcentre_service_type_fks = ManyToManyField(ShadowKCentreServiceType, related_name='shadow_kcentre')
+    shadow_kcentre_status_fk = ForeignKey(ShadowKCentreStatus, on_delete=CASCADE)
+    shadow_secondary_host_fk = ManyToManyField(ShadowOrganisation, null=True, blank=True)
+
     # KCentre to edit, if None it's new KCentre instance candidate
-    kcentre_fk = OneToOneField(KCentre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
-
-
+    kcentre_fk = ForeignKey(KCentre, on_delete=PROTECT, blank=True, null=True, related_name='shadow_kcentre')

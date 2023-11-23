@@ -1,17 +1,17 @@
 from django.contrib import admin
-from django.forms.models import model_to_dict
-from django.urls import path
 
+
+from centre_registry.actions import publish_kcentres
 from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import Consortium
 from centre_registry.models import Contact
+from centre_registry.models import FCSEndpoint
 from centre_registry.models import KCentre
-from centre_registry.models import KCentreFormModel
 from centre_registry.models import KCentreServiceType
 from centre_registry.models import KCentreStatus
-from centre_registry.models import FCSEndpoint
+from centre_registry.models import Model
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
@@ -19,6 +19,13 @@ from centre_registry.models import ResourceFamily
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
+from centre_registry.models import ShadowCentre
+from centre_registry.models import ShadowKCentre
+from centre_registry.models import ShadowKCentreServiceType
+from centre_registry.models import ShadowOrganisation
+from centre_registry.utils import get_object_or_None
+from centre_registry.utils import materialise_shadow
+from centre_registry.utils import materialise_shadows
 
 
 class CentreRegistryAdminSite(admin.AdminSite):
@@ -31,7 +38,7 @@ class CentreRegistryAdminSite(admin.AdminSite):
                 "app_url": "/admin/moderation",
                 "models": [
                     {
-                        "name": "KCentreFormModel",
+                        "name": "ShadowKCentre",
                         "object_name": "centre_registry_edit_form",
                         "admin_url": "/admin/moderation/kcentre_form_moderation/",
                         "view_only": True,
@@ -40,29 +47,6 @@ class CentreRegistryAdminSite(admin.AdminSite):
             }
         ]
         return app_list
-
-
-@admin.action(description="Accept selected edit requests")
-def publish_kcentres(modeladmin, request, queryset):
-    # TODO that has to be terribly slow, each __in requires JOIN
-    centre_fks = Centre.objects.filter(KCentreFormModel__in=queryset).distinct()
-    resource_families_fks = ResourceFamily.objects.filter(KCentreFormModel__in=queryset).distinct()
-    secondary_hosts_fks = Organisation.objects.filter(KCentreFormModel__in=queryset).distinct()
-    service_type_fks = KCentreServiceType.objects.filter(KCentreFormModel__in=queryset).distinct()
-    status_fks = KCentreStatus.objects.fitler(KCentreFormModel__in=queryset).distinct()
-
-    centre_fks.update(published=True)
-    resource_families_fks.update(published=True)
-    secondary_hosts_fks.update(published=True)
-    service_type_fks.update(published=True)
-    status_fks.update(published=True)
-
-    for kcentre_form_instance in queryset:
-        fields_dict = model_to_dict(kcentre_form_instance, exclude=["created_at", "updated_at", "kcentre_fk"])
-
-
-class KCentreFormAdmin(admin.ModelAdmin):
-    actions = [publish_kcentres]
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
@@ -138,6 +122,10 @@ class AssessmentDateAdmin(admin.ModelAdmin):
         return {}
 
 
+class KCentreModerationAdmin(admin.ModelAdmin):
+    actions = [publish_kcentres]
+
+
 # class KCentreCentreInline(admin.ModelAdmin):
 #     form = CentreInlineFormSet
 
@@ -152,7 +140,6 @@ admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
 admin.site.register(KCentre)
-admin.site.register(KCentreFormModel)
 admin.site.register(KCentreServiceType)
 admin.site.register(KCentreStatus)
 admin.site.register(FCSEndpoint)
@@ -160,6 +147,7 @@ admin.site.register(Organisation)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
 admin.site.register(OAIPMHEndpointSet)
 admin.site.register(ResourceFamily)
+admin.site.register(ShadowKCentre, KCentreModerationAdmin)
 admin.site.register(SAMLServiceProvider)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(URLReference)

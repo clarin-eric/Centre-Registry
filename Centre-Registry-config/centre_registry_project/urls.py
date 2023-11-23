@@ -12,11 +12,13 @@ urlpatterns = [  # pylint: disable=invalid-name
 
     # REST API v1.
     re_path(r'^restxml/$', views_api.get_all_centres),
-    re_path(r'^restxml/(?P<centre_id>\d+)[/]?$', views_api.get_centre),
+    re_path(r'^restxml/(?P<centre_id>\d+)/?$', views_api.get_centre),
 
     # REST API v2.
     re_path(r'^api/KML/(?P<types>([A-Z]){0,6})$', views_api.get_centres_kml),
     re_path(r'^api/model/(?P<model>\S+)$', views_api.get_model),
+    re_path(r'^api/kcentre_form/?$', views_api.post_kcentre_form),
+
 
     # UI views.
     re_path(r'^$', views_ui.get_all_centres),
@@ -30,7 +32,8 @@ urlpatterns = [  # pylint: disable=invalid-name
     re_path(r'^contact/(?P<contact_id>\d+)$', views_ui.get_contact),
     re_path(r'^fcs$', views_ui.get_fcs),
     re_path(r'^kcentre/(?P<kcentre_id>\d+)$', views_ui.get_kcentre),
-    re_path(r'^kcentre_edit/(?P<kcentre_id>\d+)$', views_ui.get_kcentre_edit_form),
+    re_path(r'^kcentre_form/(?P<kcentre_id>\d+)$', views_ui.get_kcentre_edit_form),
+    re_path(r'^kcentre_form$', views_ui.get_kcentre_edit_form),
     re_path(r'^map', views_ui.get_map),
     re_path(r'^oai_pmh$', views_ui.get_oai_pmh),
     re_path(r'^spf$', views_ui.get_spf),

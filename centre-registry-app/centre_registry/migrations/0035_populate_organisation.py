@@ -4,7 +4,7 @@ from django.db import migrations
 
 
 def forwards(apps, schema_editor):
-    # CentreModel and OrganisationModel are types, therefore CamelCase
+    # CentreModel and OrganisationModel are classes, therefore CamelCase
     CentreModel = apps.get_model("centre_registry", "Centre")
     OrganisationModel = apps.get_model("centre_registry", "Organisation")
     for centre_object in CentreModel.objects.all():
