@@ -50,9 +50,11 @@ def get_all_kcentres(request):
 
 def get_centre(request, centre_id):
     centre = get_object_or_404(Centre, pk=centre_id)
+    kcentre = centre.kcentre.first()
     request_context = RequestContext(
         request, {'view': 'centre',
                   'centre': centre,
+                  'kcentre': kcentre,
                   'url_references':
                       URLReference.objects.filter(centre__pk=centre.pk)})
     return render(

@@ -22,7 +22,6 @@ from centre_registry.models import ShadowKCentre
 from centre_registry.utils import get_object_or_None
 
 
-
 def get_centre(request, centre_id):
     """API v1"""
     centre = get_object_or_404(Centre, pk=centre_id)

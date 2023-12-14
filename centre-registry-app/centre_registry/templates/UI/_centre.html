@@ -173,4 +173,8 @@
             {% endif %}
         </tr>
     </table>
+    {% if kcentre %}
+        {% include 'UI/_kcentre.html' with kcentre=kcentre%}
+    {% endif %}
 {% endblock content %}
+

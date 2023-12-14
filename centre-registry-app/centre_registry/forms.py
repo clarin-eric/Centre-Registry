@@ -33,8 +33,9 @@ class KCentreForm(ModelForm):
         model = ShadowKCentre
         fields = ["audiences", "competence", "data_types", "generic_topics", "keywords", "language_processing_spec",
                   "linguistic_topics", "modalities", "pid", "tour_de_clarin_interview", "tour_de_clarin_intro",
-                  "website_language", "centre_fk", "kcentre_fk", "resource_families_fks"]
-        widgets = {'kcentre_fk': HiddenInput()}
+                  "website_language", "kcentre_fk", "resource_families_fks"]
+    #
+    kcentre_fk = ModelChoiceField(widget=HiddenInput(), required=False, queryset=Centre.objects.all())
     edit_author_name = CharField()
     template_name = "forms/_edit_form_snippet.html"
     audiences = SimpleArrayField(CharField(),
@@ -60,16 +61,13 @@ class KCentreForm(ModelForm):
 
     # FK's
     shadow_centre_fk = ModelChoiceField(queryset=ShadowCentre.objects.all(), label="Centre", required=True)
-    shadow_resource_families_fks = ModelMultipleChoiceField(queryset=ResourceFamily.objects.all(),
-                                                            label="Resource families",
-                                                            required=False)
     shadow_secondary_hosts_fks = ModelMultipleChoiceField(queryset=ShadowOrganisation.objects.all(),
                                                           label="Secondary host",
                                                           required=False,
                                                           widget=RelatedFieldWidgetWrapper(
                                                               widget=FilteredSelectMultiple('Organisation',
                                                                                             False),
-                                                              rel=ShadowKCentre.secondary_hosts_fks.rel,
+                                                              rel=ShadowKCentre.shadow_secondary_hosts_fks.rel,
                                                               admin_site=admin.site))
     shadow_service_type_fks = ModelMultipleChoiceField(queryset=ShadowKCentreServiceType.objects.all(),
                                                        label="Service type",
@@ -77,6 +75,6 @@ class KCentreForm(ModelForm):
                                                        widget=RelatedFieldWidgetWrapper(
                                                            widget=FilteredSelectMultiple('Service Type',
                                                                                          False),
-                                                           rel=ShadowKCentre.service_type_fks.rel,
+                                                           rel=ShadowKCentre.shadow_kcentre_service_type_fks.rel,
                                                            admin_site=admin.site))
     shadow_kcentre_status_fk = ModelChoiceField(queryset=KCentreStatus.objects.all(), label="Status", required=False)

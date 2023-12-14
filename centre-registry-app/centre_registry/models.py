@@ -295,7 +295,7 @@ class ResourceFamily(Model):
 
 
 class KCentreStatus(Model):
-    status = CharField(verbose_name='Status', max_length=100, unique=True)
+    status = CharField(verbose_name='Status', max_length=100, unique=False)
 
     class Meta:
         verbose_name = 'KCentre status'
@@ -324,11 +324,11 @@ class KCentre(Model):
     website_language = ArrayField(base_field=CharField(), verbose_name='Website language') # FCe  to some ISO693-3 set of langs?
 
     # FK's
-    centre_fk = ForeignKey(Centre, related_name='centre', on_delete=PROTECT, blank=True, null=True)
+    centre_fk = ForeignKey(Centre, related_name='kcentre', on_delete=PROTECT, blank=True, null=True)
     resource_families_fks = ManyToManyField(to=ResourceFamily, related_name='resource_families')
     secondary_hosts_fks = ManyToManyField(to=Organisation, related_name='secondary_hosts')
     service_type_fks = ManyToManyField(to=KCentreServiceType, related_name='service_types')
-    status_fk = ForeignKey(KCentreStatus, related_name='kcentre_status', on_delete=PROTECT)
+    status_fk = ForeignKey(KCentreStatus, related_name='kcentre_status', on_delete=CASCADE)
 
     def __unicode__(self):
         if self.centre_fk is not None:
@@ -498,37 +498,228 @@ without a risk of production data corruption by unauthorised user making KCentre
 """
 
 
-class ShadowCentre(Centre):
-    shadow_organisation_fk = ForeignKey(Centre, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
-    pass
+class ShadowOrganisation(Model):
+    organisation_fk = ForeignKey(Organisation, on_delete=CASCADE, blank=True, null=True,
+                                 related_name='shadow_organisation')
+
+    # mirrored Organisation fields except foreign keys having their shadows
+    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
+    institution = CharField(verbose_name='Institution', max_length=200, blank=True)
+    working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
+    address = CharField(verbose_name='Address', max_length=100)
+    postal_code = CharField(verbose_name='Postal code', max_length=20)
+    city = CharField(verbose_name='City', max_length=100)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
+
+    def __unicode__(self):
+        return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
+            organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        ordering = ('organisation_name', )
+        verbose_name = 'Shadow Organisation'
+        verbose_name_plural = 'Shadow Organisations'
 
 
-class ShadowOrganisation(Organisation):
-    organisation_fk = ForeignKey(Organisation, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
+class ShadowContact(Model):
+    contact_fk = ForeignKey(Contact, on_delete=SET_NULL, blank=True, null=True, related_name='shadow_contact')
+
+    email_address = EmailField(verbose_name='E-mail address')
+    name = CharField(max_length=100, unique=False, verbose_name='Name')
+    edupersonprincipalname = CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='eduPersonPrincipalName',
+        unique=True)
+    telephone_number = CharField(
+        max_length=40,
+        blank=True,
+        verbose_name='Telephone number (E.123 international notation)')
+    website_url = URLField(
+        max_length=2000, blank=True, verbose_name='Website URL')
+
+    def __unicode__(self):
+        return '{name:s} <{email_address:s}>'.format(
+            name=self.name, email_address=self.email_address)
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'Shadow Contact'
+        verbose_name_plural = 'Shadow Contacts'
 
 
-class ShadowKCentreServiceType(KCentreServiceType):
-    kcentre_service_type_fk = ForeignKey(KCentreServiceType,
-                                         on_delete=CASCADE,
-                                         blank=True,
-                                         null=True,
-                                         related_name='shadow')
+class ShadowCentre(Model):
+    centre_fk = ForeignKey(Centre, on_delete=SET_NULL, blank=True, null=True, related_name='shadow_centre')
+    shadow_organisation_fk = ForeignKey(ShadowOrganisation, on_delete=SET_NULL, blank=True, null=True,
+                                        related_name='shadow_centre')
+    shadow_administrative_contact_fk = ForeignKey(ShadowContact,
+                                                  related_name='shadow_administrative_contact',
+                                                  on_delete=SET_NULL,
+                                                  blank=True,
+                                                  null=True)
+    shadow_technical_contact_fk = ForeignKey(ShadowContact,
+                                             related_name='shadow_technical_contact',
+                                             on_delete=SET_NULL,
+                                             blank=True,
+                                             null=True)
+    shadow_monitoring_contacts_fks = ManyToManyField(ShadowContact,
+                                                     related_name='shadow_monitoring_contacts',
+                                                     blank=True,
+                                                     null=True)
+
+    # mirrored Centre fields except foreign keys having their shadows
+    name = CharField(verbose_name='Name', max_length=200, unique=True)
+    shorthand = CharField(
+        verbose_name='Shorthand code', max_length=30, unique=True)
+    organisation_name = CharField(verbose_name='Organisation', max_length=100)
+    institution = CharField(verbose_name='Institution', max_length=200)
+    working_unit = CharField(verbose_name='Working unit', max_length=200)
+    address = CharField(verbose_name='Address', max_length=100)
+    postal_code = CharField(verbose_name='Postal code', max_length=20)
+    city = CharField(verbose_name='City', max_length=100)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
+
+    type = ManyToManyField(to=CentreType, verbose_name='Type')
+    type_status = CharField(
+        verbose_name="Comments about centre's type",
+        max_length=100,
+        blank=True)
+
+    website_url = URLField(verbose_name='Website URL', max_length=2000)
+    description = CharField(
+        verbose_name='Description', max_length=500, blank=True)
+    expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
+
+    type_certificate_url = URLField(
+        verbose_name='Centre type certificate URL',
+        max_length=2000,
+        blank=True)
+    dsa_url = URLField(
+        verbose_name='Data Seal of Approval URL', max_length=2000, blank=True)
+    pid_status = CharField(
+        verbose_name='Persistent Identifier usage status',
+        max_length=200,
+        blank=True)
+    long_term_archiving_policy = CharField(
+        verbose_name='Long Time Archiving Policy', max_length=200, blank=True)
+    repository_system = CharField(
+        verbose_name='Repository system', max_length=200, blank=True)
+    strict_versioning = BooleanField(
+        verbose_name='Strict versioning?', default=False)
+
+    assessmentdates = ManyToManyField(
+        to=AssessmentDates, related_name='shadow_centre', blank=True
+    )
+
+    def __unicode__(self):
+        # return '{shorthand:s} ({city:s})'.format(
+        #     shorthand=self.shorthand, city=getattr(self.organisation_fk, 'city'))
+        return '{shorthand:s}'.format(shorthand=self.shorthand)
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        ordering = ('shorthand', )
+        verbose_name = 'centre'
+        verbose_name_plural = 'centres'
 
 
-class ShadowKCentreStatus(KCentreStatus):
-    kcentre_status_fk = ForeignKey(KCentreStatus, on_delete=CASCADE, blank=True, null=True, related_name='shadow')
+class ShadowKCentreServiceType(Model):
+    service_type_fk = ForeignKey(KCentreServiceType, related_name='shadow_centre',
+                                 on_delete=SET_NULL, blank=True, null=True)
+
+    # mirrored KCentreServiceType fields
+    service_type = CharField(verbose_name='KCentre service type', max_length=200, unique=True)
+
+    class Meta:
+        verbose_name = 'Shadow Service type'
+        verbose_name_plural = 'Shadow Service types'
+
+    def __unicode__(self):
+        return '{service_type:s}'.format(service_type=self.service_type)
+
+    def __str__(self):
+        return self.__unicode__()
 
 
-class ShadowKCentre(KCentre):
+class ShadowKCentreStatus(Model):
+    status_fk = ForeignKey(KCentreStatus, related_name='shadow_status', on_delete=SET_NULL, blank=True, null=True)
+
+    # mirrored KCentreStatus fields
+    status = CharField(verbose_name='Status', max_length=100, unique=False)
+
+    class Meta:
+        verbose_name = 'Shadow KCentre status'
+        verbose_name_plural = 'Shadow KCentre statuses'
+
+    def __unicode__(self):
+        return 'shadow-{status:s}'.format(status=self.status)
+
+    def __str__(self):
+        return self.__unicode__()
+
+
+class ShadowKCentre(Model):
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
     published = BooleanField(default=False)
 
     shadow_centre_fk = ForeignKey(ShadowCentre, on_delete=CASCADE, related_name='shadow_kcentre')
-    shadow_resource_families_fk = ForeignKey(ResourceFamily, on_delete=CASCADE, related_name='shadow_kcentre')
     shadow_kcentre_service_type_fks = ManyToManyField(ShadowKCentreServiceType, related_name='shadow_kcentre')
-    shadow_kcentre_status_fk = ForeignKey(ShadowKCentreStatus, on_delete=CASCADE)
-    shadow_secondary_host_fk = ManyToManyField(ShadowOrganisation, null=True, blank=True)
+    shadow_kcentre_status_fk = ForeignKey(ShadowKCentreStatus, on_delete=CASCADE, related_name='shadow_kcentre',
+                                          null=True, blank=True)
+    shadow_secondary_hosts_fks = ManyToManyField(ShadowOrganisation, related_name='shadow_kcentres',
+                                                 null=True, blank=True)
 
-    # KCentre to edit, if None it's new KCentre instance candidate
-    kcentre_fk = ForeignKey(KCentre, on_delete=PROTECT, blank=True, null=True, related_name='shadow_kcentre')
+    # mirrored KCentre fields except foreign keys having their shadows
+    audiences = ArrayField(base_field=CharField(), verbose_name='Audience list')
+    competence = CharField(verbose_name='Competence description', max_length=2000)
+    data_types = ArrayField(base_field=CharField(), verbose_name='Data types') # FK? not many uniques
+    generic_topics = ArrayField(base_field=CharField(), verbose_name='Generic topics') # rather not FK, many uniques
+    keywords = ArrayField(base_field=CharField(), verbose_name='Keywords') # sparsely populated, shdn't be mandatory? FK?
+    language_processing_spec = ArrayField(base_field=CharField(), verbose_name='Language processing specifics') # Confirm naming
+    languages_processed = ArrayField(base_field=CharField(), verbose_name='Languages processed')
+    linguistic_topics = ArrayField(base_field=CharField(), verbose_name='Linguistic topics')
+    modalities = ArrayField(base_field=CharField(), verbose_name="Modalities")
+    pid = URLField(verbose_name='PID', unique=True)
+    tour_de_clarin_interview = URLField(verbose_name='TdC interview URL')
+    tour_de_clarin_intro = URLField(verbose_name='TdC intro URL')
+    website_language = ArrayField(base_field=CharField(), verbose_name='Website language') # FCe  to some ISO693-3 set of langs?
+
+    resource_families_fks = ManyToManyField(to=ResourceFamily, related_name='shadow_kcentre')
+
+    def __unicode__(self):
+        if self.shadow_centre_fk is not None:
+            return self.shadow_centre_fk.__unicode__()
+        else:
+            return "None"
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        verbose_name = 'Shadow k-centre'
+        verbose_name_plural = 'Shadow k-centres'
