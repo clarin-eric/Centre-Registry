@@ -79,7 +79,7 @@ div#menu > * {
   flex: auto;
   flex-flow: row nowrap;
   justify-content: center;
-  padding: 3% 3%;
+  padding: 2% 2%;
   text-align: center; }
 
 div#menu > .active {
