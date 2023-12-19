@@ -33,10 +33,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         "HOST": "localhost",
-        "USER": "cr",
-        "PASSWORD": "",
-        "NAME": "cr",
-        "PORT": "5432",
+        "USER": "crpg",
+        "PASSWORD": "crpg",
+        "NAME": "crpg",
+        "PORT": "5433",
     }
 }
 PASSWORD_HASHERS = [
