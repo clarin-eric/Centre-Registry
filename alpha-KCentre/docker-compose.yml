@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  db:     
+    image: registry.gitlab.com/clarin-eric/docker-postgres:15.5_1.0.0
+    environment:
+      - POSTGRES_DB=${_POSTGRES_DB}
+      - POSTGRES_USER=${_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${_POSTGRES_PASSWORD}
+    volumes:
+        - "${PG_DATA_VOLUME:-./pg-data}:/var/lib/postgresql/data:rw"
+        - "./db/create.sql:/docker-entrypoint-initdb.d/noop.sql"
+    ports:
+        - 5433:5432
