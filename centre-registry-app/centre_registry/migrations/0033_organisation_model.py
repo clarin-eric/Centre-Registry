@@ -31,11 +31,6 @@ class Migration(migrations.Migration):
                 'ordering': ('organisation_name',),
             },
         ),
-        migrations.AlterField(
-            model_name='centre',
-            name='organisation_name',
-            field=models.CharField(blank=True, max_length=100, verbose_name='Organisation'),
-        ),
         migrations.AddField(
             model_name='centre',
             name='organisation_fk',

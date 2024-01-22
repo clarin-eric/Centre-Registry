@@ -25,19 +25,13 @@ def forwards(apps, schema_editor):
                                                                city=city,
                                                                latitude=latitude,
                                                                longitude=longitude)
-
-        organisation_fk = organisation_object
-        centre_object.organisation_fk = organisation_fk
+        centre_object.organisation_fk = organisation_object
         centre_object.save()
 
 
-
-
-
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('centre_registry', '0034_kcentre_models'),
+        ('centre_registry', '0033_organisation_model'),
     ]
 
     operations = [
