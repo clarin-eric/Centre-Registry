@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "Clarin-Centre-Registry"
+description = "CLARIN Centre Registry Django project configuration"
+version = "3.0.1-dev1"
+license = "../LICENSE.txt"
+authors = [
+    "Beatriz Sanchez Bribian",
+    "Michał Gawor <michal@clarin.eu>",
+    "Sander Maijers",
+    "André Moreira<andre@clarin.eu>",
+]
+maintainers = [
+    "Michał Gawor <michal@clarin.eu>",
+    "Andre Moreira <andre@clarin.eu>",
+    "<centre-registry@clarin.eu>"
+]
+
+packages = [
+    { include = "centre-registry-app/centre_registry" },
+    { include = "Centre-Registry-config/centre_registry_project" },
+]
+
+[tool.poetry.urls]
+changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
+documentation = "https://trac.clarin.eu/wiki/Centre%20Registry"
+homepage = "https://centres.clarin.eu/"
+repository = "https://github.com/clarin-eric/Centre-Registry/"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
