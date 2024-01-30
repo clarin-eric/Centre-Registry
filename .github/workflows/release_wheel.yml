@@ -13,6 +13,7 @@ jobs:
       - name: Build wheel
         run: |
           cd ..
+          ls
           docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a4 
       - name: Create release
         uses: actions/create-release@v1
