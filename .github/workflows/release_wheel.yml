@@ -14,11 +14,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Build wheel
         run: |
-          echo "in repo root"
-          ls
-          cd ..
-          echo "lvl down"
-          ls
           docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
       - name: Create release
         uses: actions/create-release@v1
