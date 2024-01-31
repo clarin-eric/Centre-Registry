@@ -21,7 +21,7 @@ jobs:
           cd ..
           echo "lvl down"
           ls
-          docker run -v ./Centre-Registry:/src/Centre-Registry -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a4 
+          docker run -v ./Centre-Registry:/src/Centre-Registry/ -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a4 
       - name: Create release
         uses: actions/create-release@v1
         with:
