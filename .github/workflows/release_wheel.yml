@@ -10,6 +10,11 @@ jobs:
   build_wheel:
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: 
+          sparse-checkout: .
+    sparse-checkout: .
       - name: Build wheel
         run: |
           echo "in repo root"
