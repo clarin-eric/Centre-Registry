@@ -30,7 +30,8 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN:  ${{ secrets.RELEASE_TOKEN }}
-        with:  
+        with: 
+          token: ${{ GITHUB_TOKEN }} 
           tag_name: ${{ needs.build-dev.outputs.version }}
           release_name: Release ${{ needs.build-dev.outputs.version }}
           prerelease: false
