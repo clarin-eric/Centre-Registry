@@ -27,9 +27,7 @@ jobs:
       - name: debug
         run: ls
       - name: Add wheel to release artifacts
-        uses: actions/upload-release-asset@v1
-        env: 
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: actions/create-release@v1
         with:
           token:  ${{ secrets.RELEASE_TOKEN }}
           tag_name: ${{ needs.build-dev.outputs.version }}
