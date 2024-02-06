@@ -31,3 +31,5 @@ jobs:
       - name: debug       
         run: |
           ls
+          cd ..
+          ls
