@@ -1,7 +1,9 @@
-name: Build wheel
+name: Build and release wheel
 
 on:
-  [push]
+  push:
+    tags:
+      - '*'
 defaults:
   run:
     shell: bash
@@ -16,9 +18,8 @@ jobs:
         run: |
           cd ..
           docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
-      - name: debug
-        run: ls
-      - name: Add wheel to release artifacts
+      - name: Create release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -28,8 +29,12 @@ jobs:
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
-      - name: debug       
-        run: |
-          ls
-          cd ..
-          ls
+      - name: Add to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ../whl/*.whl
+          asset_name: clarin-centre-registry-${{ github.ref }}.whl
+          asset_content_type: application/gzip
