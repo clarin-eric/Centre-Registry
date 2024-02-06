@@ -66,6 +66,7 @@ target/
 centre-registry-app/centre_registry/assets
 
 # Databases
+mydatabase
 Centre-Registry-config/mydatabase
 Centre-Registry-config/mytestdatabase
 
