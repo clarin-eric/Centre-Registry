@@ -5,7 +5,7 @@
 ### New features
 - project root `.pytoml` building Centre Registry packages (`centre-registry-app`; `Centre-Registry-config`) into a single package
 - `.whl` build and distribution via release
-- `api/all_kcentres` endpoint for main website consumption
+- `api/all_centres_full` endpoint for main website consumption
 
 ### Changed features
 - Django 4.1.11 to Django 4.2.*

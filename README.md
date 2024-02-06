@@ -17,6 +17,8 @@ use in mapping applications. For example: `api/KML/EBC`
 `OAIPMHEndpoint`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
 Gives a JSON representation of all data belonging to that model in the database.
 
+`api/all_centres_full`, for all Centres of any type with fully expanded relations into values
+
 ## XML API
 `restxml/`: gives a list of centres including the centre ID in XML.
 
