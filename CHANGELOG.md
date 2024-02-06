@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.0.1] - 06.02.2024
+
+### New features
+- project root `.pytoml` building Centre Registry packages (`centre-registry-app`; `Centre-Registry-config`) into a single package
+- `.whl` build and distribution via release
+- `api/all_kcentres` endpoint for main website consumption
+
+### Changed features
+- Django 4.1.11 to Django 4.2.*
 
 ## [3.0.0] - 03.10.2023
 
