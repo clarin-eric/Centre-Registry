@@ -15,6 +15,10 @@ maintainers = [
     "<centre-registry@clarin.eu>"
 ]
 
+packages = [
+  { include = "clarin_centre_registry" },
+]
+
 [tool.poetry.dependencies]
 centre_registry = {path = "./centre-registry-app/", develop = false}
 centre_registry_project = {path = "./Centre-Registry-config/", develop = false} 
