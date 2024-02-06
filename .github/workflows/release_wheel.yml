@@ -36,6 +36,7 @@ jobs:
           cd ..
           cd whl
           ls
+          pwd
       - name: Add to release
         uses: shogo82148/actions-upload-release-asset@v1
         env:
