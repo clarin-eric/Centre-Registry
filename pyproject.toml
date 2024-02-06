@@ -16,8 +16,8 @@ maintainers = [
 ]
 
 packages = [
-    { include = "centre-registry-app/centre_registry" },
-    { include = "Centre-Registry-config/centre_registry_project" },
+    { include = "centre-registry-app" },
+    { include = "Centre-Registry-config" },
 ]
 
 [tool.poetry.urls]
