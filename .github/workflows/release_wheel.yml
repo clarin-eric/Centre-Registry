@@ -28,3 +28,5 @@ jobs:
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
+        run: |
+          ls
