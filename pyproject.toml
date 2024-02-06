@@ -16,12 +16,13 @@ maintainers = [
 ]
 
 packages = [
-  { include = "clarin_centre_registry" },
+  { include = "Centre-Registry-config" },
+  { include = "centre-registry-app"}, 
 ]
 
 [tool.poetry.dependencies]
-centre_registry = {path = "./centre-registry-app/", develop = false}
-centre_registry_project = {path = "./Centre-Registry-config/", develop = false} 
+centre_registry = {path = "./centre-registry-app", develop = false}
+centre_registry_project = {path = "./Centre-Registry-config", develop = false} 
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
