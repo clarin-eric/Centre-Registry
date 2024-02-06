@@ -15,10 +15,9 @@ maintainers = [
     "<centre-registry@clarin.eu>"
 ]
 
-packages = [
-    { include = "centre-registry-app/centre_registry" },
-    { include = "Centre-Registry-config/centre_registry_project" },
-]
+[tool.poetry.dependencies]
+centre_registry = {path = "./centre-registry-app/", develop = false}
+centre_registry_project = {path = "./Centre-Registry-config/" develop = false} 
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
