@@ -43,6 +43,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./../whl/*.whl
-          asset_name: "centre-registry-wheel-${{ github.ref }}.whl"
+          asset_path: /home/runner/work/Centre-Registry/whl/*.whl
           asset_content_type: application/gzip
