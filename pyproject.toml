@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "Clarin-Centre-Registry"
 description = "CLARIN Centre Registry Django project configuration"
-version = "3.0.1-dev1"
+version = "3.0.1-rc1"
 license = "../LICENSE.txt"
 authors = [
     "Beatriz Sanchez Bribian",
