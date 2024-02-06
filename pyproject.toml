@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Clarin-Centre-Registry"
+name = "clarin_centre_registry"
 description = "CLARIN Centre Registry Django project configuration"
 version = "3.0.1-rc1"
 license = "../LICENSE.txt"
