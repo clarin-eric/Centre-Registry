@@ -68,3 +68,6 @@ centre-registry-app/centre_registry/assets
 # Databases
 Centre-Registry-config/mydatabase
 Centre-Registry-config/mytestdatabase
+
+# venv
+venv*
