@@ -37,11 +37,11 @@ jobs:
           cd whl
           ls
       - name: Add to release
-        uses: actions/upload-release-asset@v1
+        uses: shogo82148/actions-upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ../whl/*.whl
-          asset_name: centre-registry-wheel.whl
+          asset_path: ./../whl/*.whl
+          asset_name: "centre-registry-wheel-${{ github.ref }}.whl"
           asset_content_type: application/gzip
