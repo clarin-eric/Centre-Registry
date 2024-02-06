@@ -21,8 +21,8 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-centre_registry = {path = "./centre-registry-app", develop = false}
-centre_registry_project = {path = "./Centre-Registry-config", develop = false} 
+centre-registry-app = {path = "./centre-registry-app", develop = false}
+Centre-Registry-config = {path = "./Centre-Registry-config", develop = false} 
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
