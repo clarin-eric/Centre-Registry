@@ -28,5 +28,6 @@ jobs:
           draft: false
           prerelease: false
           body_path: CHANGELOG.md
+      - name: debug       
         run: |
           ls
