@@ -31,8 +31,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
         with: 
-          body: |
-            Wheel release ${{ needs.build-dev.outputs.version }}
+          body: Wheel release ${{ needs.build-dev.outputs.version }}
           tag_name: ${{ needs.build-dev.outputs.version }}
-          release_name: Release ${{ needs.build-dev.outputs.version }}
+          release_name: ${{ needs.build-dev.outputs.version }}
           prerelease: false
