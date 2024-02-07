@@ -16,19 +16,27 @@ maintainers = [
 ]
 
 packages = [
-  { include = "Centre-Registry-config" },
-  { include = "centre-registry-app"}, 
+  { include = "centre_registry_project", from = "Centre-Registry-config" },
+  { include = "centre_registry", from = "centre-registry-app" }, 
 ]
-
-[tool.poetry.dependencies]
-centre-registry-app = {path = "./centre-registry-app", develop = false}
-Centre-Registry-config = {path = "./Centre-Registry-config", develop = false} 
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
 documentation = "https://trac.clarin.eu/wiki/Centre%20Registry"
 homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
+
+[tool.poetry.dependencies]
+python = '>=3.11.*,<4.0'
+Django = '4.2.*'
+django-debug-toolbar = '4.2.0'
+djangorestframework = '3.14.0'
+
+[tool.poetry.group.test.dependencies]
+lxml = '4.9.3'
+selenium = '4.13.0'
+jsonschema = '4.19.1'
+django-test-migrations = '1.3.0'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
