@@ -69,7 +69,7 @@ jobs:
       with:
         name: workspace
     - name: 'Untar workspace'
-      run: tar -xf workspace.tar
+      run: tar -xvf workspace.tar
     # For github releases -> upload release package to existing release
     # For tag pushes without github release -> create a github release with release package
     - name: Create release
