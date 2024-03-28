@@ -49,7 +49,7 @@ jobs:
       - name: Build wheel
         run: |
           cd ..
-          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
+          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a7
       - name: 'Tar wheeler output and changelog'
         run: tar -cvf workspace.tar ../whl/*.whl ./CHANGELOG.md
       - uses: actions/upload-artifact@v4
