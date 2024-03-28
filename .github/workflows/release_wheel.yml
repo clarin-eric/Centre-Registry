@@ -91,7 +91,7 @@ jobs:
       with:
         # Pseudo-ternary expression: get "upload_url" from the release created above, or from github "release" event when release is pre-created
         upload_url: ${{ needs.prepare.outputs.create_release == 'true' && steps.create_release.outputs.upload_url || github.event.release.upload_url }} 
-        asset_path: /home/runner/work/Centre-Registry/whl/*.whl
+        asset_path: home/runner/work/Centre-Registry/whl/*.whl
         asset_content_type: application/gzip
     - uses: eregon/publish-release@v1
       if: needs.prepare.outputs.create_release == 'true'
