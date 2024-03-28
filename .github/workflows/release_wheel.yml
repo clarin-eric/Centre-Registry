@@ -85,7 +85,7 @@ jobs:
         prerelease: true
         body_path: CHANGELOG.md
     - name: Add to existing release
-      uses: shogo82148/upload-release-asset@v1
+      uses: shogo82148/actions-upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
