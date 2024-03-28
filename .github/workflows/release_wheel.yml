@@ -50,8 +50,8 @@ jobs:
         run: |
           cd ..
           docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
-      - name: 'Tar wheeler output'
-        run: tar -cvf workspace.tar /home/runner/work/Centre-Registry/whl/*.whl
+      - name: 'Tar wheeler output and changelog'
+        run: tar -cvf workspace.tar /home/runner/work/Centre-Registry/whl/*.whl CHANGELOG.md
       - uses: actions/upload-artifact@v4
         with:
           name: workspace
