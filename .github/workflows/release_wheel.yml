@@ -31,7 +31,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: false
-          prerelease: false
+          prerelease: true
           body_path: CHANGELOG.md
       - name: Add to release
         uses: shogo82148/actions-upload-release-asset@v1
