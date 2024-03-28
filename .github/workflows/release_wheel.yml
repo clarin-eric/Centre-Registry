@@ -75,15 +75,17 @@ jobs:
     - name: Create release
       if: needs.prepare.outputs.create_release == 'true'
       id: create_release
-      uses: actions/create-release@v1
+      uses: ncipollo/release-action@v1
+      permissions:
+        contents: write
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
+        tag: ${{ github.ref }}
+        name: ${{ github.ref }}
         draft: false
         prerelease: true
-        body_path: CHANGELOG.md
+        bodyFile: CHANGELOG.md
     - name: Add to existing release
       uses: shogo82148/actions-upload-release-asset@v1
       env:
