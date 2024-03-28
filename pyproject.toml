@@ -45,9 +45,9 @@ vcs = "git"
 pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 format-jinja = """
     {%- if distance == 0 -%}
-        {{ base }}{{ stage }}
+        {{ serialize_pep440(base, stage, revision) }}
     {%- else -%}
-        {{ base }}{{ stage }}{{ distance }}+{{commit}}
+        {{ serialize_pep440(base, stage, revision, dev=distance, metadata=[commit]) }}
     {%- endif -%}
 """
 
