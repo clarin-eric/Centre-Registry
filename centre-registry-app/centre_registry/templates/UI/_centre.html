@@ -41,7 +41,7 @@
             </tr>
         {% endif %}
         <tr>
-            <th>CoreTrustSeal/DSA</th>
+            <th>CoreTrustSeal</th>
             <td>
                 {% if centre.dsa_url %}
                     <a href='{{ centre.dsa_url }}'>seal</a>
@@ -96,15 +96,15 @@
     <table>
         <tr>
             <th>Organisation name</th>
-            <td>{{ centre.organisation_name }}</td>
+            <td>{{ centre.organisation_fk.organisation_name }}</td>
         </tr>
         <tr>
             <th>Institution</th>
-            <td>{{ centre.institution }}</td>
+            <td>{{ centre.organisation_fk.institution }}</td>
         </tr>
         <tr>
             <th>Working unit</th>
-            <td>{{ centre.working_unit }}</td>
+            <td>{{ centre.organisation_fk.working_unit }}</td>
         </tr>
         <tr>
             <th>Shorthand</th>
@@ -112,9 +112,9 @@
         </tr>
         <tr>
             <th>Postal address</th>
-            <td>{{ centre.address }}<br>
-                {{ centre.postal_code }}<br>
-                {{ centre.city }}<br>
+            <td>{{ centre.organisation_fk.address }}<br>
+                {{ centre.organisation_fk.postal_code }}<br>
+                {{ centre.organisation_fk.city }}<br>
                 {{ centre.consortium.country_name }}
             </td>
         </tr>

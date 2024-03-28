@@ -18,6 +18,7 @@ urlpatterns = [  # pylint: disable=invalid-name
     # REST API v2.
     re_path(r'^api/KML/(?P<types>([A-Z]){0,6})$', views_api.get_centres_kml),
     re_path(r'^api/model/(?P<model>\S+)$', views_api.get_model),
+    re_path(r'^api/all_centres_full', views_api.get_all_centres_full),
 
     # UI views.
     re_path(r'^$', views_ui.get_all_centres),

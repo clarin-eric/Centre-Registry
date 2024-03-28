@@ -1,12 +1,16 @@
 from inspect import getmembers as inspect_getmembers
 from inspect import isclass as inspect_isclass
 from json import loads as json_loads
+from json import dumps as json_dumps
 
 from centre_registry import models
 from centre_registry.models import Centre
+from centre_registry.models import CentreType
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import URLReference
+from centre_registry.serializers import CentreSerializer
+from centre_registry.utils import model_to_dict_wfk
 from django.core import serializers
 from django.core.exceptions import ViewDoesNotExist
 from django.db.models import Q
@@ -15,6 +19,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext
 from django.template.loader import render_to_string
+
 
 
 def get_centre(request, centre_id):
@@ -47,6 +52,11 @@ def get_all_centres(request):
         # Djnago 1.11+ requires context in form of dict, flatten() returns RequestContext as dict
         context=request_context.flatten(),
         content_type='application/xml')
+
+
+def get_all_centres_full(request):
+    centres_data = [CentreSerializer(centre).data for centre in Centre.objects.all()]
+    return JsonResponse(centres_data, safe=False)
 
 
 def _get_model(model_name):

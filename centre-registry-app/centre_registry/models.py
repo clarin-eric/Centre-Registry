@@ -160,6 +160,35 @@ class AssessmentDates(Model):
         verbose_name_plural = 'issue/due dates for a centre type'
 
 
+class Organisation(Model):
+    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
+    institution = CharField(verbose_name='Institution', max_length=200, blank=True)
+    working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
+    address = CharField(verbose_name='Address', max_length=100)
+    postal_code = CharField(verbose_name='Postal code', max_length=20)
+    city = CharField(verbose_name='City', max_length=100)
+    latitude = CharField(
+        verbose_name='Latitude (from e.g. Google Maps)',
+        validators=[validate_latitude],
+        max_length=20)
+    longitude = CharField(
+        verbose_name='Longitude (from e.g. Google Maps)',
+        validators=[validate_longitude],
+        max_length=20)
+
+    def __unicode__(self):
+        return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
+            organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
+
+    def __str__(self):
+        return self.__unicode__()
+
+    class Meta:
+        ordering = ('organisation_name', )
+        verbose_name = 'organisation'
+        verbose_name_plural = 'organisations'
+
+
 class Centre(Model):
     """
     A CLARIN centre.
@@ -167,7 +196,8 @@ class Centre(Model):
     name = CharField(verbose_name='Name', max_length=200, unique=True)
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
-    organisation_name = CharField(verbose_name='Organisation', max_length=100)
+    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=True)
+    organisation_fk = ForeignKey(Organisation, on_delete=PROTECT, null=True)
     institution = CharField(verbose_name='Institution', max_length=200)
     working_unit = CharField(verbose_name='Working unit', max_length=200)
     address = CharField(verbose_name='Address', max_length=100)
@@ -182,7 +212,7 @@ class Centre(Model):
         validators=[validate_longitude],
         max_length=20)
 
-    type = ManyToManyField(to=CentreType, verbose_name='Type')
+    type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
     type_status = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
@@ -255,7 +285,6 @@ class URLReference(Model):
 
 
 class OAIPMHEndpointSet(Model):
-    #TODO rename web_service field name
     set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
     set_type = CharField(verbose_name='Set type', max_length=1024, default='VLO')
 

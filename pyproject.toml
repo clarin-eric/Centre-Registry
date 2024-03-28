@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "centre_registry_app"
-description = "CLARIN Centre Registry, a Django application. "
-version = "3.0.1"
+name = "clarin_centre_registry"
+description = "CLARIN Centre Registry Django project configuration"
+version = "3.0.1-rc"
 license = "../LICENSE.txt"
 authors = [
     "Beatriz Sanchez Bribian",
@@ -14,10 +14,11 @@ maintainers = [
     "Andre Moreira <andre@clarin.eu>",
     "<centre-registry@clarin.eu>"
 ]
-packages = [
-    { include = "centre_registry" },
-]
 
+packages = [
+  { include = "centre_registry_project", from = "Centre-Registry-config" },
+  { include = "centre_registry", from = "centre-registry-app" }, 
+]
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"

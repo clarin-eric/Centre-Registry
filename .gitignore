@@ -27,6 +27,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+*.lock
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -65,5 +66,9 @@ target/
 centre-registry-app/centre_registry/assets
 
 # Databases
+mydatabase
 Centre-Registry-config/mydatabase
 Centre-Registry-config/mytestdatabase
+
+# venv
+venv*

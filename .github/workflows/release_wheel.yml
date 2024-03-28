@@ -1,0 +1,43 @@
+name: Build and release wheel
+
+on:
+  push:
+    branches: 
+      - "master" 
+    tags:
+    - '[0-9]+.[0-9]+.[0-9]+'
+    - '[0-9]+.[0-9]+.[0-9]+rc[x0-9]+'
+    - '[0-9]+.[0-9]+.[0-9]+-rc[x0-9]+'  
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build_wheel:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build wheel
+        run: |
+          cd ..
+          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: true
+          body_path: CHANGELOG.md
+      - name: Add to release
+        uses: shogo82148/actions-upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /home/runner/work/Centre-Registry/whl/*.whl
+          asset_content_type: application/gzip

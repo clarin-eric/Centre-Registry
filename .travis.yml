@@ -16,16 +16,16 @@ env:
     - browserName='chrome' platformName='macOS 10.14' browserVersion='latest'
     - browserName='chrome' platformName='Windows 11' browserVersion='latest'
     - browserName='chrome' platformName='macOS 13' browserVersion='latest'
-    - browserName='firefox' platformName='Windows 10' browserVersion='78'
-    - browserName='firefox' platformName='macOS 10.14' browserVersion='78'
-    - browserName='firefox' platformName='Windows 11' browserVersion='78'
-    - browserName='firefox' platformName='macOS 13' browserVersion='78'
+    - browserName='firefox' platformName='Windows 10' browserVersion='91'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='91'
+    - browserName='firefox' platformName='Windows 11' browserVersion='91'
+    - browserName='firefox' platformName='macOS 13' browserVersion='91'
     - browserName='firefox' platformName='Windows 10' browserVersion='latest'
     - browserName='firefox' platformName='macOS 10.14' browserVersion='latest'
     - browserName='firefox' platformName='Windows 11' browserVersion='latest'
     - browserName='firefox' platformName='macOS 13' browserVersion='latest'
     - browserName='internet explorer' platformName='Windows 10' browserVersion='11'
-    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='18'
+    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='79'
     - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='79'
     - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='latest'
     - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='latest'
@@ -50,3 +50,4 @@ notifications:
   email:
     on_success: change
     on_failure: always
+
