@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.1] - 06.02.2024
+## [3.0.1] - 28.03.2024
 
 ### New features
 - project root `.pytoml` building Centre Registry packages (`centre-registry-app`; `Centre-Registry-config`) into a single package
@@ -8,7 +8,13 @@
 - `api/all_centres_full` endpoint for main website consumption
 
 ### Changed features
-- Django 4.1.11 to Django 4.2.*
+- Updated dependencies:
+  - Django 4.1.11 to Django 4.2.11
+  - django-debug-toolbar 4.2.0 to 4.3.0
+  - Jsonschema 4.19.1 to 4.21.1
+  - lxml 4.9.3 to 4.9.4
+  - Selenium 4.13.0 to 4.19.0
+- Added dependency on djangorestframework 3.15.1
 
 ## [3.0.0] - 03.10.2023
 
