@@ -81,6 +81,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
+        tag: ${{ needs.prepare.outputs.version }}
+        name: ${{ needs.prepare.outputs.version }}
         draft: false
         prerelease: true
         bodyFile: CHANGELOG.md
