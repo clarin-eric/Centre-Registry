@@ -31,7 +31,6 @@ python = '>=3.11.*,<4.0'
 Django = '4.2.11'
 django-debug-toolbar = '4.3.0'
 djangorestframework = '3.15.1'
-poetry-dynamic-versioning = {extras = ["plugin"], version = "^1.2.0"}
 
 [tool.poetry.group.test.dependencies]
 lxml = '4.9.4'
