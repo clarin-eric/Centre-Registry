@@ -12,7 +12,7 @@
   - Django 4.1.11 to Django 4.2.11
   - django-debug-toolbar 4.2.0 to 4.3.0
   - Jsonschema 4.19.1 to 4.21.1
-  - lxml 4.9.3 to 4.9.4
+  - lxml 4.9.3 to 5.2.1
   - Selenium 4.13.0 to 4.19.0
 - Added dependency on djangorestframework 3.15.1
 
