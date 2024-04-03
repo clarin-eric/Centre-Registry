@@ -44,7 +44,7 @@ class CentreSerializer(serializers.ModelSerializer):
     monitoring_contacts = ContactSerializer(many=True)
     consortium = ConsortiumSerializer()
     organisation_fk = OrganisationSerializer()
-    assessmentdates = AssessmentDatesSerializer()
+    assessmentdates = AssessmentDatesSerializer(many=True)
 
     class Meta:
         model = Centre
