@@ -14,14 +14,13 @@ maintainers = [
     "Andre Moreira <andre@clarin.eu>",
     "<centre-registry@clarin.eu>"
 ]
-
 packages = [
     { include = "centre_registry_project" },
 ]
 
 [tool.poetry.urls]
 changelog = "https://github.com/clarin-eric/Centre-Registry/blob/master/LICENSE.txt"
-documentation = "https://trac.clarin.eu/wiki/Centre%20Registry"
+documentation = "https://github.com/clarin-eric/Centre-Registry/"
 homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
