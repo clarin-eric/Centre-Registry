@@ -30,6 +30,11 @@ class OrganisationSerializer(serializers.ModelSerializer):
         model = Organisation
         fields = '__all__'
 
+class AssessmentDatesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AssessmentDates
+        fields = '__all__'
+
 
 class CentreSerializer(serializers.ModelSerializer):
     type = CentreTypeSerializer(many=True)
@@ -38,6 +43,7 @@ class CentreSerializer(serializers.ModelSerializer):
     monitoring_contacts = ContactSerializer(many=True)
     consortium = ConsortiumSerializer()
     organisation_fk = OrganisationSerializer()
+    assessmentdates = AssessmentDatesSerializer()
 
     class Meta:
         model = Centre
