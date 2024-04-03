@@ -13,8 +13,8 @@ Gives a KML file (Keyhole Markup) with geographical information about Centres of
 use in mapping applications. For example: `api/KML/EBC`
 
 `api/model/M`, where M is one of the models in the administration interface `CentreType`,
-`Centre`, `Contact`, `Consortium`, `FCSEndpoint`, `URLReference`, `MetadataFormat`,
-`OAIPMHEndpoint`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
+`Centre`, `Contact`, `Consortium`, `FCSEndpoint`, `URLReference`, `Organisation`,
+`OAIPMHEndpoint`, `OAIPMHEndpointSet`, `SAMLIdentityFederation`, `SAMLServiceProvider`:
 Gives a JSON representation of all data belonging to that model in the database.
 
 `api/all_centres_full`, for all Centres of any type with fully expanded relations into values
