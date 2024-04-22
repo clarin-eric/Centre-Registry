@@ -11,8 +11,7 @@ from centre_registry.models import Organisation
 class CentreTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CentreType
-        fields = '__all__'
-
+        fields = ['type']
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,9 +31,11 @@ class OrganisationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AssessmentDatesSerializer(serializers.ModelSerializer):
+    type = CentreTypeSerializer(many=True)
+
     class Meta:
         model = AssessmentDates
-        fields = '__all__'
+        exclude = ['id']
 
 
 class CentreSerializer(serializers.ModelSerializer):
