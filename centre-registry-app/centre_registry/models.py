@@ -19,6 +19,7 @@ def raise_coordinate_validation_error(coordinate, exception):
             '{0} is not a valid Decimal Degree coordinate. '.format(
                 str(coordinate))) from exception
 
+
 def parse_decimal_degree(degree):
     """
     Extracts a float decimal degree from a string.
