@@ -33,7 +33,7 @@ def is_valid_latitude(latitude):
 
 def validate_latitude(latitude):
     try:
-        if is_valid_longitude(parse_decimal_degree(latitude)):
+        if is_valid_latitude(parse_decimal_degree(latitude)):
             return
     except Exception as exception:
         raise ValidationError(
