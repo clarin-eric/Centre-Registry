@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "Centre-Registry-config"
 description = "CLARIN Centre Registry Django project configuration"
+version = "3.0.1"
 license = "../LICENSE.txt"
 authors = [
     "Beatriz Sanchez Bribian",
@@ -28,4 +29,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-centre-registry-app = ">=3.0.*"
+centre-registry-app = "3.0.1"

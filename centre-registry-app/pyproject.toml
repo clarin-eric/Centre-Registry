@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "centre_registry_app"
 description = "CLARIN Centre Registry, a Django application. "
+version = "3.0.1"
 license = "../LICENSE.txt"
 authors = [
     "Beatriz Sanchez Bribian",
