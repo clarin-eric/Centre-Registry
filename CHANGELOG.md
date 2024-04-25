@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.1] - 24.04.2024
+## [3.0.1] - 25.04.2024
 
 ### New features
 - `api/all_centres_full` endpoint for CLARIN website
