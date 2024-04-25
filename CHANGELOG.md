@@ -1,18 +1,19 @@
 # Changelog
 
-## [3.0.1] - 28.03.2024
+## [3.0.1] - 25.04.2024
 
 ### New features
+- `api/all_centres_full` endpoint for CLARIN website
 - project root `.pytoml` building Centre Registry packages (`centre-registry-app`; `Centre-Registry-config`) into a single package
 - `.whl` build and distribution via release
-- `api/all_centres_full` endpoint for main website consumption
 
 ### Changed features
+- Fixed validation of geographical coordinates on administration interface. #79
 - Updated dependencies:
   - Django 4.1.11 to Django 4.2.11
   - django-debug-toolbar 4.2.0 to 4.3.0
   - Jsonschema 4.19.1 to 4.21.1
-  - lxml 4.9.3 to 4.9.4
+  - lxml 4.9.3 to 5.2.1
   - Selenium 4.13.0 to 4.19.0
 - Added dependency on djangorestframework 3.15.1
 

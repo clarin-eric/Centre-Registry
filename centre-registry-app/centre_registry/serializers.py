@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import Contact
@@ -10,8 +11,7 @@ from centre_registry.models import Organisation
 class CentreTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CentreType
-        fields = '__all__'
-
+        fields = ['type']
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,6 +30,13 @@ class OrganisationSerializer(serializers.ModelSerializer):
         model = Organisation
         fields = '__all__'
 
+class AssessmentDatesSerializer(serializers.ModelSerializer):
+    type = CentreTypeSerializer(many=True)
+
+    class Meta:
+        model = AssessmentDates
+        exclude = ['id']
+
 
 class CentreSerializer(serializers.ModelSerializer):
     type = CentreTypeSerializer(many=True)
@@ -38,6 +45,7 @@ class CentreSerializer(serializers.ModelSerializer):
     monitoring_contacts = ContactSerializer(many=True)
     consortium = ConsortiumSerializer()
     organisation_fk = OrganisationSerializer()
+    assessmentdates = AssessmentDatesSerializer(many=True)
 
     class Meta:
         model = Centre

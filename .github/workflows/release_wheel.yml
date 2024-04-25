@@ -3,41 +3,103 @@ name: Build and release wheel
 on:
   push:
     branches: 
-      - "master" 
+      - "master"
     tags:
     - '[0-9]+.[0-9]+.[0-9]+'
     - '[0-9]+.[0-9]+.[0-9]+rc[x0-9]+'
-    - '[0-9]+.[0-9]+.[0-9]+-rc[x0-9]+'  
+    - '[0-9]+.[0-9]+.[0-9]+-rc[x0-9]+'
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
 defaults:
   run:
     shell: bash
 
 jobs:
+  prepare:
+    name: "Prepare"
+    runs-on: ubuntu-22.04
+    outputs:
+      version: ${{ steps.get_version.outputs.VERSION }}
+      create_release: ${{ steps.check_release.outputs.CREATE_RELEASE }}
+    steps:
+      - name: Get the version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+      - name: Check create release for tag
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        id: check_release
+        run: |
+          URL="https://api.github.com/repos/${{ github.repository }}/releases/tags/${{ steps.get_version.outputs.VERSION }}"
+          StatusCode=$(curl -o -I -L -s -w "%{http_code}" -X GET -G $URL)
+          if [ "$StatusCode" == 200 ]; then
+            echo "Release exists"
+            echo "CREATE_RELEASE=false" >> $GITHUB_OUTPUT
+          else
+            echo "Release does not exist"
+            echo "CREATE_RELEASE=true" >> $GITHUB_OUTPUT
+          fi
   build_wheel:
+    needs: [prepare]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Build wheel
         run: |
           cd ..
-          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a6
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with: 
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: false
-          prerelease: true
-          body_path: CHANGELOG.md
-      - name: Add to release
-        uses: shogo82148/actions-upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a10
+      - name: 'Tar wheeler output and changelog'
+        run: tar -cvf workspace.tar ../whl/*.whl ./CHANGELOG.md
+      - uses: actions/upload-artifact@v4
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /home/runner/work/Centre-Registry/whl/*.whl
-          asset_content_type: application/gzip
+          name: workspace
+          path: workspace.tar
+          retention-days: 1
+  release:
+    name: "Release"
+    needs: [prepare, build_wheel]
+    # Run job for github releases and tag pushes (without github release)
+    if: github.event_name == 'release' || needs.prepare.outputs.create_release == 'true'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+    - name: 'Download workspace'
+      uses: actions/download-artifact@v4
+      with:
+        name: workspace
+    - name: 'Untar workspace'
+      run: tar -xvf workspace.tar
+    # For github releases -> upload release package to existing release
+    # For tag pushes without github release -> create a github release with release package
+    - name: Create release
+      if: needs.prepare.outputs.create_release == 'true'
+      id: create_release
+      uses: ncipollo/release-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with: 
+        tag: ${{ needs.prepare.outputs.version }}
+        name: ${{ needs.prepare.outputs.version }}
+        draft: false
+        prerelease: true
+        bodyFile: CHANGELOG.md
+    - name: Add to existing release
+      uses: shogo82148/actions-upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        # Pseudo-ternary expression: get "upload_url" from the release created above, or from github "release" event when release is pre-created
+        upload_url: ${{ needs.prepare.outputs.create_release == 'true' && steps.create_release.outputs.upload_url || github.event.release.upload_url }} 
+        asset_path: ./whl/*.whl
+        asset_content_type: application/gzip
+    - uses: eregon/publish-release@v1
+      if: needs.prepare.outputs.create_release == 'true'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        release_id: ${{ steps.create_release.outputs.id }}

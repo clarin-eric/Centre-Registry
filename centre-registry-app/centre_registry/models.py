@@ -14,11 +14,17 @@ from django.db.models import DateField
 from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
 
 
+def raise_coordinate_validation_error(coordinate, exception):
+    raise ValidationError(
+            '{0} is not a valid Decimal Degree coordinate. '.format(
+                str(coordinate))) from exception
+
+
 def parse_decimal_degree(degree):
     """
     Extracts a float decimal degree from a string.
     """
-    return re_match(r'^[+\-]{0,1}[0-9]{1,3}\.[0-9]{1,8}$', degree).group(0)
+    return re_match(r'^[+\-]{0,1}[0-9]{1,3}\.[0-9]{1,18}$', degree).group(0)
 
 
 def is_valid_longitude(longitude):
@@ -33,19 +39,22 @@ def is_valid_latitude(latitude):
 
 def validate_latitude(latitude):
     try:
-        if is_valid_longitude(parse_decimal_degree(latitude)):
+        if is_valid_latitude(parse_decimal_degree(latitude)):
             return
+        else:
+            raise_coordinate_validation_error(latitude)
     except Exception as exception:
-        raise ValidationError(
-            '{0} is not a valid Decimal Degree latitude. '.format(
-                str(latitude))) from exception
+        raise_coordinate_validation_error(latitude, exception)
 
 
 def validate_longitude(longitude):
     try:
         if is_valid_longitude(parse_decimal_degree(longitude)):
             return
-    except Exception as exception:import ast
+        else:
+            raise_coordinate_validation_error(longitude)
+    except Exception as exception:
+        raise_coordinate_validation_error(longitude, exception)
 
 
 class Contact(Model):

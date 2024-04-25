@@ -39,7 +39,7 @@ env:
 addons:
   sauce_connect: true
 install:
-  - pip install -e 'centre-registry-app/'
+  - pip install -e .
   - pip install -r 'centre-registry-app/requirements_test.txt'
 script:
   - Centre-Registry-config/manage.py migrate
