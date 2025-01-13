@@ -143,8 +143,8 @@ class AssessmentDates(Model):
     """
     Assessment due date
     """
-    issuedate = DateField(verbose_name='Assessment issued date (YYYY-MM-DD)')
-    duedate = DateField(verbose_name='Assessment due date (YYYY-MM-DD)')
+    issuedate = DateField(verbose_name='Assessment issued date (DD-MM-YYYY)')
+    duedate = DateField(verbose_name='Assessment due date (DD-MM-YYYY)')
     type = ManyToManyField(to=CentreType, verbose_name='Type')
 
     def __unicode__(self):
