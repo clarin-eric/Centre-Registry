@@ -81,7 +81,9 @@ MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',  # TODO: remove?
-    'django.contrib.messages.middleware.MessageMiddleware', )
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
+)
 # TODO: Remove ModelBackend authentication once SSO with RemoteUserBackend is
 # in place.
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
@@ -96,7 +98,8 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  'centre_registry', )
+                  'centre_registry',
+                  'simple_history',)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

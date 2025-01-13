@@ -12,6 +12,7 @@ from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
 from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
+from simple_history.models import HistoricalRecords
 
 
 def raise_coordinate_validation_error(coordinate, exception):
@@ -75,6 +76,7 @@ class Contact(Model):
         verbose_name='Telephone number (E.123 international notation)')
     website_url = URLField(
         max_length=2000, blank=True, verbose_name='Website URL')
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{name:s} <{email_address:s}>'.format(
@@ -106,6 +108,8 @@ class Consortium(Model):
         verbose_name='DNS subdomain alias * (*.clarin.eu)',
         blank=True,
         max_length=25)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{name:s} ({country_code})'.format(
@@ -126,6 +130,8 @@ class CentreType(Model):
     """
     type = CharField(
         verbose_name='Certified centre type', max_length=1, unique=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{type:s}'.format(type=self.type)
@@ -146,6 +152,8 @@ class AssessmentDates(Model):
     issuedate = DateField(verbose_name='Assessment issued date (DD-MM-YYYY)')
     duedate = DateField(verbose_name='Assessment due date (DD-MM-YYYY)')
     type = ManyToManyField(to=CentreType, verbose_name='Type')
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         types = u", ".join([x.type for x in self.type.all()])
@@ -184,6 +192,8 @@ class Organisation(Model):
         verbose_name='Longitude (from e.g. Google Maps)',
         validators=[validate_longitude],
         max_length=20)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
@@ -257,6 +267,8 @@ class Centre(Model):
         verbose_name='Repository system', max_length=200, blank=True)
     strict_versioning = BooleanField(
         verbose_name='Strict versioning?', default=False)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(
@@ -279,6 +291,8 @@ class URLReference(Model):
     centre = ForeignKey(Centre, on_delete=CASCADE)
     description = CharField(verbose_name='Content description', max_length=300)
     url = URLField(verbose_name='URL', max_length=2000, unique=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{url:s} ({centre_shorthand:s})'.format(
@@ -296,6 +310,8 @@ class URLReference(Model):
 class OAIPMHEndpointSet(Model):
     set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
     set_type = CharField(verbose_name='Set type', max_length=1024, default='VLO')
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         if self.set_spec == '':
@@ -322,6 +338,8 @@ class OAIPMHEndpoint(Model):
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{uri:s}'.format(
@@ -343,6 +361,8 @@ class FCSEndpoint(Model):
     centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         if self.centre is not None:
@@ -373,6 +393,8 @@ class SAMLServiceProvider(Model):
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         if self.centre is not None:
@@ -405,6 +427,8 @@ class SAMLIdentityFederation(Model):
         'without '
         '"-----BEGIN CERTIFICATE-----" begin and and end marker)',
         blank=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{shorthand:s}'.format(shorthand=self.shorthand)
