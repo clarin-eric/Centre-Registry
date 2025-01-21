@@ -181,17 +181,6 @@ class Organisation(Model):
     organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
     institution = CharField(verbose_name='Institution', max_length=200, blank=True)
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
-    address = CharField(verbose_name='Address', max_length=100)
-    postal_code = CharField(verbose_name='Postal code', max_length=20)
-    city = CharField(verbose_name='City', max_length=100)
-    latitude = CharField(
-        verbose_name='Latitude (from e.g. Google Maps)',
-        validators=[validate_latitude],
-        max_length=20)
-    longitude = CharField(
-        verbose_name='Longitude (from e.g. Google Maps)',
-        validators=[validate_longitude],
-        max_length=20)
     history = HistoricalRecords()
 
 
@@ -215,13 +204,11 @@ class Centre(Model):
     name = CharField(verbose_name='Name', max_length=200, unique=True)
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
-    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=True)
     organisation_fk = ForeignKey(Organisation, on_delete=PROTECT, null=True)
-    institution = CharField(verbose_name='Institution', max_length=200)
-    working_unit = CharField(verbose_name='Working unit', max_length=200)
     address = CharField(verbose_name='Address', max_length=100)
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
+    country_code = CharField(verbose_name='Country code', max_length=2)
     latitude = CharField(
         verbose_name='Latitude (from e.g. Google Maps)',
         validators=[validate_latitude],
