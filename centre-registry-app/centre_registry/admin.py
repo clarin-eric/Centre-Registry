@@ -78,6 +78,7 @@ class CentreAdmin(admin.ModelAdmin):
     exclude = ["assessmentdates"]
 
 
+
 class AssessmentDateAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         """

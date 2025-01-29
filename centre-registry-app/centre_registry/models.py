@@ -2,6 +2,7 @@ from decimal import Decimal
 from re import match as re_match
 
 from django.core.exceptions import ValidationError
+from django_countries.fields import CountryField
 from django.db.models import BooleanField
 from django.db.models import CharField
 from django.db.models import EmailField
@@ -208,7 +209,8 @@ class Centre(Model):
     address = CharField(verbose_name='Address', max_length=100)
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
-    country_code = CharField(verbose_name='Country code', max_length=2)
+    country_code = CountryField(verbose_name='Country code', null=True)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
     latitude = CharField(
         verbose_name='Latitude (from e.g. Google Maps)',
         validators=[validate_latitude],
@@ -236,7 +238,7 @@ class Centre(Model):
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
+
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
