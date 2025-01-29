@@ -11,6 +11,7 @@ from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
 from centre_registry.models import OAIPMHEndpointSet
 from django.contrib import admin
+from django import forms
 
 
 class OrphanContactFilter(admin.SimpleListFilter):
@@ -76,7 +77,6 @@ class AssessmentDateInline(admin.StackedInline):
 class CentreAdmin(admin.ModelAdmin):
     inlines = [AssessmentDateInline]
     exclude = ["assessmentdates"]
-
 
 
 class AssessmentDateAdmin(admin.ModelAdmin):

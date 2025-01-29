@@ -96,10 +96,12 @@ class Consortium(Model):
     """
     A CLARIN consortium.
     """
+    country = CountryField(verbose_name='Country', blank_label="(select country)", blank=True)
     country_code = CharField(
         verbose_name='Country code', max_length=3, unique=True)
     country_name = CharField(
         verbose_name='Country name', max_length=20, unique=True)
+
     is_observer = BooleanField(
         verbose_name='Is observer (not member)?', default=False)
     name = CharField(verbose_name='Name', max_length=40, blank=True)
@@ -209,7 +211,7 @@ class Centre(Model):
     address = CharField(verbose_name='Address', max_length=100)
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
-    country_code = CountryField(verbose_name='Country code', null=True)
+    country = CountryField(verbose_name='Country', blank_label="(select country)", blank=True)
     consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
     latitude = CharField(
         verbose_name='Latitude (from e.g. Google Maps)',
