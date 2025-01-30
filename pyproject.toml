@@ -26,12 +26,13 @@ homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
-python = '>=3.11.*,<4.0'
+drf-spectacular = '0.28.0'
 Django = '>=4.2.17, <5.0.0'
 django-countries = '7.6.1'
 django-debug-toolbar = '4.4.6'
 django-simple-history = '3.7.0'
 djangorestframework = '3.15.2'
+python = '>=3.11.*,<4.0'
 
 [tool.poetry.group.test.dependencies]
 lxml = '5.3.0'

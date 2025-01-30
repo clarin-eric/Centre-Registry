@@ -100,7 +100,9 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.admindocs',
                   'centre_registry',
                   'simple_history',
-                  'django_countries',)
+                  'django_countries',
+                  'rest_framework',
+                  'drf_spectacular',)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -132,6 +134,19 @@ LOGGING = {
             'propagate': True,
         }
     }
+}
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'CLARIN CENTRE REGISTRY',
+    'DESCRIPTION': 'Registry of CLARIN centres',
+    'VERSION': VERSION,
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
 
 if DEBUG:

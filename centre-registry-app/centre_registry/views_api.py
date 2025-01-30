@@ -11,6 +11,8 @@ from centre_registry.models import OAIPMHEndpoint
 from centre_registry.models import URLReference
 from centre_registry.serializers import CentreSerializer
 from centre_registry.utils import model_to_dict_wfk
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
+from drf_spectacular.types import OpenApiTypes
 from django.core import serializers
 from django.core.exceptions import ViewDoesNotExist
 from django.db.models import Q
@@ -19,9 +21,12 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext
 from django.template.loader import render_to_string
+from rest_framework.decorators import api_view
 
 
+from .serializers import CentreSerializer
 
+@api_view(['GET'])
 def get_centre(request, centre_id):
     """API v1"""
     centre = get_object_or_404(Centre, pk=centre_id)
@@ -40,7 +45,7 @@ def get_centre(request, centre_id):
         context=request_context.flatten(),
         content_type='application/xml')
 
-
+@api_view(['GET'])
 def get_all_centres(request):
     """API v1"""
     request_context = RequestContext(
@@ -54,11 +59,15 @@ def get_all_centres(request):
         content_type='application/xml')
 
 
+@extend_schema(
+    responses={200: CentreSerializer(many=True)}
+)
+@api_view(['GET'])
 def get_all_centres_full(request):
     centres_data = [CentreSerializer(centre).data for centre in Centre.objects.all()]
     return JsonResponse(centres_data, safe=False)
 
-
+@api_view(['GET'])
 def _get_model(model_name):
     model_names = inspect_getmembers(models, inspect_isclass)
     for (imported_model_name, class_object) in model_names:
@@ -68,7 +77,7 @@ def _get_model(model_name):
     else:
         raise ViewDoesNotExist(model_name)
 
-
+@api_view(['GET'])
 def get_model(request, model):
     # pylint: disable=unused-argument
     return JsonResponse(_get_model(model_name=model), safe=False)
