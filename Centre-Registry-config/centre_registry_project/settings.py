@@ -12,6 +12,7 @@ except PackageNotFoundError:
     VERSION = 'SNAPSHOT'
 
 SECRET_KEY = 'testkey1283182183721'
+GOOGLE_API_KEY = 'somekey'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
 DEBUG = True # TODO: templatize
