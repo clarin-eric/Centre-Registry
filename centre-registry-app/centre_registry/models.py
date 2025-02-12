@@ -200,6 +200,10 @@ class Organisation(Model):
         verbose_name_plural = 'organisations'
 
 
+class CertificationStatus(Model):
+    status = CharField(verbose_name='Certification status', max_length=30, blank=False)
+
+
 class Centre(Model):
     """
     A CLARIN centre.
@@ -223,10 +227,13 @@ class Centre(Model):
         max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
+    type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
+    requires_manual_certificate_validation = BooleanField(
+        verbose_name="Centre requires certificate status validation", default=False)
     assessmentdates = ManyToManyField(
         to=AssessmentDates, related_name='assessmentdates', blank=True
     )
@@ -259,7 +266,6 @@ class Centre(Model):
     strict_versioning = BooleanField(
         verbose_name='Strict versioning?', default=False)
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(

@@ -1,15 +1,16 @@
+from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
+from centre_registry.models import CertificationStatus
 from centre_registry.models import Consortium
-from centre_registry.models import AssessmentDates
 from centre_registry.models import Contact
 from centre_registry.models import FCSEndpoint
 from centre_registry.models import OAIPMHEndpoint
+from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
 from centre_registry.models import URLReference
-from centre_registry.models import OAIPMHEndpointSet
 from django.contrib import admin
 from django import forms
 
@@ -91,15 +92,15 @@ admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
 
+admin.site.register(AssessmentDates, AssessmentDateAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(Consortium)
-admin.site.register(AssessmentDates, AssessmentDateAdmin)
 admin.site.register(FCSEndpoint)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
-admin.site.register(Organisation)
-admin.site.register(SAMLServiceProvider)
-admin.site.register(SAMLIdentityFederation)
-admin.site.register(URLReference)
 admin.site.register(OAIPMHEndpointSet)
+admin.site.register(Organisation)
+admin.site.register(SAMLIdentityFederation)
+admin.site.register(SAMLServiceProvider)
+admin.site.register(URLReference)
