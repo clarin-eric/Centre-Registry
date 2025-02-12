@@ -223,7 +223,7 @@ class Centre(Model):
         max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
-    type_status = CharField(
+    type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)

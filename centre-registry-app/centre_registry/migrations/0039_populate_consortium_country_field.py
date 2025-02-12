@@ -2,7 +2,6 @@
 
 from django.db import migrations
 
-
 def forwards(apps, schema_editor):
     # CentreModel and OrganisationModel are classes, therefore CamelCase
     ConsortiumModel = apps.get_model("centre_registry", "Consortium")
