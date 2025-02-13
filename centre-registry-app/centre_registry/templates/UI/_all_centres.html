@@ -25,43 +25,67 @@
                             <a href='/centre/{{ centre.id }}'>{{ centre.name }}</a>
                         </td>
                         <td>
-                            {% if centre.website_url %}<a href='{{ centre.website_url }}'>{% endif %}
-                            {{ centre.shorthand }}
-                            {% if centre.website_url %}</a>{% endif %}
+                            {% if centre.website_url %}
+                                <a href='{{ centre.website_url }}'>
+                            {% endif %}
+                                {{ centre.shorthand }}
+                            {% if centre.website_url %}
+                                </a>
+                            {% endif %}
                         </td>
-                        <td>{% if centre.type_certificate_url %}<a href='{{ centre.type_certificate_url }}'>{% endif %}
-                            {% for type in centre.type.all %}{{ type }}<br/>{% endfor %}
-                            {% if centre.type_certificate_url %}</a>{% endif %}
-                        </td>
-                        <td>{% if centre.type_status %}
-                            {{ centre.type_status }}
-                        {% else %}
-                            <em>none</em>
-                        {% endif %}</td>
-                        <td>{% if centre.assessmentdates %}
-                            {% for date in centre.assessmentdates.all %}
-                                {{ date.brief }}<br/>
+                        <td>
+                            {% if centre.type_certificate_url %}
+                                <a href='{{ centre.type_certificate_url }}'>
+                            {% endif %}
+                            {% for type in centre.type.all %}
+                                {{ type }}
+                                <br/>
                             {% endfor %}
-                        {% endif %}
+                            {% if centre.type_certificate_url %}
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if centre.type_certification_status %}
+                                {{ type_certification_status }}
+                                {% if centre.type_status_comment %}
+                                    <br/>
+                                    {{ centre.type_status_comment }}
+                                {% endif %}
+                            {% else %}
+                                <em>none</em>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if centre.assessmentdates %}
+                                {% for date in centre.assessmentdates.all %}
+                                    {{ date.brief }}
+                                    <br/>
+                                {% endfor %}
+                            {% endif %}
                         </td>
                         <td>
                             <a href='//www.openstreetmap.org/?&amp;mlat={{ centre.latitude }}&amp;mlon={{ centre.longitude }}'>{{ centre.city }}</a>
                         </td>
-                        <td>{% if centre.consortium %}
-                            {% if centre.consortium.website_url %}
-                                <a href='{{ centre.consortium.website_url }}'>{{ centre.consortium }}</a>
+                        <td>
+                            {% if centre.consortium %}
+                                {% if centre.consortium.website_url %}
+                                    <a href='{{ centre.consortium.website_url }}'>
+                                        {{ centre.consortium }}
+                                    </a>
+                                {% else %}
+                                    {{ centre.consortium }}
+                                {% endif %}
                             {% else %}
-                                {{ centre.consortium }}
+                                <em>none</em>
                             {% endif %}
-                        {% else %}
-                            <em>none</em>
-                        {% endif %}
                         </td>
-                        <td>{% if centre.dsa_url %}
-                            <a href='{{ centre.dsa_url }}'>seal</a>
-                        {% else %}
-                            <em>none</em>
-                        {% endif %}
+                        <td>
+                            {% if centre.dsa_url %}
+                                <a href='{{ centre.dsa_url }}'>seal</a>
+                            {% else %}
+                                <em>none</em>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}

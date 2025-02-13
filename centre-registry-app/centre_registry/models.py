@@ -202,6 +202,13 @@ class Organisation(Model):
 
 class CertificationStatus(Model):
     status = CharField(verbose_name='Certification status', max_length=30, blank=False)
+    history = HistoricalRecords()
+
+    def __unicode__(self):
+        return self.status
+
+    def __str__(self):
+        return self.__unicode__()
 
 
 class Centre(Model):
@@ -248,7 +255,6 @@ class Centre(Model):
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
 
-
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
         max_length=2000,
@@ -290,7 +296,6 @@ class URLReference(Model):
     url = URLField(verbose_name='URL', max_length=2000, unique=True)
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{url:s} ({centre_shorthand:s})'.format(
             url=self.url, centre_shorthand=self.centre.shorthand)
@@ -308,7 +313,6 @@ class OAIPMHEndpointSet(Model):
     set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
     set_type = CharField(verbose_name='Set type', max_length=1024, default='VLO')
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         if self.set_spec == '':
@@ -337,7 +341,6 @@ class OAIPMHEndpoint(Model):
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{uri:s}'.format(
             uri=self.uri)
@@ -359,7 +362,6 @@ class FCSEndpoint(Model):
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         if self.centre is not None:
@@ -391,7 +393,6 @@ class SAMLServiceProvider(Model):
         verbose_name='Has production status?', default=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         if self.centre is not None:
@@ -425,7 +426,6 @@ class SAMLIdentityFederation(Model):
         '"-----BEGIN CERTIFICATE-----" begin and and end marker)',
         blank=True)
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         return '{shorthand:s}'.format(shorthand=self.shorthand)
