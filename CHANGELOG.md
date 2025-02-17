@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.2] - TBD
+
+### New features
+- daily cronjob updating certification status based on AssessmentDate
+- email notification to maintainers about centre's certification expiring
+- well controlled vocabulary for Centre's Type Status
+- reordering admin fields according to request
+- historical models
+- country field changed from CharField to django_countries.CountryField
+- pruning redundant (artifacts) address fields between Centre and Consortium
+- init OpenAPI documentation of endpoints (only Centre .json endpoint so far, no trivial .xsd to OpenAPI for xml endpoints)
+- dependency bump
+
 ## [3.0.1] - 25.04.2024
 
 ### New features
