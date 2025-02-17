@@ -152,6 +152,7 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
+
 if DEBUG:
     MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
     INSTALLED_APPS += ('debug_toolbar', )

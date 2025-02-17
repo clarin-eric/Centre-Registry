@@ -14,7 +14,6 @@ class Command(BaseCommand):
         today_date = localdate()
         print(today_date)
 
-
         centres = Centre.objects.all()
         expired_status_id = CertificationStatus.objects.get(status="Pending (recertification)")
         outdated_centres = []
@@ -26,7 +25,6 @@ class Command(BaseCommand):
                 assessment_date_type = assessment_date.type()
                 if assessment_date_type in centre_types:
                     due_date = assessment_date.duedate
-                    print(due_date)
                     if due_date > today_date:
                         if not centre.requires_manual_certificate_validation:
                             centre.type_certification_status = expired_status_id
@@ -34,17 +32,15 @@ class Command(BaseCommand):
                             outdated_centres.append(centre.name)
                             centre.save()
 
+        if outdated_centres:
+            outdated_centres = '\n'.join(outdated_centres)
+            subject = "Centres certification expired"
+            message = "Following centre has their assessment dates expired today:" + outdated_centres
 
-
-        outdated_centres = '\n'.join(outdated_centres)
-        print(outdated_centres)
-        subject = "Centres certification expired"
-        message = "Following centre has their assessment dates expired today:" + outdated_centres
-        send_mail(subject=subject,
-                  message=message,
-                  from_email='centre-registry@clarin.eu',
-                  recipient_list=['centre-registry@clarin.eu'],
-                  fail_silently=False
-                  )
-
-
+            print(message)
+            send_mail(subject=subject,
+                      message=message,
+                      from_email='centre-registry@clarin.eu',
+                      recipient_list=['michal@clarin.eu'],
+                      fail_silently=False
+                      )
