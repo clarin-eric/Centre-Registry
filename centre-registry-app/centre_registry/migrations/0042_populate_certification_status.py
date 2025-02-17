@@ -7,17 +7,35 @@ def forwards(apps, schema_editor):
     # CentreModel and OrganisationModel are classes, therefore CamelCase
     centres = Centre.objects.all()
 
-    stat = CertificationStatus.objects.all()
-    print(stat)
-    for s in stat:
-        print(s.status)
-    CERTIFIED = CertificationStatus.objects.get(status='Certified')
-    print(CERTIFIED.status)
-    PENDING = CertificationStatus.objects.get(status='Pending')
-    PENDING_RECERTIFICATION = CertificationStatus.objects.get(status='Pending (recertification)')
-    print(PENDING_RECERTIFICATION)
-    SUSPENDED = CertificationStatus.objects.get(status='Suspended')
-    ARCHIVED = CertificationStatus.objects.get(status='Archived')
+    if not CertificationStatus.objects.filter(status='Certified').exists():
+        CERTIFIED = CertificationStatus(status='Certified')
+        CERTIFIED.save()
+    else:
+        CERTIFIED = CertificationStatus.objects.get(status='Certified')
+
+    if not CertificationStatus.objects.filter(status='Pending').exists():
+        PENDING = CertificationStatus(status='Pending')
+        PENDING.save()
+    else:
+        PENDING = CertificationStatus.objects.get(status='Pending')
+
+    if not CertificationStatus.objects.filter(status='Pending (recertification)').exists():
+        PENDING_RECERTIFICATION = CertificationStatus(status='Pending (recertification)')
+        PENDING_RECERTIFICATION.save()
+    else:
+        PENDING_RECERTIFICATION = CertificationStatus.objects.get(status='Pending (recertification)')
+
+    if not CertificationStatus.objects.filter(status='Suspended').exists():
+        SUSPENDED = CertificationStatus(status='Suspended')
+        SUSPENDED.save()
+    else:
+        SUSPENDED = CertificationStatus.objects.get(status='Suspended')
+
+    if not CertificationStatus.objects.filter(status='Archived').exists():
+        ARCHIVED = CertificationStatus(status='Archived')
+        ARCHIVED.save()
+    else:
+        ARCHIVED = CertificationStatus(status='Archived')
 
     for centre in centres:
         status_comment = centre.type_status_comment
