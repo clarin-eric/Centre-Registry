@@ -43,6 +43,8 @@ LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
+USE_TZ = True
+
 MEDIA_ROOT = ''
 STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_DIR,
