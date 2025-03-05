@@ -67,15 +67,22 @@ def get_all_centres_full(request):
     centres_data = [CentreSerializer(centre).data for centre in Centre.objects.all()]
     return JsonResponse(centres_data, safe=False)
 
-@api_view(['GET'])
+
 def _get_model(model_name):
     model_names = inspect_getmembers(models, inspect_isclass)
+    print("%%%%%%%%%%%%%%%%%%%%%")
+    print(model_names)
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     for (imported_model_name, class_object) in model_names:
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        print(imported_model_name)
+        print(model_name)
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
         if imported_model_name == model_name:
             return json_loads(
                 serializers.serialize('json', class_object.objects.all()))
-    else:
-        raise ViewDoesNotExist(model_name)
+    raise ViewDoesNotExist(model_name)
 
 @api_view(['GET'])
 def get_model(request, model):
