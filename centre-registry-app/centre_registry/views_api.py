@@ -65,6 +65,16 @@ def get_all_centres(request):
 @api_view(['GET'])
 def get_all_centres_full(request):
     centres_data = [CentreSerializer(centre).data for centre in Centre.objects.all()]
+    for centre_data in centres_data:
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(centre_data)
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        if 'country' in centre_data:
+            print("D E L E T E")
+            del centre_data['country']
+        print("___________________________________________")
+        print(centre_data)
+        print("___________________________________________")
     return JsonResponse(centres_data, safe=False)
 
 

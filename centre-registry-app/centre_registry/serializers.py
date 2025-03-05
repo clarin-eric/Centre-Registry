@@ -18,6 +18,7 @@ class CentreTypeSerializer(serializers.ModelSerializer):
         model = CentreType
         fields = ['type']
 
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
@@ -25,6 +26,7 @@ class ContactSerializer(serializers.ModelSerializer):
 
 
 class ConsortiumSerializer(serializers.ModelSerializer):
+    country = CountryField()
     class Meta:
         model = Consortium
         fields = '__all__'
@@ -44,9 +46,9 @@ class AssessmentDatesSerializer(serializers.ModelSerializer):
 
 
 class CentreSerializer(serializers.ModelSerializer):
+    country = CountryField()
     type = CentreTypeSerializer(many=True)
     technical_contact = ContactSerializer()
-    country = CountryField()
     administrative_contact = ContactSerializer()
     monitoring_contacts = ContactSerializer(many=True)
     consortium = ConsortiumSerializer()
