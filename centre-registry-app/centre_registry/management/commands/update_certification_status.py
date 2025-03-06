@@ -1,6 +1,7 @@
 from django.core.cache import cache
 from django.core.management.base import BaseCommand, CommandError
 from django.core.mail import send_mail
+from django.utils import timezone
 from django.test.client import RequestFactory
 from django.utils.timezone import localdate
 
@@ -11,7 +12,7 @@ class Command(BaseCommand):
     help = 'Command to update certification status based on expiration date'
 
     def handle(self, *args, **options):
-        today_date = localdate()
+        today_date = timezone.now()
         print(today_date)
 
         centres = Centre.objects.all()
@@ -25,6 +26,7 @@ class Command(BaseCommand):
                 assessment_date_type = assessment_date.type()
                 if assessment_date_type in centre_types:
                     due_date = assessment_date.duedate
+                    print(due_date)
                     if due_date > today_date:
                         if not centre.requires_manual_certificate_validation:
                             centre.type_certification_status = expired_status_id
