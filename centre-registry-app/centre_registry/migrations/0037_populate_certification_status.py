@@ -52,11 +52,11 @@ def populate_certification_status(apps, schema):
 
     for centre in centres:
         status_comment = centre.type_status_comment
-    if status_comment == 'Certified':
-        centre.type_certification_status = CERTIFIED
-    elif "expired" in status_comment:
-        centre.type_certification_status = PENDING_RECERTIFICATION
-
+        if status_comment == 'Certified':
+            centre.type_certification_status = CERTIFIED
+        elif "expired" in status_comment:
+            centre.type_certification_status = PENDING_RECERTIFICATION
+        centre.save()
 
 class Migration(migrations.Migration):
     dependencies = [
