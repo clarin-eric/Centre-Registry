@@ -20,8 +20,8 @@
             "shorthand": {
               "type": "string"
             },
-            "organisation_name": {
-              "type": "string"
+            "organisation_fk": {
+              "type": "integer"
             },
             "institution": {
               "type": "string"
