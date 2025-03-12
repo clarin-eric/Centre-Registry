@@ -107,7 +107,7 @@
           "required": [
             "name",
             "shorthand",
-            "organisation_name",
+            "organisation_fk",
             "institution",
             "working_unit",
             "address",
