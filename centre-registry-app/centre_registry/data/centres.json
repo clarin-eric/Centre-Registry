@@ -41,7 +41,10 @@
             "longitude": {
               "type": "string"
             },
-            "type_status": {
+            "type_status_comment": {
+              "type": "string"
+            },
+            "type_certification_status": {
               "type": "string"
             },
             "administrative_contact": {
@@ -113,7 +116,6 @@
             "city",
             "latitude",
             "longitude",
-            "type_status",
             "administrative_contact",
             "technical_contact",
             "website_url",

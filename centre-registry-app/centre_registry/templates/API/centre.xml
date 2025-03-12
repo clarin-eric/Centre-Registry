@@ -66,9 +66,9 @@
                 {% endif %}
                 <OrganisationalInformation>
                     <ClarinOrganisationInfo>
-                        <OrganisationName>{{ centre.organisation_name }}</OrganisationName>
-                        <Institution>{{ centre.institution }}</Institution>
-                        <WorkingUnit>{{ centre.working_unit }}</WorkingUnit>
+                        <OrganisationName>{{ centre.organisation_fk.organisation_name }}</OrganisationName>
+                        <Institution>{{ centre.organisation_fk.institution }}</Institution>
+                        <WorkingUnit>{{ centre.organisation_fk.working_unit }}</WorkingUnit>
                         <Code>{{ centre.shorthand }}</Code>
                         <PostAddress>{{ centre.address }},
                             {{ centre.postal_code }},
