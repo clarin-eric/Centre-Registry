@@ -108,7 +108,6 @@
             "name",
             "shorthand",
             "organisation_fk",
-            "working_unit",
             "address",
             "postal_code",
             "city",
