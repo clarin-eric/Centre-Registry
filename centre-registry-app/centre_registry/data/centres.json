@@ -23,12 +23,6 @@
             "organisation_fk": {
               "type": "integer"
             },
-            "institution": {
-              "type": "string"
-            },
-            "working_unit": {
-              "type": "string"
-            },
             "address": {
               "type": "string"
             },
@@ -36,6 +30,9 @@
               "type": "string"
             },
             "city": {
+              "type": "string"
+            },
+            "country": {
               "type": "string"
             },
             "latitude": {
