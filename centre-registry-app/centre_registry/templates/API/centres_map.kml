@@ -45,8 +45,8 @@
                         {% if centre.description %}
                         <p>{{ centre.description }}</p>
                         {% endif %}
-                        {% if centre.type_status %}
-                        <p>Type status: {{ centre.type_status }}<p>
+                        {% if centre.type_certification_status %}
+                        <p>Type status: {{ centre.type_certification_status }}<p>
                         {% endif %}
                         <p><a href="{{ url_prefix }}centre/{{ centre.id }}">Details ...</p></h1>
                         {% if centre.website_url %}
