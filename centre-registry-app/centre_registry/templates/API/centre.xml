@@ -14,7 +14,7 @@
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
                 <Type>{{ centre.type.all|first }}</Type>
-                <Status>{{ centre.type_status_comment }}</Status>
+                <Status>{{ centre.type_certification_status }}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.consortium.country_code }}</Code>
@@ -26,7 +26,7 @@
                 <RepositorySystem>{{ centre.repository_system }}</RepositorySystem>
                 <PidStatus>{{ centre.pid_status }}</PidStatus>
                 <StrictVersioning>{{ centre.strict_versioning|lower }}</StrictVersioning>
-                <AssessmentStatus>{{ centre.type_status }}</AssessmentStatus>
+                <AssessmentStatus>{{ centre.type_status_comment }}</AssessmentStatus>
                 {% for url_reference in url_references %}
                     <WebReference>
                         <Website>{{ url_reference.url }}</Website>

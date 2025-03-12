@@ -45,7 +45,7 @@
               "type": ["string", "null"]
             },
             "type_certification_status": {
-              "type": "string"
+              "type": ["string", "null"]
             },
             "administrative_contact": {
               "type": "integer"
