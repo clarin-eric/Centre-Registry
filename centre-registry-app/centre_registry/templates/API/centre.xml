@@ -14,7 +14,7 @@
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
                 <Type>{{ centre.type.all|first }}</Type>
-                <Status>{{ centre.type_status }}</Status>
+                <Status>{{ centre.type_status_comment }}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.consortium.country_code }}</Code>

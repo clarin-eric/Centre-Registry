@@ -42,7 +42,7 @@
               "type": "string"
             },
             "type_status_comment": {
-              "type": "string"
+              "type": ["string", "null"]
             },
             "type_certification_status": {
               "type": "string"
