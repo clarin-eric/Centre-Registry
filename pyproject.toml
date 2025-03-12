@@ -34,12 +34,6 @@ django-simple-history = '3.7.0'
 djangorestframework = '3.15.2'
 python = '>=3.11.*,<4.0'
 tzdata = '2025.1'
-
-
-[tool.poetry.group.test]
-optional = true
-
-[tool.poetry.group.test.dependencies]
 lxml = '5.3.0'
 selenium = '4.27.1'
 jsonschema = '4.23.0'
