@@ -46,14 +46,16 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% if centre.type_certification_status.status %}
-                                {{ centre.type_certification_status.status }}
-                                {% if centre.type_status_comment %}
-                                    <br/>
+                            {% if centre.type_certification %}
+                                {% if centre.type_certification_status.status %}
+                                    {{ centre.type_certification_status.status }}
+                                    {% if centre.type_status_comment %}
+                                        <br/>
+                                        {{ centre.type_status_comment }}
+                                    {% endif %}
+                                {% elif centre.type_status_comment %}
                                     {{ centre.type_status_comment }}
                                 {% endif %}
-                            {% elif centre.type_status_comment %}
-                                {{ centre.type_status_comment }}
                             {% else %}
                                 <em>none</em>
                             {% endif %}
