@@ -251,8 +251,8 @@ class Centre(Model):
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
-    description = CharField(
-        verbose_name='Description', max_length=500, blank=True)
+    description = TextField(
+        verbose_name='Description', blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
 
     type_certificate_url = URLField(
@@ -437,5 +437,3 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
-
-
