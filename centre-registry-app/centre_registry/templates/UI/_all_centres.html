@@ -49,12 +49,12 @@
                             {% if centre.type_certification_status %}
                                 {% if centre.type_certification_status.status %}
                                     {{ centre.type_certification_status.status }}
-                                    {% if centre.type_status_comment %}
+                                    {% if centre.type_status_comment and centre.type_status_comment != centre.type_certification_status.status %}
                                         <br/>
-                                        {{ centre.type_status_comment }}
+                                        <small>{{ centre.type_status_comment }}</small>
                                     {% endif %}
                                 {% elif centre.type_status_comment %}
-                                    {{ centre.type_status_comment }}
+                                    <small>{{ centre.type_status_comment }}</small>
                                 {% endif %}
                             {% else %}
                                 <em>none</em>
