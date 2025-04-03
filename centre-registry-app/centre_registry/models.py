@@ -247,7 +247,7 @@ class Centre(Model):
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
     type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
-    type_certification_status_new = ForeignKey(TypeCertificationStatus, on_delete=SET_NULL, null=True)
+    type_certification_status_fk = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,

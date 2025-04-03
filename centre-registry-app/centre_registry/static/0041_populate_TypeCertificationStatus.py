@@ -24,7 +24,7 @@ def populate_type_certification_status(apps, schema):
             type_certification_status = TypeCertificationStatus(type=centre_types, assessmentdate=assessment_date, centre=centre,
                                     status=certification_status, type_status_comment=status_comment)
             type_certification_status.save()
-            centre.type_certification_status_new = type_certification_status
+            centre.type_certification_status_fk = type_certification_status
             centre.save()
 
 
