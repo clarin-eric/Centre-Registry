@@ -186,7 +186,6 @@ class Organisation(Model):
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
             organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
@@ -212,7 +211,6 @@ class CertificationStatus(Model):
 
 
 class TypeCertificationStatus(Model):
-    type = ForeignKey(CentreType, verbose_name='Type', related_name='centres_of_type', on_delete=PROTECT)
     certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
     assessmentdate = ForeignKey(AssessmentDates, related_name='assessmentdate', blank=True, null=True, on_delete=SET_NULL)
     type_status_comment = CharField(
@@ -221,6 +219,12 @@ class TypeCertificationStatus(Model):
         blank=True)
     requires_manual_review = BooleanField(verbose_name="Is certification out of date", default=False)
     history = HistoricalRecords()
+
+    def __unicode__(self):
+        return self.assessmentdate.__str__()
+
+    def __str__(self):
+        return self.__unicode__()
 
 
 class Centre(Model):
@@ -246,8 +250,10 @@ class Centre(Model):
         max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
-    type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
-    type_certification_status_fk = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
+
+    type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
+                                                   null=True,
+                                                   related_name='type_certification')
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,

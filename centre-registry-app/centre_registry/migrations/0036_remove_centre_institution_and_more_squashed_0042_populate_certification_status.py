@@ -7,15 +7,13 @@ import django.db.models.deletion
 import django_countries.fields
 import simple_history.models
 
-from centre_registry.models import CertificationStatus
-from centre_registry.models import Centre
-
 
 # Functions from the following migrations need manual copying.
 # Move them and any dependencies into this file, then update the
 # RunPython operations to refer to the local versions:
 # centre_registry.migrations.0039_populate_consortium_country_field
 # centre_registry.migrations.0042_populate_certification_status
+
 class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
