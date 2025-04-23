@@ -36,6 +36,9 @@
                         <td>
                         {% for type in centre.type.all %}
                             {{ type }}
+                            {% if not forloop.last %}
+                                <br/>
+                            {% endif %}
                         {% endfor %}
                         </td>
                         <td>
