@@ -76,14 +76,10 @@ def populate_certification_status(apps, schema):
 
         for assessment_date in assessment_dates:
             assessment_date_for_type = assessment_date.type.all()[0]
-            logging.critical(assessment_date_for_type)
-            logging.critical(type(assessment_date_for_type))
             type_certification_status = TypeCertificationStatus(assessmentdate=assessment_date,
                                                                 certification_status=certification_status,
-                                                                type_status_comment=status_comment)
-            logging.critical("type_certification_status django refuses to save for no reason even tho it just did before db reset")
-            logging.critical(type_certification_status)
-            logging.critical("IT WAS HERE")
+                                                                type_status_comment=status_comment,
+                                                                type_certificate_url=centre.type_certificate_url)
             type_certification_status.save()
             centre.type_certification_status_fk.add(type_certification_status)
         centre.save()
@@ -92,7 +88,7 @@ def populate_certification_status(apps, schema):
 class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('centre_registry', '0044_remove_historicaltypecertificationstatus_type_and_more'),
+        ('centre_registry', '0045_historicaltypecertificationstatus_type_certificate_url_and_more'),
     ]
 
     operations = [

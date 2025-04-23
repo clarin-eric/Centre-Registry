@@ -217,6 +217,10 @@ class TypeCertificationStatus(Model):
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
+    type_certificate_url = URLField(
+        verbose_name='Centre type certificate URL',
+        max_length=2000,
+        blank=True)
     requires_manual_review = BooleanField(verbose_name="Is certification out of date", default=False)
     history = HistoricalRecords()
 
