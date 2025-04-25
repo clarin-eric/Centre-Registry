@@ -14,7 +14,7 @@
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
                 <Type>{{ centre.type.all|first }}</Type>
-                <Status>{{ centre.type_certification_status }}</Status>
+                <Status>{{ centre.type_certification_status_fk.all[0].certification_status.status }}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.consortium.country_code }}</Code>
