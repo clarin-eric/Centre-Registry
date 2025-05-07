@@ -17,7 +17,7 @@
                 <Status>{% if centre.type_certification_status_fk.first %}{{ centre.type_certification_status_fk.first.certification_status.status }}{% else %}None{% endif %}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
-                    <Code>{{ centre.consortium.country_code }}</Code>
+                    <Code>{{ centre.country }}</Code>
                 </Country>
             </CenterBasicInformation>
             <CenterExtendedInformation>
