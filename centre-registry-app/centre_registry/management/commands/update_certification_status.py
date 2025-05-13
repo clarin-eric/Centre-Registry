@@ -15,8 +15,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         today_date = timezone.now().date()
-        print("TODAY DATE")
-        print(today_date)
 
         centres = Centre.objects.all()
         expired_status_id = CertificationStatus.objects.get(status="Pending (recertification)")
@@ -29,9 +27,9 @@ class Command(BaseCommand):
                 assessment_date = type_certification_status.assessmentdate
                 due_date = assessment_date.duedate
                 if due_date < today_date and type_certification_status.certification_status == certified_status_id:
-                    logging.critical(expired_status_id)
                     type_certification_status.certification_status = expired_status_id
                     type_certification_status.assessmentdate = assessment_date
+                    type_certification_status.type_status_comment = ''
                     type_certification_status.save()
 
                     centre.requires_manual_certificate_validation = True

@@ -3,6 +3,7 @@
 ## [3.0.2] - TBD
 
 ### New features
+- venv bundling Python inside app container
 - management command for updating certification status based on AssessmentDate
 - email notification to maintainers about centre's certification expiring
 - well controlled vocabulary for Centre's Type Status
