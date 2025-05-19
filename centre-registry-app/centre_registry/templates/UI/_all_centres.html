@@ -53,6 +53,9 @@
                                 {% else %}
                                     <em>none</em>
                                 {% endif %}
+                                {% if not forloop.last %}
+                                    <br/>
+                                {% endif %}
                             {% endfor %}
                         {% endif %}
                         </td>
