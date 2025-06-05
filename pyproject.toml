@@ -29,7 +29,7 @@ repository = "https://github.com/clarin-eric/Centre-Registry/"
 drf-spectacular = '0.28.0'
 Django = '>=4.2.17, <5.0.0'
 django-countries = '7.6.1'
-django-debug-toolbar = '4.4.6'
+django-debug-toolbar = '5.2.0'
 django-simple-history = '3.7.0'
 djangorestframework = '3.15.2'
 python = '>=3.11.*,<4.0'
