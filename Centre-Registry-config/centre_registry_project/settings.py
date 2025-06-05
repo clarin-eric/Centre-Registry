@@ -153,15 +153,15 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
-
-if DEBUG:
-    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
-    INSTALLED_APPS += ('debug_toolbar', )
-    DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
 _EMAIL_HOST = 'localhost'
 _EMAIL_PORT = 25
 _EMAIL_HOST_USER = 'someuser'
 _EMAIL_HOST_PASSWORD = 'somepass'
 _EMAIL_USE_TLS = False
 _DEFAULT_FROM_EMAIL = 'centre-registry@clarin.eu'
+
+
+if DEBUG:
+    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )
+    INSTALLED_APPS += ('debug_toolbar', )
+    DEBUG_TOOLBAR_PATCH_SETTINGS = False

@@ -8,6 +8,7 @@ from drf_spectacular.views import SpectacularJSONAPIView
 
 admin.autodiscover()
 admin.site.site_header = settings.ADMIN_TITLE
+debug = settings.DEBUG
 
 urlpatterns = [  # pylint: disable=invalid-name
     path('admin/', admin.site.urls),
@@ -39,3 +40,10 @@ urlpatterns = [  # pylint: disable=invalid-name
     # DRF SPECTACULAR
 
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        re_path(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
