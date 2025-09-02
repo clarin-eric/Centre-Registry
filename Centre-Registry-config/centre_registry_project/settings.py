@@ -153,12 +153,12 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
-_EMAIL_HOST = 'localhost'
-_EMAIL_PORT = 25
-_EMAIL_HOST_USER = 'someuser'
-_EMAIL_HOST_PASSWORD = 'somepass'
-_EMAIL_USE_TLS = False
-_DEFAULT_FROM_EMAIL = 'centre-registry@clarin.eu'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'someuser'
+EMAIL_HOST_PASSWORD = 'somepass'
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'centre-registry@clarin.eu'
 
 
 if DEBUG:

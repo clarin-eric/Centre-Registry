@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.cache import cache
 from django.core.management.base import BaseCommand, CommandError
 from django.core.mail import send_mail
@@ -9,6 +10,8 @@ import logging
 
 from centre_registry.models import Centre, CertificationStatus
 
+
+DEFAULT_EMAIL = settings.DEFAULT_
 
 class Command(BaseCommand):
     help = 'Command to update certification status based on expiration date'
@@ -41,11 +44,9 @@ class Command(BaseCommand):
             subject = "Centres certification expired"
             message = "Following centre has their assessment dates expired today:" + outdated_centres
 
-            print("###MESSAGE###")
-            print(message)
             send_mail(subject=subject,
                       message=message,
-                      from_email='centre-registry@clarin.eu',
+                      from_email='michal@clarin.eu',
                       recipient_list=['michal@clarin.eu'],
                       fail_silently=False
                       )
