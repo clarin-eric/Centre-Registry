@@ -4,6 +4,7 @@ from django.urls import include, re_path
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
 from drf_spectacular.views import SpectacularJSONAPIView
 
 admin.autodiscover()
@@ -12,6 +13,7 @@ debug = settings.DEBUG
 
 urlpatterns = [  # pylint: disable=invalid-name
     path('admin/', admin.site.urls),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     re_path(r'^api/(?:v1/)?schema/openapi.json', SpectacularJSONAPIView.as_view()),
 
     # REST API.
@@ -36,6 +38,7 @@ urlpatterns = [  # pylint: disable=invalid-name
     re_path(r'^map', views_ui.get_map),
     re_path(r'^oai_pmh$', views_ui.get_oai_pmh),
     re_path(r'^spf$', views_ui.get_spf),
+
 
     # DRF SPECTACULAR
 
