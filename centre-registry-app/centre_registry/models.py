@@ -255,6 +255,7 @@ class Centre(Model):
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
 
+    # TODO should be _fks, used in API templates
     type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
                                                    related_name='type_certification')
     type_status_comment = CharField(
@@ -262,7 +263,7 @@ class Centre(Model):
         max_length=100,
         blank=True)
     requires_manual_certificate_validation = BooleanField(
-        verbose_name="Centre requires certificate status validation", default=False)
+        verbose_name="Centre requires certificate status validation.", default=False)
     assessmentdates = ManyToManyField(
         to=AssessmentDates, related_name='assessmentdates_old', blank=True
     )
