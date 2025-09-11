@@ -14,7 +14,7 @@
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
                 <Type>{{ centre.type.all|first }}</Type>
-                <Status>{% if centre.type_certification_status_fk.first %}{{ centre.type_certification_status_fk.first.certification_status.status }}{% else %}None{% endif %}</Status>
+                <Status>{% if centre.type_certification_status_fk.first %}{{ centre.type_certification_status_fk.first.certification_status.status }}{% else %}""{% endif %}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.country }}</Code>
