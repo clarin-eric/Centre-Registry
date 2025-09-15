@@ -1,4 +1,4 @@
-from centre_registry.models import AssessmentDates, TypeCertificationStatus
+from centre_registry.models import AssessmentDates,
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import CertificationStatus
@@ -10,6 +10,7 @@ from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import TypeCertificationStatus
 from centre_registry.models import URLReference
 from django.contrib import admin
 from django import forms

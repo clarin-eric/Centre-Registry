@@ -137,7 +137,7 @@ class CentreType(Model):
 
 
     def __unicode__(self):
-        return '{type:s}'.format(type=self.type)
+        return '{type}'.format(type=self.type)
 
     def __str__(self):
         return self.__unicode__()
