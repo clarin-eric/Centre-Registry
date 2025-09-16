@@ -32,6 +32,11 @@ class Migration(migrations.Migration):
             old_name='type_status',
             new_name='type_status_comment',
         ),
+        migrations.RenameField(
+            model_name='centre',
+            old_name='type',
+            new_name='centre_type',
+        ),
         migrations.RemoveField(
             model_name='centre',
             name='institution',
@@ -39,10 +44,6 @@ class Migration(migrations.Migration):
         migrations.RemoveField(
             model_name='centre',
             name='organisation_name',
-        ),
-        migrations.RemoveField(
-            model_name='centre',
-            name='type',
         ),
         migrations.RemoveField(
             model_name='centre',
@@ -67,11 +68,6 @@ class Migration(migrations.Migration):
         migrations.RemoveField(
             model_name='organisation',
             name='postal_code',
-        ),
-        migrations.AddField(
-            model_name='centre',
-            name='centre_type',
-            field=models.ManyToManyField(related_name='centres_of_type', to='centre_registry.centretype', verbose_name='Centre types'),
         ),
         migrations.AddField(
             model_name='centre',
