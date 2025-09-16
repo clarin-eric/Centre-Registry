@@ -200,6 +200,9 @@ class Organisation(Model):
 
 
 class CertificationStatus(Model):
+    class Meta:
+        verbose_name = "Certification status"
+        verbose_name_plural = "Certification statuses"
     status = CharField(verbose_name='Certification status', max_length=30, blank=False)
     history = HistoricalRecords()
 
@@ -211,8 +214,14 @@ class CertificationStatus(Model):
 
 
 class TypeCertificationStatus(Model):
-    certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
-    assessmentdate = ForeignKey(AssessmentDates, related_name='assessmentdate', blank=True, null=True, on_delete=SET_NULL)
+    class Meta:
+        verbose_name = "Type certification status"
+        verbose_name_plural = "Type certification statuses"
+
+    assessmentdate = ForeignKey(AssessmentDates, related_name='assessmentdate', blank=True, null=True,
+                                on_delete=SET_NULL)
+    certification_status = ForeignKey(CertificationStatus, on_delete=PROTECT, null=False)
+    centre_type = ForeignKey(CentreType, on_delete=PROTECT, blank=False, null=False)
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
@@ -225,7 +234,7 @@ class TypeCertificationStatus(Model):
     history = HistoricalRecords()
 
     def __unicode__(self):
-        return self.assessmentdate.__str__()
+        return f"{self.certification_status.__str__()} {self.centre_type.__str__()}"
 
     def __str__(self):
         return self.__unicode__()
@@ -253,17 +262,19 @@ class Centre(Model):
         validators=[validate_longitude],
         max_length=20)
 
-    type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
+    centre_type = ManyToManyField(to=CentreType, verbose_name='Centre types', related_name='centres_of_type')
+    centre_type_certification_status_fks = ManyToManyField(to=TypeCertificationStatus,
+                                                           verbose_name='Type certification status',
+                                                           related_name='centre_with_certification')
 
-    # TODO should be _fks, used in API templates
-    type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
-                                                   related_name='type_certification')
+    #TODO remove after initial migration
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
     requires_manual_certificate_validation = BooleanField(
         verbose_name="Centre requires certificate status validation.", default=False)
+    #TODO remove after initial migration
     assessmentdates = ManyToManyField(
         to=AssessmentDates, related_name='assessmentdates_old', blank=True
     )

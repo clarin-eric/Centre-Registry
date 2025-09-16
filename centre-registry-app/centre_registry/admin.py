@@ -81,6 +81,10 @@ class CentreAdmin(admin.ModelAdmin):
     exclude = ["assessmentdates"]
 
 
+class CertificationStatusAdmin(admin.ModelAdmin):
+    list_filter = (OrphanContactFilter, )
+
+
 class AssessmentDateAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         """
