@@ -42,8 +42,8 @@
                         {% endfor %}
                         </td>
                         <td>
-                        {% if centre.type_certification_status_fks %}
-                            {% for type_certification_status in centre.type_certification_status_fks.all %}
+                        {% if centre.centre_type_certification_status_fks %}
+                            {% for type_certification_status in centre.centre_type_certification_status_fks.all %}
                                 {% if type_certification_status.certification_status.status %}
                                     <div>
                                     {{ type_certification_status.certification_status.status }}
@@ -64,8 +64,8 @@
                         {% endif %}
                         </td>
                         <td>
-                            {% if centre.type_certification_status_fks %}
-                                {% for type_certification_status in centre.type_certification_status_fks.all %}
+                            {% if centre.centre_type_certification_status_fks %}
+                                {% for type_certification_status in centre.centre_type_certification_status_fks.all %}
                                     {% if type_certification_status.type_certificate_url %}
                                         <div title="certificate">
                                         <a href='{{ type_certification_status.type_certificate_url }}'>

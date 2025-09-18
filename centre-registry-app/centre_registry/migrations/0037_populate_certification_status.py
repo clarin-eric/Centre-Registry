@@ -84,7 +84,7 @@ def populate_certification_status(apps, schema):
                                                                        type_certificate_url=centre.type_certificate_url)
 
             centre_type_certification_status.save()
-            centre.type_certification_status_fk.add(centre_type_certification_status)
+            centre.centre_type_certification_status_fks.add(centre_type_certification_status)
         centre.save()
 
 

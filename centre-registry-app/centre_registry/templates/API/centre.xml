@@ -17,7 +17,7 @@
                 <Status>{% if centre.centre_type_certification_status_fks.all %}
                     {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
 
-                    {{ centre.type_certification_status_fks.all|first.certification_status.status }}{% else %}None{% endif %}</Status>
+                    {{ centre.centre_type_certification_status_fks.all|first.certification_status.status }}{% else %}None{% endif %}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.country }}</Code>
