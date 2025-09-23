@@ -25,15 +25,15 @@ class Command(BaseCommand):
         outdated_centres = []
 
         for centre in centres:
-            type_certification_statuses = centre.type_certification_status_fk.all()
-            for type_certification_status in type_certification_statuses:
-                assessment_date = type_certification_status.assessmentdate
+            centre_type_certification_statuses = centre.centre_type_certification_status_fks.all()
+            for centre_type_certification_status in centre_type_certification_statuses:
+                assessment_date = centre_type_certification_status.assessmentdate
                 due_date = assessment_date.duedate
-                if due_date < today_date and type_certification_status.certification_status == certified_status_id:
-                    type_certification_status.certification_status = expired_status_id
-                    type_certification_status.assessmentdate = assessment_date
-                    type_certification_status.type_status_comment = ''
-                    type_certification_status.save()
+                if due_date < today_date and centre_type_certification_status.certification_status == certified_status_id:
+                    centre_type_certification_status.certification_status = expired_status_id
+                    centre_type_certification_status.assessmentdate = assessment_date
+                    centre_type_certification_status.type_status_comment = ''
+                    centre_type_certification_status.save()
 
                     centre.requires_manual_certificate_validation = True
                     outdated_centres.append(centre.name)
