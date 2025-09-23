@@ -16,7 +16,12 @@
                 <Type>{{ centre.centre_type.all|first }}</Type>
                 <Status>{% if centre.centre_type_certification_status_fks.all %}
                     {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
-
+                        {% if forloop.first %}
+                            {{ centre_type_certification_status.centre_status.status + " + " + centre_type_certification_status.centre_type }}
+                        {% else %}
+                            <br/>
+                            {{ centre_type_certification_status.centre_status.status + " + " + centre_type_certification_status.centre_type }}
+                        {% endif %}
                     {{ centre.centre_type_certification_status_fks.all|first.certification_status.status }}{% else %}None{% endif %}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
