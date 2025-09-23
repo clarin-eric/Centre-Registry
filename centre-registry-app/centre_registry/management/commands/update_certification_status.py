@@ -11,7 +11,7 @@ import logging
 from centre_registry.models import Centre, CertificationStatus
 
 
-DEFAULT_EMAIL = settings.DEFAULT_
+DEFAULT_EMAIL = settings.DEFAULT_FROM_EMAIL
 
 class Command(BaseCommand):
     help = 'Command to update certification status based on expiration date'
