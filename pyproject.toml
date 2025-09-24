@@ -27,7 +27,7 @@ repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
 drf-spectacular = '0.28.0'
-Django = '>=4.2.17, <5.0.0'
+Django = '>=4.2.24, <5.0.0'
 django-countries = '7.6.1'
 django-debug-toolbar = '5.2.0'
 django-simple-history = '3.7.0'
