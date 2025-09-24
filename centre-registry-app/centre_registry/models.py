@@ -234,7 +234,12 @@ class TypeCertificationStatus(Model):
     history = HistoricalRecords()
 
     def __unicode__(self):
-        return f"{self.certification_status.__str__()} {self.centre_type.__str__()}"
+        related_centre = [centre_with_certification.__str__() for centre_with_certification in self.centre_with_certification.all()]
+        if len(related_centre) > 0:
+            related_centre = related_centre[0]
+            return f"{related_centre.__str__()} {self.certification_status.__str__()} {self.centre_type.__str__()}"
+        else:
+            return f"None {self.certification_status.__str__()} {self.centre_type.__str__()}"
 
     def __str__(self):
         return self.__unicode__()
