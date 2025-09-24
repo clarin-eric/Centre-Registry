@@ -17,6 +17,22 @@
 - country in XML API source changed from consortium to centre
 - adjusted XML API template to centre.type_certification_status_fk
 
+### New dependencies
+- django-countries 7.6.1
+- django-simple-history 3.7.0
+- tzdata 2025.1
+- xmlschema 3.4.4
+
+### Dependency bumps
+- Django 4.2.11 -> 4.2.24
+- django-debug-toolbar 4.3.0 -> 5.2.0
+- django-test-migrations 1.3.0 -> 1.4.0
+- djangorestframework 3.15.1 -> 3.15.2
+- drf-spectacular 0.27.0 -> 0.28.0
+- jsonschema 4.21.1 -> 4.23.0
+- lxml 5.2.1 -> 5.3.1
+- selenium 4.19.0 -> 4.29.0
+
 ## [3.0.1] - 25.04.2024
 
 ### New features
