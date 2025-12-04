@@ -91,7 +91,7 @@ class APITestCase(TestCase):
         # does not work well with Python package resources, that should not
         # be located to an absolute location.
 
-        schema = xmlschema.XMLSchema(urlopen("http://www.opengis.net/kml/2.2"))
+        schema = xmlschema.XMLSchema(parse(urlopen("http://www.opengis.net/kml/2.2")))
 
         try:
             xml_doc = fromstring(response.content)

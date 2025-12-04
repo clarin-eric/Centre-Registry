@@ -3,6 +3,7 @@ from importlib.metadata import PackageNotFoundError
 from os.path import abspath
 from os.path import dirname
 from os.path import join
+from os import environ
 
 from centre_registry_project import __name__ as app_name
 
@@ -54,7 +55,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+
+
 CENTRE_REGISTRY_XSD_URL = 'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728295/xsd'
+
 
 TEMPLATES = [
     {

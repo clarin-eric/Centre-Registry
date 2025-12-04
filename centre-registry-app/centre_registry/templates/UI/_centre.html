@@ -27,7 +27,7 @@
         <tr>
             <th>Type(s)</th>
             <td>
-                {% if centre.centre_type_certification_status_fks != "centre_registry.Centre.None" %}
+                {% if centre.centre_type_certification_status_fks.all %}
                     {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
                         {% if centre_type_certification_status.type_certificate_url %}
                             <a href="{{ centre_type_certification_status.type_certificate_url }}">{{ centre_type_certification_status.centre_type.type }}</a>
