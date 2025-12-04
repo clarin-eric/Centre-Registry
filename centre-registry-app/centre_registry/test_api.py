@@ -18,6 +18,7 @@ from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
 from urllib.request import urlopen
+import xmlschema
 
 
 class APITestCase(TestCase):
@@ -34,7 +35,6 @@ class APITestCase(TestCase):
 
     # Tests for API v1
     def test_all_centres(self):
-
         client = Client()
         response = client.get('/restxml/', secure=True)
         self.assertEqual(response.status_code, 200)
@@ -90,8 +90,7 @@ class APITestCase(TestCase):
         # other XSDs using relative names, which
         # does not work well with Python package resources, that should not
         # be located to an absolute location.
-        schema_doc = parse(urlopen("http://www.opengis.net/kml/2.2"))
-        schema = XMLSchema(schema_doc)
+        schema = xmlschema.XMLSchema(parse(urlopen("http://www.opengis.net/kml/2.2")))
 
         try:
             xml_doc = fromstring(response.content)
