@@ -109,7 +109,7 @@ class APITestCase(TestCase):
         centres_in_response = json.loads(response.content)
         try:
             validate(centres_in_response, schema)
-        except ValidationError:
+        except ValidationError:ls
             print_exc()
             self.fail()
 
