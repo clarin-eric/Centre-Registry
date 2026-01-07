@@ -18,7 +18,6 @@ from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
 from pkg_resources import resource_string
 from urllib.request import urlopen
-import xmlschema
 
 
 class APITestCase(TestCase):
