@@ -30,6 +30,8 @@ python = '>=3.12.*,<4.0'
 Django = '4.2.27'
 django-debug-toolbar = '4.4.6'
 djangorestframework = '3.16.1'
+django-simple-history = '3.7.0'
+tzdata = '2025.3'
 
 [tool.poetry.group.test.dependencies]
 lxml = '6.0.2'
