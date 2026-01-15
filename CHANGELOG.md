@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1-post]
+- Python 3.11 to 3.12
+- added future dependencies to pytoml - django countries. xmlschema,
+  drf\_spectacular
+
+
 ## [3.0.1] - 25.04.2024
 
 ### New features

@@ -16,3 +16,8 @@ def version(request):
 
 def centre_profile_xsd_url(request):
     return {'CENTRE_PROFILE_XSD_URL': settings.CENTRE_REGISTRY_XSD_URL}
+
+
+def google_api_key(request):
+    return {'GOOGLE_API_KEY': settings.GOOGLE_API_KEY}
+
