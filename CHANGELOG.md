@@ -1,9 +1,11 @@
 # Changelog
 
-## [3.0.1-post]
+## [3.0.2] - 15.01.2025
 - Python 3.11 to 3.12
-- added future dependencies to pytoml - django countries. xmlschema,
+- added future dependencies to pytoml - django\_countries, xmlschema,
   drf\_spectacular
+- virtual runtime environment 
+- fix failing 3rd party schema validation 
 
 
 ## [3.0.1] - 25.04.2024
