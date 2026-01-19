@@ -35,6 +35,7 @@ django-simple-history = '3.7.0'
 drf_spectacular = '0.29.0'
 xmlschema = '4.3.0'
 tzdata = '2025.3'
+selenium = '4.19.0'
 
 
 [tool.poetry.group.test.dependencies]
