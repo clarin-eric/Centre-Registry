@@ -4,13 +4,15 @@ on:
   push:
     branches: 
       - "master"
+      - "dev"
+      - "bis"
       - "alpha"
     tags:
     - '[0-9]+.[0-9]+.[0-9]+'
     - '[0-9]+.[0-9]+.[0-9]+rc[x0-9]+'
     - '[0-9]+.[0-9]+.[0-9]+-rc[x0-9]+'
-    - '[0-9]+.[0-9]+.[0-9]+a[x0-9]+'
-    - '[0-9]+.[0-9]+.[0-9]+-a[x0-9]+'
+    - '[0-9]+.[0-9]+.[0-9]+post[x0-9]+'
+    - '[0-9]+.[0-9]+.[0-9]+-post[x0-9]+'
   pull_request:
   release:
     types: [published]
@@ -54,7 +56,7 @@ jobs:
       - name: Build wheel
         run: |
           cd ..
-          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.1-a10
+          docker run -v ./Centre-Registry:/src -v ./whl:/whl registry.gitlab.com/clarin-eric/docker-alpine-wheeler:0.0.2-a1
       - name: 'Tar wheeler output and changelog'
         run: tar -cvf workspace.tar ../whl/*.whl ./CHANGELOG.md
       - uses: actions/upload-artifact@v4

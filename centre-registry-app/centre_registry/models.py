@@ -438,4 +438,3 @@ class SAMLIdentityFederation(Model):
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
 
-
