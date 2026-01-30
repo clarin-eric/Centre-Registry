@@ -20,7 +20,6 @@ from lxml.etree import XPath
 from urllib.request import urlopen
 import xmlschema
 
-
 class APITestCase(TestCase):
     fixtures = ['test_data']
 

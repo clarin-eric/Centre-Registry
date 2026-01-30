@@ -20,14 +20,8 @@
             "shorthand": {
               "type": "string"
             },
-            "organisation_name": {
-              "type": "string"
-            },
-            "institution": {
-              "type": "string"
-            },
-            "working_unit": {
-              "type": "string"
+            "organisation_fk": {
+              "type": "integer"
             },
             "address": {
               "type": "string"
@@ -38,14 +32,20 @@
             "city": {
               "type": "string"
             },
+            "country": {
+              "type": "string"
+            },
             "latitude": {
               "type": "string"
             },
             "longitude": {
               "type": "string"
             },
-            "type_status": {
-              "type": "string"
+            "type_status_comment": {
+              "type": ["string", "null"]
+            },
+            "type_certification_status": {
+              "type": ["string", "null"]
             },
             "administrative_contact": {
               "type": "integer"
@@ -110,15 +110,12 @@
           "required": [
             "name",
             "shorthand",
-            "organisation_name",
-            "institution",
-            "working_unit",
+            "organisation_fk",
             "address",
             "postal_code",
             "city",
             "latitude",
             "longitude",
-            "type_status",
             "administrative_contact",
             "technical_contact",
             "website_url",
