@@ -26,32 +26,40 @@ homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
 [tool.poetry.dependencies]
-drf-spectacular = '0.28.0'
-Django = '>=4.2.17, <5.0.0'
-django-countries = '7.6.1'
+python = '>=3.12.*,<4.0'
+Django = '4.2.27'
+django-countries = '8.2.0'
 django-debug-toolbar = '4.4.6'
+djangorestframework = '3.16.1'
 django-simple-history = '3.7.0'
-djangorestframework = '3.15.2'
-python = '>=3.11.*,<4.0'
-tzdata = '2025.1'
-lxml = '5.3.1'
-jsonschema = '4.23.0'
-django-test-migrations = '1.4.0'
-selenium = '4.29.0'
-xmlschema = '3.4.4'
+django-test-migrations = '1.5.0'
+drf_spectacular = '0.29.0'
+lxml = '6.0.2'
+selenium = '4.19.0'
+tzdata = '2025.3'
+xmlschema = '4.3.0'
+
+[tool.poetry.group.test.dependencies]
+lxml = '6.0.2'
+selenium = '4.39.0'
+jsonschema = '4.25.1'
+django-test-migrations = '1.5.0'
+
 
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
 pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 format-jinja = """
-    {%- if distance == 0 -%}
-        {{ serialize_pep440(base, stage, revision) }}
+    {%- if stage == "post" -%}
+    	{{ serialize_pep440(base, post=revision) }}
+    {%- elif distance == 0 -%}
+        {{ serialize_pep440(base, stage, revision) }}	
     {%- else -%}
         {{ serialize_pep440(base, stage, revision, dev=distance, metadata=[commit]) }}
     {%- endif -%}
 """
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"

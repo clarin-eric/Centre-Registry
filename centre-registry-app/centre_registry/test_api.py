@@ -7,6 +7,7 @@ from django import setup
 from django.conf import settings
 from django.test import TestCase
 from django.test import Client
+from importlib import resources
 import json
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
@@ -16,7 +17,6 @@ from lxml.etree import parse
 from lxml.etree import XMLSchema
 from lxml.etree import XMLSyntaxError
 from lxml.etree import XPath
-from pkg_resources import resource_string
 from urllib.request import urlopen
 import xmlschema
 
@@ -34,7 +34,6 @@ class APITestCase(TestCase):
 
     # Tests for API v1
     def test_all_centres(self):
-
         client = Client()
         response = client.get('/restxml/', secure=True)
         self.assertEqual(response.status_code, 200)
@@ -47,7 +46,7 @@ class APITestCase(TestCase):
         centre_info_urls = centre_info_url_xpath(xml_tree)
 
         schema_root = parse(urlopen(settings.CENTRE_REGISTRY_XSD_URL))
-        schema = XMLSchema(schema_root)
+        schema = xmlschema.XMLSchema(schema_root)
 
         for centre_info_url in centre_info_urls:
             response = client.get(centre_info_url, secure=True)
@@ -56,7 +55,7 @@ class APITestCase(TestCase):
             try:
                 response.content.decode('utf-8')
                 xml_doc = fromstring(response.content)
-                schema.assertValid(xml_doc)
+                schema.is_valid(xml_doc)
 
             except (XMLSyntaxError, DocumentInvalid):
                 print_exc()
@@ -69,11 +68,11 @@ class APITestCase(TestCase):
         self.assertEqual(response['Content-Type'], 'application/xml')
 
         schema_root = parse(urlopen(settings.CENTRE_REGISTRY_XSD_URL))
-        schema = XMLSchema(schema_root)
+        schema = xmlschema.XMLSchema(schema_root)
 
         try:
             xml_doc = fromstring(response.content)
-            schema.assertValid(xml_doc)
+            schema.is_valid(xml_doc)
         except (XMLSyntaxError, DocumentInvalid):
             print_exc()
             self.fail()
@@ -90,12 +89,11 @@ class APITestCase(TestCase):
         # other XSDs using relative names, which
         # does not work well with Python package resources, that should not
         # be located to an absolute location.
-
-        schema = xmlschema.XMLSchema(urlopen("http://www.opengis.net/kml/2.2"))
+        schema = xmlschema.XMLSchema("https://schemas.opengis.net/kml/2.2.0/ogckml22.xsd")
 
         try:
             xml_doc = fromstring(response.content)
-            self.assertTrue(schema.is_valid(xml_doc))
+            schema.is_valid(xml_doc)
         except (XMLSyntaxError, DocumentInvalid):
             print_exc()
             self.fail()
@@ -104,8 +102,8 @@ class APITestCase(TestCase):
         client = Client()
         response = client.get('/api/model/Centre', secure=True)
         self.assertEqual(response.status_code, 200)
-        
-        schema = json.loads(resource_string(__name__, join('data', 'centres.json')))
+
+        schema = json.loads(resources.files(__name__).joinpath('data', 'centres.json').read_bytes())
 
         centres_in_response = json.loads(response.content)
         try:
@@ -119,7 +117,7 @@ class APITestCase(TestCase):
         response = client.get('/api/model/CentreType', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        schema = json.loads(resource_string(__name__, join('data', 'centre_type.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'centre_type.json').read_bytes())
 
         centre_types_in_response = json.loads(response.content)
         try:
@@ -133,7 +131,7 @@ class APITestCase(TestCase):
         response = client.get('/api/model/Contact', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        schema = json.loads(resource_string(__name__, join('data', 'contact.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'contact.json').read_bytes())
 
         contacts_in_response = json.loads(response.content)
         try:
@@ -147,7 +145,7 @@ class APITestCase(TestCase):
         response = client.get('/api/model/Consortium', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        schema = json.loads(resource_string(__name__, join('data', 'consortium.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'consortium.json').read_bytes())
 
         consortiums_in_response = json.loads(response.content)
         try:
@@ -161,7 +159,7 @@ class APITestCase(TestCase):
         response = client.get('/api/model/FCSEndpoint', secure=True)
         self.assertEqual(response.status_code, 200)
 
-        schema = json.loads(resource_string(__name__, join('data', 'fcsendpoint.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'fcsendpoint.json').read_bytes())
 
         fcsendpoints_in_response = json.loads(response.content)
         try:
@@ -176,8 +174,8 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         urlreferences_in_response = json.loads(response.content)
-        
-        schema = json.loads(resource_string(__name__, join('data', 'urlreference.json')))
+
+        schema = json.loads(resources.files(__name__).joinpath('data', 'urlreference.json').read_bytes())
         try:
             validate(urlreferences_in_response, schema)
         except ValidationError:
@@ -190,7 +188,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         oaipmhendpoints_in_response = json.loads(response.content)
-        schema = json.loads(resource_string(__name__, join('data', 'oaipmhendpoint.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'oaipmhendpoint.json').read_bytes())
         try:
             validate(oaipmhendpoints_in_response, schema)
         except ValidationError:
@@ -203,7 +201,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         samlidentityfederations_in_response = json.loads(response.content)
-        schema = json.loads(resource_string(__name__, join('data', 'samlidentityfederation.json')))
+        schema = json.loads(resources.files(__name__).joinpath('data', 'samlidentityfederation.json').read_bytes())
         try:
             validate(samlidentityfederations_in_response, schema)
         except ValidationError:
@@ -216,9 +214,7 @@ class APITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         samlserviceproviders_in_response = json.loads(response.content)
-        
-        schema = json.loads(resource_string(__name__, join('data', 'samlserviceprovider.json')))
-
+        schema = json.loads(resources.files(__name__).joinpath('data', 'samlserviceprovider.json').read_bytes())
         try:
             validate(samlserviceproviders_in_response, schema)
         except ValidationError:
