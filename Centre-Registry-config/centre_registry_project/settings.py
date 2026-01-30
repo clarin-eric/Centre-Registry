@@ -12,6 +12,7 @@ except PackageNotFoundError:
     VERSION = 'SNAPSHOT'
 
 SECRET_KEY = 'testkey1283182183721'
+GOOGLE_API_KEY = 'somekey'
 ## Secure cookies have to be turned off in development mode, assuming there is
 ## no reverse proxy with X-Forwarded-Proto=https or https://tools.ietf.org/html/rfc7239.
 DEBUG = True # TODO: templatize
@@ -42,6 +43,8 @@ LANGUAGE_CODE = 'en-gb'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = True
+USE_TZ = True
+
 MEDIA_ROOT = ''
 STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_DIR,
@@ -81,7 +84,9 @@ MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',  # TODO: remove?
-    'django.contrib.messages.middleware.MessageMiddleware', )
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
+)
 # TODO: Remove ModelBackend authentication once SSO with RemoteUserBackend is
 # in place.
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', )
@@ -96,7 +101,11 @@ INSTALLED_APPS = ('django.contrib.auth',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  'centre_registry', )
+                  'centre_registry',
+                  'simple_history',
+                  'django_countries',
+                  'rest_framework',
+                  'drf_spectacular',)
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -129,6 +138,20 @@ LOGGING = {
         }
     }
 }
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'CLARIN CENTRE REGISTRY',
+    'DESCRIPTION': 'Registry of CLARIN centres',
+    'VERSION': VERSION,
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 if DEBUG:
     MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware', )

@@ -2,6 +2,7 @@ from decimal import Decimal
 from re import match as re_match
 
 from django.core.exceptions import ValidationError
+from django_countries.fields import CountryField
 from django.db.models import BooleanField
 from django.db.models import CharField
 from django.db.models import EmailField
@@ -12,6 +13,7 @@ from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
 from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
+from simple_history.models import HistoricalRecords
 
 
 def raise_coordinate_validation_error(coordinate, exception):
@@ -75,6 +77,7 @@ class Contact(Model):
         verbose_name='Telephone number (E.123 international notation)')
     website_url = URLField(
         max_length=2000, blank=True, verbose_name='Website URL')
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{name:s} <{email_address:s}>'.format(
@@ -93,10 +96,12 @@ class Consortium(Model):
     """
     A CLARIN consortium.
     """
+    country = CountryField(verbose_name='Country', blank_label="(select country)", blank=True)
     country_code = CharField(
         verbose_name='Country code', max_length=3, unique=True)
     country_name = CharField(
         verbose_name='Country name', max_length=20, unique=True)
+
     is_observer = BooleanField(
         verbose_name='Is observer (not member)?', default=False)
     name = CharField(verbose_name='Name', max_length=40, blank=True)
@@ -106,6 +111,8 @@ class Consortium(Model):
         verbose_name='DNS subdomain alias * (*.clarin.eu)',
         blank=True,
         max_length=25)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{name:s} ({country_code})'.format(
@@ -126,6 +133,8 @@ class CentreType(Model):
     """
     type = CharField(
         verbose_name='Certified centre type', max_length=1, unique=True)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{type:s}'.format(type=self.type)
@@ -143,9 +152,11 @@ class AssessmentDates(Model):
     """
     Assessment due date
     """
-    issuedate = DateField(verbose_name='Assessment issued date (YYYY-MM-DD)')
-    duedate = DateField(verbose_name='Assessment due date (YYYY-MM-DD)')
+    issuedate = DateField(verbose_name='Assessment issued date (DD-MM-YYYY)')
+    duedate = DateField(verbose_name='Assessment due date (DD-MM-YYYY)')
     type = ManyToManyField(to=CentreType, verbose_name='Type')
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         types = u", ".join([x.type for x in self.type.all()])
@@ -173,17 +184,8 @@ class Organisation(Model):
     organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=False)
     institution = CharField(verbose_name='Institution', max_length=200, blank=True)
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
-    address = CharField(verbose_name='Address', max_length=100)
-    postal_code = CharField(verbose_name='Postal code', max_length=20)
-    city = CharField(verbose_name='City', max_length=100)
-    latitude = CharField(
-        verbose_name='Latitude (from e.g. Google Maps)',
-        validators=[validate_latitude],
-        max_length=20)
-    longitude = CharField(
-        verbose_name='Longitude (from e.g. Google Maps)',
-        validators=[validate_longitude],
-        max_length=20)
+    history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
@@ -198,6 +200,17 @@ class Organisation(Model):
         verbose_name_plural = 'organisations'
 
 
+class CertificationStatus(Model):
+    status = CharField(verbose_name='Certification status', max_length=30, blank=False)
+    history = HistoricalRecords()
+
+    def __unicode__(self):
+        return self.status
+
+    def __str__(self):
+        return self.__unicode__()
+
+
 class Centre(Model):
     """
     A CLARIN centre.
@@ -205,13 +218,12 @@ class Centre(Model):
     name = CharField(verbose_name='Name', max_length=200, unique=True)
     shorthand = CharField(
         verbose_name='Shorthand code', max_length=30, unique=True)
-    organisation_name = CharField(verbose_name='Organisation', max_length=100, blank=True)
     organisation_fk = ForeignKey(Organisation, on_delete=PROTECT, null=True)
-    institution = CharField(verbose_name='Institution', max_length=200)
-    working_unit = CharField(verbose_name='Working unit', max_length=200)
     address = CharField(verbose_name='Address', max_length=100)
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
+    country = CountryField(verbose_name='Country', blank_label="(select country)", blank=True)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
     latitude = CharField(
         verbose_name='Latitude (from e.g. Google Maps)',
         validators=[validate_latitude],
@@ -222,10 +234,13 @@ class Centre(Model):
         max_length=20)
 
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
-    type_status = CharField(
+    type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
+    type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
+    requires_manual_certificate_validation = BooleanField(
+        verbose_name="Centre requires certificate status validation", default=False)
     assessmentdates = ManyToManyField(
         to=AssessmentDates, related_name='assessmentdates', blank=True
     )
@@ -239,7 +254,6 @@ class Centre(Model):
     description = CharField(
         verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
 
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
@@ -257,6 +271,7 @@ class Centre(Model):
         verbose_name='Repository system', max_length=200, blank=True)
     strict_versioning = BooleanField(
         verbose_name='Strict versioning?', default=False)
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(
@@ -279,6 +294,7 @@ class URLReference(Model):
     centre = ForeignKey(Centre, on_delete=CASCADE)
     description = CharField(verbose_name='Content description', max_length=300)
     url = URLField(verbose_name='URL', max_length=2000, unique=True)
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{url:s} ({centre_shorthand:s})'.format(
@@ -296,6 +312,7 @@ class URLReference(Model):
 class OAIPMHEndpointSet(Model):
     set_spec = CharField(verbose_name='Set specification', blank=True, max_length=1024)
     set_type = CharField(verbose_name='Set type', max_length=1024, default='VLO')
+    history = HistoricalRecords()
 
     def __unicode__(self):
         if self.set_spec == '':
@@ -322,6 +339,7 @@ class OAIPMHEndpoint(Model):
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
     oai_pmh_sets = ManyToManyField(to=OAIPMHEndpointSet, blank=True, related_name="web_services")
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{uri:s}'.format(
@@ -343,6 +361,7 @@ class FCSEndpoint(Model):
     centre = ForeignKey(Centre, blank=True, null=True, on_delete=SET_NULL)
     uri = URLField(verbose_name='Base URI', max_length=2000, unique=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    history = HistoricalRecords()
 
     def __unicode__(self):
         if self.centre is not None:
@@ -373,6 +392,7 @@ class SAMLServiceProvider(Model):
     production_status = BooleanField(
         verbose_name='Has production status?', default=True)
     note = CharField(verbose_name='Additional note', max_length=1024, blank=True)
+    history = HistoricalRecords()
 
     def __unicode__(self):
         if self.centre is not None:
@@ -405,6 +425,7 @@ class SAMLIdentityFederation(Model):
         'without '
         '"-----BEGIN CERTIFICATE-----" begin and and end marker)',
         blank=True)
+    history = HistoricalRecords()
 
     def __unicode__(self):
         return '{shorthand:s}'.format(shorthand=self.shorthand)
