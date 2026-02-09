@@ -4,7 +4,7 @@
 - daily cronjob updating certification status based on AssessmentDate
 - email notification to maintainers about centre's certification expiring
 - well controlled vocabulary for Centre's Type Status
-- reordering admin fields according to request
+- reordering admin fields according to maintainer request
 - historical models
 - country field changed from CharField to django_countries.CountryField
 - pruning redundant (artifacts) address fields between Centre and Consortium

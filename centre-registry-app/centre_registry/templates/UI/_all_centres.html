@@ -34,35 +34,50 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% if centre.type_certificate_url %}
-                                <a href='{{ centre.type_certificate_url }}'>
-                            {% endif %}
-                            {% for type in centre.type.all %}
-                                {{ type }}
+                        {% for centre_type in centre.centre_type.all %}
+                            {{ centre_type }}
+                            {% if not forloop.last %}
                                 <br/>
-                            {% endfor %}
-                            {% if centre.type_certificate_url %}
-                                </a>
                             {% endif %}
+                        {% endfor %}
                         </td>
                         <td>
-                            {% if centre.type_certification_status.status %}
-                                {{ centre.type_certification_status.status }}
-                                {% if centre.type_status_comment %}
-                                    <br/>
-                                    {{ centre.type_status_comment }}
+                        {% if centre.centre_type_certification_status_fks %}
+                            {% for type_certification_status in centre.centre_type_certification_status_fks.all %}
+                                {% if type_certification_status.certification_status.status %}
+                                    <div>
+                                    {{ type_certification_status.certification_status.status }}
+                                    {% if type_certification_status.type_status_comment and type_certification_status.type_status_comment != type_certification_status.certification_status.status %}
+                                        <br/>
+                                        <small>{{ type_certification_status.type_status_comment }}</small>
+                                    {% endif %}
+                                    </div>
+                                {% else %}
+                                    <em>none</em>
                                 {% endif %}
-                            {% elif centre.type_status_comment %}
-                                {{ centre.type_status_comment }}
-                            {% else %}
-                                <em>none</em>
-                            {% endif %}
+                                {% if not forloop.last %}
+                                    <br/>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <em>none</em>
+                        {% endif %}
                         </td>
                         <td>
-                            {% if centre.assessmentdates %}
-                                {% for date in centre.assessmentdates.all %}
-                                    {{ date.brief }}
-                                    <br/>
+                            {% if centre.centre_type_certification_status_fks %}
+                                {% for type_certification_status in centre.centre_type_certification_status_fks.all %}
+                                    {% if type_certification_status.type_certificate_url %}
+                                        <div title="certificate">
+                                        <a href='{{ type_certification_status.type_certificate_url }}'>
+                                    {% endif %}
+                                    {{ type_certification_status.assessmentdate.brief }}
+                                    {% if type_certification_status.type_certificate_url %}
+                                        </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if not forloop.last %}
+                                        <br/>
+                                    {% endif %}
                                 {% endfor %}
                             {% endif %}
                         </td>

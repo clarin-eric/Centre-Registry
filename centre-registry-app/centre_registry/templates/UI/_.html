@@ -8,6 +8,10 @@
         {% get_static_prefix as STATIC_PREFIX %}
         <title>CLARIN Centre Registry - {% block title %}{% endblock title %}</title>
         {# @formatter:off #}
+
+        {% comment %}
+        	TMP
+        {% endcomment %}
         <link rel='stylesheet'
               href="{% static 'centre-registry-app/style/_+DataTables.scss.css' %}"/>
         <link rel='shortcut icon'
@@ -16,6 +20,9 @@
               href="{% static 'centre-registry-app/datatables/media/css/jquery.dataTables.min.css' %}">
         <link rel='stylesheet'
         href="{% static 'centre-registry-app/datatables/extensions/ColVis/css/dataTables.colVis.min.css' %}">
+
+
+
 
         <script charset='utf-8'
                 src="{% static 'centre-registry-app/datatables/media/js/jquery.js' %}"></script>

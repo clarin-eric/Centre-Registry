@@ -13,11 +13,26 @@
         <CenterProfile>
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
-                <Type>{{ centre.type.all|first }}</Type>
-                <Status>{{ centre.type_status }}</Status>
+                <Type>{{ centre.centre_type.all|first }}</Type>
+                <Status>{% if centre.centre_type_certification_status_fks.all %}
+                    {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
+                        {% if forloop.first %}
+                            {{ centre_type_certification_status.centre_status.status|add:" + "|add:centre_type_certification_status.centre_type }}
+                        {% else %}
+                            <br/>
+                            {{ centre_type_certification_status.centre_status.status|add:" + "|add:centre_type_certification_status.centre_type }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                </Status>
+                <Test>
+                    {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
+                        {{ centre_type_certification_status }}
+                    {% endfor %}
+                </Test>
                 <Description>{{ centre.description }}</Description>
                 <Country>
-                    <Code>{{ centre.consortium.country_code }}</Code>
+                    <Code>{{ centre.country }}</Code>
                 </Country>
             </CenterBasicInformation>
             <CenterExtendedInformation>
@@ -26,7 +41,7 @@
                 <RepositorySystem>{{ centre.repository_system }}</RepositorySystem>
                 <PidStatus>{{ centre.pid_status }}</PidStatus>
                 <StrictVersioning>{{ centre.strict_versioning|lower }}</StrictVersioning>
-                <AssessmentStatus>{{ centre.type_status }}</AssessmentStatus>
+                <AssessmentStatus>{{ centre.type_status_comment }}</AssessmentStatus>
                 {% for url_reference in url_references %}
                     <WebReference>
                         <Website>{{ url_reference.url }}</Website>
@@ -66,9 +81,9 @@
                 {% endif %}
                 <OrganisationalInformation>
                     <ClarinOrganisationInfo>
-                        <OrganisationName>{{ centre.organisation_name }}</OrganisationName>
-                        <Institution>{{ centre.institution }}</Institution>
-                        <WorkingUnit>{{ centre.working_unit }}</WorkingUnit>
+                        <OrganisationName>{{ centre.organisation_fk.organisation_name }}</OrganisationName>
+                        <Institution>{{ centre.organisation_fk.institution }}</Institution>
+                        <WorkingUnit>{{ centre.organisation_fk.working_unit }}</WorkingUnit>
                         <Code>{{ centre.shorthand }}</Code>
                         <PostAddress>{{ centre.address }},
                             {{ centre.postal_code }},

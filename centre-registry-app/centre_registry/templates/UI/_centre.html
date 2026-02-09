@@ -27,15 +27,23 @@
         <tr>
             <th>Type(s)</th>
             <td>
-                {% if centre.type_certificate_url %}<a href='{{ centre.type_certificate_url }}'>{% endif %}
-                {% for type in centre.type.all %}{{ type }}<br/>{% endfor %}
-                {% if centre.type_certificate_url %}</a>{% endif %}
+                {% if centre.centre_type_certification_status_fks.all %}
+                    {% for centre_type_certification_status in centre.centre_type_certification_status_fks.all %}
+                        {% if centre_type_certification_status.type_certificate_url %}
+                            <a href="{{ centre_type_certification_status.type_certificate_url }}">{{ centre_type_certification_status.centre_type.type }}</a>
+                        {% else %}
+                            {{ centre_type_certification_status.centre_type.type }}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for centre_type in centre.centre_type.all %}{{ centre_type }}<br/>{% endfor %}
+                {% endif %}
             </td>
         </tr>
-        {% if centre.type_status %}
+        {% if centre.type_status_comment %}
             <tr>
                 <th>Type status</th>
-                <td>{{ centre.type_status }}</td>
+                <td>{{ centre.type_status_comment }}</td>
             </tr>
         {% endif %}
         {% if centre.description %}

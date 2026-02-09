@@ -3,6 +3,7 @@ from importlib.metadata import PackageNotFoundError
 from os.path import abspath
 from os.path import dirname
 from os.path import join
+from os import environ
 
 from centre_registry_project import __name__ as app_name
 
@@ -54,7 +55,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+
+
 CENTRE_REGISTRY_XSD_URL = 'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.1/profiles/clarin.eu:cr1:p_1583768728295/xsd'
+
 
 TEMPLATES = [
     {
@@ -63,9 +67,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
+                'centre_registry.context_processors.centre_profile_xsd_url',
                 'centre_registry.context_processors.tracked_by_piwik',
                 'centre_registry.context_processors.version',
-                'centre_registry.context_processors.centre_profile_xsd_url',
+                'centre_registry.context_processors.google_api_key',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
             ],
@@ -151,6 +156,13 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'someuser'
+EMAIL_HOST_PASSWORD = 'somepass'
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'centre-registry@clarin.eu'
 
 
 if DEBUG:

@@ -10,6 +10,7 @@ from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import TypeCertificationStatus
 from centre_registry.models import URLReference
 from django.contrib import admin
 from django import forms
@@ -80,6 +81,10 @@ class CentreAdmin(admin.ModelAdmin):
     exclude = ["assessmentdates"]
 
 
+class CertificationStatusAdmin(admin.ModelAdmin):
+    list_filter = (OrphanContactFilter, )
+
+
 class AssessmentDateAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         """
@@ -104,4 +109,5 @@ admin.site.register(OAIPMHEndpointSet)
 admin.site.register(Organisation)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(SAMLServiceProvider)
+admin.site.register(TypeCertificationStatus)
 admin.site.register(URLReference)

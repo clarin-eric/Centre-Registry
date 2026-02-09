@@ -137,7 +137,7 @@ class CentreType(Model):
 
 
     def __unicode__(self):
-        return '{type:s}'.format(type=self.type)
+        return '{type}'.format(type=self.type)
 
     def __str__(self):
         return self.__unicode__()
@@ -186,7 +186,6 @@ class Organisation(Model):
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
             organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
@@ -201,11 +200,46 @@ class Organisation(Model):
 
 
 class CertificationStatus(Model):
+    class Meta:
+        verbose_name = "Certification status"
+        verbose_name_plural = "Certification statuses"
     status = CharField(verbose_name='Certification status', max_length=30, blank=False)
     history = HistoricalRecords()
 
     def __unicode__(self):
         return self.status
+
+    def __str__(self):
+        return self.__unicode__()
+
+
+class TypeCertificationStatus(Model):
+    class Meta:
+        verbose_name = "Type certification status"
+        verbose_name_plural = "Type certification statuses"
+
+    assessmentdate = ForeignKey(AssessmentDates, related_name='assessmentdate', blank=True, null=True,
+                                on_delete=SET_NULL)
+    certification_status = ForeignKey(CertificationStatus, on_delete=PROTECT, null=False)
+    centre_type = ForeignKey(CentreType, on_delete=PROTECT, blank=False, null=False)
+    type_status_comment = CharField(
+        verbose_name="Comments about centre's type",
+        max_length=100,
+        blank=True)
+    type_certificate_url = URLField(
+        verbose_name='Centre type certificate URL',
+        max_length=2000,
+        blank=True)
+    requires_manual_review = BooleanField(verbose_name="Is certification out of date", default=False)
+    history = HistoricalRecords()
+
+    def __unicode__(self):
+        related_centre = [centre_with_certification.__str__() for centre_with_certification in self.centre_with_certification.all()]
+        if len(related_centre) > 0:
+            related_centre = related_centre[0]
+            return f"{related_centre.__str__()} {self.certification_status.__str__()} {self.centre_type.__str__()}"
+        else:
+            return f"None {self.certification_status.__str__()} {self.centre_type.__str__()}"
 
     def __str__(self):
         return self.__unicode__()
@@ -233,16 +267,21 @@ class Centre(Model):
         validators=[validate_longitude],
         max_length=20)
 
-    type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
-    type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
+    centre_type = ManyToManyField(to=CentreType, verbose_name='Centre types', related_name='centres_of_type')
+    centre_type_certification_status_fks = ManyToManyField(to=TypeCertificationStatus,
+                                                           verbose_name='Type certification status',
+                                                           related_name='centre_with_certification')
+
+    #TODO remove after initial migration
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
     requires_manual_certificate_validation = BooleanField(
-        verbose_name="Centre requires certificate status validation", default=False)
+        verbose_name="Centre requires certificate status validation.", default=False)
+    #TODO remove after initial migration
     assessmentdates = ManyToManyField(
-        to=AssessmentDates, related_name='assessmentdates', blank=True
+        to=AssessmentDates, related_name='assessmentdates_old', blank=True
     )
 
     administrative_contact = ForeignKey(
@@ -251,10 +290,9 @@ class Centre(Model):
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
-    description = CharField(
-        verbose_name='Description', max_length=500, blank=True)
+    description = TextField(
+        verbose_name='Description', blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
-
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
         max_length=2000,
@@ -437,4 +475,3 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
-
