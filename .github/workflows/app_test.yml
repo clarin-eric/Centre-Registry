@@ -1,0 +1,276 @@
+name: Automated CI tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.12"
+  SAUCE_CONNECT_VERSION: '5.4.1'
+  GECKODRIVER_VERSION: 'v0.36.0'
+  DJANGO_SETTINGS_MODULE: centre_registry_project.settings
+  SETUPTOOLS_SCM_PRETEND_VERSION: >
+    ${{ github.ref_type == 'tag'
+        && github.ref_name
+        || format('2.3.4.dev+{0}-{1}', github.ref_name, github.sha)
+    }}
+
+jobs:
+  test_migrations:
+    runs-on: ubuntu-24.04
+    name: Test migrations
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          pip install -r centre-registry-app/requirements_test.txt
+
+      - name: Run migrations
+        run: |
+          Centre-Registry-config/manage.py migrate
+
+      - name: Run migration tests
+        run: |
+          Centre-Registry-config/manage.py test centre_registry.test_migrations
+          tar -cf workspace.tar .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workspace
+          path: workspace.tar
+          retention-days: 1
+
+      - name: Write job summary
+        run: |
+          echo "### ✅ Migration tests passed" >> $GITHUB_STEP_SUMMARY
+
+  test_api:
+    runs-on: ubuntu-24.04
+    name: Test API
+    needs: test_migrations
+
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: workspace
+
+      - name: Extract workspace
+        run: tar -xf workspace.tar
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          pip install -r centre-registry-app/requirements_test.txt
+
+      - name: Run API tests
+        run: |
+          Centre-Registry-config/manage.py test centre_registry.test_api
+
+      - name: Write job summary
+        run: |
+          echo "### ✅ API tests passed" >> $GITHUB_STEP_SUMMARY
+
+  test_ui:
+    runs-on: ubuntu-24.04
+    name: "UI Test - ${{ matrix.browserName }} on ${{ matrix.platformName }} v${{ matrix.browserVersion }}"
+    needs: test_api
+
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - browserName: chrome
+            platformName: "Windows 10"
+            browserVersion: "131"
+          - browserName: chrome
+            platformName: "Windows 11"
+            browserVersion: "131"
+          - browserName: chrome
+            platformName: "macOS 13"
+            browserVersion: "131"
+          - browserName: chrome
+            platformName: "macOS 12"
+            browserVersion: "131"
+
+          - browserName: firefox
+            platformName: "Windows 10"
+            browserVersion: "133"
+          - browserName: firefox
+            platformName: "Windows 11"
+            browserVersion: "133"
+          - browserName: firefox
+            platformName: "macOS 13"
+            browserVersion: "133"
+          - browserName: firefox
+            platformName: "macOS 12"
+            browserVersion: "133"
+
+          - browserName: MicrosoftEdge
+            platformName: "Windows 10"
+            browserVersion: "131"
+          - browserName: MicrosoftEdge
+            platformName: "Windows 11"
+            browserVersion: "131"
+          - browserName: MicrosoftEdge
+            platformName: "macOS 13"
+            browserVersion: "131"
+          - browserName: MicrosoftEdge
+            platformName: "macOS 12"
+            browserVersion: "131"
+
+          - browserName: safari
+            platformName: "macOS 13"
+            browserVersion: "16"
+          - browserName: safari
+            platformName: "macOS 12"
+            browserVersion: "16"
+
+    env:
+      DJANGO_SETTINGS_MODULE: centre_registry_project.settings
+      SETUPTOOLS_SCM_PRETEND_VERSION: >
+        ${{ github.ref_type == 'tag'
+            && github.ref_name
+            || format('2.3.4.dev+{0}-{1}', github.ref_name, github.sha)
+        }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+
+      browserName: ${{ matrix.browserName }}
+      platformName: ${{ matrix.platformName }}
+      browserVersion: ${{ matrix.browserVersion }}
+
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: workspace
+
+      - name: Extract workspace
+        run: tar -xf workspace.tar
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install application and system dependencies
+        run: |
+          pip install -e .
+          pip install -r centre-registry-app/requirements_test.txt
+
+      - name: Install Firefox + Geckodriver
+        uses: browser-actions/setup-firefox@v1
+
+      - uses: saucelabs/sauce-connect-action@v3
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          region: us-west-1
+          tunnelName: github-tunnel-${{ matrix.browserName }}-${{ matrix.platformName }}-${{ matrix.browserVersion }}-${{ github.run_id }}
+          proxyLocalhost: allow
+
+      - name: Run UI tests
+        id: ui_tests
+        shell: bash
+        continue-on-error: true
+        run: |
+          set +e
+          Centre-Registry-config/manage.py test centre_registry.test_ui
+          echo "exitcode=$?" >> $GITHUB_OUTPUT
+
+      - name: Extract Sauce Labs session ID
+        if: always()
+        id: saucelinks
+        run: |
+          if [ -f /tmp/sauce_session_id.txt ]; then
+            session_id=$(cat /tmp/sauce_session_id.txt)
+          else
+            session_id=""
+          fi
+          echo "session_id=$session_id" >> $GITHUB_OUTPUT
+
+      - name: Write result.json
+        if: always()
+        run: |
+          filename="result-${{ matrix.browserName }}-${{ matrix.platformName }}-${{ matrix.browserVersion }}.json"
+          cat <<EOF > "$filename"
+          {
+            "browser": "${{ matrix.browserName }}",
+            "version": "${{ matrix.browserVersion }}",
+            "platform": "${{ matrix.platformName }}",
+            "result": "${{ steps.ui_tests.outputs.exitcode }}",
+            "session_id": "${{ steps.saucelinks.outputs.session_id }}"
+          }
+          EOF
+          echo "RESULT_FILE=$filename" >> $GITHUB_ENV
+
+      - name: Upload UI result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-results-${{ matrix.browserName }}-${{ matrix.platformName }}-${{ matrix.browserVersion }}
+          path: ${{ env.RESULT_FILE }}
+
+      - name: Fail job if tests failed
+        if: steps.ui_tests.outputs.exitcode != '0'
+        run: exit 1
+
+  collect_sauce_links:
+    runs-on: ubuntu-24.04
+    needs: test_ui
+    if: always()
+    name: Build Sauce Labs results table
+
+    steps:
+      - name: Download all UI results
+        uses: actions/download-artifact@v4
+        with:
+          path: results/
+
+      - name: Build Sauce Labs results table
+        run: |
+          echo "## Sauce Labs UI Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| | Platform | Browser | Version | Link |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- |---------|---------|----------|------|" >> $GITHUB_STEP_SUMMARY
+
+          find results -name "*.json" \
+            | sort -t- -k2,2 -k4,4 -k3,3 \
+            | while read file; do
+
+            job=$(cat "$file")
+            browser=$(echo "$job" | jq -r '.browser')
+            version=$(echo "$job" | jq -r '.version')
+            platform=$(echo "$job" | jq -r '.platform')
+            result=$(echo "$job" | jq -r '.result')
+            session_id=$(echo "$job" | jq -r '.session_id')
+
+            case "$result" in
+              0) status="✅" ;;
+              *) status="❌" ;;
+            esac
+
+            if [ -n "$session_id" ] && [ "$session_id" != "null" ]; then
+              link="https://app.saucelabs.com/tests/$session_id"
+            else
+              link="(no session)"
+            fi
+
+            echo "| $status | $platform | $browser | $version | [ See details on Sauce Labs ↗️ ]($link) |" >> $GITHUB_STEP_SUMMARY
+          done
