@@ -275,3 +275,5 @@ jobs:
 
             echo "| $status | $platform | $browser | $version | [ See details on Sauce Labs ↗️ ]($link) |" >> $GITHUB_STEP_SUMMARY
           done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[![Build Status](https://app.saucelabs.com/browser-matrix/centre-registry.svg)](https://saucelabs.com/u/centre-registry)" >> $GITHUB_STEP_SUMMARY
