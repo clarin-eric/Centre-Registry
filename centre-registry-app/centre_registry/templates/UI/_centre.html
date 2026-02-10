@@ -32,10 +32,10 @@
                 {% if centre.type_certificate_url %}</a>{% endif %}
             </td>
         </tr>
-        {% if centre.type_status %}
+        {% if centre.type_status_comment %}
             <tr>
                 <th>Type status</th>
-                <td>{{ centre.type_status }}</td>
+                <td>{{ centre.type_status_comment }}</td>
             </tr>
         {% endif %}
         {% if centre.description %}

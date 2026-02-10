@@ -38,4 +38,4 @@ urlpatterns = [  # pylint: disable=invalid-name
 
     # DRF SPECTACULAR
 
-    ]
+]

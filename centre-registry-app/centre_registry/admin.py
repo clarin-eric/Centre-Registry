@@ -1,4 +1,4 @@
-from centre_registry.models import AssessmentDates
+from centre_registry.models import AssessmentDates, TypeCertificationStatus
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import CertificationStatus
@@ -104,4 +104,5 @@ admin.site.register(OAIPMHEndpointSet)
 admin.site.register(Organisation)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(SAMLServiceProvider)
+admin.site.register(TypeCertificationStatus)
 admin.site.register(URLReference)
