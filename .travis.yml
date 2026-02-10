@@ -1,0 +1,53 @@
+os: linux
+dist: bionic
+language: python
+python:
+  - "3.12"
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=centre_registry_project.settings
+    - SETUPTOOLS_SCM_PRETEND_VERSION=${TRAVIS_TAG:-2.3.4.dev+$TRAVIS_BRANCH-$TRAVIS_COMMIT}
+  jobs:
+    - browserName='chrome' platformName='Windows 10' browserVersion='78'
+    - browserName='chrome' platformName='Windows 11' browserVersion='78'
+    - browserName='chrome' platformName='macOS 10.14' browserVersion='78'
+    - browserName='chrome' platformName='macOS 13' browserVersion='78'
+    - browserName='chrome' platformName='Windows 10' browserVersion='latest'
+    - browserName='chrome' platformName='macOS 10.14' browserVersion='latest'
+    - browserName='chrome' platformName='Windows 11' browserVersion='latest'
+    - browserName='chrome' platformName='macOS 13' browserVersion='latest'
+    - browserName='firefox' platformName='Windows 10' browserVersion='91'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='91'
+    - browserName='firefox' platformName='Windows 11' browserVersion='91'
+    - browserName='firefox' platformName='macOS 13' browserVersion='91'
+    - browserName='firefox' platformName='Windows 10' browserVersion='latest'
+    - browserName='firefox' platformName='macOS 10.14' browserVersion='latest'
+    - browserName='firefox' platformName='Windows 11' browserVersion='latest'
+    - browserName='firefox' platformName='macOS 13' browserVersion='latest'
+    - browserName='internet explorer' platformName='Windows 10' browserVersion='11'
+    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='79'
+    - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='79'
+    - browserName='MicrosoftEdge' platformName='Windows 10' browserVersion='latest'
+    - browserName='MicrosoftEdge' platformName='Windows 11' browserVersion='latest'
+    - browserName='safari' platformName='macOS 10.13' browserVersion='13'
+    - browserName='safari' platformName='macOS 10.14' browserVersion='12'
+    - browserName='safari' platformName='macOS 10.15' browserVersion='13'
+    - browserName='safari' platformName='macOS 11' browserVersion='14'
+    - browserName='safari' platformName='macOS 12' browserVersion='16'
+    - browserName='safari' platformName='macOS 13' browserVersion='16'
+    - browserName='safari' platformName='macOS 13' browserVersion='latest'
+addons:
+  sauce_connect: true
+install:
+  - pip install -e .
+  - pip install -r 'centre-registry-app/requirements_test.txt'
+script:
+  - Centre-Registry-config/manage.py migrate
+  - Centre-Registry-config/manage.py test centre_registry.test_migrations
+  - Centre-Registry-config/manage.py test centre_registry.test_api
+  - Centre-Registry-config/manage.py test centre_registry.test_ui
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+

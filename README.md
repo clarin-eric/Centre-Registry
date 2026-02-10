@@ -1,4 +1,4 @@
-[![GH Actions Status](https://github.com/clarin-eric/Centre-Registry/actions/workflows/app_test.yml/badge.svg)](https://github.com/clarin-eric/Centre-Registry/actions/workflows/app_test.yml)
+[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=master)](https://travis-ci.com/clarin-eric/Centre-Registry)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/centre-registry)](https://app.saucelabs.com/u/centre-registry)
 # The Centre Registry
 The Centre Registry is a Django web application and service that serves as administrative registry for CLARIN, documented on [the CLARIN Trac](https://trac.clarin.eu/wiki/Centre%20Registry).
@@ -80,13 +80,13 @@ Or more selectively:
 
 The API and the UI are both tested by the continuous integration system.
 
-After each commit (or PR), GitHub Actions will:
+After each commit (or PR), Travis CI will:
 - build the project.
 - execute the API tests.
 - connect to Sauce Labs and run the UI (Selenium-based) tests targeting multiple browsers.
 
-Current overall status of GitHub Actions build and tests:
-[![GH Actions Status](https://github.com/clarin-eric/Centre-Registry/actions/workflows/app_test.yml/badge.svg)](https://github.com/clarin-eric/Centre-Registry/actions/workflows/app_test.yml)
+Current overall status of Travis build and tests:
+[![Travis Status](https://travis-ci.com/clarin-eric/Centre-Registry.svg?branch=master)](https://travis-ci.com/clarin-eric/Centre-Registry)
 
 In the last stage of the build and test process, the continuous integration system will run all UI tests for multiple browser and operating system combinations.
 

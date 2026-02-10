@@ -24,6 +24,7 @@ documentation = "https://github.com/clarin-eric/Centre-Registry/"
 homepage = "https://centres.clarin.eu/"
 repository = "https://github.com/clarin-eric/Centre-Registry/"
 
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

@@ -63,10 +63,9 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
-                'centre_registry.context_processors.centre_profile_xsd_url',
                 'centre_registry.context_processors.tracked_by_piwik',
                 'centre_registry.context_processors.version',
-                'centre_registry.context_processors.google_api_key',
+                'centre_registry.context_processors.centre_profile_xsd_url',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
             ],

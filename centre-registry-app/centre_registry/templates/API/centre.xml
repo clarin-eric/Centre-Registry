@@ -14,7 +14,7 @@
             <CenterBasicInformation>
                 <Name>{{ centre.name }}</Name>
                 <Type>{{ centre.type.all|first }}</Type>
-                <Status>{% if centre.type_certification_status_fk.first %}{{ centre.type_certification_status_fk.first.certification_status.status }}{% else %}None{% endif %}</Status>
+                <Status>{{ centre.type_status }}</Status>
                 <Description>{{ centre.description }}</Description>
                 <Country>
                     <Code>{{ centre.consortium.country_code }}</Code>
@@ -26,7 +26,7 @@
                 <RepositorySystem>{{ centre.repository_system }}</RepositorySystem>
                 <PidStatus>{{ centre.pid_status }}</PidStatus>
                 <StrictVersioning>{{ centre.strict_versioning|lower }}</StrictVersioning>
-                <AssessmentStatus>{{ centre.type_status_comment }}</AssessmentStatus>
+                <AssessmentStatus>{{ centre.type_status }}</AssessmentStatus>
                 {% for url_reference in url_references %}
                     <WebReference>
                         <Website>{{ url_reference.url }}</Website>
@@ -66,9 +66,9 @@
                 {% endif %}
                 <OrganisationalInformation>
                     <ClarinOrganisationInfo>
-                        <OrganisationName>{{ centre.organisation_fk.organisation_name }}</OrganisationName>
-                        <Institution>{{ centre.organisation_fk.institution }}</Institution>
-                        <WorkingUnit>{{ centre.organisation_fk.working_unit }}</WorkingUnit>
+                        <OrganisationName>{{ centre.organisation_name }}</OrganisationName>
+                        <Institution>{{ centre.institution }}</Institution>
+                        <WorkingUnit>{{ centre.working_unit }}</WorkingUnit>
                         <Code>{{ centre.shorthand }}</Code>
                         <PostAddress>{{ centre.address }},
                             {{ centre.postal_code }},

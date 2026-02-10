@@ -186,6 +186,7 @@ class Organisation(Model):
     working_unit = CharField(verbose_name='Working unit', max_length=200, blank=True)
     history = HistoricalRecords()
 
+
     def __unicode__(self):
         return '{organisation_name:s} {institution:s} {working_unit:s}'.format(
             organisation_name=self.organisation_name, institution=self.institution, working_unit=self.working_unit)
@@ -205,27 +206,6 @@ class CertificationStatus(Model):
 
     def __unicode__(self):
         return self.status
-
-    def __str__(self):
-        return self.__unicode__()
-
-
-class TypeCertificationStatus(Model):
-    certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
-    assessmentdate = ForeignKey(AssessmentDates, related_name='assessmentdate', blank=True, null=True, on_delete=SET_NULL)
-    type_status_comment = CharField(
-        verbose_name="Comments about centre's type",
-        max_length=100,
-        blank=True)
-    type_certificate_url = URLField(
-        verbose_name='Centre type certificate URL',
-        max_length=2000,
-        blank=True)
-    requires_manual_review = BooleanField(verbose_name="Is certification out of date", default=False)
-    history = HistoricalRecords()
-
-    def __unicode__(self):
-        return self.assessmentdate.__str__()
 
     def __str__(self):
         return self.__unicode__()
@@ -253,11 +233,8 @@ class Centre(Model):
         validators=[validate_longitude],
         max_length=20)
 
-    type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
-
-    type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
-                                                   null=True,
-                                                   related_name='type_certification')
+    type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type')
+    type_certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
@@ -265,7 +242,7 @@ class Centre(Model):
     requires_manual_certificate_validation = BooleanField(
         verbose_name="Centre requires certificate status validation", default=False)
     assessmentdates = ManyToManyField(
-        to=AssessmentDates, related_name='assessmentdates_old', blank=True
+        to=AssessmentDates, related_name='assessmentdates', blank=True
     )
 
     administrative_contact = ForeignKey(
@@ -274,9 +251,10 @@ class Centre(Model):
     monitoring_contacts = ManyToManyField(
         to=Contact, related_name='monitoring_contacts', blank=True)
     website_url = URLField(verbose_name='Website URL', max_length=2000)
-    description = TextField(
-        verbose_name='Description', blank=True)
+    description = CharField(
+        verbose_name='Description', max_length=500, blank=True)
     expertise = CharField(verbose_name='Expertise', max_length=200, blank=True)
+
     type_certificate_url = URLField(
         verbose_name='Centre type certificate URL',
         max_length=2000,
@@ -459,3 +437,4 @@ class SAMLIdentityFederation(Model):
         ordering = ('shorthand', )
         verbose_name = 'SAML identity federation'
         verbose_name_plural = 'SAML identity federations'
+

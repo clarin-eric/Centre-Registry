@@ -34,43 +34,35 @@
                             {% endif %}
                         </td>
                         <td>
-                        {% for type in centre.type.all %}
-                            {{ type }}
-                            {% if not forloop.last %}
-                                <br/>
+                            {% if centre.type_certificate_url %}
+                                <a href='{{ centre.type_certificate_url }}'>
                             {% endif %}
-                        {% endfor %}
-                        </td>
-                        <td>
-                        {% if centre.type_certification_status_fk %}
-                            {% for type_certification_status in centre.type_certification_status_fk.all %}
-                                {% if type_certification_status.certification_status.status %}
-                                    {{ type_certification_status.certification_status.status }}
-                                    {% if type_certification_status.type_status_comment and type_certification_status.type_status_comment != type_certification_status.certification_status.status %}
-                                        <br/>
-                                        <small>{{ type_certification_status.type_status_comment }}</small>
-                                    {% endif %}
-                                {% else %}
-                                    <em>none</em>
-                                {% endif %}
+                            {% for type in centre.type.all %}
+                                {{ type }}
+                                <br/>
                             {% endfor %}
-                        {% endif %}
+                            {% if centre.type_certificate_url %}
+                                </a>
+                            {% endif %}
                         </td>
                         <td>
-                            {% if centre.type_certification_status_fk %}
-                                {% for type_certification_status in centre.type_certification_status_fk.all %}
-                                    {% if type_certification_status.type_certificate_url %}
-                                        <div title="certificate">
-                                        <a href='{{ type_certification_status.type_certificate_url }}'>
-                                    {% endif %}
-                                    {{ type_certification_status.assessmentdate.brief }}
-                                    {% if type_certification_status.type_certificate_url %}
-                                        </a>
-                                        </div>
-                                    {% endif %}
-                                    {% if not forloop.last %}
-                                        <br/>
-                                    {% endif %}
+                            {% if centre.type_certification_status.status %}
+                                {{ centre.type_certification_status.status }}
+                                {% if centre.type_status_comment %}
+                                    <br/>
+                                    {{ centre.type_status_comment }}
+                                {% endif %}
+                            {% elif centre.type_status_comment %}
+                                {{ centre.type_status_comment }}
+                            {% else %}
+                                <em>none</em>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if centre.assessmentdates %}
+                                {% for date in centre.assessmentdates.all %}
+                                    {{ date.brief }}
+                                    <br/>
                                 {% endfor %}
                             {% endif %}
                         </td>
