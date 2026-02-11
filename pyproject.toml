@@ -32,19 +32,24 @@ django-countries = '8.2.0'
 django-debug-toolbar = '4.4.6'
 djangorestframework = '3.16.1'
 django-simple-history = '3.7.0'
-django-test-migrations = '1.5.0'
 drf_spectacular = '0.29.0'
 lxml = '6.0.2'
-selenium = '4.40.0'
 tzdata = '2025.3'
 xmlschema = '4.3.0'
 
-[tool.poetry.group.test.dependencies]
-lxml = '6.0.2'
-selenium = '4.40.0'
-jsonschema = '4.25.1'
-django-test-migrations = '1.5.0'
+# test dependencies
+selenium = { version = "4.40.0", optional = true }
+jsonschema = { version = "4.25.1", optional = true }
+django-test-migrations = { version = "1.5.0", optional = true }
+requests = { version = "2.32.5", optional = true }
 
+[tool.poetry.extras]
+test = [
+    'selenium',
+    'jsonschema',
+    'django-test-migrations',
+    'requests'
+]
 
 [tool.poetry-dynamic-versioning]
 enable = true
