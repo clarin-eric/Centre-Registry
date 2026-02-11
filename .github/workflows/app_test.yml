@@ -91,9 +91,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -e .
-          pip install -r centre-registry-app/requirements_test.txt
-
+          pip install .[test]
       - name: Run API tests
         run: |
           Centre-Registry-config/manage.py test centre_registry.test_api
