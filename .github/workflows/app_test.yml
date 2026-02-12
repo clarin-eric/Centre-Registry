@@ -157,15 +157,8 @@ jobs:
             browserVersion: "16"
 
     env:
-      DJANGO_SETTINGS_MODULE: centre_registry_project.settings
-      SETUPTOOLS_SCM_PRETEND_VERSION: >
-        ${{ github.ref_type == 'tag'
-            && github.ref_name
-            || format('2.3.4.dev+{0}-{1}', github.ref_name, github.sha)
-        }}
       SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
       SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-
       browserName: ${{ matrix.browserName }}
       platformName: ${{ matrix.platformName }}
       browserVersion: ${{ matrix.browserVersion }}
