@@ -1,4 +1,4 @@
-from centre_registry.models import AssessmentDates, TypeCertificationStatus
+from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import CertificationStatus
@@ -10,6 +10,7 @@ from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import TypeCertificationStatus
 from centre_registry.models import URLReference
 from django.contrib import admin
 from django import forms
@@ -68,42 +69,20 @@ class OAIPMHEndpointAdmin(admin.ModelAdmin):
     exclude = ["oai_pmh_sets"]
 
 
-class AssessmentDateInline(admin.StackedInline):
-    extra = 0
-    verbose_name = "Centre assessment date"
-    verbose_name_plural = "Centre assessment dates"
-    model = TypeCertificationStatus.assessmentdate
-
-
-class TypeCertificationStatusAdmin(admin.ModelAdmin):
-    inlines = [AssessmentDateInline]
-    exclude = ["assessmentdates"]
-
-
-class AssessmentDateAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        """
-        Hide model from index
-        """
-        return {}
-
-
 class CertificationStatusAdmin(admin.ModelAdmin):
     verbose_name = "Certification status"
     verbose_name_plural = "Certification statuses"
-
-
 
 
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
 
-admin.site.register(AssessmentDates, AssessmentDateAdmin)
+admin.site.register(AssessmentDates)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre)
 admin.site.register(CentreType)
-admin.site.register(CertificationStatus)
+admin.site.register(CertificationStatus, CertificationStatusAdmin)
 admin.site.register(Consortium)
 admin.site.register(FCSEndpoint)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
