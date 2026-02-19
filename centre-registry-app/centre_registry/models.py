@@ -12,7 +12,7 @@ from django.db.models import Model
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import DateField
-from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, SET, DO_NOTHING
+from django.db.models import CASCADE, PROTECT, SET_NULL, SET_DEFAULT, DO_NOTHING
 from simple_history.models import HistoricalRecords
 
 
@@ -113,7 +113,6 @@ class Consortium(Model):
         max_length=25)
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{name:s} ({country_code})'.format(
             name=self.name, country_code=self.country_code)
@@ -134,7 +133,6 @@ class CentreType(Model):
     type = CharField(
         verbose_name='Certified centre type', max_length=1, unique=True)
     history = HistoricalRecords()
-
 
     def __unicode__(self):
         return '{type:s}'.format(type=self.type)
@@ -157,7 +155,6 @@ class AssessmentDates(Model):
     type = ManyToManyField(to=CentreType, verbose_name='Type')
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         types = u", ".join([x.type for x in self.type.all()])
         return u'[{0}] valid till [{1}] for {2}'.format(
@@ -176,7 +173,7 @@ class AssessmentDates(Model):
 
     class Meta:
         ordering = ('issuedate', 'duedate')
-        verbose_name = 'issue/due dates for a centre administrative_contacttype'
+        verbose_name = 'issue/due date for a centre type'
         verbose_name_plural = 'issue/due dates for a centre type'
 
 
@@ -209,6 +206,11 @@ class CertificationStatus(Model):
     def __str__(self):
         return self.__unicode__()
 
+    class Meta:
+        ordering = ('status', )
+        verbose_name = 'Certification Status'
+        verbose_name_plural = 'Certification Statuses'
+
 
 class TypeCertificationStatus(Model):
     certification_status = ForeignKey(CertificationStatus, on_delete=SET_NULL, null=True)
@@ -229,6 +231,10 @@ class TypeCertificationStatus(Model):
 
     def __str__(self):
         return self.__unicode__()
+
+    class Meta:
+        verbose_name = 'type certification status'
+        verbose_name_plural = 'type certification statuses'
 
 
 class Centre(Model):

@@ -69,9 +69,9 @@ class OAIPMHEndpointAdmin(admin.ModelAdmin):
     exclude = ["oai_pmh_sets"]
 
 
-class CertificationStatusAdmin(admin.ModelAdmin):
-    verbose_name = "Certification status"
-    verbose_name_plural = "Certification statuses"
+class AssessmentDatesAdmin(admin.ModelAdmin):
+    verbose_name = "Assessment dates"
+    verbose_name_plural = "Assessment dates"
 
 
 admin.site.site_header = "Centre Registry administration"
@@ -82,7 +82,7 @@ admin.site.register(AssessmentDates)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Centre)
 admin.site.register(CentreType)
-admin.site.register(CertificationStatus, CertificationStatusAdmin)
+admin.site.register(CertificationStatus)
 admin.site.register(Consortium)
 admin.site.register(FCSEndpoint)
 admin.site.register(OAIPMHEndpoint, OAIPMHEndpointAdmin)
