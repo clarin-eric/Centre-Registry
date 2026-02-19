@@ -72,10 +72,10 @@ class AssessmentDateInline(admin.StackedInline):
     extra = 0
     verbose_name = "Centre assessment date"
     verbose_name_plural = "Centre assessment dates"
-    model = Centre.assessmentdates.through
+    model = TypeCertificationStatus.assessmentdate
 
 
-class CentreAdmin(admin.ModelAdmin):
+class TypeCertificationStatusAdmin(admin.ModelAdmin):
     inlines = [AssessmentDateInline]
     exclude = ["assessmentdates"]
 
@@ -88,13 +88,20 @@ class AssessmentDateAdmin(admin.ModelAdmin):
         return {}
 
 
+class CertificationStatusAdmin(admin.ModelAdmin):
+    verbose_name = "Certification status"
+    verbose_name_plural = "Certification statuses"
+
+
+
+
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
 
 admin.site.register(AssessmentDates, AssessmentDateAdmin)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Centre, CentreAdmin)
+admin.site.register(Centre)
 admin.site.register(CentreType)
 admin.site.register(CertificationStatus)
 admin.site.register(Consortium)
