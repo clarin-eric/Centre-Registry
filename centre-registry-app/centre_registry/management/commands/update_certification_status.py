@@ -35,13 +35,16 @@ class Command(BaseCommand):
                     type_certification_status.save()
 
                     centre.requires_manual_certificate_validation = True
-                    outdated_centres.append(centre.name)
+                    outdated_centres.append(centre.id)
                     centre.save()
 
         if outdated_centres:
             outdated_centres = '\n'.join(outdated_centres)
             subject = "Centres certification expired"
-            message = "Following centre has their assessment dates expired today:" + outdated_centres
+            message = "Following centre has their assessment dates expired today:"
+            outdated_centres_urls = "\n".join(f"https://centres.clarin.eu/admin/centre_registry/centre/{_id}/change/"
+                                              for _id in outdated_centres)
+            message += outdated_centres_urls
 
             print("###MESSAGE###")
             print(message)
