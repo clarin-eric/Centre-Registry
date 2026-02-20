@@ -16,6 +16,8 @@ from django.contrib import admin
 from django import forms
 
 
+
+# FILTERS
 class OrphanContactFilter(admin.SimpleListFilter):
     title = 'contact type'
     parameter_name = 'contact_assignment'
@@ -53,6 +55,12 @@ class OrphanContactFilter(admin.SimpleListFilter):
             return technical_contacts
 
 
+# ADMIN MODELS
+class AssessmentDatesAdmin(admin.ModelAdmin):
+    verbose_name = "Assessment dates"
+    verbose_name_plural = "Assessment dates"
+
+
 class ContactAdmin(admin.ModelAdmin):
     list_filter = (OrphanContactFilter, )
 
@@ -69,14 +77,12 @@ class OAIPMHEndpointAdmin(admin.ModelAdmin):
     exclude = ["oai_pmh_sets"]
 
 
-class AssessmentDatesAdmin(admin.ModelAdmin):
-    verbose_name = "Assessment dates"
-    verbose_name_plural = "Assessment dates"
+class TypeCertificationStatusAdmin(admin.ModelAdmin):
+    exclude = ("requires_manual_review", )
 
 
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
-
 
 admin.site.register(AssessmentDates)
 admin.site.register(Contact, ContactAdmin)
@@ -90,5 +96,5 @@ admin.site.register(OAIPMHEndpointSet)
 admin.site.register(Organisation)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(SAMLServiceProvider)
-admin.site.register(TypeCertificationStatus)
+admin.site.register(TypeCertificationStatus, TypeCertificationStatusAdmin)
 admin.site.register(URLReference)

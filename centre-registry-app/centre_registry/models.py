@@ -223,6 +223,7 @@ class TypeCertificationStatus(Model):
         verbose_name='Centre type certificate URL',
         max_length=2000,
         blank=True)
+    # TODO prune requires_manual_review field as it is moved to Centre
     requires_manual_review = BooleanField(verbose_name="Is certification out of date", default=False)
     history = HistoricalRecords()
 
@@ -300,6 +301,7 @@ class Centre(Model):
     strict_versioning = BooleanField(
         verbose_name='Strict versioning?', default=False)
     history = HistoricalRecords()
+
 
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(
