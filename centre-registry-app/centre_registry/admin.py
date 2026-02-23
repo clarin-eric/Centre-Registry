@@ -1,4 +1,4 @@
-from centre_registry.models import AssessmentDates, TypeCertificationStatus
+from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
 from centre_registry.models import CertificationStatus
@@ -10,11 +10,14 @@ from centre_registry.models import OAIPMHEndpointSet
 from centre_registry.models import Organisation
 from centre_registry.models import SAMLIdentityFederation
 from centre_registry.models import SAMLServiceProvider
+from centre_registry.models import TypeCertificationStatus
 from centre_registry.models import URLReference
 from django.contrib import admin
 from django import forms
 
 
+
+# FILTERS
 class OrphanContactFilter(admin.SimpleListFilter):
     title = 'contact type'
     parameter_name = 'contact_assignment'
@@ -52,6 +55,12 @@ class OrphanContactFilter(admin.SimpleListFilter):
             return technical_contacts
 
 
+# ADMIN MODELS
+class AssessmentDatesAdmin(admin.ModelAdmin):
+    verbose_name = "Assessment dates"
+    verbose_name_plural = "Assessment dates"
+
+
 class ContactAdmin(admin.ModelAdmin):
     list_filter = (OrphanContactFilter, )
 
@@ -68,33 +77,16 @@ class OAIPMHEndpointAdmin(admin.ModelAdmin):
     exclude = ["oai_pmh_sets"]
 
 
-class AssessmentDateInline(admin.StackedInline):
-    extra = 0
-    verbose_name = "Centre assessment date"
-    verbose_name_plural = "Centre assessment dates"
-    model = Centre.assessmentdates.through
-
-
-class CentreAdmin(admin.ModelAdmin):
-    inlines = [AssessmentDateInline]
-    exclude = ["assessmentdates"]
-
-
-class AssessmentDateAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        """
-        Hide model from index
-        """
-        return {}
+class TypeCertificationStatusAdmin(admin.ModelAdmin):
+    exclude = ("requires_manual_review", )
 
 
 admin.site.site_header = "Centre Registry administration"
 admin.site.app_name = "Centre Registry"
 
-
-admin.site.register(AssessmentDates, AssessmentDateAdmin)
+admin.site.register(AssessmentDates)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Centre, CentreAdmin)
+admin.site.register(Centre)
 admin.site.register(CentreType)
 admin.site.register(CertificationStatus)
 admin.site.register(Consortium)
@@ -104,5 +96,5 @@ admin.site.register(OAIPMHEndpointSet)
 admin.site.register(Organisation)
 admin.site.register(SAMLIdentityFederation)
 admin.site.register(SAMLServiceProvider)
-admin.site.register(TypeCertificationStatus)
+admin.site.register(TypeCertificationStatus, TypeCertificationStatusAdmin)
 admin.site.register(URLReference)

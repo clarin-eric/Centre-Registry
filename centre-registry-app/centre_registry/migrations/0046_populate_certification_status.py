@@ -59,7 +59,7 @@ def populate_certification_status(apps, schema):
         logging.critical("ITERATES OVER CENTRES")
         assessment_dates = centre.assessmentdates.all()
         status_comment = centre.type_status_comment
-        if "certified" in status_comment or 'Certified' in status_comment:
+        if "certified" in status_comment or "Certified" in status_comment:
             certification_status = CERTIFIED
         elif "expired" in status_comment or "Expired" in status_comment:
             certification_status = PENDING_RECERTIFICATION
