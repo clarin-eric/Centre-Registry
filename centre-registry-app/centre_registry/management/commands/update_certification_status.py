@@ -39,7 +39,6 @@ class Command(BaseCommand):
                     centre.save()
 
         if outdated_centres:
-            outdated_centres = '\n'.join(outdated_centres)
             subject = "Centres certification expired"
             message = "Following centre has their assessment dates expired today:"
             outdated_centres_urls = "\n".join(f"https://centres.clarin.eu/admin/centre_registry/centre/{_id}/change/"

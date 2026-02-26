@@ -61,6 +61,10 @@ class AssessmentDatesAdmin(admin.ModelAdmin):
     verbose_name_plural = "Assessment dates"
 
 
+class CentreAdmin(admin.ModelAdmin):
+    exclude = ("assessmentdates", )
+
+
 class ContactAdmin(admin.ModelAdmin):
     list_filter = (OrphanContactFilter, )
 
@@ -86,7 +90,7 @@ admin.site.app_name = "Centre Registry"
 
 admin.site.register(AssessmentDates)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Centre)
+admin.site.register(Centre, CentreAdmin)
 admin.site.register(CentreType)
 admin.site.register(CertificationStatus)
 admin.site.register(Consortium)

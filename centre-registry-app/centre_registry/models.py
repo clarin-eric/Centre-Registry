@@ -263,7 +263,7 @@ class Centre(Model):
     type = ManyToManyField(to=CentreType, verbose_name='Type', related_name='centres_of_type_old')
 
     type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
-                                                   null=True,
+                                                   blank=True,
                                                    related_name='type_certification')
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
