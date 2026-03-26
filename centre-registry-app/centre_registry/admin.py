@@ -16,7 +16,6 @@ from django.contrib import admin
 from django import forms
 
 
-
 # FILTERS
 class OrphanContactFilter(admin.SimpleListFilter):
     title = 'contact type'
@@ -53,6 +52,27 @@ class OrphanContactFilter(admin.SimpleListFilter):
             contacts = Contact.objects.values('id')
             technical_contacts = Contact.objects.filter(technical_contact__in=contacts).distinct()
             return technical_contacts
+
+@admin.register(TypeCertificationStatus)
+class TypeCertificationStatus(admin.ModelAdmin):
+    # 1. Add these custom method names to your list_display
+    list_display = ('name', 'get_init_date', 'get_end_date')
+
+    # Optimization: One query to rule them all (prevents N+1 issues)
+    list_select_related = ('AssessmentDates',)
+
+    # Set the default "Or" sort when the page first loads
+    ordering = ('name',)
+
+    # 2. Define the "Init Date" column and link it to the DB field for sorting
+    @admin.display(ordering='assessmentdatedate__init_date', description='Assessment Issue')
+    def get_issue_date(self, obj):
+        return obj.assessmentdate.issuedate
+
+    # 3. Define the "End Date" column and link it to the DB field for sorting
+    @admin.display(ordering='assessmentdatedate__due_date', description='Assessment Due')
+    def get_due_date(self, obj):
+        return obj.assessmentdate.duedate
 
 
 # ADMIN MODELS
