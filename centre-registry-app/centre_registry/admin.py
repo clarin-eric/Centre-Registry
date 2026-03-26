@@ -53,7 +53,6 @@ class OrphanContactFilter(admin.SimpleListFilter):
             technical_contacts = Contact.objects.filter(technical_contact__in=contacts).distinct()
             return technical_contacts
 
-@admin.register(TypeCertificationStatus)
 class TypeCertificationStatusAdmin(admin.ModelAdmin):
     # 1. Add these custom method names to your list_display
     list_display = ('shorthand', 'get_init_date', 'get_end_date')
