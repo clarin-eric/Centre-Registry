@@ -55,13 +55,13 @@ class OrphanContactFilter(admin.SimpleListFilter):
 
 class TypeCertificationStatusAdmin(admin.ModelAdmin):
     # 1. Add these custom method names to your list_display
-    list_display = ('shorthand', 'get_init_date', 'get_end_date')
+    list_display = ('name', 'get_issue_date', 'get_due_date')
 
     # Optimization: One query to rule them all (prevents N+1 issues)
     list_select_related = ('AssessmentDates',)
 
     # Set the default "Or" sort when the page first loads
-    ordering = ('shorthand',)
+    ordering = ('name',)
 
     # 2. Define the "Init Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdatedate__init_date', description='Assessment Issue')
