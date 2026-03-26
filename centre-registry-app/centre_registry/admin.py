@@ -54,7 +54,7 @@ class OrphanContactFilter(admin.SimpleListFilter):
             return technical_contacts
 
 @admin.register(TypeCertificationStatus)
-class TypeCertificationStatus(admin.ModelAdmin):
+class TypeCertificationStatusAdmin(admin.ModelAdmin):
     # 1. Add these custom method names to your list_display
     list_display = ('name', 'get_init_date', 'get_end_date')
 
@@ -99,10 +99,6 @@ class OAIPMHEndpointSpecInLine(admin.TabularInline):
 class OAIPMHEndpointAdmin(admin.ModelAdmin):
     inlines = [OAIPMHEndpointSpecInLine]
     exclude = ["oai_pmh_sets"]
-
-
-class TypeCertificationStatusAdmin(admin.ModelAdmin):
-    exclude = ("requires_manual_review", )
 
 
 admin.site.site_header = "Centre Registry administration"
