@@ -228,7 +228,7 @@ class TypeCertificationStatus(Model):
     history = HistoricalRecords()
 
     def __unicode__(self):
-        return " ".join([certified_centre for certified_centre in self.certified_centres.all()]) + " " + self.assessmentdate.__str__()
+        return " ".join([certified_centre.shorthand for certified_centre in self.certified_centres.all()]) + " " + self.assessmentdate.__str__()
 
     def __str__(self):
         return self.__unicode__()
@@ -264,7 +264,7 @@ class Centre(Model):
 
     type_certification_status_fk = ManyToManyField(TypeCertificationStatus,
                                                    blank=True,
-                                                   related_name='certified centres')
+                                                   related_name='certified_centres')
     type_status_comment = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,

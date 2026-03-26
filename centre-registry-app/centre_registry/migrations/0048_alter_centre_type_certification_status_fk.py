@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='centre',
             name='type_certification_status_fk',
-            field=models.ManyToManyField(blank=True, related_name='type_certification', to='centre_registry.typecertificationstatus'),
+            field=models.ManyToManyField(blank=True, related_name='certified_centres', to='centre_registry.typecertificationstatus'),
         ),
     ]
