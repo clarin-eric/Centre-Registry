@@ -61,7 +61,7 @@ class TypeCertificationStatusAdmin(admin.ModelAdmin):
     list_select_related = ('assessmentdate',)
 
     # Set the default "Or" sort when the page first loads
-    ordering = ('__str__',)
+    ordering = ('id',)
 
     # 2. Define the "Init Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdate__issuedate', description='Assessment Issue')
