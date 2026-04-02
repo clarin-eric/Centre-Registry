@@ -66,13 +66,11 @@ class TypeCertificationStatusAdmin(admin.ModelAdmin):
     # 2. Define the "Init Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdate__issuedate', description='Assessment Issue')
     def get_issuedate(self, obj):
-        print("HERE")
         return obj.assessmentdate.issuedate if obj.assessmentdate else "-"
 
     # 3. Define the "End Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdate__duedate', description='Assessment Due')
     def get_duedate(self, obj):
-        print("OR HERE")
         return obj.assessmentdate.duedate if obj.assessmentdate else "-"
 
 
