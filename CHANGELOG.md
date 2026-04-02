@@ -10,6 +10,7 @@
 - country field changed from CharField to django_countries.CountryField
 - pruning redundant (artifacts) address fields between Centre and Consortium
 - init OpenAPI documentation of endpoints (only Centre .json endpoint so far, no trivial .xsd to OpenAPI for xml endpoints)
+- custom ordering for admin dashboard
 
 
 ## [3.0.2] - 19.01.2025
