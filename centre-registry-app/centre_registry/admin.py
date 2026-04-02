@@ -55,22 +55,24 @@ class OrphanContactFilter(admin.SimpleListFilter):
 
 class TypeCertificationStatusAdmin(admin.ModelAdmin):
     # 1. Add these custom method names to your list_display
-    list_display = ('name', 'get_issue_date', 'get_due_date')
+    list_display = ('__str__', 'get_issue_date', 'get_due_date')
 
     # Optimization: One query to rule them all (prevents N+1 issues)
     list_select_related = ('AssessmentDates',)
 
     # Set the default "Or" sort when the page first loads
-    ordering = ('name',)
+    ordering = ('__str__',)
 
     # 2. Define the "Init Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdatedate__init_date', description='Assessment Issue')
     def get_issue_date(self, obj):
+        print("HERE")
         return obj.assessmentdate.issuedate if obj.assessmentdate else "-"
 
     # 3. Define the "End Date" column and link it to the DB field for sorting
     @admin.display(ordering='assessmentdatedate__due_date', description='Assessment Due')
     def get_due_date(self, obj):
+        print("OR HERE")
         return obj.assessmentdate.duedate if obj.assessmentdate else "-"
 
 
