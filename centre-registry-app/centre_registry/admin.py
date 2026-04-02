@@ -58,7 +58,7 @@ class TypeCertificationStatusAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'get_issuedate', 'get_duedate')
 
     # Optimization: One query to rule them all (prevents N+1 issues)
-    list_select_related = ('AssessmentDates',)
+    list_select_related = ('assessmentdate',)
 
     # Set the default "Or" sort when the page first loads
     ordering = ('__str__',)
