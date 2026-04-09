@@ -13,7 +13,7 @@ def forwards(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0047_alter_assessmentdates_options_and_more'),
+        ('centre_registry', '0049_alter_centre_type_certification_status_fk,'),
     ]
 
     operations = [
