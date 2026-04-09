@@ -250,7 +250,7 @@ class Centre(Model):
     postal_code = CharField(verbose_name='Postal code', max_length=20)
     city = CharField(verbose_name='City', max_length=100)
     country = CountryField(verbose_name='Country', blank_label="(select country)", blank=True)
-    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL)
+    consortium = ForeignKey(Consortium, blank=True, null=True, on_delete=SET_NULL, related_name='consortiums_centre')
     latitude = CharField(
         verbose_name='Latitude (from e.g. Google Maps)',
         validators=[validate_latitude],
