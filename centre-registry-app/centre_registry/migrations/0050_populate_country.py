@@ -8,8 +8,8 @@ def forwards(apps, schema_editor):
     ConsortiumModel = apps.get_model("centre_registry", "Consortium")
     for consortium_object in ConsortiumModel.objects.all():
         if consortium_object.country_code:
-            consortium_object.country = consortium_object.country_code
-
+            country_code = consortium_object.country_code.strip().upper()
+            consortium_object.country = country_code
             consortium_object.consortiums_centre.country = consortium_object.country_code
             consortium_object.save()
 
