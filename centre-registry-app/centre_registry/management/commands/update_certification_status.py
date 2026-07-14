@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.cache import cache
 from django.core.management.base import BaseCommand, CommandError
 from django.core.mail import send_mail
@@ -15,8 +16,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         today_date = timezone.now().date()
-        print("TODAY DATE")
-        print(today_date)
 
         centres = Centre.objects.all()
         expired_status_id = CertificationStatus.objects.get(status="Pending (recertification)")
@@ -45,11 +44,9 @@ class Command(BaseCommand):
                                               for _id in outdated_centres)
             message += outdated_centres_urls
 
-            print("###MESSAGE###")
-            print(message)
             send_mail(subject=subject,
                       message=message,
-                      from_email='centre-registry@clarin.eu',
-                      recipient_list=['michal@clarin.eu'],
+                      from_email=settings.EMAIL_DEFAULT_FROM,
+                      recipient_list=[settings.EMAIL_DEFAULT_TO],
                       fail_silently=False
                       )
