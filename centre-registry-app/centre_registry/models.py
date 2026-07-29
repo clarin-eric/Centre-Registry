@@ -265,7 +265,7 @@ class Centre(Model):
     type_certification_status_fks = ManyToManyField(TypeCertificationStatus,
                                                    blank=True,
                                                    related_name='certified_centre')
-    type_status_comment = CharField(
+    type_status = CharField(
         verbose_name="Comments about centre's type",
         max_length=100,
         blank=True)
