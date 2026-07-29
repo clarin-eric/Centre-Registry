@@ -1,6 +1,8 @@
 from django.conf import settings
 
 
+import re
+
 def tracked_by_piwik(request):
     # pylint: disable=unused-argument
     if settings.PIWIK_WEBSITE_ID is not None:
@@ -11,7 +13,17 @@ def tracked_by_piwik(request):
 
 def version(request):
     # pylint: disable=unused-argument
-    return {'VERSION': settings.VERSION}
+    version = settings.VERSION
+    print(version)
+    alpha_regex = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+(-)?a[0-9]+$")
+    beta_regex = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+(-)?(b|rc)[0-9]+$")
+    production_regex = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
+    if alpha_regex.match(version):
+        return {"VERSION": version, "INSTANCE": "ALPHA"}
+    elif beta_regex.match(version):
+        return {'VERSION': version, "INSTANCE": "BETA"}
+    elif production_regex.match(version):
+        return {'VERSION': version, "INSTANCE": ""}
 
 
 def centre_profile_xsd_url(request):
