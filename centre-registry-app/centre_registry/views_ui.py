@@ -14,6 +14,8 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext
 
+import traceback
+
 
 def get_about(request):
     request_context = RequestContext(request, {'view': 'about'})
@@ -27,9 +29,15 @@ def get_all_centres(request):
         'all_centres': Centre.objects.all(),
     }
 
-    return render(
-        request, template_name='UI/_all_centres.html', context=request_context)
-
+    try:
+        return render(
+            request, template_name='UI/_all_centres.html', context=request_context.flatten())
+    except Exception:
+        print("\n" + "=" * 80)
+        print("EXACT INITIAL EXCEPTION:")
+        traceback.print_exc()
+        print("=" * 80 + "\n")
+        raise
 
 def get_centre(request, centre_id):
     centre = get_object_or_404(Centre, pk=centre_id)
