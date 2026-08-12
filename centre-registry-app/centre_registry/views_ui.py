@@ -32,7 +32,7 @@ def get_all_centres(request):
     print("____________________________________DEBUG")
 
     return render(
-        request, template_name='UI/_all_centres.html', context=request_context.flatten())
+        request, template_name='UI/_all_centres.html', context=request_context)
 
 
 def get_centre(request, centre_id):
