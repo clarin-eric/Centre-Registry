@@ -22,9 +22,10 @@ def get_about(request):
 
 
 def get_all_centres(request):
-    request_context = RequestContext(request, {'view': 'all_centres',
-                                               'all_centres':
-                                                   Centre.objects.all()})
+    request_context = {
+        'view': 'all_centres',
+        'all_centres': Centre.objects.all(),
+    }
 
     print("################################DEBUG")
     print(request_context.flatten())
