@@ -27,11 +27,6 @@ def get_all_centres(request):
         'all_centres': Centre.objects.all(),
     }
 
-    print("################################DEBUG")
-    print(request_context.flatten())
-    print(request_context['all_centres'])
-    print("____________________________________DEBUG")
-
     return render(
         request, template_name='UI/_all_centres.html', context=request_context)
 
