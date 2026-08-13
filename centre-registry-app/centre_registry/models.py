@@ -228,7 +228,7 @@ class TypeCertificationStatus(Model):
     history = HistoricalRecords()
 
     def __unicode__(self):
-        return " ".join([certified_centre.shorthand for certified_centre in self.certified_centres.all()]) + " " + self.assessmentdate.__str__()
+        return " ".join([_certified_centre.shorthand for _certified_centre in self.certified_centre.all()]) + " " + self.assessmentdate.__str__()
 
     def __str__(self):
         return self.__unicode__()
