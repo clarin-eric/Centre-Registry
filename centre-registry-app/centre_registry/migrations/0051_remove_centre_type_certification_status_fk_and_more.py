@@ -10,13 +10,15 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.RenameField(
             model_name='centre',
-            name='type_certification_status_fk',
+            old_name='type_certification_status_fk',
+            new_name='type_certification_status_fks',
         ),
-        migrations.AddField(
-            model_name='centre',
-            name='type_certification_status_fks',
-            field=models.ManyToManyField(blank=True, related_name='certified_centre', to='centre_registry.typecertificationstatus'),
+        migrations.RenameField(
+            model_name='historicalcentre',
+            old_name='type_certification_status_fk',
+            new_name='type_certification_status_fks',
         ),
     ]
+
