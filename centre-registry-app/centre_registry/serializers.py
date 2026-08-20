@@ -10,6 +10,7 @@ from centre_registry.models import Consortium
 # from centre_registry.models import FCSEndpoint
 # from contre_registry.models import OAIPMHEndpoint
 from centre_registry.models import Organisation
+from centre_registry.models import TypeCertificationStatus
 # from centre_registry.models import URLReference
 
 
@@ -37,12 +38,18 @@ class OrganisationSerializer(serializers.ModelSerializer):
         model = Organisation
         fields = '__all__'
 
+
 class AssessmentDatesSerializer(serializers.ModelSerializer):
     type = CentreTypeSerializer(many=True)
 
     class Meta:
         model = AssessmentDates
         exclude = ['id']
+
+
+class TypeCertificationStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TypeCertificationStatus
 
 
 class CentreSerializer(serializers.ModelSerializer):
@@ -54,6 +61,7 @@ class CentreSerializer(serializers.ModelSerializer):
     consortium = ConsortiumSerializer()
     organisation_fk = OrganisationSerializer()
     assessmentdates = AssessmentDatesSerializer(many=True)
+    type_certification_status_fks = TypeCertificationStatusSerializer(many=True)
     class Meta:
         model = Centre
         fields = '__all__'
