@@ -24,7 +24,7 @@ class Command(BaseCommand):
         outdated_centres = []
 
         for centre in centres:
-            type_certification_statuses = centre.type_certification_status_fk.all()
+            type_certification_statuses = centre.type_certification_status_fks.all()
             for type_certification_status in type_certification_statuses:
                 assessment_date = type_certification_status.assessmentdate
                 due_date = assessment_date.duedate
