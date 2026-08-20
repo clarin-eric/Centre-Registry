@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('centre_registry', '0050_populate_country'),
+        ('centre_registry', '0051_rename_type_status_comment_centre_type_status_and_more'),
     ]
 
     operations = [
