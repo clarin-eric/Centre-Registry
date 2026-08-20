@@ -50,6 +50,7 @@ class AssessmentDatesSerializer(serializers.ModelSerializer):
 class TypeCertificationStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = TypeCertificationStatus
+        fields = '__all__'
 
 
 class CentreSerializer(serializers.ModelSerializer):
