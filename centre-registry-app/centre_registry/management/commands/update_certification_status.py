@@ -45,7 +45,7 @@ class Command(BaseCommand):
             base_url += "alpha-" if version(None)["INSTANCE"] == "ALPHA" else "beta-" if version(None)["INSTANCE"] == "BETA" else ""
             base_url += "centres.clarin.eu/admin/centre_registry/centre/{_id}/change/"
 
-            outdated_centres_urls = "\n".join(base_url + _id for _id in outdated_centres)
+            outdated_centres_urls = "\n".join(base_url + str(_id) for _id in outdated_centres)
             message += outdated_centres_urls
 
             send_mail(subject=subject,
