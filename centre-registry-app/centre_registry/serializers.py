@@ -5,6 +5,7 @@ from django_countries.serializer_fields import CountryField
 from centre_registry.models import AssessmentDates
 from centre_registry.models import Centre
 from centre_registry.models import CentreType
+from centre_registry.models import CertificationStatus
 from centre_registry.models import Contact
 from centre_registry.models import Consortium
 # from centre_registry.models import FCSEndpoint
@@ -47,7 +48,15 @@ class AssessmentDatesSerializer(serializers.ModelSerializer):
         exclude = ['id']
 
 
+class CertificationStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CertificationStatus
+        fields = '__all__'
+
+
 class TypeCertificationStatusSerializer(serializers.ModelSerializer):
+    certification_status = CertificationStatusSerializer()
+    assessmentdate = AssessmentDatesSerializer()
     class Meta:
         model = TypeCertificationStatus
         fields = '__all__'
@@ -65,7 +74,6 @@ class CentreSerializer(serializers.ModelSerializer):
     type_certification_status_fks = TypeCertificationStatusSerializer(many=True)
     class Meta:
         model = Centre
-        fields = '__all__'
 
 
 # class OAIPMHEndpointSerializer(serializers.ModelSerializer):
