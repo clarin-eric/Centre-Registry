@@ -74,6 +74,7 @@ class CentreSerializer(serializers.ModelSerializer):
     type_certification_status_fks = TypeCertificationStatusSerializer(many=True)
     class Meta:
         model = Centre
+        fields = '__all__'
 
 
 # class OAIPMHEndpointSerializer(serializers.ModelSerializer):
