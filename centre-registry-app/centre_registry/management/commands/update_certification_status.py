@@ -41,8 +41,8 @@ class Command(BaseCommand):
         if outdated_centres:
             subject = "Centres certification expired"
             message = "Following centre has their assessment dates expired today:"
-            base_url = "https://" + \
-                       "alpha-" if version(None)["INSTANCE"] == "ALPHA" else "beta-" if version(None)["INSTANCE"] == "BETA" else ""
+            base_url = "https://"
+            base_url += "alpha-" if version(None)["INSTANCE"] == "ALPHA" else "beta-" if version(None)["INSTANCE"] == "BETA" else ""
             base_url += "centres.clarin.eu/admin/centre_registry/centre/{_id}/change/"
 
             outdated_centres_urls = "\n".join(base_url + _id for _id in outdated_centres)
