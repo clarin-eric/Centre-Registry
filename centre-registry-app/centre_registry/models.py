@@ -302,7 +302,6 @@ class Centre(Model):
         verbose_name='Strict versioning?', default=False)
     history = HistoricalRecords()
 
-
     def __unicode__(self):
         return '{shorthand:s} ({city:s})'.format(
             shorthand=self.shorthand, city=self.city)
