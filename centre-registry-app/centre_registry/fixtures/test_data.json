@@ -520,7 +520,7 @@
     "model": "centre_registry.consortium",
     "pk": 1,
     "fields": {
-        "country": "",
+        "country": "DE",
         "country_code": "DE",
         "country_name": "Germany",
         "is_observer": false,
@@ -533,7 +533,7 @@
     "model": "centre_registry.consortium",
     "pk": 2,
     "fields": {
-        "country": "",
+        "country": "AT",
         "country_code": "AT",
         "country_name": "Austria",
         "is_observer": false,
@@ -546,7 +546,7 @@
     "model": "centre_registry.consortium",
     "pk": 3,
     "fields": {
-        "country": "",
+        "country": "CZ",
         "country_code": "CZ",
         "country_name": "Czech Republic",
         "is_observer": false,
@@ -559,7 +559,7 @@
     "model": "centre_registry.consortium",
     "pk": 4,
     "fields": {
-        "country": "",
+        "country": "DK",
         "country_code": "DK",
         "country_name": "Denmark",
         "is_observer": false,
@@ -572,7 +572,7 @@
     "model": "centre_registry.consortium",
     "pk": 5,
     "fields": {
-        "country": "",
+        "country": "EE",
         "country_code": "EE",
         "country_name": "Estonia",
         "is_observer": false,
@@ -585,7 +585,7 @@
     "model": "centre_registry.consortium",
     "pk": 6,
     "fields": {
-        "country": "",
+        "country": "ES",
         "country_code": "ES",
         "country_name": "Spain",
         "is_observer": true,
@@ -598,7 +598,7 @@
     "model": "centre_registry.consortium",
     "pk": 7,
     "fields": {
-        "country": "",
+        "country": "FI",
         "country_code": "FI",
         "country_name": "Finland",
         "is_observer": true,
@@ -611,7 +611,7 @@
     "model": "centre_registry.consortium",
     "pk": 8,
     "fields": {
-        "country": "",
+        "country": "US",
         "country_code": "US",
         "country_name": "United States",
         "is_observer": true,
@@ -624,7 +624,7 @@
     "model": "centre_registry.consortium",
     "pk": 9,
     "fields": {
-        "country": "",
+        "country": "DLU",
         "country_code": "DLU",
         "country_name": "Dutch Language Union",
         "is_observer": false,
@@ -637,7 +637,7 @@
     "model": "centre_registry.consortium",
     "pk": 10,
     "fields": {
-        "country": "",
+        "country": "NL",
         "country_code": "NL",
         "country_name": "The Netherlands",
         "is_observer": false,
@@ -650,7 +650,7 @@
     "model": "centre_registry.consortium",
     "pk": 11,
     "fields": {
-        "country": "",
+        "country": "PL",
         "country_code": "PL",
         "country_name": "Poland",
         "is_observer": false,
@@ -663,7 +663,7 @@
     "model": "centre_registry.consortium",
     "pk": 12,
     "fields": {
-        "country": "",
+        "country": "GB",
         "country_code": "GB",
         "country_name": "United Kingdom",
         "is_observer": true,
@@ -676,7 +676,7 @@
     "model": "centre_registry.consortium",
     "pk": 13,
     "fields": {
-        "country": "",
+        "country": "BG",
         "country_code": "BG",
         "country_name": "Bulgaria",
         "is_observer": false,
@@ -689,7 +689,7 @@
     "model": "centre_registry.consortium",
     "pk": 14,
     "fields": {
-        "country": "",
+        "country": "NO",
         "country_code": "NO",
         "country_name": "Norway",
         "is_observer": true,
@@ -702,7 +702,7 @@
     "model": "centre_registry.consortium",
     "pk": 15,
     "fields": {
-        "country": "",
+        "country": "LT",
         "country_code": "LT",
         "country_name": "Lithuania",
         "is_observer": false,
@@ -715,7 +715,7 @@
     "model": "centre_registry.consortium",
     "pk": 16,
     "fields": {
-        "country": "",
+        "country": "PT",
         "country_code": "PT",
         "country_name": "Portugal",
         "is_observer": false,
@@ -728,7 +728,7 @@
     "model": "centre_registry.consortium",
     "pk": 17,
     "fields": {
-        "country": "",
+        "country": "FR",
         "country_code": "FR",
         "country_name": "France",
         "is_observer": true,
@@ -1037,7 +1037,7 @@
     "fields": {
         "id": 1,
         "status": "Certified",
-        "history_date": "2026-08-27T09:22:38.110Z",
+        "history_date": "2026-02-09T07:02:13.238Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1049,7 +1049,7 @@
     "fields": {
         "id": 2,
         "status": "Pending",
-        "history_date": "2026-08-27T09:22:38.111Z",
+        "history_date": "2026-02-09T07:02:13.238Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1061,7 +1061,7 @@
     "fields": {
         "id": 3,
         "status": "Pending (recertification)",
-        "history_date": "2026-08-27T09:22:38.112Z",
+        "history_date": "2026-02-09T07:02:13.239Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1073,7 +1073,7 @@
     "fields": {
         "id": 4,
         "status": "Suspended",
-        "history_date": "2026-08-27T09:22:38.113Z",
+        "history_date": "2026-02-09T07:02:13.240Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1085,7 +1085,7 @@
     "fields": {
         "id": 5,
         "status": "Archived",
-        "history_date": "2026-08-27T09:22:38.113Z",
+        "history_date": "2026-02-09T07:02:13.240Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1097,7 +1097,7 @@
     "fields": {
         "id": 6,
         "status": "Placeholder",
-        "history_date": "2026-08-27T09:22:38.114Z",
+        "history_date": "2026-02-09T07:02:13.241Z",
         "history_change_reason": null,
         "history_type": "+",
         "history_user": null
@@ -1158,7 +1158,7 @@
         "country": "",
         "latitude": "51.338548",
         "longitude": "12.378735",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://asv.informatik.uni-leipzig.de/",
         "description": "",
@@ -1173,7 +1173,7 @@
         "consortium": 1,
         "administrative_contact": 6,
         "technical_contact": 7,
-        "history_date": "2026-08-27T09:22:38.117Z",
+        "history_date": "2026-02-09T07:02:13.244Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1192,7 +1192,7 @@
         "country": "",
         "latitude": "48.149216",
         "longitude": "11.579364",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.phonetik.uni-muenchen.de/forschung/bay_arch_sprsig/index.html",
         "description": "",
@@ -1207,7 +1207,7 @@
         "consortium": 1,
         "administrative_contact": 8,
         "technical_contact": 9,
-        "history_date": "2026-08-27T09:22:38.120Z",
+        "history_date": "2026-02-09T07:02:13.248Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1226,7 +1226,7 @@
         "country": "",
         "latitude": "52.514156",
         "longitude": "13.394324",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.bbaw.de/",
         "description": "",
@@ -1241,7 +1241,7 @@
         "consortium": 1,
         "administrative_contact": 10,
         "technical_contact": 11,
-        "history_date": "2026-08-27T09:22:38.123Z",
+        "history_date": "2026-02-09T07:02:13.251Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1260,7 +1260,7 @@
         "country": "",
         "latitude": "48.209279",
         "longitude": "16.377077",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://clarin.oeaw.ac.at/ccv/",
         "description": "Main Centre in CLARIN-AT, providing infrastructural services and access to CLARIN-AT language resources. ",
@@ -1275,7 +1275,7 @@
         "consortium": 2,
         "administrative_contact": 2,
         "technical_contact": 3,
-        "history_date": "2026-08-27T09:22:38.125Z",
+        "history_date": "2026-02-09T07:02:13.254Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1294,7 +1294,7 @@
         "country": "",
         "latitude": "58.378389",
         "longitude": "26.714716",
-        "type_status_comment": "Aiming for B. ",
+        "type_status": "Aiming for B. ",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.keeleressursid.ee/",
         "description": "",
@@ -1309,7 +1309,7 @@
         "consortium": 5,
         "administrative_contact": 26,
         "technical_contact": 27,
-        "history_date": "2026-08-27T09:22:38.127Z",
+        "history_date": "2026-02-09T07:02:13.258Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1328,7 +1328,7 @@
         "country": "",
         "latitude": "55.661566",
         "longitude": "12.591780",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://clarin.dk/",
         "description": "",
@@ -1343,7 +1343,7 @@
         "consortium": 4,
         "administrative_contact": 24,
         "technical_contact": 25,
-        "history_date": "2026-08-27T09:22:38.132Z",
+        "history_date": "2026-02-09T07:02:13.260Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1362,7 +1362,7 @@
         "country": "",
         "latitude": "51.107122",
         "longitude": "17.063023",
-        "type_status_comment": "Aiming for B. ",
+        "type_status": "Aiming for B. ",
         "requires_manual_certificate_validation": false,
         "website_url": "http://nlp.pwr.wroc.pl/en/projects/clarin",
         "description": "Main Centre in CLARIN-PL, providing infrastructural services and access to CLARIN-PL language resources. ",
@@ -1377,7 +1377,7 @@
         "consortium": 11,
         "administrative_contact": 40,
         "technical_contact": 41,
-        "history_date": "2026-08-27T09:22:38.136Z",
+        "history_date": "2026-02-09T07:02:13.264Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1396,7 +1396,7 @@
         "country": "",
         "latitude": "40.440988",
         "longitude": "-79.94231",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.talkbank.org/",
         "description": "TalkBank data and tools.",
@@ -1411,7 +1411,7 @@
         "consortium": 8,
         "administrative_contact": 32,
         "technical_contact": 31,
-        "history_date": "2026-08-27T09:22:38.139Z",
+        "history_date": "2026-02-09T07:02:13.268Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1430,7 +1430,7 @@
         "country": "",
         "latitude": "52.080776",
         "longitude": "4.345627",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "website_url": "http://dans.knaw.nl/",
         "description": "",
@@ -1445,7 +1445,7 @@
         "consortium": 10,
         "administrative_contact": 34,
         "technical_contact": 34,
-        "history_date": "2026-08-27T09:22:38.141Z",
+        "history_date": "2026-02-09T07:02:13.271Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1464,7 +1464,7 @@
         "country": "",
         "latitude": "52.082325",
         "longitude": "4.312237",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.tst-centrale.org/",
         "description": "The HLT Agency manages, maintains, distributes and supports digital Dutch language resources such as corpora, lexica and tools. The HLT Agency is the Dutch Language Union's CLARIN Centre. ",
@@ -1479,7 +1479,7 @@
         "consortium": 9,
         "administrative_contact": 33,
         "technical_contact": 33,
-        "history_date": "2026-08-27T09:22:38.143Z",
+        "history_date": "2026-02-09T07:02:13.274Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1498,7 +1498,7 @@
         "country": "",
         "latitude": "48.527037",
         "longitude": "9.062002",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.sfs.uni-tuebingen.de/",
         "description": "",
@@ -1513,7 +1513,7 @@
         "consortium": 1,
         "administrative_contact": 1,
         "technical_contact": 1,
-        "history_date": "2026-08-27T09:22:38.145Z",
+        "history_date": "2026-02-09T07:02:13.277Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1532,7 +1532,7 @@
         "country": "",
         "latitude": "60.172839",
         "longitude": "24.950366",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.kielipankki.fi/",
         "description": "Offers Finnish META-SHARE content.",
@@ -1547,7 +1547,7 @@
         "consortium": 7,
         "administrative_contact": 29,
         "technical_contact": 30,
-        "history_date": "2026-08-27T09:22:38.147Z",
+        "history_date": "2026-02-09T07:02:13.279Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1566,7 +1566,7 @@
         "country": "",
         "latitude": "50.905369",
         "longitude": "6.404938",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html",
         "description": "",
@@ -1581,7 +1581,7 @@
         "consortium": 1,
         "administrative_contact": 12,
         "technical_contact": 12,
-        "history_date": "2026-08-27T09:22:38.150Z",
+        "history_date": "2026-02-09T07:02:13.283Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1600,7 +1600,7 @@
         "country": "",
         "latitude": "51.562323",
         "longitude": "9.970938",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.gwdg.de/",
         "description": "",
@@ -1615,7 +1615,7 @@
         "consortium": 1,
         "administrative_contact": 13,
         "technical_contact": 13,
-        "history_date": "2026-08-27T09:22:38.151Z",
+        "history_date": "2026-02-09T07:02:13.285Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1634,7 +1634,7 @@
         "country": "",
         "latitude": "53.553724",
         "longitude": "9.939426",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.corpora.uni-hamburg.de/",
         "description": "",
@@ -1649,7 +1649,7 @@
         "consortium": 1,
         "administrative_contact": 14,
         "technical_contact": 15,
-        "history_date": "2026-08-27T09:22:38.153Z",
+        "history_date": "2026-02-09T07:02:13.287Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1668,7 +1668,7 @@
         "country": "",
         "latitude": "52.081972",
         "longitude": "4.327001",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.huygens.knaw.nl/",
         "description": "",
@@ -1683,7 +1683,7 @@
         "consortium": 10,
         "administrative_contact": 35,
         "technical_contact": 35,
-        "history_date": "2026-08-27T09:22:38.158Z",
+        "history_date": "2026-02-09T07:02:13.290Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1702,7 +1702,7 @@
         "country": "",
         "latitude": "49.488122",
         "longitude": "8.472311",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.ids-mannheim.de/",
         "description": "Providing long-term storage of Germanic language resources.",
@@ -1717,7 +1717,7 @@
         "consortium": 1,
         "administrative_contact": 18,
         "technical_contact": 19,
-        "history_date": "2026-08-27T09:22:38.161Z",
+        "history_date": "2026-02-09T07:02:13.294Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1736,7 +1736,7 @@
         "country": "",
         "latitude": "48.746750",
         "longitude": "9.108240",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.ims.uni-stuttgart.de/",
         "description": "",
@@ -1751,7 +1751,7 @@
         "consortium": 1,
         "administrative_contact": 16,
         "technical_contact": 17,
-        "history_date": "2026-08-27T09:22:38.164Z",
+        "history_date": "2026-02-09T07:02:13.298Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1770,7 +1770,7 @@
         "country": "",
         "latitude": "52.158137",
         "longitude": "4.480772",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.inl.nl/",
         "description": "",
@@ -1785,7 +1785,7 @@
         "consortium": 10,
         "administrative_contact": 36,
         "technical_contact": 37,
-        "history_date": "2026-08-27T09:22:38.167Z",
+        "history_date": "2026-02-09T07:02:13.302Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1804,7 +1804,7 @@
         "country": "",
         "latitude": "50.088521",
         "longitude": "14.403265",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://lindat.mff.cuni.cz/",
         "description": "",
@@ -1819,7 +1819,7 @@
         "consortium": 3,
         "administrative_contact": 4,
         "technical_contact": 5,
-        "history_date": "2026-08-27T09:22:38.169Z",
+        "history_date": "2026-02-09T07:02:13.306Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1838,7 +1838,7 @@
         "country": "",
         "latitude": "52.331909",
         "longitude": "4.914635",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.meertens.knaw.nl/",
         "description": "",
@@ -1853,7 +1853,7 @@
         "consortium": 10,
         "administrative_contact": 38,
         "technical_contact": 38,
-        "history_date": "2026-08-27T09:22:38.172Z",
+        "history_date": "2026-02-09T07:02:13.310Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1872,7 +1872,7 @@
         "country": "",
         "latitude": "51.818046",
         "longitude": "5.857079",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "https://tla.mpi.nl/",
         "description": "",
@@ -1887,7 +1887,7 @@
         "consortium": 1,
         "administrative_contact": 39,
         "technical_contact": 39,
-        "history_date": "2026-08-27T09:22:38.174Z",
+        "history_date": "2026-02-09T07:02:13.313Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1906,7 +1906,7 @@
         "country": "",
         "latitude": "51.757571",
         "longitude": "-1.261824",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "website_url": "http://ota.ahds.ac.uk/",
         "description": "",
@@ -1921,7 +1921,7 @@
         "consortium": 12,
         "administrative_contact": 42,
         "technical_contact": 42,
-        "history_date": "2026-08-27T09:22:38.176Z",
+        "history_date": "2026-02-09T07:02:13.316Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1940,7 +1940,7 @@
         "country": "",
         "latitude": "48.263477",
         "longitude": "11.671697",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://www.rzg.mpg.de/",
         "description": "",
@@ -1955,7 +1955,7 @@
         "consortium": 1,
         "administrative_contact": 20,
         "technical_contact": 21,
-        "history_date": "2026-08-27T09:22:38.178Z",
+        "history_date": "2026-02-09T07:02:13.317Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -1974,7 +1974,7 @@
         "country": "",
         "latitude": "43.535070",
         "longitude": "5.446179",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://sldr.org/",
         "description": "SLDR is a repository for oral and linguistic resources aimed at their long-term preservation and sharing",
@@ -1989,7 +1989,7 @@
         "consortium": 17,
         "administrative_contact": 45,
         "technical_contact": 46,
-        "history_date": "2026-08-27T09:22:38.182Z",
+        "history_date": "2026-02-09T07:02:13.319Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -2008,7 +2008,7 @@
         "country": "",
         "latitude": "52.090132",
         "longitude": "5.122917",
-        "type_status_comment": "Trust Centre, no standard assessment in place",
+        "type_status": "Trust Centre, no standard assessment in place",
         "requires_manual_certificate_validation": false,
         "website_url": "http://portal.clarin.nl/",
         "description": "",
@@ -2023,7 +2023,7 @@
         "consortium": 10,
         "administrative_contact": 43,
         "technical_contact": 44,
-        "history_date": "2026-08-27T09:22:38.184Z",
+        "history_date": "2026-02-09T07:02:13.322Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -2042,7 +2042,7 @@
         "country": "",
         "latitude": "41.403964",
         "longitude": "2.193464",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://services.iula.upf.edu/",
         "description": "We offer harvestable machine readable metadata about resources and web services for text enrichement and quantitative text analysis services.",
@@ -2057,7 +2057,7 @@
         "consortium": 6,
         "administrative_contact": 28,
         "technical_contact": 28,
-        "history_date": "2026-08-27T09:22:38.186Z",
+        "history_date": "2026-02-09T07:02:13.324Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -2076,7 +2076,7 @@
         "country": "",
         "latitude": "49.256004",
         "longitude": "7.039011",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "website_url": "http://fedora.clarin-d.uni-saarland.de/",
         "description": "",
@@ -2091,7 +2091,7 @@
         "consortium": 1,
         "administrative_contact": 22,
         "technical_contact": 23,
-        "history_date": "2026-08-27T09:22:38.188Z",
+        "history_date": "2026-02-09T07:02:13.328Z",
         "history_change_reason": null,
         "history_type": "~",
         "history_user": null
@@ -2107,11 +2107,11 @@
         "address": "Wilhelmstraße 19-23",
         "postal_code": "72074",
         "city": "Tübingen",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "48.527037",
         "longitude": "9.062002",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 1,
         "technical_contact": 1,
@@ -2127,7 +2127,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2142,11 +2142,11 @@
         "address": "Sonnenfelsgasse 19",
         "postal_code": "1010",
         "city": "Wien",
-        "country": "",
+        "country": "AT",
         "consortium": 2,
         "latitude": "48.209279",
         "longitude": "16.377077",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 2,
         "technical_contact": 3,
@@ -2162,7 +2162,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2180,11 +2180,11 @@
         "address": "Malostranské náměstí 25",
         "postal_code": "118 00",
         "city": "Praha",
-        "country": "",
+        "country": "CZ",
         "consortium": 3,
         "latitude": "50.088521",
         "longitude": "14.403265",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 4,
         "technical_contact": 5,
@@ -2200,7 +2200,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2215,11 +2215,11 @@
         "address": "Augustusplatz 10",
         "postal_code": "04109",
         "city": "Leipzig",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "51.338548",
         "longitude": "12.378735",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 6,
         "technical_contact": 7,
@@ -2235,7 +2235,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2253,11 +2253,11 @@
         "address": "Schellingstraße 3",
         "postal_code": "80799",
         "city": "München",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "48.149216",
         "longitude": "11.579364",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 8,
         "technical_contact": 9,
@@ -2273,7 +2273,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2291,11 +2291,11 @@
         "address": "Jägerstraße 23",
         "postal_code": "10117",
         "city": "Berlin",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "52.514156",
         "longitude": "13.394324",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 10,
         "technical_contact": 11,
@@ -2311,7 +2311,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2329,11 +2329,11 @@
         "address": "IEK-7, Wilhelm-Johnen-Straße",
         "postal_code": "52428",
         "city": "Jülich",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "50.905369",
         "longitude": "6.404938",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 12,
         "technical_contact": 12,
@@ -2349,7 +2349,7 @@
         "type": [
             2
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2364,11 +2364,11 @@
         "address": "Am Faßberg 11",
         "postal_code": "37077",
         "city": "Göttingen",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "51.562323",
         "longitude": "9.970938",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 13,
         "technical_contact": 13,
@@ -2384,7 +2384,7 @@
         "type": [
             2
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39
@@ -2401,11 +2401,11 @@
         "address": "Max-Brauer-Allee 60",
         "postal_code": "22765",
         "city": "Hamburg",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "53.553724",
         "longitude": "9.939426",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 14,
         "technical_contact": 15,
@@ -2421,7 +2421,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2436,11 +2436,11 @@
         "address": "Pfaffenwaldring 5b",
         "postal_code": "70569",
         "city": "Stuttgart",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "48.746750",
         "longitude": "9.108240",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 16,
         "technical_contact": 17,
@@ -2456,7 +2456,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2471,11 +2471,11 @@
         "address": "R5 6-13",
         "postal_code": "68161",
         "city": "Mannheim",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "49.488122",
         "longitude": "8.472311",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 18,
         "technical_contact": 19,
@@ -2491,7 +2491,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39
@@ -2508,11 +2508,11 @@
         "address": "Boltzmannstraße 2",
         "postal_code": "85748",
         "city": "Garching",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "48.263477",
         "longitude": "11.671697",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 20,
         "technical_contact": 21,
@@ -2528,7 +2528,7 @@
         "type": [
             2
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2543,11 +2543,11 @@
         "address": "Campus A2.2",
         "postal_code": "66123",
         "city": "Saarbrücken",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "49.256004",
         "longitude": "7.039011",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 22,
         "technical_contact": 23,
@@ -2563,7 +2563,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2578,11 +2578,11 @@
         "address": "Njalsgade 140",
         "postal_code": "2300",
         "city": "København",
-        "country": "",
+        "country": "DK",
         "consortium": 4,
         "latitude": "55.661566",
         "longitude": "12.591780",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 24,
         "technical_contact": 25,
@@ -2598,7 +2598,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2616,11 +2616,11 @@
         "address": "Juhan Liivi 2-340",
         "postal_code": "50409",
         "city": "Tartu",
-        "country": "",
+        "country": "EE",
         "consortium": 5,
         "latitude": "58.378389",
         "longitude": "26.714716",
-        "type_status_comment": "Aiming for B. ",
+        "type_status": "Aiming for B. ",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 26,
         "technical_contact": 27,
@@ -2636,7 +2636,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2654,11 +2654,11 @@
         "address": "Carrer de Roc Boronat, 138",
         "postal_code": "08018",
         "city": "Barcelona",
-        "country": "",
+        "country": "ES",
         "consortium": 6,
         "latitude": "41.403964",
         "longitude": "2.193464",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 28,
         "technical_contact": 28,
@@ -2674,7 +2674,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2689,11 +2689,11 @@
         "address": "Unioninkatu 40",
         "postal_code": "00170",
         "city": "Helsinki",
-        "country": "",
+        "country": "FI",
         "consortium": 7,
         "latitude": "60.172839",
         "longitude": "24.950366",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 29,
         "technical_contact": 30,
@@ -2709,7 +2709,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2724,11 +2724,11 @@
         "address": "5000 Forbes Avenue",
         "postal_code": "PA 15213",
         "city": "Pittsburgh",
-        "country": "",
+        "country": "US",
         "consortium": 8,
         "latitude": "40.440988",
         "longitude": "-79.94231",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 32,
         "technical_contact": 31,
@@ -2744,7 +2744,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2759,11 +2759,11 @@
         "address": "Lange Voorhout 19",
         "postal_code": "2514 EB",
         "city": "Den Haag",
-        "country": "",
+        "country": "DLU",
         "consortium": 9,
         "latitude": "52.082325",
         "longitude": "4.312237",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 33,
         "technical_contact": 33,
@@ -2779,7 +2779,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2794,11 +2794,11 @@
         "address": "Anna van Saksenlaan 51",
         "postal_code": "2593 HW",
         "city": "Den Haag",
-        "country": "",
+        "country": "NL",
         "consortium": 10,
         "latitude": "52.080776",
         "longitude": "4.345627",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 34,
         "technical_contact": 34,
@@ -2814,7 +2814,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -2832,11 +2832,11 @@
         "address": "Prins Willem-Alexanderhof 5",
         "postal_code": "2595 BE",
         "city": "Den Haag",
-        "country": "",
+        "country": "NL",
         "consortium": 10,
         "latitude": "52.081972",
         "longitude": "4.327001",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 35,
         "technical_contact": 35,
@@ -2852,7 +2852,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39
@@ -2869,11 +2869,11 @@
         "address": "Matthias de Vrieshof 3",
         "postal_code": "2311 BZ",
         "city": "Leiden",
-        "country": "",
+        "country": "NL",
         "consortium": 10,
         "latitude": "52.158137",
         "longitude": "4.480772",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 36,
         "technical_contact": 37,
@@ -2889,7 +2889,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2904,11 +2904,11 @@
         "address": "Joan Muyskenweg 25",
         "postal_code": "1096 CJ",
         "city": "Amsterdam",
-        "country": "",
+        "country": "NL",
         "consortium": 10,
         "latitude": "52.331909",
         "longitude": "4.914635",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 38,
         "technical_contact": 38,
@@ -2924,7 +2924,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -2939,11 +2939,11 @@
         "address": "Wundtlaan 1",
         "postal_code": "6525 XD",
         "city": "Nijmegen",
-        "country": "",
+        "country": "DE",
         "consortium": 1,
         "latitude": "51.818046",
         "longitude": "5.857079",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 39,
         "technical_contact": 39,
@@ -2959,7 +2959,7 @@
         "type": [
             1
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39
@@ -2976,11 +2976,11 @@
         "address": "wybrzeże Stanisława Wyspiańskiego 27",
         "postal_code": "50-370",
         "city": "Wrocław",
-        "country": "",
+        "country": "PL",
         "consortium": 11,
         "latitude": "51.107122",
         "longitude": "17.063023",
-        "type_status_comment": "Aiming for B. ",
+        "type_status": "Aiming for B. ",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 40,
         "technical_contact": 41,
@@ -2996,7 +2996,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39,
@@ -3014,11 +3014,11 @@
         "address": "16 Wellington Square",
         "postal_code": "OX1 2HY",
         "city": "Oxford",
-        "country": "",
+        "country": "GB",
         "consortium": 12,
         "latitude": "51.757571",
         "longitude": "-1.261824",
-        "type_status_comment": "Aiming for B.",
+        "type_status": "Aiming for B.",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 42,
         "technical_contact": 42,
@@ -3034,7 +3034,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
@@ -3049,11 +3049,11 @@
         "address": "Trans 10",
         "postal_code": "3512 JK ",
         "city": "Utrecht",
-        "country": "",
+        "country": "NL",
         "consortium": 10,
         "latitude": "52.090132",
         "longitude": "5.122917",
-        "type_status_comment": "Trust Centre, no standard assessment in place",
+        "type_status": "Trust Centre, no standard assessment in place",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 43,
         "technical_contact": 44,
@@ -3069,7 +3069,7 @@
         "type": [
             2
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": [
             39
@@ -3086,11 +3086,11 @@
         "address": "5 avenue Pasteur",
         "postal_code": "13100",
         "city": "Aix-en-Provence",
-        "country": "",
+        "country": "FR",
         "consortium": 17,
         "latitude": "43.535070",
         "longitude": "5.446179",
-        "type_status_comment": "",
+        "type_status": "",
         "requires_manual_certificate_validation": false,
         "administrative_contact": 45,
         "technical_contact": 46,
@@ -3106,7 +3106,7 @@
         "type": [
             3
         ],
-        "type_certification_status_fk": [],
+        "type_certification_status_fks": [],
         "assessmentdates": [],
         "monitoring_contacts": []
     }
