@@ -15,7 +15,7 @@ import logging
 
 
 def populate_certification_status(apps, schema):
-    centres = Centre.objects.all()
+    centres = Centre.objects.defer('type_status')
 
     logging.critical("TRIES TO POPULATE CERTIFICATION STATUS")
 
